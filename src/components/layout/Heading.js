@@ -1,12 +1,13 @@
 import classes from './Heading.module.css';
 
 
-
 const Heading = (props) => {
-    const {title} = props;
+
+    const { fontSize, title } = props;
+
     return (
         <div>
-        <h1 className={classes.heading}>{title}</h1>
+            <h1 className={classes.heading} style={{fontSize: `${fontSize}rem`}}>{title}</h1>
         </div>
     );
 };

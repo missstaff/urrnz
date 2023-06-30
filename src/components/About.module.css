@@ -1,0 +1,32 @@
+.container {
+    background-color:rgba(255, 236, 209, 0.25);
+    border-radius: 5rem;
+    padding-bottom: 9.6rem;
+    padding-top: 9.6rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+}
+
+.text {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
+    text-align: left;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding-top: 4.8rem;
+        padding-bottom: 4.8rem;
+    }
+
+    .text {
+        margin-bottom: 1.6rem;
+        margin-top: 1.6rem;
+    }
+}
+    
