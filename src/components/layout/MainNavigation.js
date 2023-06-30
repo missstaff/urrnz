@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import LogoHeader from "./Logo";
@@ -13,10 +13,15 @@ import classes from './MainNavigation.module.css';
 function MainNavigation() {
 
     const screenSize = useScreenSize();
+    const location = useLocation();
+    const curLocation = location.pathname;
+    const pathHash = location.hash;
+
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [mobileNavBtnSize, setMobileNavBtnSize] = useState(0);
     const [isSticky, setIsSticky] = useState(false);
+
 
 
     useEffect(() => {
@@ -33,7 +38,8 @@ function MainNavigation() {
         };
         setSizes();
     }, [screenSize,]);
-    
+
+
 
     useEffect(() => {
         const sectionAboutEl = document.querySelector("#home");
@@ -52,13 +58,11 @@ function MainNavigation() {
     }, []);
 
 
-    console.log("isSticky: ", isSticky)
-
-
 
     const handleMobileNavClick = () => {
         setIsMenuVisible(!isMenuVisible);
     };
+
 
 
     return (
@@ -70,7 +74,7 @@ function MainNavigation() {
                         <NavLink
                             to="/"
                             onClick={isMenuVisible && handleMobileNavClick}
-                            className={({ isActive }) => isActive ? classes.active : undefined}
+                            className={curLocation === "/" ? classes.active : undefined}
                             end>
                             <p>Home</p>
                         </NavLink>
@@ -79,7 +83,7 @@ function MainNavigation() {
                         <Link
                             to="/#about"
                             onClick={isMenuVisible && handleMobileNavClick}
-                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
                             <p>About</p>
                         </Link>
                     </li>
@@ -87,7 +91,7 @@ function MainNavigation() {
                         <Link
                             to="/#faqs"
                             onClick={isMenuVisible && handleMobileNavClick}
-                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
                             <p>FAQ</p>
                         </Link>
                     </li>
