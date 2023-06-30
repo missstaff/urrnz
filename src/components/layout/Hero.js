@@ -8,51 +8,66 @@ import "../../general.css";
 const Hero = () => {
 
     const screenSize = useScreenSize();
+    const [btnFontSize, setBtnFontSize] = useState(2.2);
     const [fontSize, setFontSize] = useState(0);
     const [fontVerticalPadding, setFontVerticalPadding] = useState(0);
 
     useEffect(() => {
         setSizes();
     }, [screenSize]);
-   
+    console.log("screenSize", screenSize)
     const setSizes = () => {
         if (screenSize === "default") {
-            setFontSize(3.8);
+            setBtnFontSize(2.6);
+            setFontSize(3.4);
             setFontVerticalPadding(3.2);
         } else if (screenSize === "xs") {
-            setFontSize(5.8);
-            setFontVerticalPadding(5.2);
+            setBtnFontSize(3.0);
+            setFontSize(4.8);
+            setFontVerticalPadding(2.8);
         } else if (screenSize === "sm") {
-            setFontSize(6.8);
+            setBtnFontSize(3.2);
+            setFontSize(4.8);
             setFontVerticalPadding(4.2);
         } else if (screenSize === "md") {
+            setBtnFontSize(3.4);
+            setFontSize(5.6);
+            setFontVerticalPadding(2.4);
+        } else if (screenSize === "lg") {
+            setBtnFontSize(4.4);
+            setFontSize(10.8);
+            setFontVerticalPadding(3.2);
+        } else if (screenSize === "xl") {
+            setBtnFontSize(5.2);
             setFontSize(12.6);
-            setFontVerticalPadding(12.2);
-        }else if (screenSize === "lg") {
-            setFontSize(9.6);
-            setFontVerticalPadding(8.4);
-        }else if (screenSize === "xl") {
-            setFontSize(12.6);
-            setFontVerticalPadding(9.6);
-        }else if (screenSize === "xxl") {
+            setFontVerticalPadding(5.6);
+        } else if (screenSize === "xxl") {
+            setBtnFontSize(6.4);
             setFontSize(15);
-            setFontVerticalPadding(15);
+            setFontVerticalPadding(6.8);
         }
     };
-
+    console.log("screenSize", screenSize)
 
     return (
         <div className={classes.hero}>
-           <div style={{alignItems: "center"}}>
-           <div>
-            <h1 style={{fontSize: `${fontSize}rem`, paddingBottom: `${fontVerticalPadding}rem`, paddingTop: `${fontVerticalPadding}rem`, textAlign: "left"}}>URRNZ CUSTOM KEEPSAKES</h1>
+            <div className={classes.content}>
+                <h1
+                className={classes.title}
+                    style={{
+                        fontSize: `${fontSize}rem`,
+                        marginBottom: `${fontVerticalPadding}rem`,
+                       
+                        textAlign: "left",
+                        width: "75%",
+                    }}>
+                    <p style={{textTransform: "uppercase"}}>URRNZ CUSTOM KEEPSAKES</p>
+                </h1>
+                <StoreButton style={{ fontSize: `${btnFontSize}rem` }} />
             </div>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
-                <StoreButton />
-            </div>
-           </div>
         </div>
     );
 };
+
 
 export default Hero;
