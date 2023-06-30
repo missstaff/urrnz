@@ -22,7 +22,7 @@
   outline-color: #333;
   outline-width: 1px;
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s;
@@ -30,8 +30,22 @@
 }
 
 .list a:hover,
-.list a:active {
+.list a.active {
  color: var(--color-secondary-500);
+}
+
+/* STICKY NAVIGATION */
+.sticky  {
+  bottom: 0;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  height: 12.8rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
 }
 
 /* MOBILE */
