@@ -1,0 +1,16 @@
+.text {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
+    text-align: left;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .text {
+        margin-bottom: 1.6rem;
+        margin-top: 1.6rem;
+    }
+}
+    

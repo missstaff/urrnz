@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import LogoHeader from "./Logo";
 import { useScreenSize } from "../../hooks/useScreenSize";
@@ -51,15 +52,31 @@ function MainNavigation() {
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}
                             end>
-                            Home
+                            <p>Home</p>
                         </NavLink>
+                    </li>
+                    <li>
+                        <Link
+                            to="/#about"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            <p>About</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/#faqs"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            <p>FAQ</p>
+                        </Link>
                     </li>
                     <li>
                         <NavLink
                             to="/categories"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Categories
+                            <p>Categories</p>
                         </NavLink>
                     </li>
                     <li>
@@ -67,15 +84,7 @@ function MainNavigation() {
                             to="/products"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Gallery
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/contact"
-                            onClick={isMenuVisible && handleMobileNavClick}
-                            className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Contact
+                            <p>Gallery</p>
                         </NavLink>
                     </li>
                     <li>
@@ -83,7 +92,15 @@ function MainNavigation() {
                             to="/cart"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Cart
+                            <p>Cart</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/contact"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            <p>Contact</p>
                         </NavLink>
                     </li>
                 </ul>

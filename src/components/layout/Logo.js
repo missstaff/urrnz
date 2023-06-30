@@ -38,7 +38,6 @@ const Logo = () => {
             src={require("../../assets/logo.h200.beige.png")}
             style={{
                 height: `${logoSize}rem`,
-                maxWidth: "25%"
             }}
         />
     );
