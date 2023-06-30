@@ -1,13 +1,20 @@
 import React from "react";
+import "../general.css";
 
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
-            <h2 id="about">About</h2>
-            <h3 id="faqs">FAQs</h3>
-        </div>
+        <main className={`grid`}>
+            <section>
+                <h1>Home</h1>
+            </section>
+            <section>
+                <h2 id="about">About</h2>
+            </section>
+            <section>
+                <h3 id="faqs">FAQs</h3>
+            </section>
+        </main>
     );
 };
 

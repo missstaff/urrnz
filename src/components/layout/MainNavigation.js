@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
-import LogoHeader from "./LogoHeader";
+import LogoHeader from "./Logo";
 import { useScreenSize } from "../../hooks/useScreenSize";
 
 import classes from './MainNavigation.module.css';
@@ -14,7 +14,6 @@ function MainNavigation() {
     const screenSize = useScreenSize();
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-    const [logoSize, setLogoSize] = useState(0);
     const [mobileNavBtnSize, setMobileNavBtnSize] = useState(0);
 
 
@@ -25,23 +24,13 @@ function MainNavigation() {
 
     const setSizes = () => {
         if (screenSize === "default") {
-            setLogoSize(1.4);
             setMobileNavBtnSize(2.2);
         } else if (screenSize === "xs") {
-            setLogoSize(2.2);
             setMobileNavBtnSize(3.4);
         } else if (screenSize === "sm") {
-            setLogoSize(2.2);
             setMobileNavBtnSize(4.8);
         } else if (screenSize === "md") {
-            setLogoSize(3.4);
             setMobileNavBtnSize(5.5);
-        } else if (screenSize === "lg") {
-            setLogoSize(4.8);
-        } else if (screenSize === "xl") {
-            setLogoSize(5.5);
-        } else if (screenSize === "xxl") {
-            setLogoSize(6.5);
         }
     };
 
@@ -53,9 +42,7 @@ function MainNavigation() {
 
     return (
         <header className={`${classes.header} ${isMenuVisible ? `${classes.navOpen}` : ""}`}>
-            <div style={{ height: `${logoSize}rem` }}>
-                <LogoHeader />
-            </div>
+            <LogoHeader />
             <nav className={`${classes.mainNav} ${isMenuVisible ? `${classes.mobileNav}` : ""}`}>
                 <ul className={classes.list}>
                     <li>
