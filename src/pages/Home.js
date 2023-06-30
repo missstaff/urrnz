@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 import "../general.css";
 
@@ -6,14 +7,14 @@ import "../general.css";
 const Home = () => {
     return (
         <main className={`grid`}>
-            <section>
+            <section id="home">
                 <Hero />
             </section>
-            <section>
-                <h2 id="about">About</h2>
+            <section id="about">
+                <Heading title="ABOUT" />
             </section>
-            <section>
-                <h3 id="faqs">FAQs</h3>
+            <section id="faqs">
+                <Heading title="FAQs" />
             </section>
         </main>
     );
