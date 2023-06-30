@@ -10,13 +10,18 @@
 
 .question {
     color: var(--color-primary-400);
+    margin-top: 10rem;
 }
 
 @media screen and (max-width: 768px) {
     .answer {
         margin-bottom: 1.6rem;
         margin-top: 1.6rem;
-        margin-left: 1rem
+        margin-left: 1rem;
+    }
+
+    .question {
+        margin-top: 5rem;
     }
 }
     

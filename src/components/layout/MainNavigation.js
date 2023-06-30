@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import LogoHeader from "./Logo";
 import { useScreenSize } from "../../hooks/useScreenSize";
@@ -55,6 +56,22 @@ function MainNavigation() {
                         </NavLink>
                     </li>
                     <li>
+                        <Link
+                            to="/#about"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            <p>About</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/#faqs"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            <p>FAQ</p>
+                        </Link>
+                    </li>
+                    <li>
                         <NavLink
                             to="/categories"
                             onClick={isMenuVisible && handleMobileNavClick}
@@ -67,7 +84,7 @@ function MainNavigation() {
                             to="/products"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                           <p>Gallery</p>
+                            <p>Gallery</p>
                         </NavLink>
                     </li>
                     <li>
@@ -83,7 +100,7 @@ function MainNavigation() {
                             to="/contact"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                           <p>Contact</p>
+                            <p>Contact</p>
                         </NavLink>
                     </li>
                 </ul>
