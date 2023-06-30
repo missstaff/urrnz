@@ -18,7 +18,7 @@ export const useClosestMedia = ({ queries }) => {
 
         return () => window.removeEventListener('resize', listener); //Cleanup
 
-    }, []);
+    }, [queries]);
 
 
     return closest;

@@ -16,24 +16,44 @@ function MainNavigation() {
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [mobileNavBtnSize, setMobileNavBtnSize] = useState(0);
+    const [isSticky, setIsSticky] = useState(false);
 
 
     useEffect(() => {
+        const setSizes = () => {
+            if (screenSize === "default") {
+                setMobileNavBtnSize(2.2);
+            } else if (screenSize === "xs") {
+                setMobileNavBtnSize(3.4);
+            } else if (screenSize === "sm") {
+                setMobileNavBtnSize(4.8);
+            } else if (screenSize === "md") {
+                setMobileNavBtnSize(5.5);
+            }
+        };
         setSizes();
-    }, [screenSize]);
+    }, [screenSize,]);
+    
+
+    useEffect(() => {
+        const sectionAboutEl = document.querySelector("#home");
+        const observer = new IntersectionObserver((entries) => {
+            const ent = entries[0];
+            if (!ent.isIntersecting) {
+                console.log("not intersecting + sticky");
+                setIsSticky(true);
+            }
+            if (ent.isIntersecting) {
+                console.log("intersecting - sticky");
+                setIsSticky(false);
+            }
+        }, { root: null, threshold: 0 })
+        observer.observe(sectionAboutEl);
+    }, []);
 
 
-    const setSizes = () => {
-        if (screenSize === "default") {
-            setMobileNavBtnSize(2.2);
-        } else if (screenSize === "xs") {
-            setMobileNavBtnSize(3.4);
-        } else if (screenSize === "sm") {
-            setMobileNavBtnSize(4.8);
-        } else if (screenSize === "md") {
-            setMobileNavBtnSize(5.5);
-        }
-    };
+    console.log("isSticky: ", isSticky)
+
 
 
     const handleMobileNavClick = () => {
@@ -42,7 +62,7 @@ function MainNavigation() {
 
 
     return (
-        <header className={`${classes.header} ${isMenuVisible ? `${classes.navOpen}` : ""}`}>
+        <header className={`${isSticky ? classes.sticky : ""} ${classes.header} ${isMenuVisible ? `${classes.navOpen}` : ""} `}>
             <LogoHeader />
             <nav className={`${classes.mainNav} ${isMenuVisible ? `${classes.mobileNav}` : ""}`}>
                 <ul className={classes.list}>

@@ -9,27 +9,25 @@ const Logo = () => {
 
 
     useEffect(() => {
+        const setSizes = () => {
+            if (screenSize === "default") {
+                setLogoSize(1.4);
+            } else if (screenSize === "xs") {
+                setLogoSize(2.2);
+            } else if (screenSize === "sm") {
+                setLogoSize(2.2);
+            } else if (screenSize === "md") {
+                setLogoSize(3.4);
+            } else if (screenSize === "lg") {
+                setLogoSize(4.8);
+            } else if (screenSize === "xl") {
+                setLogoSize(5.5);
+            } else if (screenSize === "xxl") {
+                setLogoSize(6.5);
+            }
+        };
         setSizes();
     }, [screenSize]);
-
-
-    const setSizes = () => {
-        if (screenSize === "default") {
-            setLogoSize(1.4);
-        } else if (screenSize === "xs") {
-            setLogoSize(2.2);
-        } else if (screenSize === "sm") {
-            setLogoSize(2.2);
-        } else if (screenSize === "md") {
-            setLogoSize(3.4);
-        } else if (screenSize === "lg") {
-            setLogoSize(4.8);
-        } else if (screenSize === "xl") {
-            setLogoSize(5.5);
-        } else if (screenSize === "xxl") {
-            setLogoSize(6.5);
-        }
-    };
 
 
     return (
