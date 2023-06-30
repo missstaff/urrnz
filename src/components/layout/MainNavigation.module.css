@@ -105,8 +105,8 @@
     gap: 4.8rem;
   }
 
-  .link:link,
-  .link:visited {
+  .link a:link,
+  .link a:visited {
     font-size: 3rem;
   }
 }

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+
 import LogoHeader from "./LogoHeader";
-import { useClosestMedia } from "../../hooks/useClosestMedia";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
-import classes from './MainNavigation.module.css';
 import { useScreenSize } from "../../hooks/useScreenSize";
+
+import classes from './MainNavigation.module.css';
+
+
 
 function MainNavigation() {
 
@@ -17,6 +19,11 @@ function MainNavigation() {
 
 
     useEffect(() => {
+        setSizes();
+    }, [screenSize]);
+
+
+    const setSizes = () => {
         if (screenSize === "default") {
             setLogoSize(1.4);
             setMobileNavBtnSize(2.2);
@@ -36,7 +43,7 @@ function MainNavigation() {
         } else if (screenSize === "xxl") {
             setLogoSize(6.5);
         }
-    }, [screenSize]);
+    };
 
 
     const handleMobileNavClick = () => {
