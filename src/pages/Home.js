@@ -1,4 +1,5 @@
 import React from "react";
+import Hero from "../components/layout/Hero";
 import "../general.css";
 
 
@@ -6,7 +7,7 @@ const Home = () => {
     return (
         <main className={`grid`}>
             <section>
-                <h1>Home</h1>
+                <Hero />
             </section>
             <section>
                 <h2 id="about">About</h2>
