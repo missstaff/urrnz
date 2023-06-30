@@ -19,11 +19,14 @@
 .list a:link,
 .list a:visited {
   color: rgb(253, 242, 233);
+  outline-color: #333;
+  outline-width: 1px;
   display: inline-block;
   font-size: 1.8rem;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s;
+  text-transform: uppercase;
 }
 
 .list a:hover,
@@ -51,7 +54,8 @@
 }
 
 
-@media screen and (max-width: 769px) {
+
+@media screen and (max-width: 1024px) {
 
   .mobileNav {
     display: block;

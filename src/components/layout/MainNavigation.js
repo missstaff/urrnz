@@ -51,7 +51,7 @@ function MainNavigation() {
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}
                             end>
-                            Home
+                            <p>Home</p>
                         </NavLink>
                     </li>
                     <li>
@@ -59,7 +59,7 @@ function MainNavigation() {
                             to="/categories"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Categories
+                            <p>Categories</p>
                         </NavLink>
                     </li>
                     <li>
@@ -67,15 +67,7 @@ function MainNavigation() {
                             to="/products"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Gallery
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/contact"
-                            onClick={isMenuVisible && handleMobileNavClick}
-                            className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Contact
+                           <p>Gallery</p>
                         </NavLink>
                     </li>
                     <li>
@@ -83,7 +75,15 @@ function MainNavigation() {
                             to="/cart"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            Cart
+                            <p>Cart</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/contact"
+                            onClick={isMenuVisible && handleMobileNavClick}
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                           <p>Contact</p>
                         </NavLink>
                     </li>
                 </ul>

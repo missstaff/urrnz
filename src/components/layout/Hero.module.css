@@ -5,4 +5,16 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+
+}
+
+h1 {
+    color: var(--color-secondary-500);
+    line-height: 1.25;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
