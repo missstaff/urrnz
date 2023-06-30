@@ -57,9 +57,6 @@ const Hero = () => {
                     style={{
                         fontSize: `${fontSize}rem`,
                         marginBottom: `${verticalSpacing}rem`,
-
-                        textAlign: "left",
-                        width: "75%",
                     }}>
                     <p style={{ textTransform: "uppercase" }}>URRNZ CUSTOM KEEPSAKES</p>
                 </h1>
