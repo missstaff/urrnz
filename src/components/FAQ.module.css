@@ -1,14 +1,19 @@
-.text {
+.answer {
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: 3.2rem;
+    margin-left: 5rem;
     margin-top: 3.2rem;
     text-align: left;
     padding: 1rem;
 }
 
+.question {
+    color: var(--color-primary-400);
+}
+
 @media screen and (max-width: 768px) {
-    .text {
+    .answer {
         margin-bottom: 1.6rem;
         margin-top: 1.6rem;
     }

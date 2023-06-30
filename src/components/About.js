@@ -1,3 +1,4 @@
+import Container from "./Container";
 import { ABOUT_TEXT_P1, ABOUT_TEXT_P2, ABOUT_TEXT_P3 } from "../config/constants";
 import classes from "./About.module.css";
 import "../general.css"
@@ -8,7 +9,7 @@ const About = (props) => {
     const { fontSize } = props;
 
     return (
-        <div className={classes.container}>
+        <Container>
             <div className="container" >
             <p 
                 className={classes.text}
@@ -26,7 +27,7 @@ const About = (props) => {
                 {ABOUT_TEXT_P3}
             </p>
         </div>
-        </div>
+        </Container>
     );
 };
 
