@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import { useScreenSize } from "../hooks/useScreenSize";
+
 import classes from "./Categories.module.css";
 import "../general.css";
+
+
 
 const categoryImages = {
     "All Products": require("../assets/allProducts.jpg"),
@@ -15,6 +19,8 @@ const categoryImages = {
     "Test": require("../assets/allProducts.jpg"),
     // add more categories and their corresponding image URLs here ~ category image from server would be best!
 };
+
+
 
 const Categories = () => {
 
