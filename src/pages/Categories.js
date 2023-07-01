@@ -85,8 +85,7 @@ const Categories = () => {
                 >
                     {categories.map((category, index) => (
                         <div
-                            key={index}
-                            className={classes.category}>
+                            key={index}>
                             <NavLink to="/products" className={classes.title}>
                                 <h3 className={classes.heading}>{category}</h3>
                                 <div
