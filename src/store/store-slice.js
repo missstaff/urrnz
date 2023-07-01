@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const storeSlice = createSlice({
     name: 'store',
     initialState: {
@@ -12,7 +13,6 @@ const storeSlice = createSlice({
             const fetchedProducts = action.payload.response;
             const filteredProducts = fetchedProducts.filter(product => product.category !== "Test" && product.category !== "Services");
             state.products = filteredProducts;
-           
         },
         setCategories(state, action) {
             const fetchedProducts = action.payload.response;
@@ -23,8 +23,15 @@ const storeSlice = createSlice({
             state.categories = uniqueCategories;
         },
         setShippingOptions(state, action) {
-            console.log("setShippingOptions action.payload", action.payload);
-            // state.shippingOptions = action.payload;
+            const fetchedProducts = action.payload.response;
+            const filteredShippingOptions = fetchedProducts.filter(product => product.category === "Services");
+            const mappedShippingOptions = filteredShippingOptions.map(option => ({
+                isTaxable: false,
+                name: option.name,
+                price: option.price,
+                sku8: option.sku8,
+              }));
+              state.shippingOptions = mappedShippingOptions;
         },
     }
 });
