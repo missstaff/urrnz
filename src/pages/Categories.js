@@ -28,7 +28,6 @@ const Categories = () => {
     const categories = store.categories;
 
 
-    const [headingFontSize, setHeadingFontSize] = useState(0);
     const [imageHeight, setImageHeight] = useState(0);
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
@@ -37,25 +36,17 @@ const Categories = () => {
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
-                setHeadingFontSize(4.2);
                 setImageHeight(15);
             } else if (screenSize === "xs") {
-                setHeadingFontSize(5.6);
                 setImageHeight(15);
             } else if (screenSize === "sm") {
-                setHeadingFontSize(7.2);
                 setImageHeight(40);
             } else if (screenSize === "md") {
-                setHeadingFontSize(9.6);
-                setImageHeight(15);
             } else if (screenSize === "lg") {
-                setHeadingFontSize(15);
                 setImageHeight(18);
             } else if (screenSize === "xl") {
-                setHeadingFontSize(18);
                 setImageHeight(50);
             } else if (screenSize === "xxl") {
-                setHeadingFontSize(21);
                 setImageHeight(75);
             }
         };
@@ -75,7 +66,7 @@ const Categories = () => {
         <main>
             <section id="categories" className={classes.section}>
                 <div className={classes.headingContainer}>
-                    <Heading fontSize={headingFontSize} title="CATEGORIES" />
+                    <Heading title="CATEGORIES" />
                 </div>
                 <div
                     className={`grid ${screenSize === "xs" || screenSize === "default"
@@ -97,15 +88,15 @@ const Categories = () => {
                                     onMouseLeave={handleTouchEnd}
                                     className={`${touchedIndex === index ? classes.touched : ""
                                         }`}>
-                                    <Container 
+                                    <Container
                                         className={classes.container}
-                                        style={{alignItems: "center", justifyContent:"center"}}>
+                                        style={{ alignItems: "center", justifyContent: "center" }}>
                                         <img
                                             src={categoryImages[category]}
                                             alt={category}
                                             style={{
                                                 margin: "5%",
-                                                borderRadius: 15,
+                                                borderRadius: 7,
                                                 height: `${imageHeight}rem`,
                                                 width: "75%",
                                                 resizeMode: "cover",

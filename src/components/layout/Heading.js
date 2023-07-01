@@ -6,7 +6,10 @@ const Heading = (props) => {
     const { fontSize, title } = props;
 
     return (
-        <h1 className={classes.heading} style={{fontSize: `${fontSize}rem`}}>{title}</h1>
+        <h1
+            className={classes.heading}>
+            {title}
+        </h1>
     );
 };
 

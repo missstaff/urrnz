@@ -62,7 +62,7 @@ const Products = () => {
         <main>
             <section id="gallery" className={classes.section}>
                 <div className={classes.headingContainer}>
-                    <Heading fontSize={headingFontSize} title="GALLERY" />
+                    <Heading title="GALLERY" />
                 </div>
                 <div
                     className={`grid ${screenSize === "xs" || screenSize === "default"
@@ -74,7 +74,9 @@ const Products = () => {
                     {products.map((product, index) => (
                         <div
                             key={index}>
-                            <NavLink to={`/product/${product.zid}`} className={classes.title}>
+                            <NavLink
+                                to={`/product/${product.zid}`}
+                                className={classes.title}>
                                 <Container
                                     style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                                     <div
@@ -85,8 +87,7 @@ const Products = () => {
                                         onMouseUp={handleTouchEnd}
                                         onMouseEnter={() => handleTouchStart(index)}
                                         onMouseLeave={handleTouchEnd}
-                                        className={`${touchedIndex === index ? classes.touched : ""
-                                            }`}>
+                                        className={`${touchedIndex === index ? classes.touched : ""}`}>
 
                                         <img
                                             src={product.images.lg}
@@ -102,9 +103,12 @@ const Products = () => {
                                             }}
                                         />
                                     </div>
-                                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                                        <h3 className={classes.heading}>{product.name}</h3>
-                                        <p>{product.price}</p>
+                                    <div className={classes.detailsContainer}>
+                                        <div className={classes.detailsTitle}>
+                                            <h3 className={classes.heading}>{product.name}</h3>
+                                            <p className={classes.price} style={{textShadow: "none"}}>${product.price}</p>
+                                        </div>
+                                        <p className={classes.details} style={{textShadow: "none"}}>{product.description}</p>
                                     </div>
                                 </Container>
 
