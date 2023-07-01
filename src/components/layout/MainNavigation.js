@@ -46,11 +46,9 @@ function MainNavigation() {
         const observer = new IntersectionObserver((entries) => {
             const ent = entries[0];
             if (!ent.isIntersecting) {
-                console.log("not intersecting + sticky");
                 setIsSticky(true);
             }
             if (ent.isIntersecting) {
-                console.log("intersecting - sticky");
                 setIsSticky(false);
             }
         }, { root: null, threshold: 0 })
@@ -74,7 +72,7 @@ function MainNavigation() {
                         <NavLink
                             to="/"
                             onClick={isMenuVisible && handleMobileNavClick}
-                            className={curLocation === "/" ? classes.active : undefined}
+                            className={({ isActive }) => isActive && curLocation === "/" ? classes.active : undefined}
                             end>
                             <p>Home</p>
                         </NavLink>
@@ -82,7 +80,7 @@ function MainNavigation() {
                     <li>
                         <Link
                             to="/#about"
-                            onClick={isMenuVisible && handleMobileNavClick}
+                            onClick={() => isMenuVisible && handleMobileNavClick()}
                             className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
                             <p>About</p>
                         </Link>
@@ -90,7 +88,7 @@ function MainNavigation() {
                     <li>
                         <Link
                             to="/#faqs"
-                            onClick={isMenuVisible && handleMobileNavClick}
+                            onClick={() => isMenuVisible && handleMobileNavClick()}
                             className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
                             <p>FAQ</p>
                         </Link>
@@ -132,8 +130,8 @@ function MainNavigation() {
 
 
             <button className={classes.mobileNav} onClick={handleMobileNavClick}>
-                <NavLink className={classes.iconMobileNav} name="menu-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="#cf711f" /></NavLink>
-                <NavLink className={classes.iconMobileNav} name="close-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="#cf711f" /></NavLink>
+                <NavLink className={classes.iconMobileNav} name="menu-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
+                <NavLink className={classes.iconMobileNav} name="close-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
             </button>
         </header>
     );
