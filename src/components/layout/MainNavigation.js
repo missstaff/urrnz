@@ -46,11 +46,9 @@ function MainNavigation() {
         const observer = new IntersectionObserver((entries) => {
             const ent = entries[0];
             if (!ent.isIntersecting) {
-                console.log("not intersecting + sticky");
                 setIsSticky(true);
             }
             if (ent.isIntersecting) {
-                console.log("intersecting - sticky");
                 setIsSticky(false);
             }
         }, { root: null, threshold: 0 })
