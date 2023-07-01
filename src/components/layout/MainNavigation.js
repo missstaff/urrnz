@@ -72,7 +72,7 @@ function MainNavigation() {
                         <NavLink
                             to="/"
                             onClick={isMenuVisible && handleMobileNavClick}
-                            className={curLocation === "/" ? classes.active : undefined}
+                            className={({ isActive }) => isActive && curLocation === "/" ? classes.active : undefined}
                             end>
                             <p>Home</p>
                         </NavLink>
@@ -80,7 +80,7 @@ function MainNavigation() {
                     <li>
                         <Link
                             to="/#about"
-                            onClick={isMenuVisible && handleMobileNavClick}
+                            onClick={() => isMenuVisible && handleMobileNavClick()}
                             className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
                             <p>About</p>
                         </Link>
@@ -88,7 +88,7 @@ function MainNavigation() {
                     <li>
                         <Link
                             to="/#faqs"
-                            onClick={isMenuVisible && handleMobileNavClick}
+                            onClick={() => isMenuVisible && handleMobileNavClick()}
                             className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
                             <p>FAQ</p>
                         </Link>
