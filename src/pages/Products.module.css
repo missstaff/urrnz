@@ -15,6 +15,18 @@
     margin-top: 20rem;
 }
 
+.image {
+    justify-self: center;
+    align-self: center;
+    margin: 5%;
+    border-radius: 7px;
+    height:50rem;
+    width: auto;
+    resize: both;
+    image-resolution: from-image;
+    image-rendering: optimizeQuality;
+}
+
 .title {
     text-decoration: none;
     color: var(--color-gray-600);
@@ -93,4 +105,16 @@
         font-size: 2rem;
     }
 
+    .image {
+        height: 25rem;
+        width: 100%;
+      }
+
 }
+
+@media screen and (max-width: 425px) {
+    .image {
+      height: 35rem;
+      width: 100%;
+    }
+  }

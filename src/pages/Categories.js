@@ -27,31 +27,31 @@ const Categories = () => {
     const store = useSelector(state => state.store);
     const categories = store.categories;
 
-
-    const [imageHeight, setImageHeight] = useState(0);
     const [touchedIndex, setTouchedIndex] = useState(-1);
+    const [gridColumns, setGridColumns] = useState("");
 
 
-    console.log("screenSize: ", screenSize);
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
-                setImageHeight(15);
+                setGridColumns("grid--1-cols");
             } else if (screenSize === "xs") {
-                setImageHeight(15);
+                setGridColumns("grid--1-cols");
             } else if (screenSize === "sm") {
-                setImageHeight(40);
+                setGridColumns("grid--1-cols");
             } else if (screenSize === "md") {
+                setGridColumns("grid--2-cols");
             } else if (screenSize === "lg") {
-                setImageHeight(18);
+                setGridColumns("grid--3-cols");
             } else if (screenSize === "xl") {
-                setImageHeight(50);
+                setGridColumns("grid--3-cols");
             } else if (screenSize === "xxl") {
-                setImageHeight(75);
+                setGridColumns("grid--3-cols");
             }
         };
         setSizes();
     }, [screenSize]);
+
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
@@ -64,21 +64,26 @@ const Categories = () => {
 
     return (
         <main>
-            <section id="categories" className={classes.section}>
-                <div className={classes.headingContainer}>
-                    <Heading title="CATEGORIES" />
+            <section
+                id="categories"
+                className={classes.section}>
+                <div
+                    className={classes.headingContainer}>
+                    <Heading
+                        title="CATEGORIES" />
                 </div>
                 <div
-                    className={`grid ${screenSize === "xs" || screenSize === "default"
-                        ? "grid--1-cols"
-                        : "grid--2-cols"
-                        }`}
-                >
+                    className={`grid ${gridColumns}`}>
                     {categories.map((category, index) => (
                         <div
                             key={index}>
-                            <NavLink to="/products" className={classes.title}>
-                                <h3 className={classes.heading}>{category}</h3>
+                            <NavLink
+                                to="/products"
+                                className={classes.title}>
+                                <h3
+                                    className={classes.heading}>
+                                    {category}
+                                </h3>
                                 <div
                                     onTouchStart={() => handleTouchStart(index)}
                                     onTouchEnd={handleTouchEnd}
@@ -86,22 +91,17 @@ const Categories = () => {
                                     onMouseUp={handleTouchEnd}
                                     onMouseEnter={() => handleTouchStart(index)}
                                     onMouseLeave={handleTouchEnd}
-                                    className={`${touchedIndex === index ? classes.touched : ""
-                                        }`}>
+                                    className={`${touchedIndex === index ? classes.touched : ""}`}>
                                     <Container
                                         className={classes.container}
-                                        style={{ alignItems: "center", justifyContent: "center" }}>
+                                        style={{
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}>
                                         <img
                                             src={categoryImages[category]}
                                             alt={category}
-                                            style={{
-                                                margin: "5%",
-                                                borderRadius: 7,
-                                                height: `${imageHeight}rem`,
-                                                width: "75%",
-                                                resizeMode: "cover",
-                                                resize: "both",
-                                            }}
+                                            className={classes.image}
                                         />
                                     </Container>
                                 </div>

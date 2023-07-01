@@ -14,40 +14,40 @@ const Products = () => {
     const store = useSelector(state => state.store);
     const products = store.products;
 
-    const [headingFontSize, setHeadingFontSize] = useState(0);
-    const [imageHeight, setImageHeight] = useState(0);
     const [touchedIndex, setTouchedIndex] = useState(-1);
+    const [gridColumns, setGridColumns] = useState("");
+    const [imageHeight, setImageHeight] = useState(0);
 
 
-    console.log("screenSize: ", screenSize);
-    console.log("products: ", products)
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
-                setHeadingFontSize(4.2);
-                setImageHeight(15);
+                setGridColumns("grid--1-cols");
+                setImageHeight(25);
             } else if (screenSize === "xs") {
-                setHeadingFontSize(5.6);
-                setImageHeight(15);
+                setGridColumns("grid--1-cols");
+                setImageHeight(25);
             } else if (screenSize === "sm") {
-                setHeadingFontSize(7.2);
-                setImageHeight(40);
+                setGridColumns("grid--1-cols");
+                setImageHeight(25);
             } else if (screenSize === "md") {
-                setHeadingFontSize(9.6);
-                setImageHeight(15);
+                setGridColumns("grid--2-cols");
+                setImageHeight(25);
             } else if (screenSize === "lg") {
-                setHeadingFontSize(15);
-                setImageHeight(18);
+                setGridColumns("grid--2-cols");
+                setImageHeight(25);
             } else if (screenSize === "xl") {
-                setHeadingFontSize(18);
+                setGridColumns("grid--2-cols");
                 setImageHeight(50);
             } else if (screenSize === "xxl") {
-                setHeadingFontSize(21);
-                setImageHeight(75);
+                setGridColumns("grid--3-cols");
+                setImageHeight(50);
             }
         };
         setSizes();
     }, [screenSize]);
+
+
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
@@ -65,10 +65,7 @@ const Products = () => {
                     <Heading title="GALLERY" />
                 </div>
                 <div
-                    className={`grid ${screenSize === "xs" || screenSize === "default"
-                        ? "grid--1-cols"
-                        : "grid--2-cols"
-                        }`}
+                    className={`grid ${gridColumns}`}
                 >
 
                     {products.map((product, index) => (
@@ -78,9 +75,9 @@ const Products = () => {
                                 to={`/product/${product.zid}`}
                                 className={classes.title}>
                                 <Container
-                                    style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                                    style={{ display: "flex", flexDirection: "column", justifyContent: "center", width: "100%" }}>
                                     <div
-                                        style={{ alignSelf: "center" }}
+                                        style={{ alignSelf: "center", display: "flex", flexDirection: "column", justifyContent: "center"}}
                                         onTouchStart={() => handleTouchStart(index)}
                                         onTouchEnd={handleTouchEnd}
                                         onMouseDown={() => handleTouchStart(index)}
@@ -92,23 +89,37 @@ const Products = () => {
                                         <img
                                             src={product.images.lg}
                                             alt={product.name}
+                                            // className={classes.image}
                                             style={{
                                                 alignSelf: "center",
                                                 margin: "5%",
-                                                borderRadius: 15,
+                                                borderRadius: 7,
                                                 height: `${imageHeight}rem`,
-                                                width: "100",
+                                                width: "100%",
                                                 resizeMode: "cover",
                                                 resize: "both",
                                             }}
                                         />
                                     </div>
-                                    <div className={classes.detailsContainer}>
-                                        <div className={classes.detailsTitle}>
-                                            <h3 className={classes.heading}>{product.name}</h3>
-                                            <p className={classes.price} style={{textShadow: "none"}}>${product.price}</p>
+                                    <div
+                                        className={classes.detailsContainer}>
+                                        <div
+                                            className={classes.detailsTitle}>
+                                            <h3
+                                                className={classes.heading}>
+                                                {product.name}
+                                            </h3>
+                                            <p
+                                                className={classes.price}
+                                                style={{ textShadow: "none" }}>
+                                                ${product.price}
+                                            </p>
                                         </div>
-                                        <p className={classes.details} style={{textShadow: "none"}}>{product.description}</p>
+                                        <p
+                                            className={classes.details}
+                                            style={{ textShadow: "none" }}>
+                                            {product.description}
+                                        </p>
                                     </div>
                                 </Container>
 
