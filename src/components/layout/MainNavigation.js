@@ -130,8 +130,8 @@ function MainNavigation() {
 
 
             <button className={classes.mobileNav} onClick={handleMobileNavClick}>
-                <NavLink className={classes.iconMobileNav} name="menu-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="#cf711f" /></NavLink>
-                <NavLink className={classes.iconMobileNav} name="close-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="#cf711f" /></NavLink>
+                <NavLink className={classes.iconMobileNav} name="menu-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
+                <NavLink className={classes.iconMobileNav} name="close-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
             </button>
         </header>
     );
