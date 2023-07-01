@@ -68,39 +68,46 @@ const Products = () => {
                     className={`grid ${screenSize === "xs" || screenSize === "default"
                         ? "grid--1-cols"
                         : "grid--2-cols"
-                        }`}>
+                        }`}
+                >
 
                     {products.map((product, index) => (
                         <div
-                            key={index}
-                            className={classes.product}>
+                            key={index}>
                             <NavLink to={`/product/${product.zid}`} className={classes.title}>
-                                
-                                <div
-                                    onTouchStart={() => handleTouchStart(index)}
-                                    onTouchEnd={handleTouchEnd}
-                                    onMouseDown={() => handleTouchStart(index)}
-                                    onMouseUp={handleTouchEnd}
-                                    onMouseEnter={() => handleTouchStart(index)}
-                                    onMouseLeave={handleTouchEnd}
-                                    className={`${touchedIndex === index ? classes.touched : ""
-                                        }`}>
-                                    <Container className={classes.container}>
+                                <Container
+                                    style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                                    <div
+                                        style={{ alignSelf: "center" }}
+                                        onTouchStart={() => handleTouchStart(index)}
+                                        onTouchEnd={handleTouchEnd}
+                                        onMouseDown={() => handleTouchStart(index)}
+                                        onMouseUp={handleTouchEnd}
+                                        onMouseEnter={() => handleTouchStart(index)}
+                                        onMouseLeave={handleTouchEnd}
+                                        className={`${touchedIndex === index ? classes.touched : ""
+                                            }`}>
+
                                         <img
                                             src={product.images.lg}
                                             alt={product.name}
                                             style={{
+                                                alignSelf: "center",
                                                 margin: "5%",
                                                 borderRadius: 15,
                                                 height: `${imageHeight}rem`,
-                                                width: "50%",
+                                                width: "100",
                                                 resizeMode: "cover",
                                                 resize: "both",
                                             }}
                                         />
-                                         <h3 className={classes.heading}>{product.name}</h3>
-                                    </Container>
-                                </div>
+                                    </div>
+                                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+                                        <h3 className={classes.heading}>{product.name}</h3>
+                                        <p>{product.price}</p>
+                                    </div>
+                                </Container>
+
                             </NavLink>
                         </div>
                     ))}

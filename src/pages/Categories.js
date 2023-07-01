@@ -97,7 +97,9 @@ const Categories = () => {
                                     onMouseLeave={handleTouchEnd}
                                     className={`${touchedIndex === index ? classes.touched : ""
                                         }`}>
-                                    <Container className={classes.container}>
+                                    <Container 
+                                        className={classes.container}
+                                        style={{alignItems: "center", justifyContent:"center"}}>
                                         <img
                                             src={categoryImages[category]}
                                             alt={category}
@@ -105,7 +107,7 @@ const Categories = () => {
                                                 margin: "5%",
                                                 borderRadius: 15,
                                                 height: `${imageHeight}rem`,
-                                                width: "50%",
+                                                width: "75%",
                                                 resizeMode: "cover",
                                                 resize: "both",
                                             }}
