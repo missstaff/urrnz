@@ -53,45 +53,33 @@ const Categories = () => {
 
     return (
         <main>
-            <section
-                id="categories"
-                className={classes.section}>
-                <div
-                    className={classes.headingContainer}>
-                    <Heading
-                        fontSize={headingFontSize}
-                        title="CATEGORIES" />
+          <section id="categories" className={classes.section}>
+            <div className={classes.headingContainer}>
+              <Heading fontSize={headingFontSize} title="CATEGORIES" />
+            </div>
+            <div className={`grid grid--2-cols`}>
+              {categories.map((category, index) => (
+                <div key={index}>
+                  <NavLink to="/products" className={classes.title}>
+                    <h3 className={classes.heading}>{category}</h3>
+                    <Container className={classes.container}>
+                      <img
+                        src={categoryImages[category]}
+                        alt={category}
+                        style={{
+                          borderRadius: 15,
+                          height: `${50}rem`,
+                          width: "100%",
+                        }}
+                      />
+                    </Container>
+                  </NavLink>
                 </div>
-                <div
-                    className={`grid grid--2-cols`}>
-                    {categories.map((category, index) => (
-                        <div
-                            key={index}>
-                            <NavLink
-                                to="/products"
-                                className={classes.title}>
-                                <h3
-                                    className={classes.heading}>
-                                    {category}
-                                </h3>
-                                <Container
-                                    className={classes.container}>
-                                    <img
-                                        src={categoryImages[category]}
-                                        alt={category}
-                                        style={{
-                                            borderRadius: 15,
-                                            height: `${50}rem`,
-                                            width: "100%",
-                                        }} />
-                                </Container>
-                            </NavLink>
-                        </div>
-                    ))}
-                </div>
-            </section>
+              ))}
+            </div>
+          </section>
         </main>
-    );
-};
+      );
+    };
 
 export default Categories;

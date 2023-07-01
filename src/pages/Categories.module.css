@@ -1,18 +1,23 @@
-.title { 
-    text-decoration: none;
-    color: var(--color-primary-700);
-    transition: color 0.3s; 
-}
-
 .heading {
     padding-bottom: 7.5rem;
     font-size: 5rem;
     text-align: center;
 }
 
+.title {
+    text-decoration: none;
+    color: var(--color-primary-700);
+    transition: color 0.3s;
+}
+
+.title:hover,
+.title:hover .heading {
+    color: var(--color-secondary-700);
+}
+
 .heading:hover {
     color: var(--color-secondary-700);
-  }
+}
 
 .headingContainer {
     margin-top: 20rem
