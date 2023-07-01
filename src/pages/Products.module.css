@@ -27,6 +27,10 @@
     image-rendering: optimizeQuality;
 }
 
+.gridColumns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .title {
     text-decoration: none;
     color: var(--color-gray-600);
@@ -68,6 +72,12 @@
     opacity: 0.5;
 }
 
+@media screen and (max-width: 1280px) {
+    .gridColumns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .heading {
         font-size: 3.2rem;
@@ -75,7 +85,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .grid {
+    .gridColumns {
         grid-template-columns: repeat(1, 1fr);
     }
 

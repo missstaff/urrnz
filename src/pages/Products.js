@@ -15,32 +15,24 @@ const Products = () => {
     const products = store.products;
 
     const [touchedIndex, setTouchedIndex] = useState(-1);
-    const [gridColumns, setGridColumns] = useState("");
     const [imageHeight, setImageHeight] = useState(0);
 
 
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
-                setGridColumns("grid--1-cols");
                 setImageHeight(25);
             } else if (screenSize === "xs") {
-                setGridColumns("grid--1-cols");
-                setImageHeight(25);
+                setImageHeight(30);
             } else if (screenSize === "sm") {
-                setGridColumns("grid--1-cols");
-                setImageHeight(25);
+                setImageHeight(30);
             } else if (screenSize === "md") {
-                setGridColumns("grid--2-cols");
-                setImageHeight(25);
+                setImageHeight(32);
             } else if (screenSize === "lg") {
-                setGridColumns("grid--2-cols");
-                setImageHeight(25);
+                setImageHeight(40);
             } else if (screenSize === "xl") {
-                setGridColumns("grid--2-cols");
-                setImageHeight(50);
+                setImageHeight(45);
             } else if (screenSize === "xxl") {
-                setGridColumns("grid--3-cols");
                 setImageHeight(50);
             }
         };
@@ -54,7 +46,9 @@ const Products = () => {
     };
 
     const handleTouchEnd = () => {
-        setTouchedIndex(-1);
+        setTimeout(() => {
+            setTouchedIndex(-1);
+        }, 1000);
     };
 
 
@@ -65,19 +59,29 @@ const Products = () => {
                     <Heading title="GALLERY" />
                 </div>
                 <div
-                    className={`grid ${gridColumns}`}
+                    className={`grid ${classes.gridColumns}`}
                 >
 
                     {products.map((product, index) => (
                         <div
                             key={index}>
-                            <NavLink
-                                to={`/product/${product.zid}`}
-                                className={classes.title}>
-                                <Container
-                                    style={{ display: "flex", flexDirection: "column", justifyContent: "center", width: "100%" }}>
+
+                            <Container
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+
+                                }}>
+                                <NavLink
+                                    to={`/product/${product.zid}`}>
                                     <div
-                                        style={{ alignSelf: "center", display: "flex", flexDirection: "column", justifyContent: "center"}}
+                                        style={{
+                                            alignSelf: "center",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "center"
+                                        }}
                                         onTouchStart={() => handleTouchStart(index)}
                                         onTouchEnd={handleTouchEnd}
                                         onMouseDown={() => handleTouchStart(index)}
@@ -95,35 +99,35 @@ const Products = () => {
                                                 margin: "5%",
                                                 borderRadius: 7,
                                                 height: `${imageHeight}rem`,
-                                                width: "100%",
-                                                resizeMode: "cover",
-                                                resize: "both",
+                                                resizeMode: "contain",
+
                                             }}
                                         />
                                     </div>
+                                </NavLink>
+                                <div
+                                    className={classes.detailsContainer}>
                                     <div
-                                        className={classes.detailsContainer}>
-                                        <div
-                                            className={classes.detailsTitle}>
-                                            <h3
-                                                className={classes.heading}>
-                                                {product.name}
-                                            </h3>
-                                            <p
-                                                className={classes.price}
-                                                style={{ textShadow: "none" }}>
-                                                ${product.price}
-                                            </p>
-                                        </div>
+                                        className={classes.detailsTitle}>
+                                        <h3
+                                            className={classes.heading}>
+                                            {product.name}
+                                        </h3>
                                         <p
-                                            className={classes.details}
+                                            className={classes.price}
                                             style={{ textShadow: "none" }}>
-                                            {product.description}
+                                            ${product.price}
                                         </p>
                                     </div>
-                                </Container>
+                                    <p
+                                        className={classes.details}
+                                        style={{ textShadow: "none" }}>
+                                        {product.description}
+                                    </p>
+                                </div>
+                            </Container>
 
-                            </NavLink>
+
                         </div>
                     ))}
                 </div>

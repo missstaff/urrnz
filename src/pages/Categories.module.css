@@ -21,6 +21,10 @@
   margin-bottom: 20rem;
 }
 
+.gridColumns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .image {
   margin: 5%;
   border-radius: 7;
@@ -42,6 +46,14 @@
   transition: opacity 300ms ease;
 }
 
+
+@media screen and (max-width: 1280px) {
+  .gridColumns {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 @media screen and (max-width: 1025px) {
   .title {
     color: var(--color-secondary-700);
@@ -53,6 +65,10 @@
   .section {
     margin-bottom: 10rem;
   }
+
+  .gridColumns {
+    grid-template-columns: repeat(1, 1fr);
+}
 }
 
 @media screen and (max-width: 425px) {
