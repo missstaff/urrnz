@@ -37,7 +37,7 @@ const Categories = () => {
         const setSizes = () => {
             if (screenSize === "default") {
                 setHeadingFontSize(4.2);
-                setImageHeight(9.6);
+                setImageHeight(15);
             } else if (screenSize === "xs") {
                 setHeadingFontSize(5.6);
                 setImageHeight(15);
@@ -98,10 +98,12 @@ const Categories = () => {
                                         src={categoryImages[category]}
                                         alt={category}
                                         style={{
+                                            margin: "5%",
                                             borderRadius: 15,
                                             height: `${imageHeight}rem`,
-                                            width: "100%",
+                                            width: "50%",
                                             resizeMode: "cover",
+                                            resize: "both",
                                         }}
                                     />
                                 </Container>
