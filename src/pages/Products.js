@@ -1,8 +1,14 @@
+import Heading from "../components/layout/Heading";
+
+
 const Products = () => {
     return (
-        <div>
-            <h1>Products</h1>
-        </div>
+        <div
+        style={{ marginTop: `${20}rem` }}>
+        <Heading 
+            fontSize={50} 
+            title="GALLERY" />
+    </div>
     );
 };
 

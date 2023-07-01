@@ -1,12 +1,28 @@
-import React, { useEffect, useState } from "react";    
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import { useScreenSize } from "../hooks/useScreenSize";
+import classes from "./Categories.module.css";
+import "../general.css";
+
+const categoryImages = {
+    "All Products": require("../assets/allProducts.jpg"),
+    "Emojis": require("../assets/emoji.jpg"),
+    "Services": require("../assets/services.jpg"),
+    "Shapes": require("../assets/shapes.jpg"),
+    "Test": require("../assets/allProducts.jpg"),
+    // add more categories and their corresponding image URLs here ~ category image from server would be best!
+};
 
 const Categories = () => {
 
     const screenSize = useScreenSize();
-    const [headingFontSize, setHeadingFontSize] = useState(0);
+    const store = useSelector(state => state.store);
+    const categories = store.categories;
 
+    const [headingFontSize, setHeadingFontSize] = useState(0);
 
     useEffect(() => {
         const setSizes = () => {
@@ -19,7 +35,7 @@ const Categories = () => {
             } else if (screenSize === "md") {
                 setHeadingFontSize(9.6);
             } else if (screenSize === "lg") {
-                setHeadingFontSize(15);              
+                setHeadingFontSize(15);
             } else if (screenSize === "xl") {
                 setHeadingFontSize(18);
             } else if (screenSize === "xxl") {
@@ -29,11 +45,44 @@ const Categories = () => {
         setSizes();
     }, [screenSize]);
 
-   
     return (
         <main>
-            <section style={{paddingTop: `${9.6}rem`}}>
-                <Heading fontSize={headingFontSize} title="CATEGORIES" />
+            <section
+                id="categories"
+                className={classes.section}>
+                <div
+                    className={classes.headingContainer}>
+                    <Heading
+                        fontSize={headingFontSize}
+                        title="CATEGORIES" />
+                </div>
+                <div
+                    className={`grid grid--2-cols`}>
+                    {categories.map((category, index) => (
+                        <div
+                            key={index}>
+                            <NavLink
+                                to="/products"
+                                className={classes.title}>
+                                <h3
+                                    className={classes.heading}>
+                                    {category}
+                                </h3>
+                                <Container
+                                    className={classes.container}>
+                                    <img
+                                        src={categoryImages[category]}
+                                        alt={category}
+                                        style={{
+                                            borderRadius: 15,
+                                            height: `${50}rem`,
+                                            width: "100%",
+                                        }} />
+                                </Container>
+                            </NavLink>
+                        </div>
+                    ))}
+                </div>
             </section>
         </main>
     );
