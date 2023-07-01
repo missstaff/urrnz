@@ -30,6 +30,7 @@ const Categories = () => {
 
     const [headingFontSize, setHeadingFontSize] = useState(0);
     const [imageHeight, setImageHeight] = useState(0);
+    const [touchedIndex, setTouchedIndex] = useState(-1);
 
 
     console.log("screenSize: ", screenSize);
@@ -61,52 +62,57 @@ const Categories = () => {
         setSizes();
     }, [screenSize]);
 
+    const handleTouchStart = (index) => {
+        setTouchedIndex(index);
+    };
+
+    const handleTouchEnd = () => {
+        setTouchedIndex(-1);
+    };
+
 
     return (
         <main>
-            <section
-                id="categories"
-                className={classes.section}>
-                <div
-                    className={classes.headingContainer}>
-                    <Heading
-                        fontSize={headingFontSize}
-                        title="CATEGORIES" />
+            <section id="categories" className={classes.section}>
+                <div className={classes.headingContainer}>
+                    <Heading fontSize={headingFontSize} title="CATEGORIES" />
                 </div>
                 <div
-                    className={
-                        `grid ${screenSize === 'xs' ||
-                            screenSize === 'default'
-                            ?
-                            'grid--1-cols'
-                            :
-                            'grid--2-cols'}`
-                    }>
+                    className={`grid ${screenSize === "xs" || screenSize === "default"
+                        ? "grid--1-cols"
+                        : "grid--2-cols"
+                        }`}
+                >
                     {categories.map((category, index) => (
                         <div
-                            key={index}>
-                            <NavLink
-                                to="/products"
-                                className={classes.title}>
-                                <h3
-                                    className={classes.heading}>
-                                    {category}
-                                </h3>
-                                <Container
-                                    className={classes.container}>
-                                    <img
-                                        src={categoryImages[category]}
-                                        alt={category}
-                                        style={{
-                                            margin: "5%",
-                                            borderRadius: 15,
-                                            height: `${imageHeight}rem`,
-                                            width: "50%",
-                                            resizeMode: "cover",
-                                            resize: "both",
-                                        }}
-                                    />
-                                </Container>
+                            key={index}
+                            className={classes.category}>
+                            <NavLink to="/products" className={classes.title}>
+                                <h3 className={classes.heading}>{category}</h3>
+                                <div
+                                    onTouchStart={() => handleTouchStart(index)}
+                                    onTouchEnd={handleTouchEnd}
+                                    onMouseDown={() => handleTouchStart(index)}
+                                    onMouseUp={handleTouchEnd}
+                                    onMouseEnter={() => handleTouchStart(index)}
+                                    onMouseLeave={handleTouchEnd}
+                                    className={`${touchedIndex === index ? classes.touched : ""
+                                        }`}>
+                                    <Container className={classes.container}>
+                                        <img
+                                            src={categoryImages[category]}
+                                            alt={category}
+                                            style={{
+                                                margin: "5%",
+                                                borderRadius: 15,
+                                                height: `${imageHeight}rem`,
+                                                width: "50%",
+                                                resizeMode: "cover",
+                                                resize: "both",
+                                            }}
+                                        />
+                                    </Container>
+                                </div>
                             </NavLink>
                         </div>
                     ))}
@@ -115,5 +121,6 @@ const Categories = () => {
         </main>
     );
 };
+
 
 export default Categories;
