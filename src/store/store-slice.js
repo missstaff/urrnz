@@ -18,7 +18,7 @@ const storeSlice = createSlice({
             const fetchedProducts = action.payload.response;
             const filteredCategories = fetchedProducts.filter(product => product.category !== "Test" && product.category !== "Services");
             const categories = filteredCategories.map(product => product.category); 
-            categories.unshift("All Products")
+            categories.unshift("all")
             const uniqueCategories = [...new Set(categories)];
             state.categories = uniqueCategories;
         },

@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import AddToCartButton from "../components/ui/AddToCartButton";
 import { useScreenSize } from "../hooks/useScreenSize";
+
 import classes from "./Products.module.css";
 import "../general.css";
 
 
 const Products = () => {
-
+    
+    const { category } = useParams();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
     const products = store.products;
-
+ 
     const [touchedIndex, setTouchedIndex] = useState(-1);
     const [imageHeight, setImageHeight] = useState(0);
+    const [categoryProducts, setCategoryProducts] = useState([]);
+
+    useEffect(() => {
+        const setProducts = () => {
+            if (category === "all") {
+                setCategoryProducts(products);
+            } else {
+                const filteredProducts = products.filter(product => product.category === category);
+                setCategoryProducts(filteredProducts);
+            }
+        };
+        setProducts();
+    }, [category]);
 
 
     useEffect(() => {
@@ -62,7 +78,7 @@ const Products = () => {
                 <div
                     className={`grid ${classes.gridColumns}`}>
 
-                    {products.map((product, index) => (
+                    {categoryProducts.map((product, index) => (
                         <div
                             key={index}>
 

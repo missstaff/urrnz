@@ -6,7 +6,7 @@ const StoreButton = (props) => {
     return (
 
         <NavLink
-            to="/products"
+            to="/products/all"
             className={classes.link}
             style={props.style} >
             <div className={classes.btn}>
