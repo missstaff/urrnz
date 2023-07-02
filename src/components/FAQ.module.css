@@ -1,27 +1,44 @@
 .answer {
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: 3.2rem;
+    margin-bottom: 9.6rem;
     margin-left: 5rem;
-    margin-top: 3.2rem;
+    margin-top: 2.2rem;
     text-align: left;
     padding: 1rem;
-    color: var(--color-gray-600)
+    color: var(--color-gray-600);
+    font-size: 3.2rem;
 }
 
 .question {
     color: var(--color-primary-400);
-    margin-top: 10rem;
+    font-size: 4.8rem;
 }
 
 @media screen and (max-width: 768px) {
     .answer {
-        margin-bottom: 1.6rem;
-        margin-top: 1.6rem;
+        margin-bottom: 4.8rem;
+        margin-left: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .answer {
+        font-size: 2.4rem;
+    }
+
+    .question {
+        font-size: 3.2rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .answer {
+        font-size: 2rem;
         margin-left: 1rem;
     }
 
     .question {
-        margin-top: 5rem;
+        font-size: 2.4rem;
     }
 }

@@ -15,6 +15,7 @@ const Hero = () => {
     const [verticalSpacing, setVerticalSpacing] = useState(0);
 
 
+    //cleanup?
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {

@@ -14,7 +14,7 @@ import "../general.css";
 
 const Products = () => {
 
-
+   // touchable opcaity intoits own wrappr component?
     const dispatch = useDispatch(); 
     const { category } = useParams();
     const screenSize = useScreenSize();

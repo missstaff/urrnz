@@ -6,11 +6,29 @@
     text-align: left;
     padding: 1rem;
     color: var(--color-gray-600);
+    font-size: 3.8rem;
 }
 
 @media screen and (max-width: 768px) {
     .text {
         margin-bottom: 1.6rem;
         margin-top: 1.6rem;
+        font-size: 3.2rem;
     }
+}
+
+@media screen and (max-width: 480px) {
+    .text {
+        margin-bottom: 1.6rem;
+        margin-top: 1.6rem;
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .text {
+        margin-bottom: 1.6rem;
+        margin-top: 1.6rem;
+        font-size: 2rem;
+    }    
 }

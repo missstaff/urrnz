@@ -10,7 +10,7 @@ import "../general.css";
 import { NavLink } from 'react-router-dom';
 import AddToCartButton from "../components/ui/AddToCartButton";
 
-
+//finish moving styles to css files
 const Product = () => {
 
     const { id } = useParams();
