@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import Heading from "../components/layout/Heading";
+
 import classes from "./Product.module.css";
 import "../general.css";
 

@@ -21,7 +21,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .heading{
+    .heading {
         font-size: 9rem;
     }
 }
@@ -35,21 +35,20 @@
     }
 }
 
-@media screen and (max-width: 580px){
-    .heading{
+@media screen and (max-width: 580px) {
+    .heading {
         font-size: 6.8rem;
     }
 }
 
-@media screen and (max-width: 480px){
-    .heading{
+@media screen and (max-width: 480px) {
+    .heading {
         font-size: 5.4rem;
     }
 }
 
-@media screen and (max-width: 380px){
-    .heading{
+@media screen and (max-width: 380px) {
+    .heading {
         font-size: 3.8rem;
     }
 }
-    

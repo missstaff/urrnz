@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 import { useScreenSize } from "../hooks/useScreenSize";
+
 import "../general.css";
 
 

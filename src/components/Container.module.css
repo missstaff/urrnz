@@ -1,5 +1,5 @@
 .container {
-    background-color:rgba(255, 236, 209, 0.20);
+    background-color: rgba(255, 236, 209, 0.20);
     border-radius: 1rem;
     display: flex;
     overflow: hidden;
@@ -11,4 +11,3 @@
         padding-bottom: 4.8rem;
     }
 }
-    

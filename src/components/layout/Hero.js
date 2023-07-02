@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import StoreButton from "../ui/StoreButton";
 import { useScreenSize } from "../../hooks/useScreenSize";
+
 import classes from "./Hero.module.css";
 import "../../general.css";
 
@@ -11,7 +13,7 @@ const Hero = () => {
     const [btnFontSize, setBtnFontSize] = useState(2.2);
     const [fontSize, setFontSize] = useState(0);
     const [verticalSpacing, setVerticalSpacing] = useState(0);
-    
+
 
     useEffect(() => {
         const setSizes = () => {
@@ -51,23 +53,29 @@ const Hero = () => {
 
 
     return (
-        <div className={classes.hero}>
-            <div className={classes.content}>
+        <div
+            className={classes.hero}>
+            <div
+                className={classes.content}>
                 <h1
                     className={classes.title}
                     style={{
                         fontSize: `${fontSize}rem`,
                         marginBottom: `${verticalSpacing}rem`,
                     }}>
-                    <p style={{ textTransform: "uppercase" }}>URRNZ CUSTOM KEEPSAKES</p>
+                    <p
+                        style={{ textTransform: "uppercase" }}>
+                        URRNZ CUSTOM KEEPSAKES
+                    </p>
                 </h1>
-                <div style={{ marginTop: `${verticalSpacing}rem` }}>
-                    <StoreButton style={{ fontSize: `${btnFontSize}rem`, }} />
+                <div
+                    style={{ marginTop: `${verticalSpacing}rem` }}>
+                    <StoreButton
+                        style={{ fontSize: `${btnFontSize}rem`, }} />
                 </div>
             </div>
         </div>
     );
 };
-
 
 export default Hero;

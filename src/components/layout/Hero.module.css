@@ -16,7 +16,7 @@
 }
 
 .title {
-    color:rgba(255, 236, 209, 1.0);
+    color: rgba(255, 236, 209, 1.0);
     line-height: 1.25;
     font-weight: 900;
     margin: 0;
@@ -26,6 +26,4 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     text-align: left;
     width: 75%;
-
 }
-

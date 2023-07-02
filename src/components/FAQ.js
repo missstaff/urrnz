@@ -2,6 +2,7 @@ import Container from "./Container";
 import classes from "./FAQ.module.css";
 import "../general.css";
 
+
 const FAQ = (props) => {
 
     const { fontSize, questionFontSize } = props;

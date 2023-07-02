@@ -11,22 +11,22 @@ const About = (props) => {
     return (
         <Container>
             <div className="container" >
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P1}
-            </p>
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P2}
-            </p>
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P3}
-            </p>
-        </div>
+                <p
+                    className={classes.text}
+                    style={{ fontSize: `${fontSize}rem` }}>
+                    {ABOUT_TEXT_P1}
+                </p>
+                <p
+                    className={classes.text}
+                    style={{ fontSize: `${fontSize}rem` }}>
+                    {ABOUT_TEXT_P2}
+                </p>
+                <p
+                    className={classes.text}
+                    style={{ fontSize: `${fontSize}rem` }}>
+                    {ABOUT_TEXT_P3}
+                </p>
+            </div>
         </Container>
     );
 };
