@@ -2,14 +2,13 @@ import { NavLink } from "react-router-dom";
 import classes from "./AddToCartButton.module.css";
 
 
-const AddToCartButton = (props) => {
-    const { exact, to, title } = props;
+const AddToCartButton = () => {
     return (
         <NavLink
-            to={to}
+            to="/cart"
             className={classes.button}
-            exact={exact}>
-            {title}
+            exact="true">
+            ADD TO CART
         </NavLink>
     );
 };

@@ -127,7 +127,7 @@ const Products = () => {
                                 <div 
                                     className={classes.buttonContainer}
                                     style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
-                                    <AddToCartButton exact={true} title={"ADD TO CART"} to={"/cart"} />
+                                    <AddToCartButton />
                                 </div>
                             </Container>
                         </div>

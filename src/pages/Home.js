@@ -66,7 +66,7 @@ const Home = () => {
             <section id="faqs"
                 style={{
                     marginBottom: `${verticalSpace}rem`,
-                    paddingBottom: `${verticalSpace}rem`
+                    paddingBottom: `${verticalSpace}rem`,
                 }}>
                 <Heading  
                     title="FAQs" />

@@ -44,12 +44,13 @@ const Categories = () => {
                 id="categories"
                 className={classes.section}>
                 <div
-                    className={classes.headingContainer}>
+                    className="headingContainer">
                     <Heading
                         title="CATEGORIES" />
                 </div>
                 <div
-                    className={`grid ${classes.gridColumns}`}>
+                    className={`grid ${classes.gridColumns}`}
+                    style={{marginLeft: 50, marginRight: 50}}>
                     {categories.map((category, index) => (
                         <div
                             key={index}>
