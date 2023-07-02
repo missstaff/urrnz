@@ -25,8 +25,8 @@ export const router = createBrowserRouter([
       { path: 'checkout', element: <Checkout /> },
       { path: 'confirmation', element: <Confirmation /> },
       { path: 'contact', element: <Contact /> },
-      { path: 'product/:id', element: <Product /> },
-      { path: 'products', element: <Products /> },
+      { path: 'products/:category', element: <Products /> },
+      { path: 'product/:id', element: <Product /> }, //mY NEED TO UPDATE THIS
       { path: 'shipping', element: <Shipping /> },
     ],
   },

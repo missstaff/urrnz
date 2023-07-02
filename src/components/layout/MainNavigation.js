@@ -103,7 +103,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                            to="/products"
+                            to="/products/all"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Gallery</p>

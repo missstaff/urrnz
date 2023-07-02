@@ -2,15 +2,17 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+
 import classes from "./Categories.module.css";
 import "../general.css";
 
 
 
 const categoryImages = {
-    "All Products": require("../assets/allProducts.jpg"),
+    "all": require("../assets/allProducts.jpg"),
     "Emojis": require("../assets/emoji.jpg"),
     "Services": require("../assets/services.jpg"),
     "Shapes": require("../assets/shapes.jpg"),
@@ -50,12 +52,15 @@ const Categories = () => {
                 </div>
                 <div
                     className={`grid ${classes.gridColumns}`}
-                    style={{marginLeft: 50, marginRight: 50}}>
+                    style={{
+                        marginLeft: 50,
+                        marginRight: 50
+                    }}>
                     {categories.map((category, index) => (
                         <div
                             key={index}>
                             <NavLink
-                                to="/products"
+                                to={`/products/${category}`}
                                 className={classes.title}>
                                 <h3
                                     className={classes.heading}>
