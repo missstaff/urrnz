@@ -1,8 +1,11 @@
-// import Header from "../components/Header";
+import Heading from "../components/layout/Heading";
+import "../general.css";
+
+
 const Cart = () => {
     return (
-        <div>
-            {/* <Header title="CART"/> */}
+        <div className="headingContainer">
+            <Heading title="CART" />
         </div>
     );
 };

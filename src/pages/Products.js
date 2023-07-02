@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import AddToCartButton from "../components/ui/AddToCartButton";
+import { storeActions } from "../store/store-slice";
 import { useScreenSize } from "../hooks/useScreenSize";
 
 import classes from "./Products.module.css";
@@ -12,15 +13,18 @@ import "../general.css";
 
 
 const Products = () => {
-    
+
+
+    const dispatch = useDispatch(); 
     const { category } = useParams();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
     const products = store.products;
- 
+
     const [touchedIndex, setTouchedIndex] = useState(-1);
     const [imageHeight, setImageHeight] = useState(0);
     const [categoryProducts, setCategoryProducts] = useState([]);
+
 
     useEffect(() => {
         const setProducts = () => {
@@ -32,6 +36,7 @@ const Products = () => {
             }
         };
         setProducts();
+        dispatch(storeActions.setCategory(category));
     }, [category]);
 
 
@@ -55,7 +60,6 @@ const Products = () => {
         };
         setSizes();
     }, [screenSize]);
-
 
 
     const handleTouchStart = (index) => {
@@ -90,7 +94,8 @@ const Products = () => {
 
                                 }}>
                                 <NavLink
-                                    to={`/product/${product.zid}`}>
+                                    to={`/product/${product.zid}`}
+                                    >
                                     <div
                                         style={{
                                             alignSelf: "center",
@@ -140,9 +145,9 @@ const Products = () => {
                                     </p>
 
                                 </div>
-                                <div 
+                                <div
                                     className={classes.buttonContainer}
-                                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
+                                    style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
                                     <AddToCartButton />
                                 </div>
                             </Container>

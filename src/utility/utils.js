@@ -1,4 +1,6 @@
-import { sizes } from './screenSizes';
+import { sizes } from "../config/constants";
+
+
 
 export const isMatch = (media) => {
   const query = `(min-width: ${sizes[media]})`;

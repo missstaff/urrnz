@@ -8,10 +8,12 @@ import "../general.css";
 import { NavLink } from 'react-router-dom';
 import AddToCartButton from "../components/ui/AddToCartButton";
 
+
 const Product = () => {
 
     const { id } = useParams();
     const store = useSelector((state) => state.store);
+    const category = store.category;
     const products = store.products;
     const product = products.find((product) => product.zid === id);
 
@@ -26,7 +28,7 @@ const Product = () => {
             </div>
             <NavLink
                 className={classes.link}
-                to={"/products"}>
+                to={`/products/${category}`}>
                 {<span>&larr;</span>}Back
             </NavLink>
             <div

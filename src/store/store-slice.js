@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const storeSlice = createSlice({
-    name: 'store',
+    name: "store",
     initialState: {
         products: [],
         categories: [],
         shippingOptions: [],
+        category: "all",
     },
     reducers: {
         setProducts(state, action) {
@@ -17,7 +18,7 @@ const storeSlice = createSlice({
         setCategories(state, action) {
             const fetchedProducts = action.payload.response;
             const filteredCategories = fetchedProducts.filter(product => product.category !== "Test" && product.category !== "Services");
-            const categories = filteredCategories.map(product => product.category); 
+            const categories = filteredCategories.map(product => product.category);
             categories.unshift("all")
             const uniqueCategories = [...new Set(categories)];
             state.categories = uniqueCategories;
@@ -30,8 +31,11 @@ const storeSlice = createSlice({
                 name: option.name,
                 price: option.price,
                 sku8: option.sku8,
-              }));
-              state.shippingOptions = mappedShippingOptions;
+            }));
+            state.shippingOptions = mappedShippingOptions;
+        },
+        setCategory (state, action) {
+            state.category = action.payload;
         },
     }
 });
