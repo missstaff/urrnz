@@ -4,14 +4,15 @@ import classes from "./StoreButton.module.css";
 
 const StoreButton = (props) => {
     return (
-        <div className={classes.btn}>
-            <NavLink 
-                to="/products" 
-                className={classes.link}
-                style={props.style}>
+
+        <NavLink
+            to="/products"
+            className={classes.link}
+            style={props.style} >
+            <div className={classes.btn}>
                 <p>SHOP NOW</p>
-            </NavLink>
-        </div>
+            </div>
+        </NavLink>
     );
 };
 

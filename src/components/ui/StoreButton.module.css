@@ -22,7 +22,14 @@
     transition: all 0.3s;
 }
 
-.link:hover p,
-.link:active p {
-    color: var(--color-secondary-500); /* Change this */
+.link p:hover ,
+.link p:active  {
+    color: var(--color-white); /* Change this */
 }
+
+/* .link .btn:hover,
+.link .btn:active {
+    background-color: var(--color-primary-700);
+    border: 1px solid var(--color-primary-700);
+    color: var(--color-white);
+} */

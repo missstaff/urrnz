@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import AddToCartButton from "../components/ui/AddToCartButton";
 import { useScreenSize } from "../hooks/useScreenSize";
 import classes from "./Products.module.css";
 import "../general.css";
@@ -59,8 +60,7 @@ const Products = () => {
                     <Heading title="GALLERY" />
                 </div>
                 <div
-                    className={`grid ${classes.gridColumns}`}
-                >
+                    className={`grid ${classes.gridColumns}`}>
 
                     {products.map((product, index) => (
                         <div
@@ -93,14 +93,12 @@ const Products = () => {
                                         <img
                                             src={product.images.lg}
                                             alt={product.name}
-                                            // className={classes.image}
                                             style={{
                                                 alignSelf: "center",
                                                 margin: "5%",
                                                 borderRadius: 7,
                                                 height: `${imageHeight}rem`,
                                                 resizeMode: "contain",
-
                                             }}
                                         />
                                     </div>
@@ -110,7 +108,7 @@ const Products = () => {
                                     <div
                                         className={classes.detailsTitle}>
                                         <h3
-                                            className={classes.heading}>
+                                            className={`${classes.heading} ${classes.limitTitle}`}>
                                             {product.name}
                                         </h3>
                                         <p
@@ -120,14 +118,18 @@ const Products = () => {
                                         </p>
                                     </div>
                                     <p
-                                        className={classes.details}
+                                        className={`${classes.details} ${classes.limitLines}`}
                                         style={{ textShadow: "none" }}>
                                         {product.description}
                                     </p>
+
+                                </div>
+                                <div 
+                                    className={classes.buttonContainer}
+                                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
+                                    <AddToCartButton exact={true} title={"ADD TO CART"} to={"/cart"} />
                                 </div>
                             </Container>
-
-
                         </div>
                     ))}
                 </div>
