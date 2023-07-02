@@ -10,7 +10,8 @@ const FAQ = () => {
         <Container>
             <div className="container">
 
-                <h3
+               <div className={classes.topPadding}>
+               <h3
                     className={classes.question}>
                     How long does it take to receive my custom urn?
                 </h3>
@@ -64,6 +65,7 @@ const FAQ = () => {
                     We want you to be completely satisfied with your purchase, so we offer a 100% satisfaction guarantee. If for any reason you are not satisfied with your urn, please
                     contact us and we will do everything we can to make it right.
                 </p>
+            </div>
             </div>
         </Container>
     );
