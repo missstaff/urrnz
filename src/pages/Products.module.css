@@ -1,0 +1,156 @@
+.section {
+    margin-bottom: 20rem;
+}
+
+.heading {
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    font-size: 4.4rem;
+    text-transform: uppercase;
+    color: var(--color-gray-700);
+    /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); */
+}
+
+.headingContainer {
+    margin-top: 20rem;
+}
+
+.image {
+    justify-self: center;
+    align-self: center;
+    margin: 5%;
+    border-radius: 7px;
+    height: 50rem;
+    width: auto;
+    resize: both;
+    image-resolution: from-image;
+    image-rendering: optimizeQuality;
+}
+
+.gridColumns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.title {
+    text-decoration: none;
+    color: var(--color-gray-600);
+    transition: color 0.3s;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.detailsContainer {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding-bottom: 9.6rem;
+}
+
+.detailsTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details,
+.price {
+    text-decoration: none;
+    color: var(--color-gray-600);
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+.price {
+    font-size: 2.4rem;
+}
+
+.touchable {
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+.touched {
+    opacity: 0.5;
+}
+
+.buttonContainer {
+    padding-bottom: 4.8rem;
+}
+.limitTitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.limitLines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1280px) {
+    .gridColumns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .heading {
+        font-size: 3.2rem;
+    }
+    .section {
+        margin-bottom: 10rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gridColumns {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .header {
+        font-size: 3rem;
+    }
+
+    .section {
+        margin-bottom: 5rem;
+    }
+
+    .heading {
+        font-size: 2.2rem;
+    }
+
+    .detailsContainer {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        padding-bottom: 4.8rem;
+    }
+
+    .price {
+        font-size: 1.8rem;
+    }
+
+    .details {
+        font-size: 2rem;
+    }
+
+    .image {
+        height: 25rem;
+        width: 100%;
+    }
+
+    .btnContainer {
+        padding-bottom: 4.8rem;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .image {
+        height: 35rem;
+        width: 100%;
+    }
+}

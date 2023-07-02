@@ -5,6 +5,7 @@
     margin-top: 3.2rem;
     text-align: left;
     padding: 1rem;
+    color: var(--color-gray-600);
 }
 
 @media screen and (max-width: 768px) {
