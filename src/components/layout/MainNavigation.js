@@ -23,7 +23,7 @@ function MainNavigation() {
     const [isSticky, setIsSticky] = useState(false);
 
 
-
+    //cleanup?
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {

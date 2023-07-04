@@ -4,29 +4,24 @@ import classes from "./About.module.css";
 import "../general.css"
 
 
-const About = (props) => {
-
-    const { fontSize } = props;
+const About = () => {
 
     return (
         <Container>
             <div className="container" >
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P1}
-            </p>
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P2}
-            </p>
-            <p 
-                className={classes.text}
-                style={{fontSize: `${fontSize}rem`}}>
-                {ABOUT_TEXT_P3}
-            </p>
-        </div>
+                <p
+                    className={classes.text}>
+                    {ABOUT_TEXT_P1}
+                </p>
+                <p
+                    className={classes.text}>
+                    {ABOUT_TEXT_P2}
+                </p>
+                <p
+                    className={classes.text}>
+                    {ABOUT_TEXT_P3}
+                </p>
+            </div>
         </Container>
     );
 };

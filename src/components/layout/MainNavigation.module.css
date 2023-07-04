@@ -31,11 +31,11 @@
 
 .list a:hover,
 .list a.active {
- color: var(--color-secondary-500);
+  color: var(--color-secondary-500);
 }
 
 /* STICKY NAVIGATION */
-.sticky  {
+.sticky {
   bottom: 0;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
   height: 12.8rem;
@@ -128,4 +128,3 @@
     font-size: 3rem;
   }
 }
-

@@ -1,3 +1,12 @@
+export const sizes = {
+    xs: "375px",
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    xxl: '1536px',
+};
+
 //END POINTS
 export const FETCH_ALL_PRODUCTS = "https://zzzap.io/Collections/dataFind?search=product&PublicAuthCd=bfe18ab97f8a3a01d68a5a904719880f4cc9eb7a11ff6f09a433dd45145ec3b3&limit=100";
 export const FETCH_TAX = "https://zzzap.io/Process/orderTaxesOnly?requestApiAs=urrnz.com&PublicAuthCd=bfe18ab97f8a3a01d68a5a904719880f4cc9eb7a11ff6f09a433dd45145ec3b3";

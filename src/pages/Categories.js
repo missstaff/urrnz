@@ -10,7 +10,6 @@ import classes from "./Categories.module.css";
 import "../general.css";
 
 
-
 const categoryImages = {
     "all": require("../assets/allProducts.jpg"),
     "Emojis": require("../assets/emoji.jpg"),
@@ -19,7 +18,6 @@ const categoryImages = {
     "Test": require("../assets/allProducts.jpg"),
     // add more categories and their corresponding image URLs here ~ category image from server would be best!
 };
-
 
 
 const Categories = () => {
@@ -95,6 +93,5 @@ const Categories = () => {
         </main>
     );
 };
-
 
 export default Categories;
