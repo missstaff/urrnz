@@ -7,14 +7,14 @@ import Heading from "../components/layout/Heading";
 import AddToCartButton from "../components/ui/AddToCartButton";
 import { storeActions } from "../store/store-slice";
 import { useScreenSize } from "../hooks/useScreenSize";
-
+import { addToCartHandler } from "../store/cart-actions";
 import classes from "./Products.module.css";
 import "../general.css";
 
 
 const Products = () => {
 
-   // touchable opcaity intoits own wrappr component?
+   // touchable opcaity into its own wrappr component?
     const dispatch = useDispatch(); 
     const { category } = useParams();
     const screenSize = useScreenSize();
@@ -37,7 +37,7 @@ const Products = () => {
         };
         setProducts();
         dispatch(storeActions.setCategory(category));
-    }, [category]);
+    }, [category, dispatch]);
 
 
     useEffect(() => {
@@ -72,6 +72,9 @@ const Products = () => {
         }, 1000);
     };
 
+    const addItemToCartHandler = (product) => {
+        dispatch(addToCartHandler(product));
+    }
 
     return (
         <main>
@@ -148,7 +151,8 @@ const Products = () => {
                                 <div
                                     className={classes.buttonContainer}
                                     style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                    <AddToCartButton />
+                                    <AddToCartButton onClick={() => addItemToCartHandler(product)} />
+
                                 </div>
                             </Container>
                         </div>
