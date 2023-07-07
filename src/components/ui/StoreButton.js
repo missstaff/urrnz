@@ -10,7 +10,7 @@ const StoreButton = (props) => {
             className={classes.link}
             style={props.style} >
             <div className={classes.btn}>
-                <p>SHOP NOW</p>
+                <p>SHOP URRNZ</p>
             </div>
         </NavLink>
     );

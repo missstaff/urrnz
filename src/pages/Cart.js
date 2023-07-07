@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Heading from "../components/layout/Heading";
+import ShowIf from '../components/ShowIf';
+import StoreButton from '../components/ui/StoreButton';
 import { cartActions } from "../store/cart-slice";
 import classes from "./Cart.module.css";
 import "../general.css";
@@ -33,38 +35,52 @@ const Cart = () => {
                 <Heading title="CART" />
             </div>
             <main>
-                {items.map((item) => (
-                    <div className={` ${classes.container}`} key={item.cid}>
-                        <div className={` ${classes.gridColumns}`}>
+                <ShowIf condition={items.length} render={() => {
+                    return (
+                        items.map((item) => (
+                            <div className={` ${classes.container}`} key={item.cid}>
+                                <div className={` ${classes.gridColumns}`}>
 
-                            <img className={classes.itemImage} src={item.image} alt={item.name} />
+                                    <img className={classes.itemImage} src={item.image} alt={item.name} />
 
-                            <div style={{ alignSelf: "center" }}>
-                                <div className={classes.itemHeader}>
-                                    <h2 className={classes.itemName}>{item.name}</h2>
-                                    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-                                        <p className={classes.itemPrice}>Price ${item.price * item.quantity}</p>
-                                        <p className={classes.itemPrice}>Qty: {item.quantity}</p>
-                                        <div className={classes.itemButtons} >
-                                            <div onClick={() => increaseItemQuantityHandler(item)} className={classes.quantityButton}>
-                                                <FaPlus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
+                                    <div style={{ alignSelf: "center" }}>
+                                        <div className={classes.itemHeader}>
+                                            <h2 className={classes.itemName}>{item.name}</h2>
+                                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                                                <p className={classes.itemPrice}>Price ${item.price * item.quantity}</p>
+                                                <p className={classes.itemPrice}>Qty: {item.quantity}</p>
+                                                <div className={classes.itemButtons} >
+                                                    <div onClick={() => increaseItemQuantityHandler(item)} className={classes.quantityButton}>
+                                                        <FaPlus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
+                                                    </div>
+                                                    <div onClick={() => decreaseItemQuantityHandler(item.cid)} className={classes.quantityButton}>
+                                                        <FaMinus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div onClick={() => decreaseItemQuantityHandler(item.cid)} className={classes.quantityButton}>
-                                                <FaMinus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
-                                            </div>
+
+                                        </div>
+                                        <p style={{ fontSize: `${2.5}rem`, width: "65%", padding: `${1}rem`, marginBottom: `${2.5}rem` }}>{item.description}</p>
+
+                                        <div style={{ width: "50%", }}>
+                                            <CustomPicker />
                                         </div>
                                     </div>
-                                    
-                                </div>
-                                <p style={{fontSize: `${2.5}rem`, width: "65%", padding: `${1}rem`, marginBottom: `${2.5}rem`}}>{item.description}</p>
-
-                                <div style={{ width: "50%",}}>
-                                    <CustomPicker />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                ))}
+                        ))
+                    );
+                }} renderElse={() => {
+                    return (
+                        <>
+                            <h3 className={classes.message}>Your cart is empty</h3>
+                            <div className={classes.emptyCart}>
+                                <StoreButton style={{ fontSize: `${5}rem`, marginBottom: `${18.2}rem`, marginTop: `${9.6}rem` }} />
+                            </div>
+                        </>
+                    )
+
+                }} />
             </main>
         </section>
     );
