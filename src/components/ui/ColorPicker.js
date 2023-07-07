@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setColorHandler } from "../../store/cart-actions";
+import classes from "./ColorPicker.module.css";
+
+
 
 const colors = [
   '#B80000', '#DB3E00', '#FCCB00', '#008B02',
@@ -8,6 +11,8 @@ const colors = [
   '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5',
   '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'
 ];
+
+
 
 const ColorPicker = (props) => {
 
@@ -20,19 +25,16 @@ const ColorPicker = (props) => {
     dispatch(setColorHandler(cid, color));
   };
 
+
   return (
     <div>
       <h3>Select a color:</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '5px' }}>
+      <div className={classes.grid}>
         {colors.map((color) => (
           <div
             key={color}
-            style={{
-              backgroundColor: color,
-              width: '50px',
-              height: '50px',
-              cursor: 'pointer',
-            }}
+            style={{ backgroundColor: color }}
+            className={classes.image}
             onClick={() => handleColorChange(color)}
           />
         ))}

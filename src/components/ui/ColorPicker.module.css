@@ -1,0 +1,46 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+}
+
+.image {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        gap: 1px
+    }
+    
+    .image {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .grid {
+        gap: 0.25px;
+    }
+    
+    .image {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .grid {
+        gap: 0.25px;
+    }
+    
+    .image {
+        width: 2rem;
+        height: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+}

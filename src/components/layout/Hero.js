@@ -15,7 +15,6 @@ const Hero = () => {
     const [verticalSpacing, setVerticalSpacing] = useState(0);
 
 
-    //cleanup?
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
@@ -74,7 +73,8 @@ const Hero = () => {
                     <StoreButton
                         to="/products/all"
                         title="SHOP NOW"
-                        style={{ fontSize: `${btnFontSize}rem`, }} />
+                        style={{ fontSize: `${btnFontSize}rem`, }} 
+                    />
                 </div>
             </div>
         </div>
