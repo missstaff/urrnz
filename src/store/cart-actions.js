@@ -11,3 +11,15 @@ export const addToCartHandler = (item) => {
         }
     };
 };
+
+
+export const removeFromCartHandler = (id) => {
+    return async (dispatch) => {
+        try {
+            console.log("cart", id);
+            dispatch(cartActions.removeItemFromCart(id));
+        } catch (error) {
+            console.log(`Failed to fetch products!\n${error.message}\n${error.stack}`);
+        }
+    };
+}
