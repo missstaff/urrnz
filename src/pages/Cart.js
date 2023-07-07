@@ -4,6 +4,7 @@ import Heading from "../components/layout/Heading";
 import { cartActions } from "../store/cart-slice";
 import classes from "./Cart.module.css";
 import "../general.css";
+import CustomPicker from '../components/ui/ColorPicker';
 
 
 const Cart = () => {
@@ -32,26 +33,33 @@ const Cart = () => {
                 <Heading title="CART" />
             </div>
             <main>
-                {items.map(item => (
-                    <div
-                        key={item.cid}
-                        className={`container ${classes.container}`} >
-                        <div
-                            className={`${classes.itemContainer} ${classes.gridColumns}`}>
+                {items.map((item) => (
+                    <div className={` ${classes.container}`} key={item.cid}>
+                        <div className={` ${classes.gridColumns}`}>
 
-                            <img
-                                className={classes.itemImage}
-                                src={item.image}
-                                alt={item.name}
-                            />
+                            <img className={classes.itemImage} src={item.image} alt={item.name} />
 
-                            <div style={{ alignSelf: "flex-start" }}>
-                                <h2 style={{ fontSize: `${5}rem` }}>{item.name}</h2>
-                                <p style={{ fontSize: `${2.5}rem` }}>Price ${item.price * item.quantity}</p>
-                                <p style={{ fontSize: `${2.5}rem` }}>Qty: {item.quantity}</p>
-                                <div style={{ alignSelf: "flex-end", justifySelf: "flex-end", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                    <div onClick={() => increaseItemQuantityHandler(item)} style={{backgroundColor:"white", paddingTop: `${1}rem`, paddingBottom: `${1}rem`, paddingLeft: `${5}rem`, paddingRight: `${5}rem`, margin: `${0.5}rem`, borderStyle: "solid", borderRadius: 7.5, borderWidth: 1, borderColor: "rgba(255, 71, 0, 1)"}} ><FaPlus size={`${2}rem`} color="rgba(255, 71, 0, 1)" /></div>
-                                    <div onClick={() => decreaseItemQuantityHandler(item.cid)} style={{backgroundColor:"white",  paddingTop: `${1}rem`, paddingBottom: `${1}rem`, paddingLeft: `${5}rem`, paddingRight: `${5}rem`, margin: `${0.5}rem`, borderStyle: "solid", borderRadius: 7.5, borderWidth: 1, borderColor: "rgba(255, 71,0, 1)"}}><FaMinus size={`${2}rem`} color="rgba(255, 71, 0, 1)" /></div>
+                            <div style={{ alignSelf: "center" }}>
+                                <div className={classes.itemHeader}>
+                                    <h2 className={classes.itemName}>{item.name}</h2>
+                                    <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
+                                        <p className={classes.itemPrice}>Price ${item.price * item.quantity}</p>
+                                        <p className={classes.itemPrice}>Qty: {item.quantity}</p>
+                                        <div className={classes.itemButtons} >
+                                            <div onClick={() => increaseItemQuantityHandler(item)} className={classes.quantityButton}>
+                                                <FaPlus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
+                                            </div>
+                                            <div onClick={() => decreaseItemQuantityHandler(item.cid)} className={classes.quantityButton}>
+                                                <FaMinus size={`${1}rem`} color="rgba(255, 71, 0, 1)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <p style={{fontSize: `${2.5}rem`, width: "65%", padding: `${1}rem`, marginBottom: `${2.5}rem`}}>{item.description}</p>
+
+                                <div style={{ width: "50%",}}>
+                                    <CustomPicker />
                                 </div>
                             </div>
                         </div>

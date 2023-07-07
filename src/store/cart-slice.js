@@ -26,6 +26,7 @@ const cartSlice = createSlice({
                     isTaxable: true,
                     sku8: newItem.sku8,
                     cid: state.items.length + 1,
+                    description: newItem.description,
 
                 });
             }

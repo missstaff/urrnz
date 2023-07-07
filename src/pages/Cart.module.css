@@ -2,46 +2,89 @@
     border-radius: 7.5px;
     background-color: rgba(255, 236, 209, 0.20);
     margin-bottom: 9.6rem;
-    padding: 2.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4.4rem;
     display: flex;
     flex-direction: column;
-}
+    max-width: 150rem;
+  }
 
-.itemContainer {
+  .itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+
+  .gridColumns {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  
+  .itemImage {
+    width: auto;
+    height: 50rem;
+    object-fit: cover;
+  }
+  
+  .itemDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .itemName {
+    font-size: 5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    margin: 0;
+  }
+  
+  .itemPrice {
+    font-size: 2.5rem;
+    padding-bottom: 0.25rem;
+    margin: 0;
+  }
+  
+  
+  .itemButtons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.gridColumns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.itemImage {
-    width: auto;
-    height: 50rem;
-    object-fit: cover;
-}
-
-@media screen and (max-width: 1024px) {
+  }
+  
+  .quantityButton {
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border-style: solid;
+    border-radius: 7.5px;
+    border-width: 1px;
+    border-color: rgba(255, 71, 0, 1);
+  }
+  
+  @media screen and (max-width: 1024px) {
     .productContainer {
-        flex-direction: column;
-
+      flex-direction: column;
     }
-
+  
     .gridColumns {
-        grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
-
-}
-
-
-@media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 768px) {
     .productImage {
-        width: auto;
-        height: 25rem;
-        object-fit: cover;
+      width: auto;
+      height: 25rem;
+      object-fit: cover;
     }
-}
+  }
+  
