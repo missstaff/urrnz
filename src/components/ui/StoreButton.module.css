@@ -15,7 +15,7 @@
 }
 
 .link p {
-    color: var(--color-secondary-500);
+    color: var(--color-white);
     line-height: 2;
     font-weight: 900;
     margin: 0;
@@ -24,6 +24,6 @@
 
 .link p:hover,
 .link p:active {
-    color: var(--color-white);
+    color: var(--color-secondary-500);
 
 }

@@ -72,6 +72,8 @@ const Hero = () => {
                 <div
                     style={{ marginTop: `${verticalSpacing}rem` }}>
                     <StoreButton
+                        to="/products/all"
+                        title="SHOP NOW"
                         style={{ fontSize: `${btnFontSize}rem`, }} />
                 </div>
             </div>

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setColorHandler } from "../../store/cart-actions";
 
 const colors = [
   '#B80000', '#DB3E00', '#FCCB00', '#008B02',
@@ -7,12 +9,15 @@ const colors = [
   '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'
 ];
 
-const ColorPicker = () => {
+const ColorPicker = (props) => {
+
+  const { cid } = props;
+  const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = useState('');
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
-    // You can perform additional actions here when a color is selected
+    dispatch(setColorHandler(cid, color));
   };
 
   return (
