@@ -1,0 +1,228 @@
+.container {
+  border-radius: 7.5px;
+  background-color: rgba(255, 236, 209, 0.20);
+  margin-bottom: 9.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 150rem;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9.6rem;
+  margin-bottom: 9.6rem;
+}
+
+.message {
+  font-size: 5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+.gridColumns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.itemImage {
+  width: auto;
+  height: 50rem;
+  object-fit: cover;
+}
+
+.itemDescription { 
+  font-size: 3rem;
+  width: 65%;
+  padding: 1rem; 
+  margin-bottom: 2.5rem; 
+  width: 100%
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.itemName {
+  font-size: 5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin: 0;
+}
+
+.itemPrice {
+  font-size: 2.5rem;
+  padding-bottom: 0.25rem;
+  margin: 0;
+}
+
+
+.itemButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantityButton {
+  background-color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  border-style: solid;
+  border-radius: 7.5px;
+  border-width: 1px;
+  border-color: rgba(255, 71, 0, 1);
+}
+
+.horizontalLine {
+  background-color: rgba(255, 71, 0, 1);
+  border: none;
+  height: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.pickerContainer { 
+  width: 50%; 
+}
+
+.subTotal { 
+  font-size: 3.8rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .itemImage {
+    height: 35rem;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .gridColumns{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .itemImage {
+    width: auto;
+    height: 25rem;
+    object-fit: cover;
+  }
+
+  .pickerContainer { 
+    width: 75%; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .itemName {
+    font-size: 3.8rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .subTotal { 
+    font-size: 2.2rem;
+  }
+
+  .container{
+    margin-bottom: 4.8rem;
+  }
+
+  .message{
+    text-align: center;
+  }
+}
+
+
+
+@media screen and (max-width: 425px) {
+  .container {
+    padding: 2.2rem;
+  }
+
+  .itemImage {
+    height: 20rem;
+  }
+
+  .itemName {
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .itemPrice {
+    font-size: 1.8rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .quantityButton {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .itemDescription{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 2.2rem;
+  }
+
+  .itemImage {
+    height: 15rem;
+  }
+
+  .itemName {
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .itemPrice {
+    font-size: 1.4rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .quantityButton {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .itemDetails {
+    align-items: center;
+  }
+
+  .itemDescription{
+    font-size: 1.8rem;
+  }
+
+}

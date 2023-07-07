@@ -2,7 +2,7 @@
     background-color: rgba(255, 236, 209, 1.0);
     border: 1px solid var(--color-secondary-500);
     border-radius: 50px;
-    padding: 0.25rem 4rem;
+    padding: 0.5rem 9.6rem;
     cursor: pointer;
     text-align: center;
     text-transform: capitalize;
@@ -15,7 +15,7 @@
 }
 
 .link p {
-    color: var(--color-secondary-500);
+    color: var(--color-white);
     line-height: 2;
     font-weight: 900;
     margin: 0;
@@ -24,6 +24,12 @@
 
 .link p:hover,
 .link p:active {
-    color: var(--color-white);
+    color: var(--color-secondary-500);
 
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 0.5rem 4.8rem;
+    }
 }

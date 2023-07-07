@@ -1,24 +1,30 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import AddToCartButton from "../components/ui/AddToCartButton";
 import Heading from "../components/layout/Heading";
+import { addToCartHandler } from "../store/cart-actions";
 
 import classes from "./Product.module.css";
 import "../general.css";
 
 
-import { NavLink } from 'react-router-dom';
-import AddToCartButton from "../components/ui/AddToCartButton";
 
-//finish moving styles to css files
+
 const Product = () => {
 
     const { id } = useParams();
+    const dispatch = useDispatch();
     const store = useSelector((state) => state.store);
     const category = store.category;
     const products = store.products;
     const product = products.find((product) => product.zid === id);
 
+
+    
+    const addItemToCartHandler = (product) => {
+        dispatch(addToCartHandler(product));
+    }
 
     return (
         <div
@@ -80,10 +86,9 @@ const Product = () => {
                             }
                         </div>
                         <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingBottom: `${2.2}rem` }}>
-                            <AddToCartButton />
+                            <AddToCartButton onClick={() => addItemToCartHandler(product)} />
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
