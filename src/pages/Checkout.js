@@ -6,7 +6,7 @@ import Heading from "../components/layout/Heading";
 import PaymentForm from "../components/forms/PaymentForm";
 import Review from "../components/forms/Review";
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Shipping Details", "Payment Details", "Review"];
 
 const getStepContent = (activeStep, handleBack, handleNext, steps) => {
   console.log("activeStep", activeStep)
@@ -53,7 +53,8 @@ const Checkout = () => {
           paddingTop: `${4.8}rem`,
           paddingBottom: `${4.8}rem`,
         }}>
-          {/* <h3 style={{ padding: `${2.2}rem` }}>{steps[activeStep]}</h3> */}
+          <h2 style={{ fontSize: `${5}rem`, paddingTop: `${4.4}rem`, paddingBottom: `${9.6}rem`, textAlign: "center" }}>{steps[activeStep]}</h2>
+          <hr />
           {getStepContent(activeStep, handleBack, handleNext, steps)}
         </Container>
       </main>

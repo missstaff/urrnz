@@ -14,6 +14,12 @@ const PaymentForm = ({activeStep, handleBack, handleNext, steps}) => {
     };
 
 
+    const cart = useSelector((state) => state.cart);
+    const customer = useSelector((state) => state.customer);
+    console.log("cart", cart);
+    console.log("customer", customer);
+
+    
     return (
         <div>
             <h1>Payment Form</h1>

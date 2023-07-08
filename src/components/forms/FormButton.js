@@ -3,9 +3,11 @@ import classes from "./FormButton.module.css";
 
 
 const FormButton = (props) => {
+    
     return (
         <NavLink
-            onClick={props.onClick}
+            onClick={props.disabled ? undefined : props.onClick}
+            style={{cursor: props.disabled ? "not-allowed" : "pointer"}}
             to={props.to}
             className={classes.button}
             exact="true">
