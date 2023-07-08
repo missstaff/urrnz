@@ -4,6 +4,7 @@ import { useMediaQuery } from "./useMediaQuery";
 
 export const useScreenSize = () => {
 
+
     const closestMedia = useClosestMedia({
         queries: ["xs", "sm", "md", "lg", "xl", "2xl"],
     });
@@ -16,9 +17,8 @@ export const useScreenSize = () => {
     const isSmallScreen = useMediaQuery("sm") && closestMedia === "sm";
     const isExtraSmallScreen = useMediaQuery("xs") && closestMedia === "xs";
 
+    
     let screenSize = "default";
-    
-    
     switch (true) {
         case is2XLScreen:
             screenSize = "2xl";

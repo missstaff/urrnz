@@ -18,8 +18,9 @@ const Products = () => {
 
 
     const dispatch = useDispatch();
-    const { category } = useParams();
     const screenSize = useScreenSize();
+    const { category } = useParams();
+    
     const store = useSelector(state => state.store);
     const products = store.products;
 

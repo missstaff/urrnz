@@ -26,7 +26,7 @@ export const setColorHandler = (id, color) => {
     return async (dispatch) => {
         try {
             console.log("cart", id, color);
-            dispatch(cartActions.setItemColor({id, color}));
+            dispatch(cartActions.setItemColor({ id, color }));
         } catch (error) {
             console.log(`Failed to set item color!\n${error.message}\n${error.stack}`);
         }

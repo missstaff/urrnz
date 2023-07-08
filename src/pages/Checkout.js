@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import AddressForm from '../components/forms/AddressForm';
-import FormButton from '../components/forms/FormButton';
-import Heading from '../components/layout/Heading';
-import PaymentForm from '../components/forms/PaymentForm';
-import Review from '../components/forms/Review';
+import { useState } from "react";
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+import AddressForm from "../components/forms/AddressForm";
+import Heading from "../components/layout/Heading";
+import PaymentForm from "../components/forms/PaymentForm";
+import Review from "../components/forms/Review";
 
-function getStepContent(step) {
+
+const steps = ["Shipping address", "Payment details", "Review your order"];
+
+
+const getStepContent = (step) => {
   switch (step) {
     case 0:
       return <AddressForm />;
@@ -16,11 +18,11 @@ function getStepContent(step) {
     case 2:
       return <Review />;
     default:
-      throw new Error('Unknown step');
+      throw new Error("Unknown step");
   }
-}
+};
 
-export default function Checkout() {
+const Checkout = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -47,4 +49,6 @@ export default function Checkout() {
       </main>
     </section>
   );
-}
+};
+
+export default Checkout;
