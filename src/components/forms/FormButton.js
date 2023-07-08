@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import classes from "./AddToCartButton.module.css";
+import classes from "./FormButton.module.css";
 
 
-const AddToCartButton = (props) => {
+const FormButton = (props) => {
     return (
         <NavLink
             onClick={props.onClick}
@@ -14,4 +14,4 @@ const AddToCartButton = (props) => {
     );
 };
 
-export default AddToCartButton;
+export default FormButton;

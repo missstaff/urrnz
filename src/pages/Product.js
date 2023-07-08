@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import AddToCartButton from "../components/ui/AddToCartButton";
+import AddToCartButton from "../components/forms/FormButton";
 import Heading from "../components/layout/Heading";
 import { addToCartHandler } from "../store/cart-actions";
 

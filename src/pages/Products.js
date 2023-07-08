@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-import AddToCartButton from "../components/ui/AddToCartButton";
+import AddToCartButton from "../components/forms/FormButton";
 import { storeActions } from "../store/store-slice";
 import { useScreenSize } from "../hooks/useScreenSize";
 import { addToCartHandler } from "../store/cart-actions";
