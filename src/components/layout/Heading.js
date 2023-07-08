@@ -1,4 +1,4 @@
-import classes from './Heading.module.css';
+import classes from "./Heading.module.css";
 
 
 const Heading = (props) => {
