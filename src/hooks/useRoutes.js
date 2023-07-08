@@ -10,7 +10,6 @@ import Home from '../pages/Home';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import RootLayout from '../pages/RootLayout';
-import Shipping from '../pages/Shipping';
 
 
 export const router = createBrowserRouter([
@@ -26,8 +25,7 @@ export const router = createBrowserRouter([
       { path: 'confirmation', element: <Confirmation /> },
       { path: 'contact', element: <Contact /> },
       { path: 'products/:category', element: <Products /> },
-      { path: 'product/:id', element: <Product /> }, //mY NEED TO UPDATE THIS
-      { path: 'shipping', element: <Shipping /> },
+      { path: 'product/:id', element: <Product /> },
     ],
   },
 ]);

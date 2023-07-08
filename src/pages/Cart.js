@@ -115,7 +115,7 @@ const Cart = () => {
                 />
                 <div className={classes.cartButton}>
                     <StoreButton 
-                        to={!items.length ? "/products/all" : "/shipping"} 
+                        to={!items.length ? "/products/all" : "/checkout"} 
                         title={!items.length ? "SHOP URRNZ" : "SHIPPING"} 
                         style={{ fontSize: `${btnFontSize}rem`, }}
                     />

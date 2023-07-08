@@ -62,6 +62,14 @@
     padding-bottom: 0.1rem;
 }
 
+.buttonContainer { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    padding-bottom: 2.2rem;
+}
+
 
 @media screen and (max-width: 1024px) {
     .productContainer {
@@ -88,7 +96,6 @@
         font-size: 1.8rem;
         padding-bottom: 0.1rem;
     }
-
 }
 
 

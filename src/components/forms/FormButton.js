@@ -6,10 +6,10 @@ const FormButton = (props) => {
     return (
         <NavLink
             onClick={props.onClick}
-            to="/cart"
+            to={props.to}
             className={classes.button}
             exact="true">
-            ADD TO CART
+            {props.title}
         </NavLink>
     );
 };
