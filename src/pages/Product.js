@@ -1,30 +1,32 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import AddToCartButton from "../components/ui/AddToCartButton";
+
+import FormButton from "../components/forms/FormButton";
 import Heading from "../components/layout/Heading";
+
 import { addToCartHandler } from "../store/cart-actions";
 
 import classes from "./Product.module.css";
 import "../general.css";
 
 
-
-
 const Product = () => {
 
     const { id } = useParams();
     const dispatch = useDispatch();
+
     const store = useSelector((state) => state.store);
-    const category = store.category;
     const products = store.products;
+
     const product = products.find((product) => product.zid === id);
+    const category = store.category;
 
 
-    
+
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
-    }
+    };
+
 
     return (
         <div
@@ -37,16 +39,17 @@ const Product = () => {
             <NavLink
                 className={classes.link}
                 to={`/products/${category}`}>
-                {<span>&larr;</span>}Back
+                {<span>&larr;</span>}
+                Back
             </NavLink>
             <div
                 className={`container ${classes.container}`} >
                 <div
                     className={`${classes.productContainer} ${classes.gridColumns}`}>
                     <img
+                        alt={product.name}
                         className={classes.productImage}
                         src={product.images.lg}
-                        alt={product.name}
                     />
                     <div>
                         <div
@@ -85,8 +88,13 @@ const Product = () => {
                                 )
                             }
                         </div>
-                        <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingBottom: `${2.2}rem` }}>
-                            <AddToCartButton onClick={() => addItemToCartHandler(product)} />
+                        <div
+                            className={classes.buttonContainer}>
+                            <FormButton
+                                title="ADD TO CART"
+                                to="/cart"
+                                onClick={() => addItemToCartHandler(product)}
+                            />
                         </div>
                     </div>
                 </div>

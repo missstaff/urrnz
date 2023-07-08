@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-import AddToCartButton from "../components/ui/AddToCartButton";
+import FormButton from "../components/forms/FormButton";
+
+import { addToCartHandler } from "../store/cart-actions";
 import { storeActions } from "../store/store-slice";
 import { useScreenSize } from "../hooks/useScreenSize";
-import { addToCartHandler } from "../store/cart-actions";
+
 import classes from "./Products.module.css";
 import "../general.css";
 
 
 const Products = () => {
 
-   // touchable opcaity into its own wrappr component?
-    const dispatch = useDispatch(); 
-    const { category } = useParams();
+
+    const dispatch = useDispatch();
     const screenSize = useScreenSize();
+    const { category } = useParams();
+    
     const store = useSelector(state => state.store);
     const products = store.products;
 
@@ -35,9 +38,12 @@ const Products = () => {
                 setCategoryProducts(filteredProducts);
             }
         };
+
         setProducts();
         dispatch(storeActions.setCategory(category));
-    }, [category, dispatch]);
+
+    }, [category, dispatch, products]);
+
 
 
     useEffect(() => {
@@ -98,7 +104,7 @@ const Products = () => {
                                 }}>
                                 <NavLink
                                     to={`/product/${product.zid}`}
-                                    >
+                                >
                                     <div
                                         style={{
                                             alignSelf: "center",
@@ -120,7 +126,7 @@ const Products = () => {
                                             style={{
                                                 alignSelf: "center",
                                                 margin: "5%",
-                                                borderRadius: 7,
+                                                borderRadius: 7.5,
                                                 height: `${imageHeight}rem`,
                                                 resizeMode: "contain",
                                             }}
@@ -151,7 +157,10 @@ const Products = () => {
                                 <div
                                     className={classes.buttonContainer}
                                     style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                    <AddToCartButton onClick={() => addItemToCartHandler(product)} />
+                                    <FormButton 
+                                        title="ADD TO CART" 
+                                        to="/cart" 
+                                        onClick={() => addItemToCartHandler(product)} />
 
                                 </div>
                             </Container>

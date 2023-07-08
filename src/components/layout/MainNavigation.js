@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
-import { NavLink, useLocation } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
+import { NavLink, useLocation } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 import LogoHeader from "./Logo";
 import { useScreenSize } from "../../hooks/useScreenSize";
 
-import classes from './MainNavigation.module.css';
-
+import classes from "./MainNavigation.module.css";
 
 
 function MainNavigation() {
@@ -23,7 +22,6 @@ function MainNavigation() {
     const [isSticky, setIsSticky] = useState(false);
 
 
-    //cleanup?
     useEffect(() => {
         const setSizes = () => {
             if (screenSize === "default") {
@@ -64,10 +62,13 @@ function MainNavigation() {
 
 
     return (
-        <header className={`${isSticky ? classes.sticky : ""} ${classes.header} ${isMenuVisible ? `${classes.navOpen}` : ""} `}>
+        <header
+            className={`${isSticky ? classes.sticky : ""} ${classes.header} ${isMenuVisible ? `${classes.navOpen}` : ""} `}>
             <LogoHeader />
-            <nav className={`${classes.mainNav} ${isMenuVisible ? `${classes.mobileNav}` : ""}`}>
-                <ul className={classes.list}>
+            <nav
+                className={`${classes.mainNav} ${isMenuVisible ? `${classes.mobileNav}` : ""}`}>
+                <ul
+                    className={classes.list}>
                     <li>
                         <NavLink
                             to="/"
@@ -130,8 +131,21 @@ function MainNavigation() {
 
 
             <button className={classes.mobileNav} onClick={handleMobileNavClick}>
-                <NavLink className={classes.iconMobileNav} name="menu-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
-                <NavLink className={classes.iconMobileNav} name="close-outline"><FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" /></NavLink>
+                <NavLink
+                    className={classes.iconMobileNav}
+                    name="menu-outline">
+                    <FaGripLines
+                        size={`${mobileNavBtnSize}rem`}
+                        color="rgba(255, 71, 0, 1)" />
+                </NavLink>
+                <NavLink
+                    className={classes.iconMobileNav}
+                    name="close-outline">
+                    <FaGripLines
+                        size={`${mobileNavBtnSize}rem`}
+                        color="rgba(255, 71, 0, 1)"
+                    />
+                </NavLink>
             </button>
         </header>
     );

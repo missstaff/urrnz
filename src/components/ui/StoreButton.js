@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
+
 import classes from "./StoreButton.module.css";
 
 
 const StoreButton = (props) => {
     return (
-
         <NavLink
             to={props.to}
             className={classes.link}

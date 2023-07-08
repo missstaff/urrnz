@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import { fetchProducts } from './store/store-actions';
-import { router } from './hooks/useRoutes';
+import { fetchProducts } from "./store/store-actions";
+import { router } from "./hooks/useRoutes";
 
 
 function App() {

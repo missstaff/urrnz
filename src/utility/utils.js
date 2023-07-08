@@ -1,12 +1,10 @@
 import { sizes } from "../config/constants";
 
 
-
 export const isMatch = (media) => {
   const query = `(min-width: ${sizes[media]})`;
   return window.matchMedia(query).matches;
 };
-
 
 export const findClosest = (queries) => {
   for (let i = queries.length - 1; i >= 0; i--) {
@@ -14,5 +12,5 @@ export const findClosest = (queries) => {
       return queries[i];
     }
   }
-  return 'xs';
+  return "xs";
 };

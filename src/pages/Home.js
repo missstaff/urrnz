@@ -8,8 +8,6 @@ import "../general.css";
 
 
 const Home = () => {
-    
-
     return (
         <main className={`grid`}>
             <section id="home">
@@ -18,11 +16,11 @@ const Home = () => {
             <section id="about">
                 <Heading
                     title="ABOUT" />
-                <About/>
+                <About />
             </section>
             <section id="faqs"
                 className={classes.faqsMarginBottom}>
-                <Heading  
+                <Heading
                     title="FAQs" />
                 <FAQ />
             </section>

@@ -1,13 +1,13 @@
 .grid {
+    gap: 5px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 5px;
 }
 
 .image {
-    width: 5rem;
-    height: 5rem;
     cursor: pointer;
+    height: 5rem;
+    width: 5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -16,8 +16,8 @@
     }
     
     .image {
-        width: 4rem;
         height: 4rem;
+        width: 4rem;
     }
 }
 
@@ -27,8 +27,8 @@
     }
     
     .image {
-        width: 3rem;
         height: 3rem;
+        width: 3rem;
     }
 }
 
@@ -38,9 +38,9 @@
     }
     
     .image {
-        width: 2rem;
         height: 2rem;
         margin-left: auto;
         margin-right: auto;
+        width: 2rem;
     }    
 }
