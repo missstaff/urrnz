@@ -5,9 +5,7 @@ import Heading from "../components/layout/Heading";
 import PaymentForm from "../components/forms/PaymentForm";
 import Review from "../components/forms/Review";
 
-
 const steps = ["Shipping address", "Payment details", "Review your order"];
-
 
 const getStepContent = (step) => {
   switch (step) {
@@ -23,7 +21,6 @@ const getStepContent = (step) => {
 };
 
 const Checkout = () => {
-
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -36,16 +33,23 @@ const Checkout = () => {
 
   return (
     <section>
-      <div
-        className="headingContainer">
-        <Heading
-          title="CHECKOUT" />
+      <div className="headingContainer">
+        <Heading title="CHECKOUT" />
       </div>
 
-     
       <main>
-
-    
+        <div>
+          <h3>{steps[activeStep]}</h3>
+          {getStepContent(activeStep)}
+          <div>
+            <button onClick={handleBack} disabled={activeStep === 0}>
+              Back
+            </button>
+            <button onClick={handleNext} disabled={activeStep === steps.length - 1}>
+              Next
+            </button>
+          </div>
+        </div>
       </main>
     </section>
   );
