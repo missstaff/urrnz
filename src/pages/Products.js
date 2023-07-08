@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-import FormButton from "../components/forms/FormButton";
+import AddToCartButton from "../components/ui/AddToCartButton";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { storeActions } from "../store/store-slice";
@@ -157,11 +157,8 @@ const Products = () => {
                                 <div
                                     className={classes.buttonContainer}
                                     style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                    <FormButton 
-                                        title="ADD TO CART" 
-                                        to="/cart" 
+                                    <AddToCartButton 
                                         onClick={() => addItemToCartHandler(product)} />
-
                                 </div>
                             </Container>
                         </div>

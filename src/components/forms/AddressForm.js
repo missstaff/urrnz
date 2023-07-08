@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import FormButton from "./FormButton";
+import FormButton from "../ui/AddToCartButton";
 
 import { setCustomerHandler } from "../../store/customer-actions";
 

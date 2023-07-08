@@ -1,7 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import FormButton from "../components/forms/FormButton";
+import AddToCartButton from "../components/ui/AddToCartButton";
 import Heading from "../components/layout/Heading";
 
 import { addToCartHandler } from "../store/cart-actions";
@@ -90,9 +90,7 @@ const Product = () => {
                         </div>
                         <div
                             className={classes.buttonContainer}>
-                            <FormButton
-                                title="ADD TO CART"
-                                to="/cart"
+                            <AddToCartButton
                                 onClick={() => addItemToCartHandler(product)}
                             />
                         </div>
