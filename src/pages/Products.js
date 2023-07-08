@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";

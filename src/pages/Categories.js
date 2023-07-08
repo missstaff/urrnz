@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";

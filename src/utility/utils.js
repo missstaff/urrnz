@@ -12,5 +12,5 @@ export const findClosest = (queries) => {
       return queries[i];
     }
   }
-  return 'xs';
+  return "xs";
 };
