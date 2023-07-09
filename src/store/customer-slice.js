@@ -44,6 +44,11 @@ const customerSlice = createSlice({
         setShippingSameAsBilling(state, action) {
             state.customer.isShippingSameAsBilling = action.payload;
         },
+
+        setCardDetails(state, action) {
+            // state.customer.cardDetails = action.payload;
+            console.log("setCardDetails", action.payload);
+        },
     },
 });
 

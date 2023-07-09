@@ -19,5 +19,15 @@ export const updateShippingSameAsBillingHandler = (isSame) => {
             console.log(`Failed to update shipping same as billing!\n${error.message}\n${error.stack}`);
         }
     };
-}
+};
+
+export const setCardDetailsHandler = (cardDetails) => {
+    return async (dispatch) => {
+        try {
+            dispatch(customerActions.setCardDetails(cardDetails));
+        } catch (error) {
+            console.log(`Failed to set card details!\n${error.message}\n${error.stack}`);
+        }
+    };
+};
 
