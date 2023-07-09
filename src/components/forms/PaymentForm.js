@@ -47,13 +47,14 @@ const PaymentForm = () => {
                         }}
                             type="text"
                             id="ccv"
-                            name="ccv" />
+                            name="ccv"
+                             />
 
-                        <ErrorMessage style={{ color: "#ff5900" }} name="cvv" component="div" />
+                        <ErrorMessage style={{ color: "#ff5900" }} name="ccv" component="div" />
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%" }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="phone">Month</label>
+                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="month">Month</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,
@@ -61,13 +62,14 @@ const PaymentForm = () => {
                         }}
                             type="text"
                             id="month"
-                            name="month" />
+                            name="month"
+                            />
 
                         <ErrorMessage style={{ color: "#ff5900" }} name="month" component="div" />
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%", gap: `${0.15}rem` }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="addressLine1">Year</label>
+                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="year">Year</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,

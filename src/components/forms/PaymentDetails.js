@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import FormButton from "./FormButton";
@@ -53,7 +54,6 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
       };
     }
     dispatch(setCardDetailsHandler(newValues));
-
     handleNext();
   };
 
@@ -74,7 +74,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
           paddingTop: `${9.6}rem`,
 
         }}>
-          <PaymentForm />
+          <PaymentForm/>
           <ShowIf
             condition={!shippingIsBilling}
             render={() => {
