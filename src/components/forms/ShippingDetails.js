@@ -11,6 +11,8 @@ import { addressValidationSchema, postRequestHandler } from "../../utility/utils
 
 import { FETCH_TAX } from "../../config/constants";
 
+import classes from "./ShippingDetails.module.css";
+
 
 const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
@@ -18,7 +20,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
     const customer = useSelector(state => state.customer);
     const shippingAddress = customer.customer.shippingAddress;
-    
+
     const store = useSelector(state => state.store);
     const shippingOptions = store.shippingOptions;
     const orderTemplate = store.orderTemplate;
@@ -36,6 +38,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         city: shippingAddress?.city || "",
         state: shippingAddress?.stateCd || "",
         zipCode: shippingAddress?.postalCd || "",
+        message: customer.customer?.message || "",
     };
 
     const handleShippingSameAsBillingChange = () => {
@@ -122,7 +125,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                     id="shippingIsBilling"
                                     name="shippingIsBilling"
                                     checked={customer.customer?.isShippingSameAsBilling || isShippingSameAsBilling}
-                                    // onChange={handleShippingSameAsBillingChange}
+
                                     onClick={handleShippingSameAsBillingChange}
                                 />
                             </div>
@@ -171,6 +174,33 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                 </div>
                             );
                         })}
+
+                        <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
+                            <label
+                                style={{
+                                    fontSize: `${1.8}rem`,
+                                }}
+                                htmlFor="message">
+                                Message:
+                            </label>
+                            <Field
+                                style={{
+                                    fontSize: `${2.4}rem`,
+                                    paddingTop: `${0.5}rem`,
+                                    paddingLeft: `${0.5}rem`,
+                                    fontWeight: 400,
+                                    width: "100%",
+                                    height: `${25}rem`,
+                                }}
+                                as="textarea"
+                                id="message"
+                                name="message"
+                                className={classes.placeholderColor}
+                                placeholder="Name for inscription, special instructions."
+
+                            />
+                           
+                        </div>
                     </div>
 
                 </div>

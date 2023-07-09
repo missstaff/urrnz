@@ -13,6 +13,7 @@ const customerSlice = createSlice({
             shippingAddress: {},
             cardDetails: {},
             tax: 0,
+            message: "",
         },
     },
     reducers: {
@@ -40,6 +41,7 @@ const customerSlice = createSlice({
             state.customer.phone = action.payload.phone;
             state.customer.shippingAddress = shippingAddress;
             state.customer.fullName = action.payload.fullName;
+            state.customer.message = action.payload.message;
         },
 
         setShippingSameAsBilling(state, action) {
@@ -57,8 +59,7 @@ const customerSlice = createSlice({
                 year: action.payload.year,
                 zipCode: action.payload.zipCode,
             }
-            console.log("action payload", action.payload)
-            console.log("state billing object", state.customer.isShippingSameAsBilling)
+
             if (!state.customer.isShippingSameAsBilling) {
                 const tempBillingAddress = {
                     address: action.payload.addressLine1,

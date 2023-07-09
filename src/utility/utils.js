@@ -63,6 +63,9 @@ export const addressValidationSchema = Yup.object().shape({
     .string()
     .matches(/^[a-zA-Z0-9\s\.\#\-]+$/, "Enter a valid street address")
     .required("A street address or P.O Box required"),
+  message: Yup
+    .string()
+    .notRequired(),
 });
 
 export const cardValidationSchema = Yup.object().shape({
@@ -96,7 +99,7 @@ export const cardValidationSchema = Yup.object().shape({
     .test("is-greater-than-current-month", "Date must be greater than or equal to the current date", function (value) {
       if (value) {
         const currentYear = new Date().getFullYear();
-        const currentMonth = new Date().getMonth() + 1; 
+        const currentMonth = new Date().getMonth() + 1;
         const yearNumber = parseInt(this.parent.year, 10);
         const monthNumber = parseInt(value, 10);
 
@@ -184,7 +187,7 @@ export const addressAndCardValidationSchema = Yup.object().shape({
     .test("is-greater-than-current-month", "Date must be greater than or equal to the current date", function (value) {
       if (value && this.parent.year) {
         const currentYear = new Date().getFullYear();
-        const currentMonth = new Date().getMonth() + 1; 
+        const currentMonth = new Date().getMonth() + 1;
         const yearNumber = parseInt(this.parent.year, 10);
         const monthNumber = parseInt(value, 10);
 
@@ -211,4 +214,7 @@ export const addressAndCardValidationSchema = Yup.object().shape({
       return true;
     })
     .required("Year required"),
+  message: Yup
+    .string()
+    .notRequired(),
 });
