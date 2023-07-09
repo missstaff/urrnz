@@ -27,8 +27,8 @@ const customerSlice = createSlice({
                 type: "shipping"
             };
 
-            if(action.payload.isShippingSameAsBilling){
-                
+            if (action.payload.isShippingSameAsBilling) {
+
                 const temp = {
                     ...shippingAddress,
                     type: "billing"
@@ -43,16 +43,39 @@ const customerSlice = createSlice({
         },
 
         setShippingSameAsBilling(state, action) {
-            if(!action.payload){
+            if (!action.payload) {
                 state.customer.billingAddress = {};
             }
             state.customer.isShippingSameAsBilling = action.payload;
         },
 
         setCardDetails(state, action) {
-            state.customer.cardDetails = action.payload;
-        },
-    },
+            const tempCardDetails = {
+                cc_number: action.payload.cc_number,
+                ccv: action.payload.ccv,
+                month: action.payload.month,
+                year: action.payload.year,
+                zipCode: action.payload.zipCode,
+            }
+            console.log("action payload", action.payload)
+            console.log("state billing object", state.customer.isShippingSameAsBilling)
+            if (!state.customer.isShippingSameAsBilling) {
+                const tempBillingAddress = {
+                    address: action.payload.addressLine1,
+                    address2: action.payload.addressLine1,
+                    addressee: action.payload.fullName,
+                    city: action.payload.city,
+                    postalCd: action.payload.zipCode,
+                    stateCd: action.payload.state,
+                    type: "billing"
+                }
+
+                state.customer.billingAddress = tempBillingAddress;
+            }
+
+            state.customer.cardDetails = tempCardDetails;
+        }
+    }
 });
 
 

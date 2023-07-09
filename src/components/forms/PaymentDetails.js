@@ -30,11 +30,11 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
     fullName: customer.customer?.fullName || "",
     email: customer.customer?.email || "",
     phone: customer.customer?.phone || "",
-    addressLine1: "",
-    addressLine2: "",
-    city: "",
-    state: "",
-    zipCode: "",
+    addressLine1: customer.customer?.billingAddress.address || "",
+    addressLine2: customer.customer?.billingAddress.address2 || "",
+    city: customer.customer?.billingAddress.city || "",
+    state: customer.customer?.billingAddress.stateCd || "",
+    zipCode: customer.customer?.billingAddress.postalCd || "",
   };
 
   const initialValues = shippingIsBilling ? initialValuesWithBillingAddress : initialValuesWithoutBillingAddress;
