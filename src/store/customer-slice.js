@@ -25,8 +25,7 @@ const customerSlice = createSlice({
                 stateCd: action.payload.state,
                 type: "shipping"
             };
-   
-            console.log("action.payload.isShippingSameAsBilling", action.payload.isShippingSameAsBilling)
+
 
             if(action.payload.isShippingSameAsBilling){
                 const temp = {
@@ -36,11 +35,14 @@ const customerSlice = createSlice({
 
                 state.customer.billingAddress = temp;
             }
-            state.customer.isShippingSameAsBilling = action.payload.isShippingSameAsBilling;
             state.customer.email = action.payload.email;
             state.customer.phone = action.payload.phone;
             state.customer.shippingAddress = shippingAddress;
             state.customer.fullName = action.payload.fullName;
+        },
+
+        setShippingSameAsBilling(state, action) {
+            state.customer.isShippingSameAsBilling = action.payload;
         },
     },
 });

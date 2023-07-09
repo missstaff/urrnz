@@ -21,7 +21,7 @@ const Cart = () => {
 
     const cart = useSelector(state => state.cart);
     const items = cart.items;
-    const totalAmount = cart.totalAmount;
+    const subTotal = cart.subTotal;
     // const totalQuantity = cart.totalQuantity;
     // const shipping = cart.shipping;
     // const changed = cart.changed;
@@ -161,7 +161,7 @@ const Cart = () => {
                                     }}>
                                     <p
                                         className={classes.subTotal}>
-                                        Subtotal: ${totalAmount}
+                                        Subtotal: ${subTotal}
                                     </p>
                                 </div>
                             </div>

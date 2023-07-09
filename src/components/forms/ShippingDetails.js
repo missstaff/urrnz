@@ -5,7 +5,7 @@ import { Formik, Field, Form } from "formik";
 import AddressForm from "./AddressForm";
 import FormButton from "./FormButton";
 
-import { setCustomerHandler } from "../../store/customer-actions";
+import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../store/customer-actions";
 import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
 import { addressValidationSchema, postRequestHandler } from "../../utility/utils";
 
@@ -17,32 +17,36 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
     const dispatch = useDispatch();
 
+    const customer = useSelector(state => state.customer);
+    const shippingAddress = customer.customer.shippingAddress;
     const store = useSelector(state => state.store);
     const shippingOptions = store.shippingOptions;
     const orderTemplate = store.orderTemplate;
-
-    const customer = useSelector(state => state.customer);
 
     const [isShippingSameAsBilling, setIsShippingSameAsBilling] = useState(false);
     const [shippingOption, setShippingOption] = useState(1);
 
 
     const initialValues = {
-        fullName: "",
-        email: "",
-        phone: "",
-        addressLine1: "",
-        addressLine2: "",
-        city: "",
-        state: "",
-        zipCode: "",
+        fullName: customer.customer?.fullName || "",
+        email: customer.customer?.email || "",
+        phone: customer.customer?.phone || "",
+        addressLine1: shippingAddress?.address || "",
+        addressLine2: shippingAddress?.address2 || "",
+        city: shippingAddress?.city || "",
+        state: shippingAddress?.stateCd || "",
+        zipCode: shippingAddress?.postalCd || "",
+    };
+
+    const handleShippingSameAsBillingChange = () => {
+        setIsShippingSameAsBilling(!isShippingSameAsBilling);
+        dispatch(updateShippingSameAsBillingHandler(!isShippingSameAsBilling));
     };
 
 
     const handleSubmit = async (values) => {
         const newValues = {
             ...values,
-            isShippingSameAsBilling: isShippingSameAsBilling
         }
 
         dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
@@ -116,7 +120,9 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                     type="checkbox"
                                     id="shippingIsBilling"
                                     name="shippingIsBilling"
-                                    onClick={() => { setIsShippingSameAsBilling(!isShippingSameAsBilling) }}
+                                    checked={customer.customer?.isShippingSameAsBilling || isShippingSameAsBilling}
+                                    // onChange={handleShippingSameAsBillingChange}
+                                    onClick={handleShippingSameAsBillingChange}
                                 />
                             </div>
                         </div>

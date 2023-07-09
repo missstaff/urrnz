@@ -66,7 +66,7 @@ export const addressValidationSchema = Yup.object().shape({
     .required("A street address or P.O Box required"),
 });
 
-export   const cardValidationSchema = Yup.object().shape({
+export  const cardValidationSchema = Yup.object().shape({
   cardNumber: Yup
     .string()
     .matches(/^[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}/, 'Card number must be 16 digits')
@@ -87,10 +87,18 @@ export   const cardValidationSchema = Yup.object().shape({
       return sum % 10 === 0;
     })
     .required(),
-  CVV: Yup
+  cvv: Yup
     .string()
     .matches(/^[0-9]{3,4}$/, 'CVV code is invalid')
-    .required("CVV required"),
+    .required(),
+  month: Yup
+    .string()
+    .matches(/^(0[1-9]|1[0-2])$/, 'Month must be in MM format')
+    .required("Month required"),
+  year: Yup
+    .string()
+    .matches(/^[0-9]{2}$/, 'Year must be in YY format')
+    .required("Year required"),
   expirationDate: Yup
     .string()
     .required("date required")
