@@ -25,7 +25,6 @@ export const removeFromCartHandler = (id) => {
 export const setColorHandler = (id, color) => {
     return async (dispatch) => {
         try {
-            console.log("cart", id, color);
             dispatch(cartActions.setItemColor({ id, color }));
         } catch (error) {
             console.log(`Failed to set item color!\n${error.message}\n${error.stack}`);
@@ -36,10 +35,20 @@ export const setColorHandler = (id, color) => {
 export const setShippingOptionHandler = (option) => {
     return async (dispatch) => {
         try {
-            console.log("shippingOPtion", option)
-            // dispatch(cartActions.setShipping(option));
+            dispatch(cartActions.setShipping(option));
         }catch(error){
             console.log(`Failed to set shipping option!\n${error.message}\n${error.stack}`);
+        }
+    };
+};
+
+export const setTaxRateHandler = (rate) => {
+    return async (dispatch) => {
+        try {
+            console.log("setTaxRateHandler", rate)
+            dispatch(cartActions.setTaxRate(rate));
+        }catch(error){
+            console.log(`Failed to set tax rate!\n${error.message}\n${error.stack}`);
         }
     };
 };

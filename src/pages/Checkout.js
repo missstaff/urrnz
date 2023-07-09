@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AddressForm from "../components/forms/AddressForm";
+import ShippingDetails from "../components/forms/ShippingDetails";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import PaymentForm from "../components/forms/PaymentForm";
@@ -12,7 +12,7 @@ const getStepContent = (activeStep, handleBack, handleNext, steps) => {
 
   switch (activeStep) {
     case 0:
-      return <AddressForm activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={steps} />;
+      return <ShippingDetails activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={steps} />;
     case 1:
       return <PaymentForm activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={steps} />;
     case 2:

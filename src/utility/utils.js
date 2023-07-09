@@ -1,3 +1,4 @@
+import * as Yup from "yup";
 import { sizes } from "../config/constants";
 
 
@@ -14,3 +15,102 @@ export const findClosest = (queries) => {
   }
   return "xs";
 };
+
+export const postRequestHandler = async (url, data) => {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    return json;
+  } catch (err) {
+    console.log(`Error: Failed to send post request.\n${err.message}\n${err.stack}`)
+  }
+};
+
+export const addressValidationSchema = Yup.object().shape({
+  email: Yup
+    .string()
+    .email("Please enter valid email")
+    .required("Email is required"),
+  fullName: Yup
+    .string()
+    .matches(/^[a-zA-Z]\w*\s[a-zA-Z]{2,}.*$/, "Enter at least 2 names")
+    .required("Full name is required"),
+  phone: Yup
+    .string()
+    .matches(/^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/, "Enter a valid phone number")
+    .required(),
+  zipCode: Yup
+    .string()
+    .matches(/^[0-9]{5}$/, 'zipcodes must be 5 digits')
+    .required("A zipcode is required"),
+  city: Yup
+    .string()
+    .matches(/^[A-Za-z ]{2,30}$/, "Enter a city")
+    .required("A city is required"),
+  state: Yup
+    .string()
+    .matches(/^[a-zA-Z]{2}$/, "Enter state abbreviation")
+    .required("A state is required"),
+  addressLine1: Yup
+    .string()
+    .matches(/^[a-zA-Z0-9\s\.\#\-]+$/, "Enter a valid street address")
+    .required("A street address or P.O Box required"),
+});
+
+export   const cardValidationSchema = Yup.object().shape({
+  cardNumber: Yup
+    .string()
+    .matches(/^[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}/, 'Card number must be 16 digits')
+    .test('luhn-test', 'Card number is invalid', function (value) {
+      if (!value) {
+        return false;
+      }
+      const digits = value.replace(/[\s-]/g, '').split('').reverse();
+      let sum = 0;
+      for (let i = 0; i < digits.length; i++) {
+        let digit = parseInt(digits[i]);
+        if (i % 2 === 1) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+      }
+      return sum % 10 === 0;
+    })
+    .required(),
+  CVV: Yup
+    .string()
+    .matches(/^[0-9]{3,4}$/, 'CVV code is invalid')
+    .required("CVV required"),
+  expirationDate: Yup
+    .string()
+    .required("date required")
+    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Expiration date must be in MM/YY format')
+    .test('expirationDate', 'Expiration date must be in the future', function (value) {
+      if (typeof value !== 'string') {
+        return false; // value is not a string, return false
+      }
+      const currentDate = new Date();
+      const [expirationMonth, expirationYear] = value.split('/');
+      // setMonth(expirationMonth);
+      // setYear(`20${expirationYear}`);
+      const expirationDate = new Date(`20${expirationYear}`, expirationMonth - 1, 1);
+      const hasExpired = expirationDate < currentDate;
+      const isValid = expirationDate >= currentDate;
+      return isValid ? true : this.createError({
+        message: hasExpired
+          ? 'Expiration date has already passed'
+          : 'Expiration date must be in the future',
+        path: 'expirationDate',
+      });
+    }),
+});

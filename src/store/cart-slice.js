@@ -6,8 +6,9 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
         shipping: {},
+        taxRate: 0,
         totalQuantity: 0,
-        totalAmount: 0,
+        subTotal: 0,
     },
     reducers: {
         addItemToCart(state, action) {
@@ -34,7 +35,7 @@ const cartSlice = createSlice({
                 existingItem.totalPrice += newItem.price;
             }
             state.totalQuantity++;
-            state.totalAmount += newItem.price;
+            state.subTotal += newItem.price;
         },
 
         removeItemFromCart(state, action) {
@@ -50,7 +51,7 @@ const cartSlice = createSlice({
             }
 
             state.totalQuantity--;
-            state.totalAmount -= existingItem.price;
+            state.subTotal -= existingItem.price;
         },
 
         setItemColor(state, action) {
@@ -64,10 +65,15 @@ const cartSlice = createSlice({
             state.shipping = action.payload;
         },
 
+        setTaxRate(state, action) {
+            console.log("setTaxRate", action.payload)
+            state.taxRate = action.payload;
+        },
+
         clearCart(state) {
             state.items = [];
             state.totalQuantity = 0;
-            state.totalAmount = 0;
+            state.subTotal = 0;
             state.shipping = {};
         },
     },
