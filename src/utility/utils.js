@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 import { sizes } from "../config/constants";
 
+
 export const isMatch = (media) => {
   const query = `(min-width: ${sizes[media]})`;
   return window.matchMedia(query).matches;
@@ -30,7 +31,7 @@ export const postRequestHandler = async (url, data) => {
     const json = await res.json();
     return json;
   } catch (err) {
-    console.log(`Error: Failed to send post request.\n${err.message}\n${err.stack}`)
+    throw new Error(`Error: Failed to send post request.\n${err.message}\n${err.stack}`);
   }
 };
 

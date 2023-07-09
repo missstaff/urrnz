@@ -7,6 +7,7 @@ export const setCustomerHandler = (customer) => {
             dispatch(customerActions.setCustomer(customer));
         } catch (error) {
             console.log(`Failed to set customer!\n${error.message}\n${error.stack}`);
+            alert("Failed to set shipping details please try again.");
         }
     };
 };
@@ -17,6 +18,7 @@ export const updateShippingSameAsBillingHandler = (isSame) => {
             dispatch(customerActions.setShippingSameAsBilling(isSame));
         } catch (error) {
             console.log(`Failed to update shipping same as billing!\n${error.message}\n${error.stack}`);
+            alert("Failed to set billing address please try again.");
         }
     };
 };
@@ -27,6 +29,7 @@ export const setCardDetailsHandler = (cardDetails) => {
             dispatch(customerActions.setCardDetails(cardDetails));
         } catch (error) {
             console.log(`Failed to set card details!\n${error.message}\n${error.stack}`);
+            alert("Failed to set payment details please try again.");
         }
     };
 };

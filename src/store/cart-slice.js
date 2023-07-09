@@ -6,28 +6,28 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
         shipping: {},
+        subTotal: 0,
         taxRate: 0,
         totalQuantity: 0,
-        subTotal: 0,
     },
     reducers: {
         addItemToCart(state, action) {
+
             const newItem = action.payload;
             const existingItem = state.items.find(item => item.id === newItem.id && item.cid === newItem.cid);
-            
+
             if (!existingItem) {
                 state.items.push({
+                    cid: state.items.length + 1,
+                    description: newItem.description,
                     id: newItem.zid,
+                    image: newItem.images.lg,
+                    isTaxable: true,
                     name: newItem.name,
                     price: newItem.price,
                     quantity: 1,
-                    totalPrice: newItem.price,
-                    image: newItem.images.lg,
-                    isTaxable: true,
                     sku8: newItem.sku8,
-                    cid: state.items.length + 1,
-                    description: newItem.description,
-
+                    totalPrice: newItem.price,
                 });
             }
             else {
@@ -39,9 +39,10 @@ const cartSlice = createSlice({
         },
 
         removeItemFromCart(state, action) {
+
             const id = action.payload;
             const existingItem = state.items.find(item => item.cid === id);
-            
+
             if (existingItem.quantity === 1) {
                 state.items = state.items.filter(item => item.cid !== id);
             }
@@ -70,14 +71,14 @@ const cartSlice = createSlice({
 
         clearCart(state) {
             state.items = [];
-            state.totalQuantity = 0;
-            state.subTotal = 0;
             state.shipping = {};
+            state.subTotal = 0;
+            state.totalQuantity = 0;
+            state.taxRate = 0;
+            state.totalQuantity = 0;
         },
     },
 });
-
-
 
 export const cartActions = cartSlice.actions;
 export default cartSlice;
