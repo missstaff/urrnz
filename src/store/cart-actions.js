@@ -45,7 +45,6 @@ export const setShippingOptionHandler = (option) => {
 export const setTaxRateHandler = (rate) => {
     return async (dispatch) => {
         try {
-            console.log("setTaxRateHandler", rate)
             dispatch(cartActions.setTaxRate(rate));
         }catch(error){
             console.log(`Failed to set tax rate!\n${error.message}\n${error.stack}`);

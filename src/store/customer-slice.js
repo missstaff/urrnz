@@ -11,6 +11,7 @@ const customerSlice = createSlice({
             phone: "",
             billingAddress: {},
             shippingAddress: {},
+            cardDetails: {},
             tax: 0,
         },
     },
@@ -26,8 +27,8 @@ const customerSlice = createSlice({
                 type: "shipping"
             };
 
-
             if(action.payload.isShippingSameAsBilling){
+                
                 const temp = {
                     ...shippingAddress,
                     type: "billing"
@@ -42,12 +43,14 @@ const customerSlice = createSlice({
         },
 
         setShippingSameAsBilling(state, action) {
+            if(!action.payload){
+                state.customer.billingAddress = {};
+            }
             state.customer.isShippingSameAsBilling = action.payload;
         },
 
         setCardDetails(state, action) {
-            // state.customer.cardDetails = action.payload;
-            console.log("setCardDetails", action.payload);
+            state.customer.cardDetails = action.payload;
         },
     },
 });

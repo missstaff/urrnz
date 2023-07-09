@@ -1,34 +1,58 @@
 import { Formik, Form } from "formik";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FormButton from "./FormButton";
 import PaymentForm from "./PaymentForm";
 import ShowIf from "../ShowIf";
-import { addressValidationSchema, cardValidationSchema } from "../../utility/utils";
+import { setCardDetailsHandler } from "../../store/customer-actions";
+import { addressAndCardValidationSchema, cardValidationSchema } from "../../utility/utils";
 import AddressForm from "./AddressForm";
 
 
 const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
- 
-  const initialValues = {
-    cc_number: "",
-    ccv: "",
-    month: "",
-    year: "",
+
+  const dispatch = useDispatch();
+  const customer = useSelector((state) => state.customer);
+  const shippingIsBilling = customer.customer.isShippingSameAsBilling;
+
+
+  const initialValuesWithBillingAddress = {
+    cc_number: customer.customer.cardDetails?.cc_number || "",
+    ccv: customer.customer.cardDetails?.ccv || "",
+    month: customer.customer.cardDetails?.month || "",
+    year: customer.customer.cardDetails?.year || "",
+    zipCode: customer.customer?.billingAddress.postalCd || "",
+  };
+
+  const initialValuesWithoutBillingAddress = {
+    ... initialValuesWithBillingAddress,
+    fullName: customer.customer?.fullName || "",
+    email: customer.customer?.email || "",
+    phone: customer.customer?.phone || "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
     zipCode: "",
   };
 
+  const initialValues = shippingIsBilling ? initialValuesWithBillingAddress : initialValuesWithoutBillingAddress;
 
-  const cart = useSelector((state) => state.cart);
-  const customer = useSelector((state) => state.customer);
-  const shippingIsBilling = customer.customer.isShippingSameAsBilling;
-  const store = useSelector((state) => state.store);
-  console.log("store", store);
-  console.log("cart", cart);
-  console.log("customer", customer);
 
   const handleSubmit = (values) => {
-    console.log("values", values);
+
+    let newValues = {};
+    if (shippingIsBilling) {
+      newValues = {
+        ...values,
+        zipCode: customer.customer.billingAddress.postalCd,
+      };
+    } else {
+      newValues = {
+        ...values,
+      };
+    }
+    dispatch(setCardDetailsHandler(newValues));
 
     handleNext();
   };
@@ -37,7 +61,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={cardValidationSchema}
+      validationSchema={shippingIsBilling ? cardValidationSchema : addressAndCardValidationSchema}
       onSubmit={handleSubmit}
     >
       <Form>

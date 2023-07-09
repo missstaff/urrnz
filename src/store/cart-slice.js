@@ -61,12 +61,10 @@ const cartSlice = createSlice({
         },
 
         setShipping(state, action) {
-            console.log("shipping", action.payload)
             state.shipping = action.payload;
         },
 
         setTaxRate(state, action) {
-            console.log("setTaxRate", action.payload)
             state.taxRate = action.payload;
         },
 

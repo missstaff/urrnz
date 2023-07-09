@@ -21,7 +21,7 @@ const PaymentForm = () => {
                         style={{
                             fontSize: `${1.8}rem`,
                         }}
-                        htmlFor="cardNumber">
+                        htmlFor="cc_number">
                         Card Number:
                     </label>
                     <Field
@@ -31,23 +31,23 @@ const PaymentForm = () => {
                             paddingLeft: `${0.5}rem`
                         }}
                         type="text"
-                        id="cardNumber"
-                        name="cardNumber"
+                        id="cc_number"
+                        name="cc_number"
                     />
-                    <ErrorMessage style={{ color: "#ff5900" }} name="cardNumber" component="div" />
+                    <ErrorMessage style={{ color: "#ff5900" }} name="cc_number" component="div" />
                 </div>
 
                 <div style={{alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginBottom: `${1.5}rem`, width: "100%" }}>
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%" }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="cvv">CVV:</label>
+                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="ccv">CCV:</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,
                             paddingLeft: `${0.5}rem`
                         }}
                             type="text"
-                            id="cvv"
-                            name="cvv" />
+                            id="ccv"
+                            name="ccv" />
 
                         <ErrorMessage style={{ color: "#ff5900" }} name="cvv" component="div" />
                     </div>

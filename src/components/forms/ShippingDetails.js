@@ -12,13 +12,13 @@ import { addressValidationSchema, postRequestHandler } from "../../utility/utils
 import { FETCH_TAX } from "../../config/constants";
 
 
-
 const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
     const dispatch = useDispatch();
 
     const customer = useSelector(state => state.customer);
     const shippingAddress = customer.customer.shippingAddress;
+    
     const store = useSelector(state => state.store);
     const shippingOptions = store.shippingOptions;
     const orderTemplate = store.orderTemplate;
@@ -47,6 +47,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
     const handleSubmit = async (values) => {
         const newValues = {
             ...values,
+            isShippingSameAsBilling: isShippingSameAsBilling,
         }
 
         dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
