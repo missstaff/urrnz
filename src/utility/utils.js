@@ -1,7 +1,6 @@
 import * as Yup from "yup";
 import { sizes } from "../config/constants";
 
-
 export const isMatch = (media) => {
   const query = `(min-width: ${sizes[media]})`;
   return window.matchMedia(query).matches;
@@ -50,7 +49,7 @@ export const addressValidationSchema = Yup.object().shape({
     .required(),
   zipCode: Yup
     .string()
-    .matches(/^[0-9]{5}$/, 'zipcodes must be 5 digits')
+    .matches(/^[0-9]{5}$/, "zipcodes must be 5 digits")
     .required("A zipcode is required"),
   city: Yup
     .string()
@@ -69,12 +68,12 @@ export const addressValidationSchema = Yup.object().shape({
 export  const cardValidationSchema = Yup.object().shape({
   cardNumber: Yup
     .string()
-    .matches(/^[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}/, 'Card number must be 16 digits')
-    .test('luhn-test', 'Card number is invalid', function (value) {
+    .matches(/^[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}/, "Card number must be 16 digits")
+    .test("luhn-test", "Card number is invalid", function (value) {
       if (!value) {
         return false;
       }
-      const digits = value.replace(/[\s-]/g, '').split('').reverse();
+      const digits = value.replace(/[\s-]/g, "").split("").reverse();
       let sum = 0;
       for (let i = 0; i < digits.length; i++) {
         let digit = parseInt(digits[i]);
@@ -89,36 +88,22 @@ export  const cardValidationSchema = Yup.object().shape({
     .required(),
   cvv: Yup
     .string()
-    .matches(/^[0-9]{3,4}$/, 'CVV code is invalid')
+    .matches(/^[0-9]{3,4}$/, "CVV code is invalid")
     .required(),
   month: Yup
     .string()
-    .matches(/^(0[1-9]|1[0-2])$/, 'Month must be in MM format')
+    .matches(/^(0[1-9]|1[0-2])$/, "Month must be in MM format")
     .required("Month required"),
   year: Yup
     .string()
-    .matches(/^[0-9]{2}$/, 'Year must be in YY format')
-    .required("Year required"),
-  expirationDate: Yup
-    .string()
-    .required("date required")
-    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, 'Expiration date must be in MM/YY format')
-    .test('expirationDate', 'Expiration date must be in the future', function (value) {
-      if (typeof value !== 'string') {
-        return false; // value is not a string, return false
+    .matches(/^[0-9]{4}$/, "Year must be in YYYY format")
+    .test("is-greater-than-current-year", "Year must be greater than or equal to the current year", value => {
+      if (value) {
+        const currentYear = new Date().getFullYear();
+        const yearNumber = parseInt(value, 10);
+        return yearNumber >= currentYear;
       }
-      const currentDate = new Date();
-      const [expirationMonth, expirationYear] = value.split('/');
-      // setMonth(expirationMonth);
-      // setYear(`20${expirationYear}`);
-      const expirationDate = new Date(`20${expirationYear}`, expirationMonth - 1, 1);
-      const hasExpired = expirationDate < currentDate;
-      const isValid = expirationDate >= currentDate;
-      return isValid ? true : this.createError({
-        message: hasExpired
-          ? 'Expiration date has already passed'
-          : 'Expiration date must be in the future',
-        path: 'expirationDate',
-      });
-    }),
+      return true;
+    })
+    .required("Year required"),
 });
