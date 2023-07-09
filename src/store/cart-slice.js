@@ -13,7 +13,7 @@ const cartSlice = createSlice({
         addItemToCart(state, action) {
             const newItem = action.payload;
             const existingItem = state.items.find(item => item.id === newItem.id && item.cid === newItem.cid);
-            state.totalQuantity++;
+            
             if (!existingItem) {
                 state.items.push({
                     id: newItem.zid,
@@ -33,14 +33,14 @@ const cartSlice = createSlice({
                 existingItem.quantity++;
                 existingItem.totalPrice += newItem.price;
             }
-
+            state.totalQuantity++;
             state.totalAmount += newItem.price;
         },
 
         removeItemFromCart(state, action) {
             const id = action.payload;
             const existingItem = state.items.find(item => item.cid === id);
-            state.totalQuantity--;
+            
             if (existingItem.quantity === 1) {
                 state.items = state.items.filter(item => item.cid !== id);
             }
@@ -49,14 +49,19 @@ const cartSlice = createSlice({
                 existingItem.totalPrice -= existingItem.price;
             }
 
+            state.totalQuantity--;
             state.totalAmount -= existingItem.price;
         },
 
         setItemColor(state, action) {
-            console.log("action", action.payload)
             const { id, color } = action.payload;
             const existingItem = state.items.find(item => item.cid === id);
             existingItem.color = color;
+        },
+
+        setShipping(state, action) {
+            console.log("shipping", action.payload)
+            state.shipping = action.payload;
         },
 
         clearCart(state) {
@@ -64,10 +69,6 @@ const cartSlice = createSlice({
             state.totalQuantity = 0;
             state.totalAmount = 0;
             state.shipping = {};
-        },
-
-        setShipping(state, action) {
-            state.shipping = action.payload;
         },
     },
 });

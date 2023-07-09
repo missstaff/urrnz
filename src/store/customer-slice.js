@@ -6,13 +6,15 @@ const customerSlice = createSlice({
     initialState: {
         customer: {
             fullName: "",
+            email: "",
+            phone: "",
             billingAddress: {},
             shippingAddress: {},
+            chatObject: {},
         },
     },
     reducers: {
         setCustomer(state, action) {
-            console.log("SLICE",action.payload);
             const shippingAddress = {
                 "address": action.payload.addressLine1,
                 "address2": action.payload.addressLine1,
@@ -29,6 +31,38 @@ const customerSlice = createSlice({
                 "type": "shipping"
             };
 
+            const chatObject = {
+                email: {
+                  from: null,
+                  to: [action.payload.email],
+                  cc: [],
+                  bcc: [],
+                  success: false
+                },
+                entityIdCustomer: 0,
+                entityIdEmployee: 0,
+                id: 0,
+                message: "",
+                notesHidden: null,
+                phone: {
+                  text: null,
+                  personal: action.payload.phone,
+                  business: null,
+                  other: null,
+                  carrier: null,
+                  success: false
+                },
+                social: {
+                  account: null,
+                  platform: null,
+                  success: false
+                },
+                subject: null,
+                ts: null
+            };
+              
+            console.log("action.payload.isShippingSameAsBilling", action.payload.isShippingSameAsBilling)
+
             if(action.payload.isShippingSameAsBilling){
                 const temp = {
                     ...shippingAddress,
@@ -37,6 +71,10 @@ const customerSlice = createSlice({
 
                 state.customer.billingAddress = temp;
             }
+
+            state.customer.chatObject = chatObject;
+            state.customer.email = action.payload.email;
+            state.customer.phone = action.payload.phone;
             state.customer.shippingAddress = shippingAddress;
             state.customer.fullName = action.payload.fullName;
         },

@@ -9,7 +9,7 @@ import Review from "../components/forms/Review";
 const steps = ["Shipping Details", "Payment Details", "Review"];
 
 const getStepContent = (activeStep, handleBack, handleNext, steps) => {
-  console.log("activeStep", activeStep)
+
   switch (activeStep) {
     case 0:
       return <AddressForm activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={steps} />;

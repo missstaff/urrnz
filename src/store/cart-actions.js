@@ -31,4 +31,15 @@ export const setColorHandler = (id, color) => {
             console.log(`Failed to set item color!\n${error.message}\n${error.stack}`);
         }
     };
-}
+};
+
+export const setShippingOptionHandler = (option) => {
+    return async (dispatch) => {
+        try {
+            console.log("shippingOPtion", option)
+            // dispatch(cartActions.setShipping(option));
+        }catch(error){
+            console.log(`Failed to set shipping option!\n${error.message}\n${error.stack}`);
+        }
+    };
+};
