@@ -7,9 +7,6 @@ const AddressForm = () => {
         <>
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
                 <label
-                    style={{
-                        fontSize: `${1.8}rem`,
-                    }}
                     htmlFor="fullName">
                     Full Name:
                 </label>
@@ -32,7 +29,8 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="email">Email:</label>
+                <label 
+                    htmlFor="email">Email:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -50,7 +48,7 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="phone">Phone:</label>
+                <label htmlFor="phone">Phone:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -68,7 +66,7 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="addressLine1">Address Line 1:</label>
+                <label htmlFor="addressLine1">Address Line 1:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -85,7 +83,7 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="addressLine2">Address Line 2:</label>
+                <label htmlFor="addressLine2">Address Line 2:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -102,7 +100,7 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="city">City:</label>
+                <label htmlFor="city">City:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -120,7 +118,7 @@ const AddressForm = () => {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="state">State:</label>
+                <label htmlFor="state">State:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,
@@ -137,7 +135,7 @@ const AddressForm = () => {
                 <ErrorMessage style={{ color: "#ff5900" }} name="state" component="div" />
             </div>
             <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
-                <label style={{ fontSize: `${1.8}rem` }} htmlFor="zipCode">Zip Code:</label>
+                <label htmlFor="zipCode">Zip Code:</label>
                 <Field style={{
                     fontSize: `${2.4}rem`,
                     paddingTop: `${0.5}rem`,

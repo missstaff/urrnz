@@ -46,7 +46,6 @@ const Checkout = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
-
   const handleNext = () => {
     setActiveStep((prevStep) => prevStep + 1);
   };
@@ -64,8 +63,7 @@ const Checkout = () => {
 
       <main>
         <Container className={classes.container}>
-          <h2 className={classes.heading}
-          >
+          <h2 className={classes.heading}>
             {steps[activeStep]}
           </h2>
           <hr />

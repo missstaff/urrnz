@@ -19,14 +19,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h3 {
+  color: var(--color-secondary-600);
+  font-size: 5rem;
+  padding-top: 4.4rem;
+  padding-bottom: 4.4rem;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+label {
+  font-size: 1.8rem;
+}
+
+.formErrorMessage {
+  color:var(--color-secondary-600)
+}
+
 .headingContainer {
   margin-top: 20rem;
+}
+
+.placeholderColor::placeholder {
+  color: #999
 }
 
 :root {

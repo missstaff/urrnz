@@ -25,7 +25,6 @@ const Categories = () => {
     const store = useSelector(state => state.store);
     const categories = store.categories;
 
-
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
 
@@ -49,11 +48,7 @@ const Categories = () => {
                         title="CATEGORIES" />
                 </div>
                 <div
-                    className={`grid ${classes.gridColumns}`}
-                    style={{
-                        marginLeft: 50,
-                        marginRight: 50
-                    }}>
+                    className={`grid ${classes.gridColumns}`}>
                     {categories.map((category, index) => (
                         <div
                             key={index}>
@@ -73,11 +68,7 @@ const Categories = () => {
                                     onMouseLeave={handleTouchEnd}
                                     className={`${touchedIndex === index ? classes.touched : ""}`}>
                                     <Container
-                                        className={classes.container}
-                                        style={{
-                                            alignItems: "center",
-                                            justifyContent: "center"
-                                        }}>
+                                        className={classes.container}>
                                         <img
                                             src={categoryImages[category]}
                                             alt={category}

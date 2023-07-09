@@ -31,7 +31,7 @@ const ColorPicker = (props) => {
 
   return (
     <div>
-      <h3>Select a color:</h3>
+      <p>Select a color:</p>
       <div className={classes.grid}>
         {colors.map((color) => (
           <div

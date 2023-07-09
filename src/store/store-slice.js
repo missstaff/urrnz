@@ -7,8 +7,8 @@ const storeSlice = createSlice({
         categories: [],
         category: "all",
         chatObjectTemplate: {},
-        products: [],
         orderTemplate: {},
+        products: [],
         shippingOptions: [],
     },
     reducers: {
@@ -36,7 +36,7 @@ const storeSlice = createSlice({
             }));
             state.shippingOptions = mappedShippingOptions;
         },
-        setCategory (state, action) {
+        setCategory(state, action) {
             state.category = action.payload;
         },
 

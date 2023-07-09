@@ -18,9 +18,6 @@ const PaymentForm = () => {
 
                 <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
                     <label
-                        style={{
-                            fontSize: `${1.8}rem`,
-                        }}
                         htmlFor="cc_number">
                         Card Number:
                     </label>
@@ -39,7 +36,7 @@ const PaymentForm = () => {
 
                 <div style={{alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginBottom: `${1.5}rem`, width: "100%" }}>
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%" }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="ccv">CCV:</label>
+                        <label htmlFor="ccv">CCV:</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,
@@ -54,7 +51,7 @@ const PaymentForm = () => {
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%" }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="month">Month</label>
+                        <label htmlFor="month">Month</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,
@@ -69,7 +66,7 @@ const PaymentForm = () => {
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem`, width: "33%", gap: `${0.15}rem` }}>
-                        <label style={{ fontSize: `${1.8}rem` }} htmlFor="year">Year</label>
+                        <label htmlFor="year">Year</label>
                         <Field style={{
                             fontSize: `${2.4}rem`,
                             paddingTop: `${0.5}rem`,

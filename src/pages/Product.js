@@ -22,7 +22,6 @@ const Product = () => {
     const category = store.category;
 
 
-
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };

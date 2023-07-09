@@ -61,11 +61,12 @@
     color: var(--color-gray-600);
     text-decoration: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .touched {
     opacity: 0.5;
+    transition: all 0.3s;
 }
 
 .touchable {
@@ -75,10 +76,10 @@
 
 .details,
 .price {
-    text-decoration: none;
     color: var(--color-gray-600);
-    font-weight: 700;
     font-size: 3.2rem;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .price {
@@ -87,7 +88,6 @@
 
 
 /*Media Queries*/
-
 @media screen and (max-width: 1280px) {
     .gridColumns {
         grid-template-columns: repeat(2, 1fr);
@@ -107,7 +107,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
     .btnContainer {
         padding-bottom: 4.8rem;
     }
@@ -122,21 +121,12 @@
         padding-bottom: 4.8rem;
     }
 
-    .gridColumns {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .header {
         font-size: 3rem;
     }
 
     .heading {
         font-size: 2.2rem;
-    }
-
-    .image {
-        height: 25rem;
-        width: 100%;
     }
 
     .price {

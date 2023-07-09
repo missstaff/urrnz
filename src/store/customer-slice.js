@@ -81,18 +81,17 @@ const customerSlice = createSlice({
             state.cardDetails = tempCardDetails;
         },
 
-        // clearCustomer(state) {
-        //     state.customer = {},
-        //         state.billingAddress = {},
-        //         state.cardDetails = {},
-        //         state.email = "",
-        //         state.fullName = "",
-        //         state.isShippingSameAsBilling = false,
-        //         state.phone = "",
-        //         state.message = "",
-        //         state.shippingAddress = {},
-        //         state.tax = 0
-        // },
+        clearCustomer(state) {
+            state.billingAddress = {};
+            state.cardDetails = {};
+            state.email = "";
+            state.fullName = "";
+            state.isShippingSameAsBilling = false;
+            state.phone = "";
+            state.message = "";
+            state.shippingAddress = {};
+            state.tax = 0;
+        },
     }
 });
 

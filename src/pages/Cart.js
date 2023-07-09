@@ -22,10 +22,6 @@ const Cart = () => {
     const cart = useSelector(state => state.cart);
     const items = cart.items;
     const subTotal = cart.subTotal;
-    // const totalQuantity = cart.totalQuantity;
-    // const shipping = cart.shipping;
-    // const changed = cart.changed;
-
 
     const [btnFontSize, setBtnFontSize] = useState(2.2);
 
@@ -78,13 +74,7 @@ const Cart = () => {
                                     <div
                                         className={`${classes.gridColumns} ${classes.itemContainer}`}>
                                         <div
-                                            style={{
-                                                alignItems: "100%",
-                                                display: "flex",
-                                                flexDirection: "row",
-                                                justifyContent: "center",
-                                                width: "100%",
-                                            }}>
+                                            className={classes.imageContainer}>
                                             <img
                                                 alt={item.name}
                                                 className={classes.itemImage}
@@ -98,11 +88,7 @@ const Cart = () => {
                                                 <h2
                                                     className={classes.itemName}>{item.name}</h2>
                                                 <div
-                                                    style={{
-                                                        alignItems: "flex-start",
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                    }}>
+                                                    clasName={classes.itemDetails}>
                                                     <p
                                                         className={classes.itemPrice}>
                                                         Price: ${item.price * item.quantity}
