@@ -22,7 +22,6 @@ export const fetchOrderTemplate = () => {
         try{
             const response = await fetch(FETCH_TEMPLATE_ORDER);
             const data = await response.json();
-            // console.log("order", data);
             dispatch(storeActions.setOrderObject(data));
         }catch(error){
             console.log(`Failed to fetch order template!\n${error.message}\n${error.stack}`);
@@ -40,7 +39,7 @@ export const fetchChatTemplate = () => {
             console.log(`Failed to fetch chat template!\n${error.message}\n${error.stack}`);
         }
     };
-}
+};
 
 
 

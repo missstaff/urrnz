@@ -66,6 +66,9 @@ export const addressValidationSchema = Yup.object().shape({
   message: Yup
     .string()
     .notRequired(),
+  uploadImage: Yup
+    .string()
+    .notRequired(),
 });
 
 export const cardValidationSchema = Yup.object().shape({

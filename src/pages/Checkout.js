@@ -53,7 +53,7 @@ const Checkout = () => {
           paddingTop: `${4.8}rem`,
           paddingBottom: `${4.8}rem`,
         }}>
-          <h2 style={{  color: "#ff5900", fontSize: `${5}rem`, paddingTop: `${4.4}rem`, paddingBottom: `${9.6}rem`, textAlign: "center", textShadow: "2px 2px 2px rgba(0 , 0, 0, 0.25" }}>{steps[activeStep]}</h2>
+          <h2 style={{  color: "#ff5900", fontSize: `${5}rem`, paddingTop: `${4.4}rem`, paddingBottom: `${9.6}rem`, textAlign: "center", textShadow: "2px 2px 2px rgba(0 , 0, 0, 0.25)" }}>{steps[activeStep]}</h2>
           <hr />
           {getStepContent(activeStep, handleBack, handleNext, steps)}
         </Container>
