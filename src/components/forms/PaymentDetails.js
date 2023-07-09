@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import FormButton from "./FormButton";
@@ -14,19 +13,19 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
   const dispatch = useDispatch();
   const customer = useSelector((state) => state.customer);
-  const shippingIsBilling = customer.customer.isShippingSameAsBilling;
+  const shippingIsBilling = customer.isShippingSameAsBilling;
 
 
   const initialValuesWithBillingAddress = {
-    cc_number: customer.customer.cardDetails?.cc_number || "",
-    ccv: customer.customer.cardDetails?.ccv || "",
-    month: customer.customer.cardDetails?.month || "",
-    year: customer.customer.cardDetails?.year || "",
+    cc_number: customer.cardDetails?.cc_number || "",
+    ccv: customer.cardDetails?.ccv || "",
+    month: customer.cardDetails?.month || "",
+    year: customer.cardDetails?.year || "",
     zipCode: customer.customer?.billingAddress.postalCd || "",
   };
 
   const initialValuesWithoutBillingAddress = {
-    ... initialValuesWithBillingAddress,
+    ...initialValuesWithBillingAddress,
     fullName: customer.customer?.fullName || "",
     email: customer.customer?.email || "",
     phone: customer.customer?.phone || "",
@@ -46,7 +45,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
     if (shippingIsBilling) {
       newValues = {
         ...values,
-        zipCode: customer.customer.billingAddress.postalCd,
+        zipCode: customer.billingAddress.postalCd,
       };
     } else {
       newValues = {
@@ -74,7 +73,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
           paddingTop: `${9.6}rem`,
 
         }}>
-          <PaymentForm/>
+          <PaymentForm />
           <ShowIf
             condition={!shippingIsBilling}
             render={() => {

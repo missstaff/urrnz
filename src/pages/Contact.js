@@ -18,7 +18,7 @@ const Contact = () => {
     const navigate = useNavigate();
 
     const customer = useSelector(state => state.customer);
-    const shippingAddress = customer.customer.shippingAddress;
+    const shippingAddress = customer.shippingAddress;
 
     const store = useSelector(state => state.store);
     const chatTemplate = store.chatObjectTemplate;

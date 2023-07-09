@@ -4,17 +4,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const customerSlice = createSlice({
     name: "customer",
     initialState: {
-        customer: {
-            billingAddress: {},
-            cardDetails: {},
-            email: "",
-            fullName: "",
-            isShippingSameAsBilling: false,
-            phone: "",
-            message: "",
-            shippingAddress: {},
-            tax: 0,
-        },
+        billingAddress: {},
+        cardDetails: {},
+        email: "",
+        fullName: "",
+        isShippingSameAsBilling: false,
+        phone: "",
+        message: "",
+        shippingAddress: {},
+        tax: 0,
     },
     reducers: {
         setCustomer(state, action) {
@@ -36,23 +34,23 @@ const customerSlice = createSlice({
                     type: "billing",
                 };
 
-                state.customer.billingAddress = temp;
+                state.billingAddress = temp;
             }
 
-            state.customer.email = action.payload.email;
-            state.customer.phone = action.payload.phone;
-            state.customer.shippingAddress = shippingAddress;
-            state.customer.fullName = action.payload.fullName;
-            state.customer.message = action.payload.message;
+            state.email = action.payload.email;
+            state.phone = action.payload.phone;
+            state.shippingAddress = shippingAddress;
+            state.fullName = action.payload.fullName;
+            state.message = action.payload.message;
         },
 
 
         setShippingSameAsBilling(state, action) {
 
             if (!action.payload) {
-                state.customer.billingAddress = {};
+                state.billingAddress = {};
             }
-            state.customer.isShippingSameAsBilling = action.payload;
+            state.isShippingSameAsBilling = action.payload;
         },
 
 
@@ -66,7 +64,7 @@ const customerSlice = createSlice({
                 zipCode: action.payload.zipCode,
             };
 
-            if (!state.customer.isShippingSameAsBilling) {
+            if (!state.isShippingSameAsBilling) {
                 const tempBillingAddress = {
                     address: action.payload.addressLine1,
                     address2: action.payload.addressLine1,
@@ -77,24 +75,24 @@ const customerSlice = createSlice({
                     type: "billing"
                 }
 
-                state.customer.billingAddress = tempBillingAddress;
+                state.billingAddress = tempBillingAddress;
             }
 
-            state.customer.cardDetails = tempCardDetails;
+            state.cardDetails = tempCardDetails;
         },
 
-        clearCustomer(state) {
-            state.customer = {},
-                state.customer.billingAddress = {},
-                state.customer.cardDetails = {},
-                state.customer.email = "",
-                state.customer.fullName = "",
-                state.customer.isShippingSameAsBilling = false,
-                state.customer.phone = "",
-                state.customer.message = "",
-                state.customer.shippingAddress = {},
-                state.customer.tax = 0
-        },
+        // clearCustomer(state) {
+        //     state.customer = {},
+        //         state.billingAddress = {},
+        //         state.cardDetails = {},
+        //         state.email = "",
+        //         state.fullName = "",
+        //         state.isShippingSameAsBilling = false,
+        //         state.phone = "",
+        //         state.message = "",
+        //         state.shippingAddress = {},
+        //         state.tax = 0
+        // },
     }
 });
 

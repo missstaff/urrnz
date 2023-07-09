@@ -19,7 +19,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
     const dispatch = useDispatch();
 
     const customer = useSelector(state => state.customer);
-    const shippingAddress = customer.customer.shippingAddress;
+    const shippingAddress = customer.shippingAddress;
 
     const store = useSelector(state => state.store);
     const shippingOptions = store.shippingOptions;
@@ -30,15 +30,15 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
 
     const initialValues = {
-        fullName: customer.customer?.fullName || "",
-        email: customer.customer?.email || "",
-        phone: customer.customer?.phone || "",
+        fullName: customer?.fullName || "",
+        email: customer?.email || "",
+        phone: customer?.phone || "",
         addressLine1: shippingAddress?.address || "",
         addressLine2: shippingAddress?.address2 || "",
         city: shippingAddress?.city || "",
         state: shippingAddress?.stateCd || "",
         zipCode: shippingAddress?.postalCd || "",
-        message: customer.customer?.message || "",
+        message: customer?.message || "",
     };
 
     const handleShippingSameAsBillingChange = () => {
