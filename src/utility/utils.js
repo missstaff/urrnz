@@ -66,7 +66,6 @@ export const addressValidationSchema = Yup.object().shape({
 });
 
 export const cardValidationSchema = Yup.object().shape({
-
   cc_number: Yup
     .string()
     .matches(/^[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}[-\s]?[0-9]{4}/, "Card number must be 16 digits")
@@ -91,27 +90,27 @@ export const cardValidationSchema = Yup.object().shape({
     .string()
     .matches(/^[0-9]{3,4}$/, "CCV code is invalid")
     .required(),
-    month: Yup
-  .string()
-  .matches(/^(0[1-9]|1[0-2])$/, "Month must be in MM format")
-  .test("is-greater-than-current-month", "Date must be greater than or equal to the current date", function (value) {
-    if (value) {
-      const currentYear = new Date().getFullYear();
-      const currentMonth = new Date().getMonth() + 1; // Add 1 to get the current month (January is 0)
-      const yearNumber = parseInt(this.parent.year, 10);
-      const monthNumber = parseInt(value, 10);
+  month: Yup
+    .string()
+    .matches(/^(0[1-9]|1[0-2])$/, "Month must be in MM format")
+    .test("is-greater-than-current-month", "Date must be greater than or equal to the current date", function (value) {
+      if (value) {
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth() + 1;
+        const yearNumber = parseInt(this.parent.year, 10);
+        const monthNumber = parseInt(value, 10);
 
-      if (yearNumber > currentYear) {
-        return true;
-      } else if (yearNumber === currentYear && monthNumber >= currentMonth) {
-        return true;
-      } else {
-        return false;
+        if (yearNumber > currentYear) {
+          return true;
+        } else if (yearNumber === currentYear && monthNumber >= currentMonth) {
+          return true;
+        } else {
+          return false;
+        }
       }
-    }
-    return true;
-  })
-  .required("Month required"),
+      return true;
+    })
+    .required("Month required"),
   year: Yup
     .string()
     .matches(/^[0-9]{4}$/, "Year must be in YYYY format")
@@ -182,6 +181,23 @@ export const addressAndCardValidationSchema = Yup.object().shape({
   month: Yup
     .string()
     .matches(/^(0[1-9]|1[0-2])$/, "Month must be in MM format")
+    .test("is-greater-than-current-month", "Date must be greater than or equal to the current date", function (value) {
+      if (value) {
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth() + 1;
+        const yearNumber = parseInt(this.parent.year, 10);
+        const monthNumber = parseInt(value, 10);
+
+        if (yearNumber > currentYear) {
+          return true;
+        } else if (yearNumber === currentYear && monthNumber >= currentMonth) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      return true;
+    })
     .required("Month required"),
   year: Yup
     .string()
