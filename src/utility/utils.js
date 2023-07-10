@@ -47,7 +47,7 @@ export const addressValidationSchema = Yup.object().shape({
   phone: Yup
     .string()
     .matches(/^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/, "Enter a valid phone number")
-    .required(),
+    .required("A phone number is required"),
   zipCode: Yup
     .string()
     .matches(/^[0-9]{5}$/, "zipcodes must be 5 digits")

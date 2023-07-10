@@ -38,17 +38,9 @@ label {
   font-size: 1.8rem;
 }
 
-.formErrorMessage {
-  color:var(--color-secondary-600)
-}
-
-.headingContainer {
-  margin-top: 20rem;
-}
-
-.placeholderColor::placeholder {
+/* .placeholderColor::placeholder {
   color: #999
-}
+} */
 
 :root {
 

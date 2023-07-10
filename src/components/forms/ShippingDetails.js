@@ -197,7 +197,6 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                 name="message"
                                 className={classes.placeholderColor}
                                 placeholder="Name for inscription, special instructions."
-
                             />
                            
                         </div>

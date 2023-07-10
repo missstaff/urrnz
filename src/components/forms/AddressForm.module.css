@@ -1,3 +1,32 @@
+.errorMessage {
+    color: var(--color-secondary-700);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.field {
+    font-size: 2.4rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    font-weight: 400;
+    border: 1px solid #ccc9c6;
+    border-radius: 7.5px;
+}
+
+.field:focus {
+    outline: none;
+    border: 0.5px solid var(--color-secondary-500);
+    border-radius: 7.5px;
+    box-shadow: 0 0 0 2px var(--color-secondary-500);
+    transition: all 0.2s ease;
+}
+
+.fieldWrapper { 
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 1.5rem; 
+}
+
 .placeholderColor::placeholder {
     color: #999
 }
