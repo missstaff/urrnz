@@ -88,7 +88,7 @@ const Cart = () => {
                                                 <h2
                                                     className={classes.itemName}>{item.name}</h2>
                                                 <div
-                                                    clasName={classes.itemDetails}>
+                                                    className={classes.itemDetails}>
                                                     <p
                                                         className={classes.itemPrice}>
                                                         Price: ${item.price * item.quantity}

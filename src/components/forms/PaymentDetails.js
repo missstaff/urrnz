@@ -1,11 +1,15 @@
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
+
+import AddressForm from "./AddressForm";
 import FormButton from "./FormButton";
 import PaymentForm from "./PaymentForm";
 import ShowIf from "../ShowIf";
+
 import { setCardDetailsHandler } from "../../store/customer-actions";
 import { addressAndCardValidationSchema, cardValidationSchema } from "../../utility/utils";
-import AddressForm from "./AddressForm";
+
+import classes from "./PaymentDetails.module.css";
 
 
 const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
@@ -64,15 +68,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
       onSubmit={handleSubmit}
     >
       <Form>
-        <div style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          display: "flex",
-          flexDirection: "column",
-          width: "50%",
-          paddingTop: `${9.6}rem`,
-
-        }}>
+        <div className={classes.form}>
           <PaymentForm />
           <ShowIf
             condition={!shippingIsBilling}
@@ -84,13 +80,20 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             }}
           />
 
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", marginBottom: `${9.6}rem`, gap: `${2.5}rem` }}>
-            <FormButton title="Back" onClick={handleBack} disabled={activeStep === 0} />
-            <FormButton title="Next" type="submit" disabled={activeStep === steps.length - 1} />
+          <div className={classes.btnContainer}>
+            <FormButton
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              title="Back" />
+            <FormButton
+              disabled={activeStep === steps.length - 1}
+              title="Next"
+              type="submit"
+            />
           </div>
         </div>
 
-        <hr style={{ marginBottom: `${4.8}rem` }} />
+        <hr className={classes.hr} />
       </Form>
     </Formik>
   );

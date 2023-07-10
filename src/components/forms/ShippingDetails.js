@@ -208,7 +208,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                     <FormButton title="Next" type="submit" disabled={activeStep === steps.length - 1} />
                 </div>
 
-                <hr style={{ marginBottom: `${4.8}rem` }} />
+                <hr style={{ marginBottom: `${9.8}rem` }} />
             </Form>
         </Formik>
     );

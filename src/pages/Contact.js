@@ -87,6 +87,7 @@ const Contact = () => {
                     <h3>
                         Send us a message
                     </h3>
+                    <hr style={{marginTop: `${4.4}rem`, marginBottom: `${9.8}rem`}} />
                     <Formik
                         initialValues={initialValues}
                         validationSchema={addressValidationSchema}
@@ -131,6 +132,7 @@ const Contact = () => {
 
                         </Form>
                     </Formik>
+                    <hr style={{ marginBottom: `${9.8}rem` }} />
                 </Container>
             </main>
         </section >

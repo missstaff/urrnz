@@ -5,7 +5,7 @@ import classes from "./AddressForm.module.css";
 const AddressForm = () => {
     return (
         <>
-            <div cclassName={classes.fieldWrapper}>
+            <div className={classes.fieldWrapper}>
                 <label
                     htmlFor="fullName">
                     Full Name:
