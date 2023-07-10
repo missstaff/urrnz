@@ -42,6 +42,31 @@ label {
   margin-top: 20rem;
 }
 
+/*<--Media Queries-->*/
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
 :root {
 
   font-synthesis: none;
