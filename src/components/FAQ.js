@@ -1,6 +1,6 @@
 import Container from "./Container";
-import classes from "./FAQ.module.css";
 
+import classes from "./FAQ.module.css";
 import "../general.css";
 
 
