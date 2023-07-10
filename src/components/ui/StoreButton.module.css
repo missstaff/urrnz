@@ -1,6 +1,6 @@
 .btn {
     background-color: rgba(255, 236, 209, 1.0);
-    border: 1px solid var(--color-secondary-500);
+    border: 1px solid var(--color-secondary-700);
     border-radius: 50px;
     cursor: pointer;
     padding: 0.5rem 9.6rem;
@@ -12,7 +12,7 @@
 .link {
     display: inline-block;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.5s ease-in;
 }
 
 .link p {
@@ -20,13 +20,11 @@
     font-weight: 900;
     line-height: 2;
     margin: 0;
-    transition: all 0.3s;
 }
 
 .link p:hover,
 .link p:active {
-    color: var(--color-secondary-500);
-    transition: all 0.3s;
+    color: var(--color-secondary-700);
 
 }
 

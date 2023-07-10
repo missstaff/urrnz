@@ -12,9 +12,9 @@
 
 .field:focus {
     outline: none;
-    border: 0.5px solid var(--color-secondary-500);
+    border: 0.5px solid var(--color-secondary-700);
     border-radius: 7.5px;
-    box-shadow: 0 0 0 2px var(--color-secondary-500);
+    box-shadow: 0 0 0 2px var(--color-secondary-700);
     transition: all 0.2s ease;
 }
 
