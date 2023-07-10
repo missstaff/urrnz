@@ -109,7 +109,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             validationSchema={addressValidationSchema}
             onSubmit={handleSubmit}
         >
-            <Form>
+            <Form style={{width: "100%"}}>
 
                 <div
                     className={classes.container}
@@ -189,11 +189,13 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                 <div className={classes.btnContainer}>
                     <FormButton
                         disabled={activeStep === 0}
+                        fontClassName={classes.btnFont}
                         onClick={handleBack}
                         title="Back"
                     />
                     <FormButton
                         disabled={activeStep === steps.length - 1}
+                        fontClassName={classes.btnFont}
                         title="Next"
                         type="submit"
                     />

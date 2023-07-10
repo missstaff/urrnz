@@ -42,6 +42,11 @@ label {
   margin-top: 20rem;
 }
 
+.wrapper {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 /*<--Media Queries-->*/
 @media screen and (max-width: 1024px) {
   html {
@@ -52,6 +57,11 @@ label {
 @media screen and (max-width: 768px) {
   html {
     font-size: 50%;
+  }
+
+  .wrapper {
+    margin-left: 2.2rem;
+    margin-right: 2.2rem;
   }
 }
 

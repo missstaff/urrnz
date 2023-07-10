@@ -78,7 +78,7 @@ const Contact = () => {
 
 
     return (
-        <section>
+        <section className={"wrapper"}>
             <div className="headingContainer">
                 <Heading title="CONTACT" />
             </div>

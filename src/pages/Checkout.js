@@ -56,9 +56,9 @@ const Checkout = () => {
 
 
   return (
-    <section>
+    <section className="wrapper">
       <div className="headingContainer">
-        <Heading title="CHECKOUT" />
+        <Heading title="CHECKOUT" style={{fontSize: `${14.8}rem`}} />
       </div>
 
       <main>

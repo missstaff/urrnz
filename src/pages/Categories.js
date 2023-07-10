@@ -41,7 +41,8 @@ const Categories = () => {
         <main>
             <section
                 id="categories"
-                className={classes.section}>
+                className={classes.section}
+                >
                 <div
                     className="headingContainer">
                     <Heading

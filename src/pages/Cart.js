@@ -58,7 +58,7 @@ const Cart = () => {
 
 
     return (
-        <section>
+        <section className={"wrapper"}>
             <div className="headingContainer">
                 <Heading title="CART" />
             </div>

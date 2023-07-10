@@ -85,7 +85,7 @@ const Products = () => {
         <main>
             <section
                 id="gallery"
-                className={classes.section}>
+                className={`${classes.section} wrapper`}>
                 <div
                     className={classes.headingContainer}>
                     <Heading title="GALLERY" />

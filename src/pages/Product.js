@@ -29,7 +29,7 @@ const Product = () => {
 
     return (
         <div
-            className={classes.wrapper}>
+            className={`${classes.wrapper} wrapper`}>
             <div
                 className="headingContainer">
                 <Heading
