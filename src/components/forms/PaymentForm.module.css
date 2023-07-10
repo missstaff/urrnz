@@ -18,31 +18,32 @@
     transition: all 0.2s ease;
 }
 
-.fieldLargeWrapper { 
-    display: flex; 
-    flex-direction: column; 
-    margin-bottom: 1.5rem; 
-}
-
-.fieldSmallWrapper { 
-    display: flex; 
-    flex-direction: column; 
+.fieldLargeWrapper {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1.5rem;
-    width: 33%; 
 }
 
-.formWrapper{
+.fieldSmallWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 33%;
+}
+
+.formWrapper {
     width: 100%;
 }
 
-.smallInputContainer { 
-    align-Items: center; 
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-evenly; 
-    margin-bottom: 1.5rem; 
-    width: 100%;
+.placeholderColor::placeholder {
+    color: #999
 }
 
-
-
+.smallInputContainer {
+    align-Items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}

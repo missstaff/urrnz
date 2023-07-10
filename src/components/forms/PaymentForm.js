@@ -1,6 +1,7 @@
 import { Field, ErrorMessage } from "formik";
 import classes from "./PaymentForm.module.css";
 
+
 const PaymentForm = () => {
     return (
         <div className={classes.formWrapper}>
@@ -11,9 +12,10 @@ const PaymentForm = () => {
                     Card Number:
                 </label>
                 <Field
-                    className={classes.field}
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="cc_number"
                     name="cc_number"
+                    placeholder="1234567887654321"
                     type="text"
                 />
                 <ErrorMessage
@@ -27,9 +29,10 @@ const PaymentForm = () => {
                 <div className={classes.fieldSmallWrapper}>
                     <label htmlFor="ccv">CCV:</label>
                     <Field
-                        className={classes.field}
+                        className={`${classes.placeholderColor} ${classes.field}`}
                         id="ccv"
                         name="ccv"
+                        placeholder="123"
                         type="text"
                     />
 
@@ -43,9 +46,10 @@ const PaymentForm = () => {
                 <div className={classes.fieldSmallWrapper}>
                     <label htmlFor="month">Month</label>
                     <Field
-                        className={classes.field}
+                        className={`${classes.placeholderColor} ${classes.field}`}
                         id="month"
                         name="month"
+                        placeholder="01"
                         type="text"
                     />
 
@@ -59,9 +63,10 @@ const PaymentForm = () => {
                 <div className={classes.fieldSmallWrapper}>
                     <label htmlFor="year">Year</label>
                     <Field
-                        className={classes.field}
+                        className={`${classes.placeholderColor} ${classes.field}`}
                         id="year"
                         name="year"
+                        placeholder="2023"
                         type="text"
                     />
                     <ErrorMessage
