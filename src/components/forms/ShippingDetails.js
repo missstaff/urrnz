@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form } from "formik";
 
@@ -7,6 +7,7 @@ import FormButton from "./FormButton";
 
 import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../store/customer-actions";
 import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
+import { useScreenSize } from "../../hooks/useScreenSize";
 import { addressValidationSchema, postRequestHandler } from "../../utility/utils";
 
 import { FETCH_TAX } from "../../config/constants";
@@ -17,6 +18,7 @@ import classes from "./ShippingDetails.module.css";
 const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
     const dispatch = useDispatch();
+    const screenSize = useScreenSize();
 
     const customer = useSelector(state => state.customer);
     const shippingAddress = customer.shippingAddress;
@@ -27,6 +29,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
     const [isShippingSameAsBilling, setIsShippingSameAsBilling] = useState(false);
     const [shippingOption, setShippingOption] = useState(1);
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
 
 
     const initialValues = {
@@ -78,6 +81,27 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         handleNext();
     };
 
+    useEffect(() => {
+        const setSizes = () => {
+            if (screenSize === "default") {
+                setIsLargeScreen(false);
+            } else if (screenSize === "xs") {
+                setIsLargeScreen(false);
+            } else if (screenSize === "sm") {
+                setIsLargeScreen(false);
+            } else if (screenSize === "md") {
+                setIsLargeScreen(false);
+            } else if (screenSize === "lg") {
+                setIsLargeScreen(true);
+            } else if (screenSize === "xl") {
+                setIsLargeScreen(true);
+            } else if (screenSize === "xxl") {
+                setIsLargeScreen(true);
+            }
+        };
+        setSizes();
+    }, [screenSize,]);
+
 
     return (
         <Formik
@@ -87,46 +111,23 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         >
             <Form>
 
-                <div style={{
-                    display: "grid",
-                    flexDirection: "row",
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                    gap: `${9.6}rem`,
-                    width: "100%",
-                    paddingTop: `${9.6}rem`,
-                }}>
+                <div
+                    className={classes.container}
+                    style={{
+                        gridTemplateColumns: isLargeScreen ? "repeat(2, 1fr)" : "repeat(1, 1fr)"
+                    }}>
                     <div style={{ width: "100%" }}>
 
-                        <div
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                justifyContent: "flex-end",
-                                width: "100%",
-                                marginBottom: `
-                             ${2.2}rem`
-                            }}
-                        >
-                            <div
-                                style={{
-                                    width: "50%",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    justifyContent: "space-between",
-                                }}>
-                                <label style={{ fontSize: `${2.2}rem`, fontWeight: 700, }} htmlFor="shippingIsBilling">Shipping same as billing</label>
+                        <div className={classes.row}>
+                            <div className={classes.fieldWrapper}>
+                                <label htmlFor="shippingIsBilling">Shipping same as billing</label>
                                 <Field
-                                    style={{
-                                        accentColor: "#ff5900",
-                                        height: `${2.4}rem`,
-                                        width: `${2.4}rem`,
-                                    }}
-                                    type="checkbox"
+                                    checked={customer.customer?.isShippingSameAsBilling || isShippingSameAsBilling}
+                                    className={classes.field}
                                     id="shippingIsBilling"
                                     name="shippingIsBilling"
-                                    checked={customer.customer?.isShippingSameAsBilling || isShippingSameAsBilling}
-
                                     onClick={handleShippingSameAsBillingChange}
+                                    type="checkbox"
                                 />
                             </div>
                         </div>
@@ -136,79 +137,68 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                     </div>
 
                     <div style={{ width: "100%" }}>
+                        {!isLargeScreen && <hr className={classes.hr} />}
                         <h3 style={{
-                            textAlign: "center",
                             fontSize: `${3.2}rem`,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            padding: `${1.8}rem`,
-                            marginBottom: `${4.4}rem`,
-                        }}>Shipping Options:</h3>
+                            marginTop: isLargeScreen ? "0" : `${-4.4}rem`,
+                        }}>
+                            Shipping Options:
+                        </h3>
                         {shippingOptions.map((option, index) => {
                             return (
                                 <div
                                     key={index}
-                                    style={{
-                                        width: "100%",
-                                        display: "flex",
-                                        flexDirection: "row",
-                                        alignItems: "flex-start",
-                                        justifyContent: "space-between",
-                                        marginBottom: `${2.2}rem`,
-                                    }}>
-                                    <label style={{ fontSize: `${2.4}rem` }} htmlFor={option.name}><p>{option.name}</p> <p>${option.price}</p></label>
+                                    className={classes.optionsContainer}>
+                                    <label
+                                        htmlFor={option.name}>
+                                        <p>
+                                            {option.name}
+                                        </p>
+                                        <p>
+                                            ${option.price}
+                                        </p>
+                                    </label>
                                     <Field
-                                        onClick={() => setShippingOption(index)}
-                                        style={{
-                                            height: `${2.4}rem`,
-                                            width: `${2.4}rem`,
-                                            accentColor: "#ff5900",
-                                            transition: "accent-color 0.3s",
-                                        }}
-                                        type="checkbox"
+                                        checked={shippingOption === index}
+                                        className={classes.field}
                                         id={option.name}
                                         name={option.name}
-                                        checked={shippingOption === index}
+                                        onClick={() => setShippingOption(index)}
+                                        type="checkbox"
                                     />
                                 </div>
                             );
                         })}
 
-                        <div style={{ display: "flex", flexDirection: "column", marginBottom: `${1.5}rem` }}>
+                        <div className={classes.textAreaContainer}>
                             <label
-                                style={{
-                                    fontSize: `${1.8}rem`,
-                                }}
                                 htmlFor="message">
                                 Message:
                             </label>
                             <Field
-                                style={{
-                                    fontSize: `${2.4}rem`,
-                                    paddingTop: `${0.5}rem`,
-                                    paddingLeft: `${0.5}rem`,
-                                    fontWeight: 400,
-                                    width: "100%",
-                                    height: `${25}rem`,
-                                }}
                                 as="textarea"
+                                className={`${classes.placeholderColor} ${classes.textAreaField}`}
                                 id="message"
                                 name="message"
-                                className={classes.placeholderColor}
                                 placeholder="Name for inscription, special instructions."
                             />
-                           
                         </div>
                     </div>
 
                 </div>
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "center", marginBottom: `${9.6}rem`, gap: `${2.5}rem` }}>
-                    <FormButton title="Back" onClick={handleBack} disabled={activeStep === 0} />
-                    <FormButton title="Next" type="submit" disabled={activeStep === steps.length - 1} />
+                <div className={classes.btnContainer}>
+                    <FormButton
+                        disabled={activeStep === 0}
+                        onClick={handleBack}
+                        title="Back"
+                    />
+                    <FormButton
+                        disabled={activeStep === steps.length - 1}
+                        title="Next"
+                        type="submit"
+                    />
                 </div>
-
-                <hr style={{ marginBottom: `${9.8}rem` }} />
+                <hr className={classes.hr} />
             </Form>
         </Formik>
     );

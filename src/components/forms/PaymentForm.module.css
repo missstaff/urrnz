@@ -47,3 +47,44 @@
     margin-bottom: 1.5rem;
     width: 100%;
 }
+
+/*Media Queries*/
+@media screen and (max-width: 1024px) {
+    .container {
+        padding-left: 4.8rem;
+        padding-right: 4.8rem;
+    }
+    .form{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+    .form{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+    }
+    .form{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .form{
+        width: 100%;
+    }
+}

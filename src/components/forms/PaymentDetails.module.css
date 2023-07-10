@@ -20,3 +20,31 @@
 .hr {
     margin-bottom: 9.8rem;
 }
+
+/*Media Queries*/
+@media screen and (max-width: 768px) {
+    .form {
+        width: 100%;
+    }
+    .btnContainer {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
+    .btnContainer {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form {
+        width: 100%;
+    }
+    .btnContainer {
+        justify-content: center;
+    }
+}
