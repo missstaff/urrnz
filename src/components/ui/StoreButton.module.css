@@ -12,6 +12,7 @@
 .link {
     display: inline-block;
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 .link p {
@@ -25,6 +26,7 @@
 .link p:hover,
 .link p:active {
     color: var(--color-secondary-500);
+    transition: all 0.3s;
 
 }
 

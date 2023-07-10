@@ -67,6 +67,7 @@
     font-size: 1.6rem;
     padding-left: 1.6rem;
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 .link:hover,
