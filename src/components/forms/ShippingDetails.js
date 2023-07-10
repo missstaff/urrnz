@@ -199,8 +199,9 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                         title="Next"
                         type="submit"
                     />
+                   
                 </div>
-                <hr className={classes.hr} />
+                 <hr className={classes.hr} />
             </Form>
         </Formik>
     );

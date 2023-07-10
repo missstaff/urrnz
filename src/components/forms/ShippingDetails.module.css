@@ -47,7 +47,8 @@
 }
 
 .hr {
-    margin-bottom: 9.8rem
+    margin-bottom: 4.8rem;
+
 }
 
 .optionsContainer {
@@ -105,10 +106,6 @@
     .field {
         height: 2.4rem;
         width: auto;
-    }
-
-    .hr {
-        margin-bottom: 4.8rem;
     }
 
     .textAreaField {
