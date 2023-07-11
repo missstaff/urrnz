@@ -80,7 +80,9 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             }}
           />
 
+          <div style={{marginTop: `${1.8}rem`}}>
           <CheckoutButtons activeStep={activeStep} handleBack={handleBack} steps={steps} />
+          </div>
         </div>
 
         <hr className={classes.hr} />
