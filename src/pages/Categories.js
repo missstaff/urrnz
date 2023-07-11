@@ -46,7 +46,7 @@ const Categories = () => {
                 <div
                     className="headingContainer">
                     <Heading
-                        title="CATEGORIES" />
+                        title="Genres" />
                 </div>
                 <div
                     className={`grid ${classes.gridColumns}`}>
