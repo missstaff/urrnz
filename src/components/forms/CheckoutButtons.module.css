@@ -1,0 +1,15 @@
+.btnContainer {
+    align-items: center; 
+    display: flex; 
+    flex-direction: row; 
+    gap: 2.5rem;
+    justify-content: flex-end; 
+    margin-bottom: 9.6rem;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 768px) {
+    .btnContainer {
+        margin-top: 1rem;
+    }
+}

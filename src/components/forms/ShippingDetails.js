@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form } from "formik";
 
 import AddressForm from "./AddressForm";
-import FormButton from "./FormButton";
+import CheckoutButtons from "./CheckoutButtons";
 
 import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../store/customer-actions";
 import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
@@ -109,7 +109,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             validationSchema={addressValidationSchema}
             onSubmit={handleSubmit}
         >
-            <Form style={{width: "100%"}}>
+            <Form style={{ width: "100%" }}>
 
                 <div
                     className={classes.container}
@@ -139,7 +139,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                     <div style={{ width: "100%" }}>
                         {!isLargeScreen && <hr className={classes.hr} />}
                         <h3 style={{
-                            fontSize: `${3.2}rem`,
+                            fontSize: `${4.4}rem`,
                             marginTop: isLargeScreen ? "0" : `${-4.4}rem`,
                         }}>
                             Shipping Options:
@@ -151,10 +151,10 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                     className={classes.optionsContainer}>
                                     <label
                                         htmlFor={option.name}>
-                                        <p>
+                                        <p className={classes.option}>
                                             {option.name}
                                         </p>
-                                        <p>
+                                        <p className={classes.optionPrice}>
                                             ${option.price}
                                         </p>
                                     </label>
@@ -170,38 +170,27 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                             );
                         })}
 
-                        <div className={classes.textAreaContainer}>
-                            <label
-                                htmlFor="message">
-                                Message:
-                            </label>
-                            <Field
-                                as="textarea"
-                                className={`${classes.placeholderColor} ${classes.textAreaField}`}
-                                id="message"
-                                name="message"
-                                placeholder="Name for inscription, special instructions."
-                            />
+                        <div>
+                            <div className={classes.textAreaContainer}>
+                                <label
+                                    htmlFor="message">
+                                    Message:
+                                </label>
+                                <Field
+                                    as="textarea"
+                                    className={`${classes.placeholderColor} ${classes.textAreaField}`}
+                                    id="message"
+                                    name="message"
+                                    placeholder="Name for inscription, special instructions."
+                                />
+                            </div>
+                            <CheckoutButtons activeStep={activeStep} handleBack={handleBack} steps={steps} />
                         </div>
                     </div>
 
                 </div>
-                <div className={classes.btnContainer}>
-                    <FormButton
-                        disabled={activeStep === 0}
-                        fontClassName={classes.btnFont}
-                        onClick={handleBack}
-                        title="Back"
-                    />
-                    <FormButton
-                        disabled={activeStep === steps.length - 1}
-                        fontClassName={classes.btnFont}
-                        title="Next"
-                        type="submit"
-                    />
-                   
-                </div>
-                 <hr className={classes.hr} />
+
+                <hr className={classes.hr} />
             </Form>
         </Formik>
     );

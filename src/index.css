@@ -35,7 +35,7 @@ ul {
 }
 
 label {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 .headingContainer {
@@ -60,14 +60,14 @@ label {
   }
 
   .wrapper {
-    margin-left: 2.2rem;
-    margin-right: 2.2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   html {
-    font-size: 42.5%;
+    font-size: 43.75%;
   }
 }
 

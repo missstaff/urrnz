@@ -2,7 +2,7 @@ import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 
 import AddressForm from "./AddressForm";
-import FormButton from "./FormButton";
+import CheckoutButtons from "./CheckoutButtons";
 import PaymentForm from "./PaymentForm";
 import ShowIf from "../ShowIf";
 
@@ -80,17 +80,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             }}
           />
 
-          <div className={classes.btnContainer}>
-            <FormButton
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              title="Back" />
-            <FormButton
-              disabled={activeStep === steps.length - 1}
-              title="Next"
-              type="submit"
-            />
-          </div>
+          <CheckoutButtons activeStep={activeStep} handleBack={handleBack} steps={steps} />
         </div>
 
         <hr className={classes.hr} />

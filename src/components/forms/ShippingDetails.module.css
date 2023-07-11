@@ -1,20 +1,3 @@
-.btnContainer {
-    align-items: center; 
-    display: flex; 
-    flex-direction: row; 
-    gap: 2.5rem;
-    justify-content: flex-end; 
-    margin-bottom: 9.6rem;
-}
-
-/* .btnContainer {
-    align-items: center; 
-    display: flex; 
-    flex-direction: row; 
-    justify-content: flex-end;
-    padding: 5rem;
-} */
-
 .container {
     align-items: center;
     display: grid;
@@ -52,6 +35,16 @@
 
 }
 
+.option {
+    font-size: 3.4rem;
+}
+
+.optionPrice {
+    font-size: 2.4rem;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
 .optionsContainer {
     align-items: flex-start;
     display: flex;
@@ -76,7 +69,7 @@
 .textAreaContainer {
     display: flex; 
     flex-direction: column; 
-    margin-bottom: 1.5rem;
+    margin-bottom: 4.4rem;
 }
 
 .textAreaField {
@@ -88,9 +81,6 @@
     width: 100%;
 }
 
-.test {
-    color: blue;
-}
 
 /*Media Queries*/
 @media screen and (max-width: 768px) {
@@ -113,6 +103,15 @@
         width: auto;
     }
 
+    .fieldWrapper {
+        width: 65%;
+    }
+
+    .optionsContainer {
+        margin-bottom: 4.8rem;
+        width: 100%;
+    }
+
     .textAreaField {
         height: 15rem;
     }
@@ -122,6 +121,17 @@
     .container {
         padding-left: 4.8rem;
         padding-right: 4.8rem;
+    }
+
+
+    .option {
+        font-size: 2.8rem;
+    }
+
+    .optionPrice {
+        font-size: 2.4rem;
+        margin-left: 1.5rem;
+        margin-top: 0.5rem;
     }
 }
 
