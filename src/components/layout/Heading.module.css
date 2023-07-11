@@ -38,12 +38,12 @@
 
 @media screen and (max-width: 580px) {
     .heading {
-        font-size:9.8rem;
+        font-size:8.4rem;
     }
 }
 
 @media screen and (max-width: 320px) {
     .heading {
-        font-size: 8.4rem;
+        font-size: 6.8rem;
     }
 }
