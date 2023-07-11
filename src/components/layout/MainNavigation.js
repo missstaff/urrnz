@@ -96,10 +96,10 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                            to="/categories"
+                            to="/genres"
                             onClick={isMenuVisible && handleMobileNavClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
-                            <p>Categories</p>
+                            <p>Genres</p>
                         </NavLink>
                     </li>
                     <li>

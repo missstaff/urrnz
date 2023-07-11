@@ -1,51 +1,74 @@
 import { useState } from "react";
 
-import AddressForm from "../components/forms/AddressForm";
+import ShippingDetails from "../components/forms/ShippingDetails";
+import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-import PaymentForm from "../components/forms/PaymentForm";
+import PaymentDetails from "../components/forms/PaymentDetails";
 import Review from "../components/forms/Review";
 
+import classes from "./Checkout.module.css";
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+
+const steps = ["Shipping Details", "Payment Details", "Review"];
 
 
-const getStepContent = (step) => {
-  switch (step) {
+const getStepContent = (activeStep, handleBack, handleNext, steps) => {
+
+  switch (activeStep) {
     case 0:
-      return <AddressForm />;
+      return <ShippingDetails
+        activeStep={activeStep}
+        handleBack={handleBack}
+        handleNext={handleNext}
+        steps={steps}
+      />;
     case 1:
-      return <PaymentForm />;
+      return <PaymentDetails
+        activeStep={activeStep}
+        handleBack={handleBack}
+        handleNext={handleNext}
+        steps={steps}
+      />;
     case 2:
-      return <Review />;
+      return <Review
+        activeStep={activeStep}
+        handleBack={handleBack}
+        handleNext={handleNext}
+        steps={steps}
+      />;
     default:
       throw new Error("Unknown step");
   }
 };
+
 
 const Checkout = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    setActiveStep((prevStep) => prevStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    setActiveStep((prevStep) => prevStep - 1);
   };
 
+
   return (
-    <section>
-      <div
-        className="headingContainer">
-        <Heading
-          title="CHECKOUT" />
+    <section className="wrapper">
+      <div className="headingContainer">
+        <Heading title="CHECKOUT" />
       </div>
 
-     
       <main>
-
-    
+        <Container className={classes.container}>
+          <h2 className={classes.heading}>
+            {steps[activeStep]}
+          </h2>
+          <hr />
+          {getStepContent(activeStep, handleBack, handleNext, steps)}
+        </Container>
       </main>
     </section>
   );

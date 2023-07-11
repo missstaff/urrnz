@@ -4,10 +4,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const storeSlice = createSlice({
     name: "store",
     initialState: {
-        products: [],
         categories: [],
-        shippingOptions: [],
         category: "all",
+        chatObjectTemplate: {},
+        orderTemplate: {},
+        products: [],
+        shippingOptions: [],
     },
     reducers: {
         setProducts(state, action) {
@@ -34,8 +36,18 @@ const storeSlice = createSlice({
             }));
             state.shippingOptions = mappedShippingOptions;
         },
-        setCategory (state, action) {
+        setCategory(state, action) {
             state.category = action.payload;
+        },
+
+        setOrderObject(state, action) {
+            const orderTemplate = action.payload.response.order;
+            state.orderTemplate = orderTemplate;
+        },
+
+        setChatObject(state, action) {
+            const chatObjectTemplate = action.payload.response.contact;
+            state.chatObjectTemplate = chatObjectTemplate;
         },
     }
 });

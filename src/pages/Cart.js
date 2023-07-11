@@ -21,11 +21,7 @@ const Cart = () => {
 
     const cart = useSelector(state => state.cart);
     const items = cart.items;
-    const totalAmount = cart.totalAmount;
-    // const totalQuantity = cart.totalQuantity;
-    // const shipping = cart.shipping;
-    // const changed = cart.changed;
-
+    const subTotal = cart.subTotal;
 
     const [btnFontSize, setBtnFontSize] = useState(2.2);
 
@@ -62,7 +58,7 @@ const Cart = () => {
 
 
     return (
-        <section>
+        <section className={"wrapper"}>
             <div className="headingContainer">
                 <Heading title="CART" />
             </div>
@@ -78,13 +74,7 @@ const Cart = () => {
                                     <div
                                         className={`${classes.gridColumns} ${classes.itemContainer}`}>
                                         <div
-                                            style={{
-                                                alignItems: "100%",
-                                                display: "flex",
-                                                flexDirection: "row",
-                                                justifyContent: "center",
-                                                width: "100%",
-                                            }}>
+                                            className={classes.imageContainer}>
                                             <img
                                                 alt={item.name}
                                                 className={classes.itemImage}
@@ -98,11 +88,7 @@ const Cart = () => {
                                                 <h2
                                                     className={classes.itemName}>{item.name}</h2>
                                                 <div
-                                                    style={{
-                                                        alignItems: "flex-start",
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                    }}>
+                                                    className={classes.itemDetails}>
                                                     <p
                                                         className={classes.itemPrice}>
                                                         Price: ${item.price * item.quantity}
@@ -161,7 +147,7 @@ const Cart = () => {
                                     }}>
                                     <p
                                         className={classes.subTotal}>
-                                        Subtotal: ${totalAmount}
+                                        Subtotal: ${subTotal}
                                     </p>
                                 </div>
                             </div>
@@ -177,7 +163,7 @@ const Cart = () => {
                 <div className={classes.cartButton}>
                     <StoreButton
                         to={!items.length ? "/products/all" : "/checkout"}
-                        title={!items.length ? "SHOP URRNZ" : "SHIPPING"}
+                        title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
                         style={{ fontSize: `${btnFontSize}rem`, }}
                     />
                 </div>

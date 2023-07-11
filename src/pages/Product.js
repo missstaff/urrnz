@@ -1,7 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import FormButton from "../components/forms/FormButton";
+import AddToCartButton from "../components/ui/AddToCartButton";
 import Heading from "../components/layout/Heading";
 
 import { addToCartHandler } from "../store/cart-actions";
@@ -22,7 +22,6 @@ const Product = () => {
     const category = store.category;
 
 
-
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
@@ -30,7 +29,7 @@ const Product = () => {
 
     return (
         <div
-            className={classes.wrapper}>
+            className={`${classes.wrapper} wrapper`}>
             <div
                 className="headingContainer">
                 <Heading
@@ -90,9 +89,7 @@ const Product = () => {
                         </div>
                         <div
                             className={classes.buttonContainer}>
-                            <FormButton
-                                title="ADD TO CART"
-                                to="/cart"
+                            <AddToCartButton
                                 onClick={() => addItemToCartHandler(product)}
                             />
                         </div>

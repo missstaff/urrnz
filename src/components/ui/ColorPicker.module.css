@@ -10,11 +10,22 @@
     width: 5rem;
 }
 
+.selectColor { 
+    color: var(--color-secondary-700);
+    font-size: 1.4rem;
+    font-weight: bold
+ }
+
+ .selectedColor {
+    font-size: 1.4rem;
+    font-weight: bold
+ }
+
 @media screen and (max-width: 768px) {
     .grid {
         gap: 1px
     }
-    
+
     .image {
         height: 4rem;
         width: 4rem;
@@ -25,7 +36,7 @@
     .grid {
         gap: 0.25px;
     }
-    
+
     .image {
         height: 3rem;
         width: 3rem;
@@ -36,11 +47,11 @@
     .grid {
         gap: 0.25px;
     }
-    
+
     .image {
         height: 2rem;
         margin-left: auto;
         margin-right: auto;
         width: 2rem;
-    }    
+    }
 }

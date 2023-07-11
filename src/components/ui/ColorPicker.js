@@ -31,7 +31,7 @@ const ColorPicker = (props) => {
 
   return (
     <div>
-      <h3>Select a color:</h3>
+      <p className={classes.selectColor}>Select a color:</p>
       <div className={classes.grid}>
         {colors.map((color) => (
           <div
@@ -43,8 +43,8 @@ const ColorPicker = (props) => {
         ))}
       </div>
       {selectedColor && (
-        <p>
-          Selected color: <span style={{ color: selectedColor, fontWeight: "bold" }}>{selectedColor}</span>
+        <p className={classes.selectedColor}>
+          Selected color: <span className={classes.selectedColor} style={{ color: selectedColor }}>{selectedColor}</span>
         </p>
       )}
     </div>

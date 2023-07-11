@@ -23,6 +23,14 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.imageContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
 .itemButtons {
   align-items: center;
   display: flex;
@@ -38,9 +46,9 @@
 }
 
 .itemDetails {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .itemName {
@@ -52,7 +60,9 @@
 
 .itemImage {
   height: 50rem;
+  image-resolution: from-image;
   object-fit: cover;
+  resize: both;
   width: auto;
 }
 
@@ -93,12 +103,14 @@
   border-radius: 7.5px;
   border-style: solid;
   border-width: 1px;
+  cursor: pointer;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .subTotal {
@@ -127,8 +139,6 @@
 
   .itemImage {
     height: 25rem;
-    object-fit: cover;
-    width: auto;
   }
 
   .itemName {

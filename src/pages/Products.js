@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+import AddToCartButton from "../components/ui/AddToCartButton";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-import FormButton from "../components/forms/FormButton";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { storeActions } from "../store/store-slice";
@@ -16,11 +16,10 @@ import "../general.css";
 
 const Products = () => {
 
-
     const dispatch = useDispatch();
     const screenSize = useScreenSize();
     const { category } = useParams();
-    
+
     const store = useSelector(state => state.store);
     const products = store.products;
 
@@ -84,8 +83,11 @@ const Products = () => {
 
     return (
         <main>
-            <section id="gallery" className={classes.section}>
-                <div className={classes.headingContainer}>
+            <section
+                id="gallery"
+                className={`${classes.section} wrapper`}>
+                <div
+                    className={classes.headingContainer}>
                     <Heading title="GALLERY" />
                 </div>
                 <div
@@ -94,9 +96,8 @@ const Products = () => {
                     {categoryProducts.map((product, index) => (
                         <div
                             key={index}>
-
                             <Container
-                                style={{
+                                style={{ //these styles must be inline to be applied to the container
                                     display: "flex",
                                     flexDirection: "column",
                                     justifyContent: "center",
@@ -121,14 +122,18 @@ const Products = () => {
                                         className={`${touchedIndex === index ? classes.touched : ""}`}>
 
                                         <img
-                                            src={product.images.lg}
                                             alt={product.name}
+                                            src={product.images.lg}
                                             style={{
                                                 alignSelf: "center",
                                                 margin: "5%",
                                                 borderRadius: 7.5,
                                                 height: `${imageHeight}rem`,
-                                                resizeMode: "contain",
+                                                imageResolution: "from-image",
+                                                objectFit: "cover",
+                                                resize: "both",
+                                                resizeMode: "cover",
+                                                width: "auto",
                                             }}
                                         />
                                     </div>
@@ -156,12 +161,14 @@ const Products = () => {
                                 </div>
                                 <div
                                     className={classes.buttonContainer}
-                                    style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                    <FormButton 
-                                        title="ADD TO CART" 
-                                        to="/cart" 
+                                    style={{
+                                        alignItems: "center",
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        justifyContent: "center"
+                                    }}>
+                                    <AddToCartButton
                                         onClick={() => addItemToCartHandler(product)} />
-
                                 </div>
                             </Container>
                         </div>

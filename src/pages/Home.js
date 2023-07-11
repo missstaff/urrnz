@@ -13,13 +13,16 @@ const Home = () => {
             <section id="home">
                 <Hero />
             </section>
-            <section id="about">
+            <section
+                className={"wrapper"}
+                id="about">
                 <Heading
                     title="ABOUT" />
                 <About />
             </section>
-            <section id="faqs"
-                className={classes.faqsMarginBottom}>
+            <section
+                className={`${classes.faqsMarginBottom} wrapper`}
+                id="faqs">
                 <Heading
                     title="FAQs" />
                 <FAQ />
