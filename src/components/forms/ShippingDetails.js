@@ -122,7 +122,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                             <div className={classes.fieldWrapper}>
                                 <label htmlFor="shippingIsBilling">Shipping same as billing</label>
                                 <Field
-                                    checked={customer.customer?.isShippingSameAsBilling || isShippingSameAsBilling}
+                                    checked={customer?.isShippingSameAsBilling || isShippingSameAsBilling}
                                     className={classes.field}
                                     id="shippingIsBilling"
                                     name="shippingIsBilling"
