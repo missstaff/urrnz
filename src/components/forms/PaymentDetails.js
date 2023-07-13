@@ -21,11 +21,11 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
 
   const initialValuesWithBillingAddress = {
-    cc_number: customer.cardDetails?.cc_number || "",
-    ccv: customer.cardDetails?.ccv || "",
-    month: customer.cardDetails?.month || "",
-    year: customer.cardDetails?.year || "",
-    zipCode: customer.customer?.billingAddress.postalCd || "",
+    cc_number: customer.cardDetails?.cc_number || "4242424242424242",
+    ccv: customer.cardDetails?.ccv || "123",
+    month: customer.cardDetails?.month || "12",
+    year: customer.cardDetails?.year || "2025",
+    zipCode: customer.customer?.billingAddress.postalCd || "90210",
   };
 
   const initialValuesWithoutBillingAddress = {
@@ -81,7 +81,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
           />
 
           <div style={{marginTop: `${1.8}rem`}}>
-          <CheckoutButtons activeStep={activeStep} handleBack={handleBack} steps={steps} />
+          <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Next" />
           </div>
         </div>
 

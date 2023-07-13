@@ -2,25 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setColorHandler } from "../../store/cart-actions";
-
+import { colors, colorCodeToName } from "../../config/constants";
 import classes from "./ColorPicker.module.css";
-
-
-
-const colors = [
-  "#B80000", "#DB3E00", "#FCCB00", "#008B02",
-  "#006B76", "#1273DE", "#004DCF", "#5300EB",
-  "#EB9694", "#FAD0C3", "#FEF3BD", "#C1E1C5",
-  "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB"
-];
-
-
 
 const ColorPicker = (props) => {
 
   const { cid } = props;
   const dispatch = useDispatch();
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedColor, setSelectedColor] = useState(colors[2]);
 
 
   const handleColorChange = (color) => {
@@ -34,6 +23,7 @@ const ColorPicker = (props) => {
       <p className={classes.selectColor}>Select a color:</p>
       <div className={classes.grid}>
         {colors.map((color) => (
+          
           <div
             key={color}
             style={{ backgroundColor: color }}
@@ -44,7 +34,7 @@ const ColorPicker = (props) => {
       </div>
       {selectedColor && (
         <p className={classes.selectedColor}>
-          Selected color: <span className={classes.selectedColor} style={{ color: selectedColor }}>{selectedColor}</span>
+          Selected color: <span className={classes.selectedColor} style={{ color: selectedColor }}>{colorCodeToName[selectedColor]}</span>
         </p>
       )}
     </div>

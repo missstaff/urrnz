@@ -1,3 +1,4 @@
+//SCREEN SIZES
 export const sizes = {
     xs: "375px",
     sm: "640px",
@@ -5,6 +6,34 @@ export const sizes = {
     lg: "1024px",
     xl: "1280px",
     xxl: "1536px",
+};
+
+//ITEM COLOR OPTION
+export const colors = [
+    "#B80000", "#DB3E00", "#FCCB00", "#008B02",
+    "#006B76", "#1273DE", "#004DCF", "#5300EB",
+    "#EB9694", "#FAD0C3", "#FEF3BD", "#C1E1C5",
+    "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB"
+];
+
+//COLOR OPTIONS MAP
+export const colorCodeToName = {
+    "#B80000": "Red",
+    "#DB3E00": "Orange",
+    "#FCCB00": "Yellow",
+    "#008B02": "Green",
+    "#006B76": "Teal",
+    "#1273DE": "Blue",
+    "#004DCF": "Navy",
+    "#5300EB": "Purple",
+    "#EB9694": "Pink",
+    "#FAD0C3": "Light Pink",
+    "#FEF3BD": "Light Yellow",
+    "#C1E1C5": "Light Green",
+    "#BEDADC": "Light Blue",
+    "#C4DEF6": "Light Sky Blue",
+    "#BED3F3": "Light Slate Blue",
+    "#D4C4FB": "Light Lavender",
 };
 
 //END POINTS

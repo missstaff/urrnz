@@ -12,7 +12,6 @@ const customerSlice = createSlice({
         phone: "",
         message: "",
         shippingAddress: {},
-        tax: 0,
     },
     reducers: {
         setCustomer(state, action) {
@@ -59,6 +58,7 @@ const customerSlice = createSlice({
             const tempCardDetails = {
                 cc_number: action.payload.cc_number,
                 ccv: action.payload.ccv,
+                cc_last_four: action.payload.cc_number.slice(-4),
                 month: action.payload.month,
                 year: action.payload.year,
                 zipCode: action.payload.zipCode,
@@ -90,7 +90,6 @@ const customerSlice = createSlice({
             state.phone = "";
             state.message = "";
             state.shippingAddress = {};
-            state.tax = 0;
         },
     }
 });

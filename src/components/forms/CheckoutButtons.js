@@ -1,7 +1,7 @@
 import FormButton from "./FormButton";
 import classes from "./CheckoutButtons.module.css";
 
-const CheckoutButtons = ({ activeStep, handleBack, steps }) => {
+const CheckoutButtons = ({ activeStep, handleBack, title }) => {
     return (
         <div className={classes.btnContainer}>
             <FormButton
@@ -11,9 +11,8 @@ const CheckoutButtons = ({ activeStep, handleBack, steps }) => {
                 title="Back"
             />
             <FormButton
-                disabled={activeStep === steps.length - 1}
                 fontClassName={classes.btnFont}
-                title="Next"
+                title={title}
                 type="submit"
             />
 
