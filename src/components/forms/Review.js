@@ -87,7 +87,7 @@ const Review = ({ activeStep, handleBack, handleNext, steps }) => {
 
        
         orderItems.push(shipping);
-        console.log("template", orderTemplate)
+       
         const order = {
             ...orderTemplate,
             addresses: [billingAddress, shippingAddress],
@@ -98,14 +98,16 @@ const Review = ({ activeStep, handleBack, handleNext, steps }) => {
             phone: phone,
             transactions : [transactionObject = {
                 ...transactionObject,
-                amount: subTotal + shipping.price + tax,
+                // amount: total,
             }],
         };
 
        
         const res = await postRequestHandler(POST_ORDER, order);
+        console.log("res", res.response.transactions[0].success)
         if(!res.response.transactions[0].success){
             console.log("Error submitting order");
+            console.log(res.messages[0]) //object needs to loop through
             alert("Error submitting order");
         }else{
             console.log("Order submitted successfully");
