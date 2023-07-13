@@ -38,9 +38,9 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         phone: customer?.phone || "1234567890",
         addressLine1: shippingAddress?.address || "123 Main St",
         addressLine2: shippingAddress?.address2 || "",
-        city: shippingAddress?.city || "ABC",
+        city: shippingAddress?.city || "Sacramento",
         state: shippingAddress?.stateCd || "CA",
-        zipCode: shippingAddress?.postalCd || "90210",
+        zipCode: shippingAddress?.postalCd || "95826",
         message: customer?.message || "testing",
     };
 
