@@ -1,6 +1,7 @@
 import FormButton from "./FormButton";
 import classes from "./CheckoutButtons.module.css";
 
+
 const CheckoutButtons = ({ activeStep, handleBack, title }) => {
     return (
         <div className={classes.btnContainer}>
@@ -15,7 +16,6 @@ const CheckoutButtons = ({ activeStep, handleBack, title }) => {
                 title={title}
                 type="submit"
             />
-
         </div>
     );
 };

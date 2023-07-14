@@ -1,13 +1,13 @@
 .btnContainer {
-    align-items: center; 
-    display: flex; 
-    flex-direction: row; 
+    align-items: center;
+    display: flex;
+    flex-direction: row;
     gap: 2.5rem;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     margin-bottom: 9.6rem;
 }
 
-.btnFont{
+.btnFont {
     font-size: 2.4rem;
     font-weight: 600;
 }

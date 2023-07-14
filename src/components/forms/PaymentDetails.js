@@ -14,11 +14,9 @@ import classes from "./PaymentDetails.module.css";
 
 const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
 
-
   const dispatch = useDispatch();
   const customer = useSelector((state) => state.customer);
   const shippingIsBilling = customer.isShippingSameAsBilling;
-
 
   const initialValuesWithBillingAddress = {
     cc_number: customer.cardDetails?.cc_number || "4242424242424242",
@@ -44,7 +42,6 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
 
 
   const handleSubmit = (values) => {
-
     let newValues = {};
     if (shippingIsBilling) {
       newValues = {
@@ -76,15 +73,15 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
               return (
                 <AddressForm />
               );
-
             }}
           />
-
           <div style={{ marginTop: `${1.8}rem` }}>
-            <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Next" />
+            <CheckoutButtons 
+              activeStep={activeStep} 
+              handleBack={handleBack} 
+              title="Next" />
           </div>
         </div>
-
         <hr className={classes.hr} />
       </Form>
     </Formik>

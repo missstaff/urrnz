@@ -44,6 +44,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
         message: customer?.message || "testing",
     };
 
+
     const handleShippingSameAsBillingChange = () => {
         setIsShippingSameAsBilling(!isShippingSameAsBilling);
         dispatch(updateShippingSameAsBillingHandler(!isShippingSameAsBilling));
@@ -200,7 +201,10 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
                                     placeholder="Name for inscription, special instructions."
                                 />
                             </div>
-                            <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Next" />
+                            <CheckoutButtons 
+                            activeStep={activeStep} 
+                            handleBack={handleBack} 
+                            title="Next" />
                         </div>
                     </div>
 

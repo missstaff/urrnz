@@ -5,10 +5,8 @@ import classes from "./PaymentForm.module.css";
 const PaymentForm = () => {
     return (
         <div className={classes.formWrapper}>
-
             <div className={classes.fieldLargeWrapper}>
-                <label
-                    htmlFor="cc_number">
+                <label htmlFor="cc_number">
                     Card Number:
                 </label>
                 <Field
@@ -24,7 +22,7 @@ const PaymentForm = () => {
                     name="cc_number"
                 />
             </div>
-
+            
             <div className={classes.smallInputContainer}>
                 <div className={classes.fieldSmallWrapper}>
                     <label htmlFor="ccv">CCV:</label>
