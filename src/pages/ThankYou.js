@@ -16,7 +16,7 @@ const ThankYou = () => {
         return () => {
             clearTimeout(timerId);
         }
-    },[]);
+    },[navigate]);
 
 
     return (

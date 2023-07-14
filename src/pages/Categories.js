@@ -33,7 +33,7 @@ const Categories = () => {
         if (!categories.length) {
             navigate('/error'); 
         }
-    }, [categories]);
+    }, [categories, navigate]);
 
 
     return (

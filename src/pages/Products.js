@@ -63,7 +63,7 @@ const Products = () => {
         if (!products.length && !categoryProducts.length) {
             navigate('/error');
         }
-    }, [categoryProducts]);    
+    }, [categoryProducts, products, navigate]);    
 
 
     useEffect(() => {
