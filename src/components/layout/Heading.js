@@ -2,9 +2,7 @@ import classes from "./Heading.module.css";
 
 
 const Heading = (props) => {
-
     const { style, title } = props;
-
     return (
         <h1
             className={`${classes.heading} ${props.className}`}

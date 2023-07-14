@@ -13,13 +13,13 @@ function MainNavigation() {
 
     const screenSize = useScreenSize();
     const location = useLocation();
-    const curLocation = location.pathname;
-    const pathHash = location.hash;
-
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [mobileNavBtnSize, setMobileNavBtnSize] = useState(0);
     const [isSticky, setIsSticky] = useState(false);
+
+    const curLocation = location.pathname;
+    const pathHash = location.hash;
 
 
     useEffect(() => {

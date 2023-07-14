@@ -1,5 +1,4 @@
 import StoreButton from "../ui/StoreButton";
-
 import classes from "./Hero.module.css";
 import "../../general.css";
 

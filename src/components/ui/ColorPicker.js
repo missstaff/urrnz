@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 
 import { setColorHandler } from "../../store/cart-actions";
 import { colors, colorCodeToName } from "../../config/constants";
+
 import classes from "./ColorPicker.module.css";
+
 
 const ColorPicker = (props) => {
 
@@ -23,18 +25,22 @@ const ColorPicker = (props) => {
       <p className={classes.selectColor}>Select a color:</p>
       <div className={classes.grid}>
         {colors.map((color) => (
-          
           <div
-            key={color}
-            style={{ backgroundColor: color }}
             className={classes.image}
+            key={color}
             onClick={() => handleColorChange(color)}
+            style={{ backgroundColor: color }}
           />
         ))}
       </div>
       {selectedColor && (
         <p className={classes.selectedColor}>
-          Selected color: <span className={classes.selectedColor} style={{ color: selectedColor }}>{colorCodeToName[selectedColor]}</span>
+          Selected color:
+          <span
+            className={classes.selectedColor}
+            style={{ color: selectedColor }}>
+            {colorCodeToName[selectedColor]}
+          </span>
         </p>
       )}
     </div>
