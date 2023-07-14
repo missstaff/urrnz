@@ -6,7 +6,7 @@ import classes from './Error.module.css';
 const Error = () => {
 
     const error = useRouteError();
-
+    console.log("error", error)
     let title = "An error occured.";
     let message = "Sorry, something went wrong.";
 

@@ -1,7 +1,7 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
@@ -14,6 +14,7 @@ import "../general.css";
 
 const Categories = () => {
 
+    const navigate = useNavigate();
     const store = useSelector(state => state.store);
     const categories = store.categories;
 
@@ -27,6 +28,12 @@ const Categories = () => {
     const handleTouchEnd = () => {
         setTouchedIndex(-1);
     };
+
+    useEffect(() => {
+        if (!categories.length) {
+            navigate('/error'); 
+        }
+    }, [categories]);
 
 
     return (
