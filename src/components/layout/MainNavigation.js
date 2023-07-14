@@ -25,13 +25,13 @@ function MainNavigation() {
 
     if (
         (curLocation === "/" ||
-        curLocation === "/categories" ||
+        curLocation === "/genres" ||
         curLocation === "/cart" ||
         curLocation === "/contact" ||
-        curLocation === "/gallery") &&
+        curLocation === "/products/") &&
         pathHash !== "#about" && 
         pathHash !== "#faqs"
-    ) {window.scrollTo(0, 0);}
+    ) {window.scrollTo(0, 0)}
 
     return (
         <header className={`${classes.header} ${isMenuVisible ? classes.navOpen : ""}`}>
