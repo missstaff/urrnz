@@ -1,4 +1,13 @@
 //SCREEN SIZES
+export const sizesArr = [
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "xxl",
+];
+
 export const sizes = {
     xs: "375px",
     sm: "640px",
@@ -8,6 +17,7 @@ export const sizes = {
     xxl: "1536px",
 };
 
+
 //ITEM COLOR OPTION
 export const colors = [
     "#B80000", "#DB3E00", "#FCCB00", "#008B02",
@@ -16,7 +26,6 @@ export const colors = [
     "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB"
 ];
 
-//COLOR OPTIONS MAP
 export const colorCodeToName = {
     "#B80000": "Red",
     "#DB3E00": "Orange",
@@ -36,6 +45,7 @@ export const colorCodeToName = {
     "#D4C4FB": "Light Lavender",
 };
 
+
 //CATEGORY IMAGES 
 export const CATEGORY_IMAGES = {
     "all": require("../assets/allProducts.jpg"),
@@ -46,7 +56,9 @@ export const CATEGORY_IMAGES = {
     // add more categories and their corresponding image URLs here ~ category image from server would be best!
 };
 
+//CHECKOUT STEPS 
 export const STEPS = ["Shipping Details", "Payment Details", "Review"];
+
 
 //END POINTS
 export const FETCH_ALL_PRODUCTS = "https://zzzap.io/Collections/dataFind?search=product&PublicAuthCd=bfe18ab97f8a3a01d68a5a904719880f4cc9eb7a11ff6f09a433dd45145ec3b3&limit=100";

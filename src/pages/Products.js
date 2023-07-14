@@ -16,19 +16,20 @@ import "../general.css";
 
 const Products = () => {
 
+    const { category } = useParams();
     const dispatch = useDispatch();
     const screenSize = useScreenSize();
-    const { category } = useParams();
-
     const store = useSelector(state => state.store);
-    const products = store.products;
 
-    const [touchedIndex, setTouchedIndex] = useState(-1);
-    const [imageHeight, setImageHeight] = useState(0);
     const [categoryProducts, setCategoryProducts] = useState([]);
+    const [imageHeight, setImageHeight] = useState(0);
+    const [touchedIndex, setTouchedIndex] = useState(-1);
+
+    const products = store.products;
 
 
     useEffect(() => {
+
         const setProducts = () => {
             if (category === "all") {
                 setCategoryProducts(products);
@@ -42,7 +43,6 @@ const Products = () => {
         dispatch(storeActions.setCategory(category));
 
     }, [category, dispatch, products]);
-
 
 
     useEffect(() => {
@@ -79,19 +79,18 @@ const Products = () => {
 
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
-    }
+    };
+
 
     return (
         <main>
             <section
-                id="gallery"
-                className={`${classes.section} wrapper`}>
-                <div
-                    className={classes.headingContainer}>
+                className={`${classes.section} wrapper`}
+                id="gallery">
+                <div className={classes.headingContainer}>
                     <Heading title="GALLERY" />
                 </div>
-                <div
-                    className={`grid ${classes.gridColumns}`}>
+                <div className={`grid ${classes.gridColumns}`}>
 
                     {categoryProducts.map((product, index) => (
                         <div
@@ -104,8 +103,7 @@ const Products = () => {
 
                                 }}>
                                 <NavLink
-                                    to={`/product/${product.zid}`}
-                                >
+                                    to={`/product/${product.zid}`}>
                                     <div
                                         style={{
                                             alignSelf: "center",
@@ -113,23 +111,22 @@ const Products = () => {
                                             flexDirection: "column",
                                             justifyContent: "center"
                                         }}
-                                        onTouchStart={() => handleTouchStart(index)}
-                                        onTouchEnd={handleTouchEnd}
+                                        className={`${touchedIndex === index ? classes.touched : ""}`}
                                         onMouseDown={() => handleTouchStart(index)}
-                                        onMouseUp={handleTouchEnd}
                                         onMouseEnter={() => handleTouchStart(index)}
                                         onMouseLeave={handleTouchEnd}
-                                        className={`${touchedIndex === index ? classes.touched : ""}`}>
-
+                                        onMouseUp={handleTouchEnd}
+                                        onTouchStart={() => handleTouchStart(index)}
+                                        onTouchEnd={handleTouchEnd}>
                                         <img
                                             alt={product.name}
                                             src={product.images.lg}
                                             style={{
                                                 alignSelf: "center",
-                                                margin: "5%",
                                                 borderRadius: 7.5,
                                                 height: `${imageHeight}rem`,
                                                 imageResolution: "from-image",
+                                                margin: "5%",
                                                 objectFit: "cover",
                                                 resize: "both",
                                                 resizeMode: "cover",
@@ -138,12 +135,9 @@ const Products = () => {
                                         />
                                     </div>
                                 </NavLink>
-                                <div
-                                    className={classes.detailsContainer}>
-                                    <div
-                                        className={classes.detailsTitle}>
-                                        <h3
-                                            className={`${classes.heading} ${classes.limitTitle}`}>
+                                <div className={classes.detailsContainer}>
+                                    <div className={classes.detailsTitle}>
+                                        <h3 className={`${classes.heading} ${classes.limitTitle}`}>
                                             {product.name}
                                         </h3>
                                         <p

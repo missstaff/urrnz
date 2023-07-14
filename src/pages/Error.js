@@ -2,6 +2,7 @@ import { useRouteError, NavLink } from 'react-router-dom';
 import PageContent from '../components/PageContent';
 import classes from './Error.module.css';
 
+
 const Error = () => {
 
     const error = useRouteError();
@@ -9,6 +10,7 @@ const Error = () => {
     let title = "An error occured.";
     let message = "Sorry, something went wrong.";
 
+    
     if (error.status === 404) {
         title = "Page not found!";
         message = "Sorry, the page you were looking for does not exist.";

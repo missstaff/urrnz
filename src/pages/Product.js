@@ -28,10 +28,8 @@ const Product = () => {
 
 
     return (
-        <div
-            className={`${classes.wrapper} wrapper`}>
-            <div
-                className="headingContainer">
+        <div className={`${classes.wrapper} wrapper`}>
+            <div className="headingContainer">
                 <Heading
                     title="PRODUCT DETAILS" />
             </div>
@@ -41,38 +39,30 @@ const Product = () => {
                 {<span>&larr;</span>}
                 Back
             </NavLink>
-            <div
-                className={`container ${classes.container}`} >
-                <div
-                    className={`${classes.productContainer} ${classes.gridColumns}`}>
+            <div className={`container ${classes.container}`} >
+                <div className={`${classes.productContainer} ${classes.gridColumns}`}>
                     <img
                         alt={product.name}
                         className={classes.productImage}
                         src={product.images.lg}
                     />
                     <div>
-                        <div
-                            style={{ marginBottom: `${2.2}rem` }}>
-                            <h3
-                                className={classes.title}>{product.name}
+                        <div style={{ marginBottom: `${2.2}rem` }}>
+                            <h3 className={classes.title}>{product.name}
                             </h3>
-                            <p
-                                className={classes.description}>
+                            <p className={classes.description}>
                                 {product.description}
                             </p>
-                            <p
-                                className={classes.detailText}>
+                            <p className={classes.detailText}>
                                 Price: ${product.price}
                             </p>
-                            <p
-                                className={classes.detailText}>
+                            <p className={classes.detailText}>
                                 Category: {product.category}
                             </p>
                             {product.color
                                 &&
                                 (
-                                    <p
-                                        className={classes.detailText}>
+                                    <p className={classes.detailText}>
                                         Color: {product.color}
                                     </p>
                                 )
@@ -80,15 +70,13 @@ const Product = () => {
                             {product.size
                                 &&
                                 (
-                                    <p
-                                        className={classes.detailText}>
+                                    <p className={classes.detailText}>
                                         Size: {product.size}
                                     </p>
                                 )
                             }
                         </div>
-                        <div
-                            className={classes.buttonContainer}>
+                        <div className={classes.buttonContainer}>
                             <AddToCartButton
                                 onClick={() => addItemToCartHandler(product)}
                             />

@@ -9,16 +9,16 @@ export const addToCartHandler = (item) => {
         } catch (error) {
             console.log(`Failed to add an item to the cart!\n${error.message}\n${error.stack}`);
             toast.error("Failed to add item to cart please try again.",
-                {
-                    toastId: "error-adding-cart-item",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+            {
+                toastId: "error-adding-cart-item",
+                autoClose: 5000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
 };

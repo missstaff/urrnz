@@ -1,40 +1,41 @@
 import { useClosestMedia } from "./useClosestMedia";
 import { useMediaQuery } from "./useMediaQuery";
+import { sizes, sizesArr } from "../config/constants";
 
 
 export const useScreenSize = () => {
 
     const closestMedia = useClosestMedia({
-        queries: ["xs", "sm", "md", "lg", "xl", "2xl"],
+        queries: sizesArr,
     });
 
-    const is2XLScreen = useMediaQuery("2xl") && closestMedia === "2xl";
-    const isXLScreen = useMediaQuery("xl") && closestMedia === "xl";
-    const isLargeScreen = useMediaQuery("lg") && closestMedia === "lg";
-    const isMediumScreen = useMediaQuery("md") && closestMedia === "md";
-    const isSmallScreen = useMediaQuery("sm") && closestMedia === "sm";
-    const isExtraSmallScreen = useMediaQuery("xs") && closestMedia === "xs";
+    const is2XLScreen = useMediaQuery(sizes[5]) && closestMedia === sizes[5];
+    const isXLScreen = useMediaQuery(sizes[4]) && closestMedia === sizes[4];
+    const isLargeScreen = useMediaQuery(sizes[3]) && closestMedia === sizes[3];
+    const isMediumScreen = useMediaQuery(sizes[2]) && closestMedia === sizes[2];
+    const isSmallScreen = useMediaQuery(sizes[1]) && closestMedia === sizes[1];
+    const isExtraSmallScreen = useMediaQuery(sizes[0]) && closestMedia === sizes[0];
 
     let screenSize = "default";
 
     switch (true) {
         case is2XLScreen:
-            screenSize = "2xl";
+            screenSize = sizes[5];
             return screenSize;
         case isXLScreen:
-            screenSize = "xl";
+            screenSize = sizes[4];
             return screenSize;
         case isLargeScreen:
-            screenSize = "lg";
+            screenSize = sizes[3];
             return screenSize;
         case isMediumScreen:
-            screenSize = "md";
+            screenSize = sizes[2];
             return screenSize;
         case isSmallScreen:
-            screenSize = "sm";
+            screenSize = sizes[1];
             return screenSize;
         case isExtraSmallScreen:
-            screenSize = "xs";
+            screenSize = sizes[0];
             return screenSize;
         default:
             return screenSize;

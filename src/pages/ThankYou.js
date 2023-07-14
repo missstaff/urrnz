@@ -25,7 +25,9 @@ const ThankYou = () => {
                 <Heading title="THANK YOU" />
             </div>
             <div className={classes.container}>
-                <p className={classes.text}>Your order has been placed!</p>
+                <p className={classes.text}>
+                    Your order has been placed!
+                </p>
             </div>
         </div>
     );

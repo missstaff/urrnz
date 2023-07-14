@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ErrorMessage, Field, Formik, Form } from "formik";
+import { Field, Formik, Form } from "formik";
+import { toast } from "react-toastify";
 
 import AddressForm from "../components/forms/AddressForm";
 import Container from "../components/Container";
@@ -19,14 +20,12 @@ const Contact = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const customer = useSelector(state => state.customer);
-    const shippingAddress = customer.shippingAddress;
-
     const store = useSelector(state => state.store);
-    const chatTemplate = store.chatObjectTemplate;
 
     const [file, setFile] = useState("");
+    const shippingAddress = customer.shippingAddress;
+    const chatTemplate = store.chatObjectTemplate;
 
 
     const initialValues = {
@@ -67,12 +66,33 @@ const Contact = () => {
 
         const response = await postRequestHandler(POST_MESSAGE, newChatObject);
         if (response.success) {
-            alert("Message sent!");
+            toast.success("Message sent!.",
+                {
+                    toastId: "message-sent",
+                    autoClose: 2500,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                }
+            );
             navigate("/")
         } else {
-            //handle this better?
             console.log("failedresponse", response);
-            alert("Failed to send message, please check the required fields.");
+            toast.error("Failed to send message! Please try again.",
+                {
+                    toastId: "error-adding-cart-item",
+                    autoClose: 5000,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                }
+            );
         }
     };
 
@@ -87,7 +107,7 @@ const Contact = () => {
                     <h3>
                         Send us a message
                     </h3>
-                    <hr style={{marginTop: `${4.4}rem`, marginBottom: `${9.8}rem`}} />
+                    <hr style={{ marginTop: `${4.4}rem`, marginBottom: `${9.8}rem` }} />
                     <Formik
                         initialValues={initialValues}
                         validationSchema={addressValidationSchema}
@@ -126,10 +146,9 @@ const Contact = () => {
                                     />
                                 </div>
                                 <div className={classes.btnContainer}>
-                                    <FormButton title="Sumit" type="submit" />
+                                    <FormButton title="Submit" type="submit" />
                                 </div>
                             </div>
-
                         </Form>
                     </Formik>
                     <hr style={{ marginBottom: `${9.8}rem` }} />
