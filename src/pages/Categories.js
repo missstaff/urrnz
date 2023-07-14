@@ -20,7 +20,6 @@ const Categories = () => {
     const categories = store.categories;
     const isLoading = useSelector(state => state.loading);
     const [touchedIndex, setTouchedIndex] = useState(-1);
-    const [loaded, setLoaded] = useState(false);
 
 
     const handleTouchStart = (index) => {
@@ -34,9 +33,14 @@ const Categories = () => {
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
-        setLoaded(true);
-        dispatch(loadingActions.setLoading(false));
-    }, [categories, dispatch]);
+        const timerId = setTimeout(() => {
+            dispatch(loadingActions.setLoading(false)); 
+        }, 250);
+
+        return () => {
+            clearTimeout(timerId);
+        }
+    }, [dispatch]);
 
 
     useEffect(() => {
@@ -44,7 +48,7 @@ const Categories = () => {
             dispatch(loadingActions.setLoading(false));
             navigate("/error");
         }
-    }, [categories, dispatch, isLoading, navigate]);
+    }, [categories, dispatch, isLoading]);
 
 
 
