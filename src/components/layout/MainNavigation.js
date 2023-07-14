@@ -4,16 +4,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 import LogoHeader from "./Logo";
-import { useScreenSize } from "../../hooks/useScreenSize";
 
 import classes from "./MainNavigation.module.css";
-import { current } from "@reduxjs/toolkit";
 
 function MainNavigation() {
     const location = useLocation();
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-    const [mobileNavBtnSize, setMobileNavBtnSize] = useState(0);
 
     const curLocation = location.pathname;
     const pathHash = location.hash;
@@ -27,11 +24,11 @@ function MainNavigation() {
     };
 
     if (
-        curLocation === "/" ||
+        (curLocation === "/" ||
         curLocation === "/categories" ||
         curLocation === "/cart" ||
         curLocation === "/contact" ||
-        curLocation === "/gallery" &&
+        curLocation === "/gallery") &&
         pathHash !== "#about" && 
         pathHash !== "#faqs"
     ) {window.scrollTo(0, 0);}
@@ -98,10 +95,10 @@ function MainNavigation() {
 
             <button className={classes.mobileNav} onClick={handleMobileNavClick}>
                 <NavLink className={classes.iconMobileNav} name="menu-outline">
-                    <FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" />
+                    <FaGripLines size={`${4.4}rem`} color="rgba(255, 71, 0, 1)" />
                 </NavLink>
                 <NavLink className={classes.iconMobileNav} name="close-outline">
-                    <FaGripLines size={`${mobileNavBtnSize}rem`} color="rgba(255, 71, 0, 1)" />
+                    <FaGripLines size={`${4.4}rem`} color="rgba(255, 71, 0, 1)" />
                 </NavLink>
             </button>
         </header>
