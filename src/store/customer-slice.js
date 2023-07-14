@@ -150,12 +150,14 @@ const customerSlice = createSlice({
         clearCustomer(state) {
             state.billingAddress = {};
             state.cardDetails = {};
+            state.chatObject = {};
             state.email = "";
             state.fullName = "";
             state.isShippingSameAsBilling = false;
             state.phone = "";
             state.message = "";
             state.shippingAddress = {};
+            state.transactionObject = {};
         },
     }
 });

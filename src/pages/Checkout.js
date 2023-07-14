@@ -12,7 +12,7 @@ import classes from "./Checkout.module.css";
 const steps = ["Shipping Details", "Payment Details", "Review"];
 
 
-const getStepContent = (activeStep, handleBack, handleNext, steps) => {
+const getStepContent = (activeStep, handleBack, handleNext) => {
 
   switch (activeStep) {
     case 0:
@@ -20,21 +20,17 @@ const getStepContent = (activeStep, handleBack, handleNext, steps) => {
         activeStep={activeStep}
         handleBack={handleBack}
         handleNext={handleNext}
-        steps={steps}
       />;
     case 1:
       return <PaymentDetails
         activeStep={activeStep}
         handleBack={handleBack}
         handleNext={handleNext}
-        steps={steps}
       />;
     case 2:
       return <Review
         activeStep={activeStep}
         handleBack={handleBack}
-        handleNext={handleNext}
-        steps={steps}
       />;
     default:
       throw new Error("Unknown step");
@@ -67,7 +63,7 @@ const Checkout = () => {
             {steps[activeStep]}
           </h2>
           <hr />
-          {getStepContent(activeStep, handleBack, handleNext, steps)}
+          {getStepContent(activeStep, handleBack, handleNext)}
         </Container>
       </main>
     </section>

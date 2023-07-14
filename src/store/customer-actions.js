@@ -34,3 +34,13 @@ export const setCardDetailsHandler = (cardDetails) => {
     };
 };
 
+export const clearCustomerHandler = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(customerActions.clearCustomer());
+        } catch (error) {
+            console.log(`Failed to clear customer!\n${error.message}\n${error.stack}`);
+        }
+    };
+}
+

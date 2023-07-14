@@ -10,13 +10,12 @@ import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../st
 import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
 import { useScreenSize } from "../../hooks/useScreenSize";
 import { addressValidationSchema, postRequestHandler } from "../../utility/utils";
-
 import { FETCH_TAX } from "../../config/constants";
 
 import classes from "./ShippingDetails.module.css";
 
 
-const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
+const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
    
     const dispatch = useDispatch();
     const screenSize = useScreenSize();
@@ -81,7 +80,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         
         if(res?.errors) {
             const error = res.errors.major[0];
-            console.warn("Could not fetch tax rate\nLocation: shippingDetails.js, line: 82\n", error);
+            console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
 
             toast.error("Invalid zipcode please try again.",
             {

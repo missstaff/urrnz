@@ -1,6 +1,6 @@
 import { cartActions } from "./cart-slice";
 
-
+ 
 export const addToCartHandler = (item) => {
     return async (dispatch) => {
         try {
@@ -52,7 +52,17 @@ export const setTaxRateHandler = (rate) => {
             dispatch(cartActions.setTaxRate(rate));
         } catch (error) {
             console.log(`Failed to set tax rate!\n${error.message}\n${error.stack}`);
-            alert("Failed to get tax rate please confirm your zipcode and try again.");
+            // alert("Failed to get tax rate please confirm your zipcode and try again.");
         }
     };
 };
+
+export const clearCartHandler = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(cartActions.clearCart());
+        } catch (error) {
+            console.log(`Failed to clear cart!\n${error.message}\n${error.stack}`);
+        }
+    };
+}

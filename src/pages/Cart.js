@@ -58,7 +58,7 @@ const Cart = () => {
 
 
     return (
-        <section className={"wrapper"}>
+        <section className={`wrapper`} style={{height: !items.length ? `${100}vh` : `${100}%`}}>
             <div className="headingContainer">
                 <Heading title="CART" />
             </div>
@@ -164,7 +164,7 @@ const Cart = () => {
                     <StoreButton
                         to={!items.length ? "/products/all" : "/checkout"}
                         title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
-                        style={{ fontSize: `${btnFontSize}rem`, }}
+                        style={{ fontSize: `${btnFontSize}rem`}}
                     />
                 </div>
             </main>

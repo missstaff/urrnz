@@ -42,14 +42,17 @@ label {
   margin-top: 20rem;
 }
 
+.toast {
+  flex-wrap: wrap;
+  font-size: 2.4rem;
+  text-align: center;
+  width: 50rem;
+}
+
 .wrapper {
   margin-left: 5rem;
   margin-right: 5rem;
-}
-
-.toast {
-  min-Width: max-content; 
-  font-size: 2.2rem;
+  height: 100%;
 }
 
 /*<--Media Queries-->*/
@@ -73,6 +76,10 @@ label {
 @media screen and (max-width: 480px) {
   html {
     font-size: 43.75%;
+  }
+
+  .toast{
+   width: 100%;
   }
 }
 

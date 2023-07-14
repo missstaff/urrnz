@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 import CheckoutButtons from "./CheckoutButtons";
+import { clearCartHandler } from "../../store/cart-actions";
 import { postRequestHandler } from "../../utility/utils";
 import { colorCodeToName, POST_ORDER } from "../../config/constants";
+
+
 import classes from "./Review.module.css";
 
-const Review = ({ activeStep, handleBack, handleNext, steps }) => {
+const Review = ({ activeStep, handleBack }) => {
 
-    const orderTemplate = useSelector(state => state.store.orderTemplate);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const cart = useSelector(state => state.cart);
     const customer = useSelector(state => state.customer);
+    const orderTemplate = useSelector(state => state.store.orderTemplate);
 
     const email = customer.email;
     const phone = customer.phone;
@@ -36,7 +46,6 @@ const Review = ({ activeStep, handleBack, handleNext, steps }) => {
     const cardMonth = cardDetails.month;
     const cardYear = cardDetails.year;
 
-    const cart = useSelector(state => state.cart);
     const items = cart.items;
     const taxRate = cart.taxRate;
     const shipping = cart.shipping;
@@ -45,11 +54,87 @@ const Review = ({ activeStep, handleBack, handleNext, steps }) => {
 
 
     const [cardType, setCardType] = useState("");
-    
+
     let tax = taxRate * subTotal;
     tax = Math.round(tax * 100) / 100;
     const total = subTotal + tax + shipping.price;
     const orderItems = [];
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        toast.info("Submitting order...",
+            {
+                toastId: "loading-submitting-order",
+                autoClose: 1000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+        items.forEach((item) => {
+            let temp = {};
+            let count = item.quantity;
+            for (let i = 0; i < count; i++) {
+                temp.dateOrdered = new Date();
+                temp.color = item.color;
+                temp.name = item.name;
+                temp.price = item.price;
+                temp.sku8 = item.sku8;
+                temp.isTaxable = item.isTaxable;
+                orderItems.push(temp);
+            }
+        });
+
+
+        orderItems.push(shipping);
+
+        const order = {
+            ...orderTemplate,
+            addresses: [billingAddress, shippingAddress],
+            chats: [chatObject],
+            email: email,
+            items: orderItems,
+            dateOrdered: new Date(),
+            phone: phone,
+            transactions: [transactionObject = {
+                ...transactionObject,
+                amount: total,
+            }],
+        };
+
+
+        const res = await postRequestHandler(POST_ORDER, order);
+
+        if (!res.response.transactions[0].success) {
+            const error = res.messages.primary;
+            console.warn(`Error submitting order\n Location: Review.js handleSubmit\n ${error}`);
+            setTimeout(() => {
+                toast.error("Error submitting order.",
+                {
+                    toastId: "error-submitting-order",
+                    autoClose: 5000,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }, 1000);
+                return;
+        } else {
+            console.log("Order submitted successfully");
+           navigate("/thank-you");
+           //clear customer data
+           //clear cart
+           dispatch(clearCartHandler());
+
+            
+        }
+    };
 
     useEffect(() => {
 
@@ -66,54 +151,6 @@ const Review = ({ activeStep, handleBack, handleNext, steps }) => {
             }
         }
     }, [cardDetails.cc_number]);
-
-    const handleSubmit = async(e) => {
-        e.preventDefault();
-        console.log("Submitting order...");
-
-        items.forEach((item) => {
-            let temp = {};
-            let count = item.quantity;
-            for (let i = 0; i < count; i++) {
-                temp.dateOrdered = new Date();
-                temp.color = item.color;
-                temp.name = item.name;
-                temp.price = item.price;
-                temp.sku8 = item.sku8;
-                temp.isTaxable = item.isTaxable;
-                orderItems.push(temp);
-            }
-        });
-
-       
-        orderItems.push(shipping);
-       
-        const order = {
-            ...orderTemplate,
-            addresses: [billingAddress, shippingAddress],
-            chats: [chatObject],
-            email: email,
-            items: orderItems,
-            dateOrdered: new Date(),
-            phone: phone,
-            transactions : [transactionObject = {
-                ...transactionObject,
-                // amount: total,
-            }],
-        };
-
-       
-        const res = await postRequestHandler(POST_ORDER, order);
-        console.log("res", res.response.transactions[0].success)
-        if(!res.response.transactions[0].success){
-            console.log("Error submitting order");
-            console.log(res.messages[0]) //object needs to loop through
-            alert("Error submitting order");
-        }else{
-            console.log("Order submitted successfully");
-            alert("Order submitted");
-        }
-    };
 
 
     return (

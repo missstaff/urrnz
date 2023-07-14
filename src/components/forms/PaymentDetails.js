@@ -12,7 +12,7 @@ import { addressAndCardValidationSchema, cardValidationSchema } from "../../util
 import classes from "./PaymentDetails.module.css";
 
 
-const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
+const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
 
 
   const dispatch = useDispatch();
@@ -80,8 +80,8 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             }}
           />
 
-          <div style={{marginTop: `${1.8}rem`}}>
-          <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Next" />
+          <div style={{ marginTop: `${1.8}rem` }}>
+            <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Next" />
           </div>
         </div>
 
