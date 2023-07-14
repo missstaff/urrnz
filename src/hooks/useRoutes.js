@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
 import RootLayout from "../pages/RootLayout";
+import ThankYou from "../pages/ThankYou";
 
 
 export const router = createBrowserRouter([
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "products/:category", element: <Products /> },
       { path: "product/:id", element: <Product /> },
+      { path: "thank-you", element: <ThankYou />}
     ],
   },
 ]);

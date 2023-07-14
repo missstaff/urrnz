@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form } from "formik";
+import { toast } from "react-toastify";
 
 import AddressForm from "./AddressForm";
 import CheckoutButtons from "./CheckoutButtons";
@@ -9,14 +10,13 @@ import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../st
 import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
 import { useScreenSize } from "../../hooks/useScreenSize";
 import { addressValidationSchema, postRequestHandler } from "../../utility/utils";
-
 import { FETCH_TAX } from "../../config/constants";
 
 import classes from "./ShippingDetails.module.css";
 
 
-const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
-
+const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
+   
     const dispatch = useDispatch();
     const screenSize = useScreenSize();
 
@@ -44,6 +44,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         message: customer?.message || "",
     };
 
+
     const handleShippingSameAsBillingChange = () => {
         setIsShippingSameAsBilling(!isShippingSameAsBilling);
         dispatch(updateShippingSameAsBillingHandler(!isShippingSameAsBilling));
@@ -51,6 +52,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
 
 
     const handleSubmit = async (values) => {
+
         const newValues = {
             ...values,
             isShippingSameAsBilling: isShippingSameAsBilling,
@@ -76,6 +78,24 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         };
 
         const res = await postRequestHandler(FETCH_TAX, updatedOrderTemplate);
+        
+        if(res?.errors) {
+            const error = res.errors.major[0];
+            console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
+
+            toast.error("Invalid zipcode please try again.",
+            {
+                toastId: "invalid-zipcode",
+                autoClose: 5000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+        });
+            return;
+        }
         const taxRate = await res.response.taxRate;
         dispatch(setTaxRateHandler(taxRate));
         handleNext();
@@ -102,7 +122,6 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
         setSizes();
     }, [screenSize,]);
 
-
     return (
         <Formik
             initialValues={initialValues}
@@ -110,14 +129,12 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
             onSubmit={handleSubmit}
         >
             <Form style={{ width: "100%" }}>
-
                 <div
                     className={classes.container}
                     style={{
                         gridTemplateColumns: isLargeScreen ? "repeat(2, 1fr)" : "repeat(1, 1fr)"
                     }}>
                     <div style={{ width: "100%" }}>
-
                         <div className={classes.row}>
                             <div className={classes.fieldWrapper}>
                                 <label htmlFor="shippingIsBilling">Shipping same as billing</label>
@@ -184,12 +201,14 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext, steps }) => {
                                     placeholder="Name for inscription, special instructions."
                                 />
                             </div>
-                            <CheckoutButtons activeStep={activeStep} handleBack={handleBack} steps={steps} />
+                            <CheckoutButtons 
+                            activeStep={activeStep} 
+                            handleBack={handleBack} 
+                            title="Next" />
                         </div>
                     </div>
 
                 </div>
-
                 <hr className={classes.hr} />
             </Form>
         </Formik>

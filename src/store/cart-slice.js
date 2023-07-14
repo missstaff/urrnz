@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { colors } from "../config/constants";
 
 
 const cartSlice = createSlice({
@@ -19,6 +20,7 @@ const cartSlice = createSlice({
             if (!existingItem) {
                 state.items.push({
                     cid: state.items.length + 1,
+                    color: colors[2],
                     description: newItem.description,
                     id: newItem.zid,
                     image: newItem.images.lg,

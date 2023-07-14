@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -8,7 +7,6 @@ import ShowIf from "../components/ShowIf";
 import StoreButton from "../components/ui/StoreButton";
 
 import { cartActions } from "../store/cart-slice";
-import { useScreenSize } from "../hooks/useScreenSize";
 
 import classes from "./Cart.module.css";
 import "../general.css";
@@ -16,36 +14,11 @@ import "../general.css";
 
 const Cart = () => {
 
-    const screenSize = useScreenSize();
+    const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
-    const cart = useSelector(state => state.cart);
     const items = cart.items;
     const subTotal = cart.subTotal;
-
-    const [btnFontSize, setBtnFontSize] = useState(2.2);
-
-
-    useEffect(() => {
-        const setSizes = () => {
-            if (screenSize === "default") {
-                setBtnFontSize(1.8);
-            } else if (screenSize === "xs") {
-                setBtnFontSize(2.8);
-            } else if (screenSize === "sm") {
-                setBtnFontSize(3.2);
-            } else if (screenSize === "md") {
-                setBtnFontSize(3.4);
-            } else if (screenSize === "lg") {
-                setBtnFontSize(4.4);
-            } else if (screenSize === "xl") {
-                setBtnFontSize(5.2);
-            } else if (screenSize === "xxl") {
-                setBtnFontSize(6.4);
-            }
-        };
-        setSizes();
-    }, [screenSize]);
 
 
     const increaseItemQuantityHandler = (item) => {
@@ -58,7 +31,11 @@ const Cart = () => {
 
 
     return (
-        <section className={"wrapper"}>
+        <section
+            className={`wrapper`}
+            style={{
+                height: !items.length ? `${100}vh` : `${100}%`
+            }}>
             <div className="headingContainer">
                 <Heading title="CART" />
             </div>
@@ -71,24 +48,20 @@ const Cart = () => {
                                 <div
                                     className={`${classes.container}`}
                                     key={item.cid}>
-                                    <div
-                                        className={`${classes.gridColumns} ${classes.itemContainer}`}>
-                                        <div
-                                            className={classes.imageContainer}>
+                                    <div className={`${classes.gridColumns} ${classes.itemContainer}`}>
+                                        <div className={classes.imageContainer}>
                                             <img
                                                 alt={item.name}
                                                 className={classes.itemImage}
                                                 src={item.image}
                                             />
                                         </div>
-                                        <div
-                                            style={{ alignSelf: "center" }}>
-                                            <div
-                                                className={classes.itemHeader}>
-                                                <h2
-                                                    className={classes.itemName}>{item.name}</h2>
-                                                <div
-                                                    className={classes.itemDetails}>
+                                        <div style={{ alignSelf: "center" }}>
+                                            <div className={classes.itemHeader}>
+                                                <h2 className={classes.itemName}>
+                                                    {item.name}
+                                                </h2>
+                                                <div className={classes.itemDetails}>
                                                     <p
                                                         className={classes.itemPrice}>
                                                         Price: ${item.price * item.quantity}
@@ -97,22 +70,21 @@ const Cart = () => {
                                                         className={classes.itemPrice}>
                                                         Quantity: {item.quantity}
                                                     </p>
-                                                    <div
-                                                        className={classes.itemButtons}>
+                                                    <div className={classes.itemButtons}>
                                                         <div
                                                             onClick={() => increaseItemQuantityHandler(item)}
                                                             className={classes.quantityButton}>
                                                             <FaPlus
-                                                                size={`${1}rem`}
                                                                 color="rgba(255, 71, 0, 1)"
+                                                                size={`${1}rem`}
                                                             />
                                                         </div>
                                                         <div
                                                             onClick={() => decreaseItemQuantityHandler(item.cid)}
                                                             className={classes.quantityButton}>
                                                             <FaMinus
-                                                                size={`${1}rem`}
                                                                 color="rgba(255, 71, 0, 1)"
+                                                                size={`${1}rem`}
                                                             />
                                                         </div>
                                                     </div>
@@ -137,8 +109,7 @@ const Cart = () => {
                                 style={{
                                     display: "flex",
                                     flexDirection: "column"
-                                }}
-                            >
+                                }}>
                                 <hr className={classes.horizontalLine} />
                                 <div
                                     style={{
@@ -162,9 +133,8 @@ const Cart = () => {
                 />
                 <div className={classes.cartButton}>
                     <StoreButton
-                        to={!items.length ? "/products/all" : "/checkout"}
                         title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
-                        style={{ fontSize: `${btnFontSize}rem`, }}
+                        to={!items.length ? "/products/all" : "/checkout"}
                     />
                 </div>
             </main>

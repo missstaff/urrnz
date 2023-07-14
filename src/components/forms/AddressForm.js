@@ -11,103 +11,127 @@ const AddressForm = () => {
                     Full Name:
                 </label>
                 <Field
-                    type="text"
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="fullName"
                     name="fullName"
                     placeholder="John Doe"
-                    className={`${classes.placeholderColor} ${classes.field}`}
-
+                    type="text"
                 />
-                <ErrorMessage className={classes.errorMessage} name="fullName" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="fullName" />
             </div>
 
             <div className={classes.fieldWrapper}>
-                <label 
-                    htmlFor="email">Email:</label>
-                <Field 
-                    type="text"
+                <label htmlFor="email">
+                    Email:
+                </label>
+                <Field
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="email"
                     name="email"
                     placeholder="you@email.com"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
 
-                <ErrorMessage className={classes.errorMessage} name="email" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="email" />
             </div>
 
             <div className={classes.fieldWrapper}>
                 <label htmlFor="phone">Phone:</label>
-                <Field 
-                    type="text"
+                <Field
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="phone"
                     name="phone"
                     placeholder="555-555-5555"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
 
-                <ErrorMessage className={classes.errorMessage} name="phone" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="phone" />
             </div>
 
             <div className={classes.fieldWrapper}>
                 <label htmlFor="addressLine1">Address Line 1:</label>
-                <Field 
-                    type="text"
+                <Field
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="addressLine1"
                     name="addressLine1"
                     placeholder="123 Main St."
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
-                <ErrorMessage className={classes.errorMessage} name="addressLine1" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="addressLine1" />
             </div>
 
             <div className={classes.fieldWrapper}>
                 <label htmlFor="addressLine2">Address Line 2:</label>
                 <Field
-                    type="text"
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="addressLine2"
                     name="addressLine2"
                     placeholder="Apt. 1"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
-                <ErrorMessage className={classes.errorMessage} name="addressLine2" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="addressLine2" />
             </div>
 
             <div className={classes.fieldWrapper}>
                 <label htmlFor="city">City:</label>
                 <Field
-                    type="text"
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="city"
                     name="city"
                     placeholder="Anytown"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
 
-                <ErrorMessage className={classes.errorMessage} name="city" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="city" />
             </div>
 
             <div className={classes.fieldWrapper}>
                 <label htmlFor="state">State:</label>
-                <Field 
-                    type="text"
+                <Field
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="state"
                     name="state"
                     placeholder="CA"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
 
-                <ErrorMessage className={classes.errorMessage} name="state" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="state" />
             </div>
             <div className={classes.fieldWrapper}>
                 <label htmlFor="zipCode">Zip Code:</label>
-                <Field 
-                    type="text"
+                <Field
+                    className={`${classes.placeholderColor} ${classes.field}`}
                     id="zipCode"
                     name="zipCode"
                     placeholder="12345"
-                    className={`${classes.placeholderColor} ${classes.field}`}
+                    type="text"
                 />
 
-                <ErrorMessage className={classes.errorMessage} name="zipCode" component="div" />
+                <ErrorMessage
+                    className={classes.errorMessage}
+                    component="div"
+                    name="zipCode" />
             </div>
         </>
     );

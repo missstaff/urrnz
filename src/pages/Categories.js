@@ -1,27 +1,20 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 
+import { CATEGORY_IMAGES } from "../config/constants";
+
 import classes from "./Categories.module.css";
 import "../general.css";
 
-
-const categoryImages = {
-    "all": require("../assets/allProducts.jpg"),
-    "Emojis": require("../assets/emoji.jpg"),
-    "Services": require("../assets/services.jpg"),
-    "Shapes": require("../assets/shapes.jpg"),
-    "Test": require("../assets/allProducts.jpg"),
-    // add more categories and their corresponding image URLs here ~ category image from server would be best!
-};
-
-
+ 
 const Categories = () => {
 
+    const navigate = useNavigate();
     const store = useSelector(state => state.store);
     const categories = store.categories;
 
@@ -36,15 +29,19 @@ const Categories = () => {
         setTouchedIndex(-1);
     };
 
+    useEffect(() => {
+        if (!categories.length) {
+            navigate('/error'); 
+        }
+    }, [categories]);
+
 
     return (
         <main>
             <section
-                id="categories"
                 className={classes.section}
-                >
-                <div
-                    className="headingContainer">
+                id="categories">
+                <div className="headingContainer">
                     <Heading
                         title="Genres" />
                 </div>
@@ -54,26 +51,25 @@ const Categories = () => {
                         <div
                             key={index}>
                             <NavLink
-                                to={`/products/${category}`}
-                                className={classes.title}>
+                                className={classes.title}
+                                to={`/products/${category}`}>
                                 <h3
                                     className={classes.heading}>
                                     {category}
                                 </h3>
                                 <div
-                                    onTouchStart={() => handleTouchStart(index)}
-                                    onTouchEnd={handleTouchEnd}
+                                    className={`${touchedIndex === index ? classes.touched : ""}`}
                                     onMouseDown={() => handleTouchStart(index)}
-                                    onMouseUp={handleTouchEnd}
                                     onMouseEnter={() => handleTouchStart(index)}
                                     onMouseLeave={handleTouchEnd}
-                                    className={`${touchedIndex === index ? classes.touched : ""}`}>
-                                    <Container
-                                        className={classes.container}>
+                                    onMouseUp={handleTouchEnd}
+                                    onTouchStart={() => handleTouchStart(index)}
+                                    onTouchEnd={handleTouchEnd}>
+                                    <Container className={classes.container}>
                                         <img
-                                            src={categoryImages[category]}
                                             alt={category}
                                             className={classes.image}
+                                            src={CATEGORY_IMAGES[category]}
                                         />
                                     </Container>
                                 </div>

@@ -2,8 +2,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./AddToCartButton.module.css";
 
 
-const AddToCartButton = (props) => {
-    
+const AddToCartButton = (props) => { 
     return (
         <NavLink
             onClick={props.onClick}

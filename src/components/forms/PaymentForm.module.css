@@ -52,22 +52,15 @@
 }
 
 /*Media Queries*/
-@media screen and (max-width: 1024px) {
-   
-   
-}
+@media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 768px) {
     .btnContainer {
         justify-content: flex-end;
     }
-  
+
 }
 
-@media screen and (max-width: 480px) {
-   
-}
+@media screen and (max-width: 480px) {}
 
-@media screen and (max-width: 320px) {
-  
-}
+@media screen and (max-width: 320px) {}

@@ -1,0 +1,45 @@
+.reviewHeading {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 1rem 0;
+}
+
+.reviewText{
+    font-size: 2.2rem;
+    font-weight: 400;
+    padding: 0 1rem;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 768px) {
+    .reviewHeading {
+        font-size: 2.4rem;
+    }
+
+    .reviewText{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .reviewHeading {
+        font-size: 2rem;
+    }
+
+    .reviewText{
+        font-size: 1.8rem;
+    }
+  
+}
+
+@media screen and (max-width: 375px) {
+    .reviewHeading {
+        font-size: 1.8rem;
+    }
+
+    .reviewText{
+        font-size: 1.6rem;
+    }
+  
+}

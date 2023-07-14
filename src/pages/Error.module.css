@@ -1,0 +1,40 @@
+.container {
+  align-items: center;
+  background-color: rgba(255, 236, 209, 0.20);
+  border-radius: 7.5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 9.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 9.6rem;
+  max-width: 150rem;
+  padding: 4.4rem;
+}
+
+/*Links*/
+.link {
+  color: var(--color-secondary-700);
+  cursor: pointer;
+  font-size: 2.2rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.message {
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin-bottom: 1.6rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 4.4rem;
+  margin-bottom: 1.6rem;
+  margin-top: 0;
+  text-align: center;
+}

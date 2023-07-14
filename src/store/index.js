@@ -6,11 +6,11 @@ import storeSlice from "./store-slice";
 
 
 const store = configureStore({
-    reducer: { 
+    reducer: {
         cart: cartSlice.reducer,
         customer: customerSlice.reducer,
         store: storeSlice.reducer,
-     },
+    },
 });
 
 export default store;

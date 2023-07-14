@@ -12,7 +12,7 @@ export const fetchProducts = () => {
             dispatch(storeActions.setCategories(data));
             dispatch(storeActions.setShippingOptions(data));
         } catch (error) {
-            console.log(`Failed to fetch products!\n${error.message}\n${error.stack}`);
+            console.warn(`Failed to fetch products!\n${error.message}\n${error.stack}`);
         }
     };
 };
@@ -24,7 +24,7 @@ export const fetchOrderTemplate = () => {
             const data = await response.json();
             dispatch(storeActions.setOrderObject(data));
         }catch(error){
-            console.log(`Failed to fetch order template!\n${error.message}\n${error.stack}`);
+            console.warn(`Failed to fetch order template!\n${error.message}\n${error.stack}`);
         }
     };
 };
