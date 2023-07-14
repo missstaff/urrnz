@@ -10,6 +10,11 @@
     max-width: 150rem;
     padding: 4.4rem;
   }
+
+  .text {
+    font-size: 2.8rem;
+    text-align: center; 
+  }
   .wrapper{
    height: 100vh;
   }
