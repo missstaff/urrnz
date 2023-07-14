@@ -19,11 +19,11 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
   const shippingIsBilling = customer.isShippingSameAsBilling;
 
   const initialValuesWithBillingAddress = {
-    cc_number: customer.cardDetails?.cc_number || "4242424242424242",
-    ccv: customer.cardDetails?.ccv || "123",
-    month: customer.cardDetails?.month || "12",
-    year: customer.cardDetails?.year || "2025",
-    zipCode: customer.customer?.billingAddress.postalCd || "90210",
+    cc_number: customer.cardDetails?.cc_number || "",
+    ccv: customer.cardDetails?.ccv || "",
+    month: customer.cardDetails?.month || "",
+    year: customer.cardDetails?.year || "",
+    zipCode: customer.customer?.billingAddress.postalCd || "",
   };
 
   const initialValuesWithoutBillingAddress = {

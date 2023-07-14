@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import CheckoutButtons from "./CheckoutButtons";
 import { clearCartHandler } from "../../store/cart-actions";
+import { clearCustomerHandler } from "../../store/customer-actions";
 import { postRequestHandler } from "../../utility/utils";
 import { colorCodeToName, POST_ORDER } from "../../config/constants";
 
@@ -128,9 +129,8 @@ const Review = ({ activeStep, handleBack }) => {
         } else {
             console.log("Order submitted successfully");
            navigate("/thank-you");
-           //clear customer data
-           //clear cart
            dispatch(clearCartHandler());
+           dispatch(clearCustomerHandler());
 
             
         }
