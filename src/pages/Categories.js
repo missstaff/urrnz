@@ -1,23 +1,24 @@
 
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
-
+import { loadingActions } from "../store/loading-slice";
 import { CATEGORY_IMAGES } from "../config/constants";
 
 import classes from "./Categories.module.css";
 import "../general.css";
 
- 
+
 const Categories = () => {
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const store = useSelector(state => state.store);
     const categories = store.categories;
-
+    const isLoading = useSelector(state => state.loading);
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
 
@@ -29,11 +30,22 @@ const Categories = () => {
         setTouchedIndex(-1);
     };
 
+
     useEffect(() => {
-        if (!categories.length) {
-            navigate('/error'); 
+        dispatch(loadingActions.setLoading(true));
+        setTimeout(() => {
+            dispatch(loadingActions.setLoading(false)); 
+        }, 2000);
+    }, [dispatch]);
+
+
+    useEffect(() => {
+        if (!isLoading && !categories.length) {
+            dispatch(loadingActions.setLoading(false));
+            navigate("/error");
         }
-    }, [categories, navigate]);
+    }, [categories, dispatch, isLoading]);
+
 
 
     return (

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -7,6 +8,7 @@ import ShowIf from "../components/ShowIf";
 import StoreButton from "../components/ui/StoreButton";
 
 import { cartActions } from "../store/cart-slice";
+import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Cart.module.css";
 import "../general.css";
@@ -15,6 +17,7 @@ import "../general.css";
 const Cart = () => {
 
     const cart = useSelector(state => state.cart);
+    const isLoading = useSelector(state => state.loading);
     const dispatch = useDispatch();
 
     const items = cart.items;
@@ -29,6 +32,13 @@ const Cart = () => {
         dispatch(cartActions.removeItemFromCart(id));
     };
 
+    useEffect(() => {
+        dispatch(loadingActions.setLoading(true));
+        setTimeout(() => {
+            dispatch(loadingActions.setLoading(false)); 
+        }, 250);
+    }, [dispatch]);
+
 
     return (
         <section
@@ -40,7 +50,7 @@ const Cart = () => {
                 <Heading title="CART" />
             </div>
             <main>
-                <ShowIf
+                {!isLoading && <ShowIf
                     condition={items.length}
                     render={() => (
                         <>
@@ -130,13 +140,13 @@ const Cart = () => {
                             Your cart is empty
                         </h3>
                     )}
-                />
-                <div className={classes.cartButton}>
+                />}
+                {!isLoading && <div className={classes.cartButton}>
                     <StoreButton
                         title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
                         to={!items.length ? "/products/all" : "/checkout"}
                     />
-                </div>
+                </div>}
             </main>
         </section>
     );

@@ -7,6 +7,7 @@ import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 
 import { addToCartHandler } from "../store/cart-actions";
+import { loadingActions } from "../store/loading-slice";
 import { storeActions } from "../store/store-slice";
 import { useScreenSize } from "../hooks/useScreenSize";
 
@@ -21,6 +22,7 @@ const Products = () => {
     const navigate = useNavigate();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
+    const isLoading = useSelector(state => state.loading);
 
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [imageHeight, setImageHeight] = useState(0);
@@ -44,26 +46,37 @@ const Products = () => {
     };
 
     useEffect(() => {
+        dispatch(loadingActions.setLoading(true));
+        setTimeout(() => {
+            dispatch(loadingActions.setLoading(false));
+        }, 250);
+    }, [dispatch]);
 
-        const setProducts = () => {
-            if (category === "all") {
-                setCategoryProducts(products);
-            } else {
-                const filteredProducts = products.filter(product => product?.category === category);
-                setCategoryProducts(filteredProducts);
-            }
-        };
 
-        setProducts();
-        dispatch(storeActions.setCategory(category));
+    useEffect(() => {
+
+        if (products && products.length) {
+            const setProducts = () => {
+                if (category === "all") {
+                    setCategoryProducts(products);
+                } else {
+                    const filteredProducts = products.filter(product => product?.category === category);
+                    setCategoryProducts(filteredProducts);
+                }
+            };
+
+            setProducts();
+            dispatch(storeActions.setCategory(category));
+        }
 
     }, [category, dispatch, products]);
 
     useEffect(() => {
-        if (!products.length && !categoryProducts.length) {
-            navigate('/error');
+        if (!isLoading && !categoryProducts.length) {
+            dispatch(loadingActions.setLoading(false));
+            return navigate("/error");
         }
-    }, [categoryProducts, products, navigate]);    
+    }, [categoryProducts]);
 
 
     useEffect(() => {
@@ -87,10 +100,6 @@ const Products = () => {
         setSizes();
     }, [screenSize]);
 
-    if (!products.length) {
-        navigate('/error');
-    }
-
     return (
         <main>
             <section
@@ -101,7 +110,7 @@ const Products = () => {
                 </div>
                 <div className={`grid ${classes.gridColumns}`}>
 
-                    {categoryProducts.map((product, index) => (
+                    {!isLoading && categoryProducts.map((product, index) => (
                         <div
                             key={index}>
                             <Container
