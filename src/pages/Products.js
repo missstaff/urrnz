@@ -45,16 +45,16 @@ const Products = () => {
         dispatch(addToCartHandler(product));
     };
 
+    // useEffect(() => {
+        
+    //     setTimeout(() => {
+           
+    //     }, 250);
+    // }, [dispatch]);
+
+
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
-        setTimeout(() => {
-            dispatch(loadingActions.setLoading(false));
-        }, 250);
-    }, [dispatch]);
-
-
-    useEffect(() => {
-
         if (products && products.length) {
             const setProducts = () => {
                 if (category === "all") {
@@ -68,6 +68,8 @@ const Products = () => {
             setProducts();
             dispatch(storeActions.setCategory(category));
         }
+
+        dispatch(loadingActions.setLoading(false));
 
     }, [category, dispatch, products]);
 

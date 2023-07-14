@@ -20,6 +20,7 @@ const Categories = () => {
     const categories = store.categories;
     const isLoading = useSelector(state => state.loading);
     const [touchedIndex, setTouchedIndex] = useState(-1);
+    const [loaded, setLoaded] = useState(false);
 
 
     const handleTouchStart = (index) => {
@@ -33,10 +34,9 @@ const Categories = () => {
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
-        setTimeout(() => {
-            dispatch(loadingActions.setLoading(false)); 
-        }, 2000);
-    }, [dispatch]);
+        setLoaded(true);
+        dispatch(loadingActions.setLoading(false));
+    }, [categories, dispatch]);
 
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const Categories = () => {
             dispatch(loadingActions.setLoading(false));
             navigate("/error");
         }
-    }, [categories, dispatch, isLoading]);
+    }, [categories, dispatch, isLoading, navigate]);
 
 
 
@@ -59,7 +59,7 @@ const Categories = () => {
                 </div>
                 <div
                     className={`grid ${classes.gridColumns}`}>
-                    {categories.map((category, index) => (
+                    {!isLoading && categories.map((category, index) => (
                         <div
                             key={index}>
                             <NavLink
