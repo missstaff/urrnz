@@ -72,9 +72,9 @@ const Products = () => {
     }, [category, dispatch, products]);
 
     useEffect(() => {
-        if (!isLoading && !categoryProducts.length) {
+        if (!isLoading && !products.length) {
             dispatch(loadingActions.setLoading(false));
-            return navigate("/error");
+            navigate("/error");
         }
     }, [categoryProducts]);
 
