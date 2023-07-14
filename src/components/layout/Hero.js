@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-
 import StoreButton from "../ui/StoreButton";
-import { useScreenSize } from "../../hooks/useScreenSize";
 
 import classes from "./Hero.module.css";
 import "../../general.css";

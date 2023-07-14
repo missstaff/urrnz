@@ -9,7 +9,7 @@ import { router } from "./hooks/useRoutes";
 function App() {
 
   const dispatch = useDispatch();
-  
+
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -17,7 +17,7 @@ function App() {
     dispatch(fetchChatTemplate());
   }, [dispatch]);
 
-   
+
   return (
     <RouterProvider router={router} />
   );

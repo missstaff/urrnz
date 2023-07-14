@@ -84,11 +84,11 @@ const customerSlice = createSlice({
             const chatObject = {
                 chatObject: {
                     email: {
-                      from: null,
-                      to: [state.billingAddress.email],
-                      cc: [],
-                      bcc: [],
-                      success: false
+                        from: null,
+                        to: [state.billingAddress.email],
+                        cc: [],
+                        bcc: [],
+                        success: false
                     },
                     entityIdCustomer: 0,
                     entityIdEmployee: 0,
@@ -96,22 +96,22 @@ const customerSlice = createSlice({
                     message: state.message,
                     notesHidden: null,
                     phone: {
-                      text: null,
-                      personal: state.phone,
-                      business: null,
-                      other: null,
-                      carrier: null,
-                      success: false
+                        text: null,
+                        personal: state.phone,
+                        business: null,
+                        other: null,
+                        carrier: null,
+                        success: false
                     },
                     social: {
-                      account: null,
-                      platform: null,
-                      success: false
+                        account: null,
+                        platform: null,
+                        success: false
                     },
                     subject: null,
                     ts: null
-                  },
-                };
+                },
+            };
 
             const transactionObject = {
                 address: state.billingAddress,
@@ -141,10 +141,10 @@ const customerSlice = createSlice({
                 success: null,
                 ts: null,
                 type: null
-              };
+            };
 
-              state.chatObject = chatObject;
-              state.transactionObject = transactionObject;
+            state.chatObject = chatObject;
+            state.transactionObject = transactionObject;
         },
 
         clearCustomer(state) {
