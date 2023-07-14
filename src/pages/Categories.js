@@ -11,7 +11,7 @@ import { CATEGORY_IMAGES } from "../config/constants";
 import classes from "./Categories.module.css";
 import "../general.css";
 
-
+ 
 const Categories = () => {
 
     const navigate = useNavigate();

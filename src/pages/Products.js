@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -18,6 +18,7 @@ const Products = () => {
 
     const { category } = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
 
@@ -27,6 +28,20 @@ const Products = () => {
 
     const products = store.products;
 
+
+    const handleTouchStart = (index) => {
+        setTouchedIndex(index);
+    };
+
+    const handleTouchEnd = () => {
+        setTimeout(() => {
+            setTouchedIndex(-1);
+        }, 1000);
+    };
+
+    const addItemToCartHandler = (product) => {
+        dispatch(addToCartHandler(product));
+    };
 
     useEffect(() => {
 
@@ -66,21 +81,9 @@ const Products = () => {
         setSizes();
     }, [screenSize]);
 
-
-    const handleTouchStart = (index) => {
-        setTouchedIndex(index);
-    };
-
-    const handleTouchEnd = () => {
-        setTimeout(() => {
-            setTouchedIndex(-1);
-        }, 1000);
-    };
-
-    const addItemToCartHandler = (product) => {
-        dispatch(addToCartHandler(product));
-    };
-
+    if (!products.length) {
+        navigate('/error');
+    }
 
     return (
         <main>
