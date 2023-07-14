@@ -53,6 +53,11 @@ function MainNavigation() {
         observer.observe(sectionAboutEl);
     }, []);
 
+     // Scroll to top when returning to home
+     if (curLocation === "/" && pathHash !== "#about" && pathHash !== "#faqs") {
+        window.scrollTo(0, 0);
+      }
+
 
 
     const handleMobileNavClick = () => {
