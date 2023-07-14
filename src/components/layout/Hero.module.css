@@ -5,25 +5,54 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    transition: all 0.3s ease;
 }
 
 .content {
+    align-self: flex-start;
     align-items: center;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    transition: all 0.3s ease;
 }
 
 .title {
     color: rgba(255, 236, 209, 1.0);
     font-weight: 900;
+    font-size: 15rem;
     line-height: 1.25;
-    margin: 0;
     margin-left: 2.5rem;
+    margin-right: auto;
     text-align: left;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     width: 75%;
 }
+
+@media screen and (max-width: 1024px) {
+    .title {
+        font-size: 12rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .title {
+        font-size: 10rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 8rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .title {
+        font-size: 6rem;
+    }
+}   
