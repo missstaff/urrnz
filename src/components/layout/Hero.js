@@ -5,7 +5,6 @@ import "../../general.css";
 
 
 const Hero = () => {
-
     return (
         <div className={classes.hero}>
             <div className={classes.content}>
@@ -15,7 +14,6 @@ const Hero = () => {
                 <StoreButton
                     to="/products/all"
                     title="SHOP NOW"
-                    style={{ fontSize: `${4.8}rem`, }}
                 />
             </div>
         </div>

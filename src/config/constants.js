@@ -36,6 +36,18 @@ export const colorCodeToName = {
     "#D4C4FB": "Light Lavender",
 };
 
+//CATEGORY IMAGES 
+export const CATEGORY_IMAGES = {
+    "all": require("../assets/allProducts.jpg"),
+    "Emojis": require("../assets/emoji.jpg"),
+    "Services": require("../assets/services.jpg"),
+    "Shapes": require("../assets/shapes.jpg"),
+    "Test": require("../assets/allProducts.jpg"),
+    // add more categories and their corresponding image URLs here ~ category image from server would be best!
+};
+
+export const STEPS = ["Shipping Details", "Payment Details", "Review"];
+
 //END POINTS
 export const FETCH_ALL_PRODUCTS = "https://zzzap.io/Collections/dataFind?search=product&PublicAuthCd=bfe18ab97f8a3a01d68a5a904719880f4cc9eb7a11ff6f09a433dd45145ec3b3&limit=100";
 export const FETCH_TAX = "https://zzzap.io/Process/orderTaxesOnly?requestApiAs=urrnz.com&PublicAuthCd=bfe18ab97f8a3a01d68a5a904719880f4cc9eb7a11ff6f09a433dd45145ec3b3";
