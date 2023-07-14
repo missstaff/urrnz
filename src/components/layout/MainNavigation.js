@@ -28,7 +28,7 @@ function MainNavigation() {
         curLocation === "/genres" ||
         curLocation === "/cart" ||
         curLocation === "/contact" ||
-        curLocation === "/products/") &&
+        curLocation === "/products") &&
         pathHash !== "#about" && 
         pathHash !== "#faqs"
     ) {window.scrollTo(0, 0)}
@@ -42,7 +42,7 @@ function MainNavigation() {
                         <NavLink
                             to="/"
                             onClick={handleNavLinkClick}
-                            isActive={(match, location) => match && curLocation === "/"}
+                            className={({ isActive }) => isActive && curLocation === "/" ? classes.active : undefined}
                             end
                         >
                             <p>Home</p>
@@ -52,8 +52,7 @@ function MainNavigation() {
                         <Link
                             to="/#about"
                             onClick={handleNavLinkClick}
-                            isActive={() => curLocation === "/" && pathHash === "#about"}
-                        >
+                            className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
                             <p>About</p>
                         </Link>
                     </li>
@@ -61,13 +60,15 @@ function MainNavigation() {
                         <Link
                             to="/#faqs"
                             onClick={handleNavLinkClick}
-                            isActive={() => curLocation === "/" && pathHash === "#faqs"}
-                        >
+                            className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
                             <p>FAQ</p>
                         </Link>
                     </li>
                     <li>
-                        <NavLink to="/genres" onClick={handleNavLinkClick} isActive={() => curLocation === "/genres"}>
+                        <NavLink 
+                            to="/genres" 
+                            onClick={handleNavLinkClick} 
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Genres</p>
                         </NavLink>
                     </li>
@@ -75,18 +76,23 @@ function MainNavigation() {
                         <NavLink
                             to="/products/all"
                             onClick={handleNavLinkClick}
-                            isActive={() => curLocation.startsWith("/products")}
-                        >
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Gallery</p>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/cart" onClick={handleNavLinkClick} isActive={() => curLocation === "/cart"}>
+                        <NavLink 
+                            to="/cart" 
+                            onClick={handleNavLinkClick} 
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Cart</p>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact" onClick={handleNavLinkClick} isActive={() => curLocation === "/contact"}>
+                        <NavLink 
+                            to="/contact" 
+                            onClick={handleNavLinkClick} 
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Contact</p>
                         </NavLink>
                     </li>
