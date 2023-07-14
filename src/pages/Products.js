@@ -49,7 +49,7 @@ const Products = () => {
             if (category === "all") {
                 setCategoryProducts(products);
             } else {
-                const filteredProducts = products.filter(product => product.category === category);
+                const filteredProducts = products.filter(product => product?.category === category);
                 setCategoryProducts(filteredProducts);
             }
         };
@@ -58,6 +58,12 @@ const Products = () => {
         dispatch(storeActions.setCategory(category));
 
     }, [category, dispatch, products]);
+
+    useEffect(() => {
+        if (!products.length && !categoryProducts.length) {
+            navigate('/error');
+        }
+    }, [categoryProducts]);    
 
 
     useEffect(() => {
