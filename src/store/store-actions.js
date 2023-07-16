@@ -1,5 +1,10 @@
 import { storeActions } from "./store-slice";
-import { FETCH_ALL_PRODUCTS, FETCH_TEMPLATE_CHAT, FETCH_TEMPLATE_ORDER, } from "../config/constants";
+import { 
+    FETCH_ALL_PRODUCTS, 
+    FETCH_CATEGORIES, 
+    FETCH_TEMPLATE_CHAT, 
+    FETCH_TEMPLATE_ORDER, 
+} from "../config/constants";
 
 
 export const fetchProducts = () => {
@@ -7,12 +12,22 @@ export const fetchProducts = () => {
         try {
             const response = await fetch(FETCH_ALL_PRODUCTS);
             const data = await response.json();
-
             dispatch(storeActions.setProducts(data));
-            dispatch(storeActions.setCategories(data));
             dispatch(storeActions.setShippingOptions(data));
         } catch (error) {
             console.warn(`Failed to fetch products!\n${error.message}\n${error.stack}`);
+        }
+    };
+};
+
+export const fetchCategories = () => {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(FETCH_CATEGORIES);
+            const data = await response.json();
+            dispatch(storeActions.setCategories(data));
+        } catch (error) {
+            console.warn(`Failed to fetch categories!\n${error.message}\n${error.stack}`);
         }
     };
 };

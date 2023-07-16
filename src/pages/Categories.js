@@ -6,7 +6,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import { loadingActions } from "../store/loading-slice";
-import { CATEGORY_IMAGES } from "../config/constants";
 
 import classes from "./Categories.module.css";
 import "../general.css";
@@ -35,22 +34,16 @@ const Categories = () => {
         dispatch(loadingActions.setLoading(true));
         const timerId = setTimeout(() => {
             dispatch(loadingActions.setLoading(false)); 
+            if (!isLoading && !categories.length) {
+                dispatch(loadingActions.setLoading(false));
+                navigate("/error");
+            }
         }, 250);
 
         return () => {
             clearTimeout(timerId);
         }
     }, [dispatch]);
-
-
-    useEffect(() => {
-        if (!isLoading && !categories.length) {
-            dispatch(loadingActions.setLoading(false));
-            navigate("/error");
-        }
-    }, [categories, dispatch, isLoading]);
-
-
 
     return (
         <main>
@@ -71,7 +64,7 @@ const Categories = () => {
                                 to={`/products/${category}`}>
                                 <h3
                                     className={classes.heading}>
-                                    {category}
+                                    {category.name}
                                 </h3>
                                 <div
                                     className={`${touchedIndex === index ? classes.touched : ""}`}
@@ -83,9 +76,9 @@ const Categories = () => {
                                     onTouchEnd={handleTouchEnd}>
                                     <Container className={classes.container}>
                                         <img
-                                            alt={category}
+                                            alt={category.name + " image"}
                                             className={classes.image}
-                                            src={CATEGORY_IMAGES[category]}
+                                            src={category.images?.header || "https://via.placeholder.com/300x300"} 
                                         />
                                     </Container>
                                 </div>
