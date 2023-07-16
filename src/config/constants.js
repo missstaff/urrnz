@@ -46,16 +46,6 @@ export const colorCodeToName = {
 };
 
 
-//CATEGORY IMAGES 
-export const CATEGORY_IMAGES = {
-    "all": require("../assets/allProducts.jpg"),
-    "Emojis": require("../assets/emoji.jpg"),
-    "Services": require("../assets/services.jpg"),
-    "Shapes": require("../assets/shapes.jpg"),
-    "Test": require("../assets/allProducts.jpg"),
-    // add more categories and their corresponding image URLs here ~ category image from server would be best!
-};
-
 //CHECKOUT STEPS 
 export const STEPS = ["Shipping Details", "Payment Details", "Review"];
 

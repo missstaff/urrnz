@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
@@ -9,6 +10,7 @@ import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
     const location = useLocation();
+    const store = useSelector(state => state.store);
 
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
@@ -74,7 +76,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                            to="/products/all"
+                            to={`/products/${store.category}`}
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Gallery</p>

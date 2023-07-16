@@ -43,7 +43,7 @@ const Categories = () => {
         return () => {
             clearTimeout(timerId);
         }
-    }, [dispatch]);
+    }, []);
 
     return (
         <main>
@@ -61,7 +61,7 @@ const Categories = () => {
                             key={index}>
                             <NavLink
                                 className={classes.title}
-                                to={`/products/${category}`}>
+                                to={`/products/${category.name}`}>
                                 <h3
                                     className={classes.heading}>
                                     {category.name}

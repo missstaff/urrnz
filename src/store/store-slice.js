@@ -5,7 +5,7 @@ const storeSlice = createSlice({
     name: "store",
     initialState: {
         categories: [],
-        category: "all",
+        category: "All",
         chatObjectTemplate: {},
         orderTemplate: {},
         products: [],
