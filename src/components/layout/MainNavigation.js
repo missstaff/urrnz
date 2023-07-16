@@ -37,7 +37,7 @@ function MainNavigation() {
     ) { window.scrollTo(0, 0) }
 
     return (
-        <header className={`${classes.header} ${isMenuVisible ? classes.navOpen : ""}`}>
+        <header className={`${classes.header} ${classes.sticky} ${isMenuVisible ? classes.navOpen : ""}`}>
             <LogoHeader />
             <nav className={`${classes.mainNav} ${isMenuVisible ? classes.mobileNav : ""}`}>
                 <ul className={classes.list}>
