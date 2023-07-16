@@ -96,15 +96,13 @@ const Products = () => {
     }, [screenSize]);
 
     return (
-        <main>
+        <main style={{height: isLoading ? `${100}vh` : ""}}>
             <section
                 className={`${classes.section} wrapper`}
                 id="gallery">
                 <div className={classes.headingContainer}>
                     <Heading title="GALLERY" />
                 </div>
-                {/* <div className={`grid ${classes.gridColumns}`}> */}
-
                     <ShowIf
                         condition={!isLoading && categoryProducts.length}
                         render={() => {

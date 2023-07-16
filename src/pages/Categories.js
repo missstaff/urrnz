@@ -46,7 +46,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <main>
+        <main style={{height: isLoading ? `${100}vh` : ""}}>
             <section
                 className={classes.section}
                 id="categories">
