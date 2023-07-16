@@ -7,9 +7,10 @@ const StoreButton = (props) => {
         <NavLink
             to={props.to}
             className={classes.link}
+            aria-label="Store button"
             style={props.style} >
             <div className={classes.btn}>
-                <p>{props.title}</p>
+                <p className={classes.title}>{props.title}</p>
             </div>
         </NavLink>
     );

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import ShowIf from "../components/ShowIf";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
@@ -19,7 +20,6 @@ const Products = () => {
 
     const { category } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);
@@ -45,40 +45,32 @@ const Products = () => {
         dispatch(addToCartHandler(product));
     };
 
-    // useEffect(() => {
-        
-    //     setTimeout(() => {
-           
-    //     }, 250);
-    // }, [dispatch]);
-
-
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
+
         if (products && products.length) {
             const setProducts = () => {
-                if (category === "all") {
+                if (category === "All") {
                     setCategoryProducts(products);
                 } else {
                     const filteredProducts = products.filter(product => product?.category === category);
                     setCategoryProducts(filteredProducts);
                 }
             };
-
             setProducts();
             dispatch(storeActions.setCategory(category));
         }
 
-        dispatch(loadingActions.setLoading(false));
+
+        const timerId = setTimeout(() => {
+            dispatch(loadingActions.setLoading(false));
+        }, 500);
+
+        return () => {
+            clearTimeout(timerId);
+        }
 
     }, [category, dispatch, products]);
-
-    useEffect(() => {
-        if (!isLoading && !products.length) {
-            dispatch(loadingActions.setLoading(false));
-            navigate("/error");
-        }
-    }, [categoryProducts]);
 
 
     useEffect(() => {
@@ -102,92 +94,120 @@ const Products = () => {
         setSizes();
     }, [screenSize]);
 
+
     return (
-        <main>
+        <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
                 className={`${classes.section} wrapper`}
                 id="gallery">
                 <div className={classes.headingContainer}>
                     <Heading title="GALLERY" />
                 </div>
-                <div className={`grid ${classes.gridColumns}`}>
-
-                    {!isLoading && categoryProducts.map((product, index) => (
-                        <div
-                            key={index}>
-                            <Container
-                                style={{ //these styles must be inline to be applied to the container
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    justifyContent: "center",
-
-                                }}>
-                                <NavLink
-                                    to={`/product/${product.zid}`}>
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>Loading...</p>
+                            </div>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading && categoryProducts.length}
+                    render={() => {
+                        return (
+                            <div className={`grid ${classes.gridColumns}`}>
+                                {categoryProducts.map((product, index) => (
                                     <div
-                                        style={{
-                                            alignSelf: "center",
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            justifyContent: "center"
-                                        }}
-                                        className={`${touchedIndex === index ? classes.touched : ""}`}
-                                        onMouseDown={() => handleTouchStart(index)}
-                                        onMouseEnter={() => handleTouchStart(index)}
-                                        onMouseLeave={handleTouchEnd}
-                                        onMouseUp={handleTouchEnd}
-                                        onTouchStart={() => handleTouchStart(index)}
-                                        onTouchEnd={handleTouchEnd}>
-                                        <img
-                                            alt={product.name}
-                                            src={product.images.lg}
-                                            style={{
-                                                alignSelf: "center",
-                                                borderRadius: 7.5,
-                                                height: `${imageHeight}rem`,
-                                                imageResolution: "from-image",
-                                                margin: "5%",
-                                                objectFit: "cover",
-                                                resize: "both",
-                                                resizeMode: "cover",
-                                                width: "auto",
-                                            }}
-                                        />
-                                    </div>
-                                </NavLink>
-                                <div className={classes.detailsContainer}>
-                                    <div className={classes.detailsTitle}>
-                                        <h3 className={`${classes.heading} ${classes.limitTitle}`}>
-                                            {product.name}
-                                        </h3>
-                                        <p
-                                            className={classes.price}
-                                            style={{ textShadow: "none" }}>
-                                            ${product.price}
-                                        </p>
-                                    </div>
-                                    <p
-                                        className={`${classes.details} ${classes.limitLines}`}
-                                        style={{ textShadow: "none" }}>
-                                        {product.description}
-                                    </p>
+                                        key={index}>
+                                        <Container
+                                            style={{ //these styles must be inline to be applied to the container
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                justifyContent: "center",
 
-                                </div>
-                                <div
-                                    className={classes.buttonContainer}
-                                    style={{
-                                        alignItems: "center",
-                                        display: "flex",
-                                        flexDirection: "row",
-                                        justifyContent: "center"
-                                    }}>
-                                    <AddToCartButton
-                                        onClick={() => addItemToCartHandler(product)} />
-                                </div>
-                            </Container>
-                        </div>
-                    ))}
-                </div>
+                                            }}>
+                                            <NavLink
+                                                to={`/product/${product.zid}`}>
+                                                <div
+                                                    style={{
+                                                        alignSelf: "center",
+                                                        display: "flex",
+                                                        flexDirection: "column",
+                                                        justifyContent: "center"
+                                                    }}
+                                                    className={`${touchedIndex === index ? classes.touched : ""}`}
+                                                    onMouseDown={() => handleTouchStart(index)}
+                                                    onMouseEnter={() => handleTouchStart(index)}
+                                                    onMouseLeave={handleTouchEnd}
+                                                    onMouseUp={handleTouchEnd}
+                                                    onTouchStart={() => handleTouchStart(index)}
+                                                    onTouchEnd={handleTouchEnd}>
+                                                    <img
+                                                        alt={product.name}
+                                                        src={product.images.lg}
+                                                        style={{
+                                                            alignSelf: "center",
+                                                            borderRadius: 7.5,
+                                                            height: `${imageHeight}rem`,
+                                                            imageResolution: "from-image",
+                                                            margin: "5%",
+                                                            objectFit: "cover",
+                                                            resize: "both",
+                                                            resizeMode: "cover",
+                                                            width: "auto",
+                                                        }}
+                                                    />
+                                                </div>
+                                            </NavLink>
+                                            <div className={classes.detailsContainer}>
+                                                <div className={classes.detailsTitle}>
+                                                    <h3 className={`${classes.heading} ${classes.limitTitle}`}>
+                                                        {product.name}
+                                                    </h3>
+                                                    <p
+                                                        className={classes.price}
+                                                        style={{ textShadow: "none" }}>
+                                                        ${product.price}
+                                                    </p>
+                                                </div>
+                                                <p
+                                                    className={`${classes.details} ${classes.limitLines}`}
+                                                    style={{ textShadow: "none" }}>
+                                                    {product.description}
+                                                </p>
+
+                                            </div>
+                                            <div
+                                                className={classes.buttonContainer}
+                                                style={{
+                                                    alignItems: "center",
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    justifyContent: "center"
+                                                }}>
+                                                <AddToCartButton
+                                                    onClick={() => addItemToCartHandler(product)} />
+                                            </div>
+                                        </Container>
+                                    </div>
+                                ))}
+                            </div>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading && !categoryProducts.length}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>No items found</p>
+                                <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back</NavLink>
+                            </div>
+                        );
+                    }}
+                />
             </section>
         </main>
     );

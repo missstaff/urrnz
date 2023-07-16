@@ -5,14 +5,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import ShowIf from "../components/ShowIf";
 import { loadingActions } from "../store/loading-slice";
-import { CATEGORY_IMAGES } from "../config/constants";
 
-import classes from "./Categories.module.css";
+import classes from "./Genres.module.css";
 import "../general.css";
 
 
-const Categories = () => {
+const Genres = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -34,26 +34,20 @@ const Categories = () => {
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
         const timerId = setTimeout(() => {
-            dispatch(loadingActions.setLoading(false)); 
+            dispatch(loadingActions.setLoading(false));
+            if (!isLoading && !categories.length) {
+                dispatch(loadingActions.setLoading(false));
+                navigate("/error");
+            }
         }, 250);
 
         return () => {
             clearTimeout(timerId);
         }
-    }, [dispatch]);
-
-
-    useEffect(() => {
-        if (!isLoading && !categories.length) {
-            dispatch(loadingActions.setLoading(false));
-            navigate("/error");
-        }
-    }, [categories, dispatch, isLoading]);
-
-
+    }, []);
 
     return (
-        <main>
+        <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
                 className={classes.section}
                 id="categories">
@@ -61,6 +55,16 @@ const Categories = () => {
                     <Heading
                         title="Genres" />
                 </div>
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>Loading...</p>
+                            </div>
+                        );
+                    }}
+                />
                 <div
                     className={`grid ${classes.gridColumns}`}>
                     {!isLoading && categories.map((category, index) => (
@@ -68,10 +72,10 @@ const Categories = () => {
                             key={index}>
                             <NavLink
                                 className={classes.title}
-                                to={`/products/${category}`}>
+                                to={`/products/${category.name}`}>
                                 <h3
                                     className={classes.heading}>
-                                    {category}
+                                    {category.name}
                                 </h3>
                                 <div
                                     className={`${touchedIndex === index ? classes.touched : ""}`}
@@ -83,9 +87,9 @@ const Categories = () => {
                                     onTouchEnd={handleTouchEnd}>
                                     <Container className={classes.container}>
                                         <img
-                                            alt={category}
+                                            alt={category.name + " image"}
                                             className={classes.image}
-                                            src={CATEGORY_IMAGES[category]}
+                                            src={category.images?.header || "https://via.placeholder.com/300x300"}
                                         />
                                     </Container>
                                 </div>
@@ -98,4 +102,4 @@ const Categories = () => {
     );
 };
 
-export default Categories;
+export default Genres;

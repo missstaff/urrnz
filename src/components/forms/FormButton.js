@@ -5,6 +5,7 @@ const FormButton = (props) => {
     return (
         <button
             className={`${classes.button} ${props.className}}`}
+            aria-label="Form button"
             disabled={props.disabled}
             onClick={props.onClick}
             type={props.type}>

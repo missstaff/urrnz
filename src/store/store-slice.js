@@ -5,7 +5,7 @@ const storeSlice = createSlice({
     name: "store",
     initialState: {
         categories: [],
-        category: "all",
+        category: "All",
         chatObjectTemplate: {},
         orderTemplate: {},
         products: [],
@@ -18,12 +18,10 @@ const storeSlice = createSlice({
             state.products = filteredProducts;
         },
         setCategories(state, action) {
-            const fetchedProducts = action.payload.response;
-            const filteredCategories = fetchedProducts.filter(product => product.category !== "Test" && product.category !== "Services");
-            const categories = filteredCategories.map(product => product.category);
-            categories.unshift("all")
-            const uniqueCategories = [...new Set(categories)];
-            state.categories = uniqueCategories;
+            const fetchedCategories = action.payload.response;
+            const filteredCategories = fetchedCategories.filter(category => category.name !== "Test" && category.name !== "Services");
+            filteredCategories.unshift({ name: "All" });
+            state.categories = filteredCategories;
         },
         setShippingOptions(state, action) {
             const fetchedProducts = action.payload.response;
