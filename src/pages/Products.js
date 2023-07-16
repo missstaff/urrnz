@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -20,7 +20,6 @@ const Products = () => {
 
     const { category } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);

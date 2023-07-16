@@ -28,13 +28,13 @@ function MainNavigation() {
 
     if (
         (curLocation === "/" ||
-        curLocation === "/genres" ||
-        curLocation === "/cart" ||
-        curLocation === "/contact" ||
-        curLocation === `/products/${category}`) &&
-        pathHash !== "#about" && 
+            curLocation === "/genres" ||
+            curLocation === "/cart" ||
+            curLocation === "/contact" ||
+            curLocation === `/products/${category}`) &&
+        pathHash !== "#about" &&
         pathHash !== "#faqs"
-    ) {window.scrollTo(0, 0)}
+    ) { window.scrollTo(0, 0) }
 
     return (
         <header className={`${classes.header} ${isMenuVisible ? classes.navOpen : ""}`}>
@@ -43,6 +43,7 @@ function MainNavigation() {
                 <ul className={classes.list}>
                     <li>
                         <NavLink
+                            aria-label="Navigation link to the home page."
                             to="/"
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive && curLocation === "/" ? classes.active : undefined}
@@ -53,6 +54,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <Link
+                        aria-label="Navigation link to the about page."
                             to="/#about"
                             onClick={handleNavLinkClick}
                             className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
@@ -61,6 +63,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <Link
+                        aria-label="Navigation link to the faqs page."
                             to="/#faqs"
                             onClick={handleNavLinkClick}
                             className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
@@ -68,15 +71,17 @@ function MainNavigation() {
                         </Link>
                     </li>
                     <li>
-                        <NavLink 
-                            to="/genres" 
-                            onClick={handleNavLinkClick} 
+                        <NavLink
+                        aria-label="Navigation link to the genres page."
+                            to="/genres"
+                            onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Genres</p>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
+                        aria-label="Navigation link to the gallery page."
                             to={`/products/${store.category}`}
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
@@ -84,17 +89,19 @@ function MainNavigation() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink 
-                            to="/cart" 
-                            onClick={handleNavLinkClick} 
+                        <NavLink
+                        aria-label="Navigation link to the cart page."
+                            to="/cart"
+                            onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Cart</p>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink 
-                            to="/contact" 
-                            onClick={handleNavLinkClick} 
+                        <NavLink
+                        aria-label="Navigation link to the contact page."
+                            to="/contact"
+                            onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Contact</p>
                         </NavLink>
@@ -102,11 +109,11 @@ function MainNavigation() {
                 </ul>
             </nav>
 
-            <button className={classes.mobileNav} onClick={handleMobileNavClick}>
-                <NavLink className={classes.iconMobileNav} name="menu-outline">
+            <button aria-label="Mobile navigation button" className={classes.mobileNav} onClick={handleMobileNavClick}>
+                <NavLink aria-label="Mobile navigation" className={classes.iconMobileNav} name="menu-outline">
                     <FaGripLines size={`${4.4}rem`} color="rgba(255, 71, 0, 1)" />
                 </NavLink>
-                <NavLink className={classes.iconMobileNav} name="close-outline">
+                <NavLink aria-label="Mobile navigation" className={classes.iconMobileNav} name="close-outline">
                     <FaGripLines size={`${4.4}rem`} color="rgba(255, 71, 0, 1)" />
                 </NavLink>
             </button>

@@ -1,43 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useScreenSize } from "../../hooks/useScreenSize";
+import React from "react";
+import classes from "./Logo.module.css";
 
 
 const Logo = () => {
 
-    const screenSize = useScreenSize();
-    const [logoSize, setLogoSize] = useState(0);
-
-
-    useEffect(() => {
-        const setSizes = () => {
-            if (screenSize === "default") {
-                setLogoSize(1.4);
-            } else if (screenSize === "xs") {
-                setLogoSize(2.2);
-            } else if (screenSize === "sm") {
-                setLogoSize(2.2);
-            } else if (screenSize === "md") {
-                setLogoSize(3.4);
-            } else if (screenSize === "lg") {
-                setLogoSize(4.8);
-            } else if (screenSize === "xl") {
-                setLogoSize(5.5);
-            } else if (screenSize === "xxl") {
-                setLogoSize(6.5);
-            }
-        };
-        setSizes();
-    }, [screenSize]);
-
-
     return (
-        <img
-            alt="Urrnz logo"
-            src={require("../../assets/logo.h200.beige.png")}
-            style={{
-                height: `${logoSize}rem`,
-            }}
-        />
+        <picture>
+            {/* WebP image source */}
+            <source
+                srcSet={require("../../assets/logo.h200.beige.webp")}
+                type="image/webp"
+            />
+            {/* PNG image source */}
+            <source
+                srcSet={require("../../assets/logo.h200.beige.png")}
+                type="image/png"
+            />
+            {/* Fallback image */}
+            <img
+                src={require("../../assets/logo.h200.beige.png")}
+                alt="Urrnz logo"
+                className={classes.logo}
+            />
+        </picture>
     );
 };
 

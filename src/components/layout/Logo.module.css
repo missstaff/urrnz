@@ -1,0 +1,17 @@
+.logo {
+    height: 6.5rem;
+    width: auto;
+}
+
+/*Media Queries*/
+@media (max-width: 768px) {
+    .logo {
+        height: 5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        height: 4rem;
+    }
+}

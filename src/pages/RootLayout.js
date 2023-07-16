@@ -5,7 +5,7 @@ import MainNavigation from "../components/layout/MainNavigation";
 
 const RootLayout = () => {
     return (
-        <div>
+        <div style={{ overflowX: 'hidden' }}>
             <MainNavigation />
             <main>
                 <Outlet />
