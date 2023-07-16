@@ -1,7 +1,7 @@
 import {createBrowserRouter } from "react-router-dom";
 
 import Cart from "../pages/Cart";
-import Categories from "../pages/Categories";
+import Genres from "../pages/Genres";
 import Checkout from "../pages/Checkout";
 import Contact from "../pages/Contact";
 import Error from "../pages/Error";
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "cart", element: <Cart/> },
-      { path: "genres", element: <Categories /> },
+      { path: "genres", element: <Genres /> },
       { path: "checkout", element: <Checkout /> },
       { path: "contact", element: <Contact /> },
       { path: "products/:category", element: <Products /> },

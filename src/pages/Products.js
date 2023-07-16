@@ -70,7 +70,7 @@ const Products = () => {
         return () => {
             clearTimeout(timerId);
         }
-        
+
     }, [category, dispatch, products]);
 
 
@@ -95,19 +95,30 @@ const Products = () => {
         setSizes();
     }, [screenSize]);
 
+
     return (
-        <main style={{height: isLoading ? `${100}vh` : ""}}>
+        <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
                 className={`${classes.section} wrapper`}
                 id="gallery">
                 <div className={classes.headingContainer}>
                     <Heading title="GALLERY" />
                 </div>
-                    <ShowIf
-                        condition={!isLoading && categoryProducts.length}
-                        render={() => {
-                            return (
-                                <div className={`grid ${classes.gridColumns}`}>
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>Loading...</p>
+                            </div>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading && categoryProducts.length}
+                    render={() => {
+                        return (
+                            <div className={`grid ${classes.gridColumns}`}>
                                 {categoryProducts.map((product, index) => (
                                     <div
                                         key={index}>
@@ -183,21 +194,21 @@ const Products = () => {
                                         </Container>
                                     </div>
                                 ))}
-                                </div>
-                            );
-                        }}
-                    />
-                    <ShowIf
-                        condition={!isLoading && !categoryProducts.length}
-                        render={() => {
-                            return (
-                                <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-                                    <p style={{fontSize: 50,}}>No items found</p>
-                                    <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back</NavLink>
-                                </div>
-                            );
-                        }}
-                    />
+                            </div>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading && !categoryProducts.length}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>No items found</p>
+                                <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back</NavLink>
+                            </div>
+                        );
+                    }}
+                />
             </section>
         </main>
     );

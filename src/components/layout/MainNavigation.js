@@ -16,6 +16,7 @@ function MainNavigation() {
 
     const curLocation = location.pathname;
     const pathHash = location.hash;
+    const category = store.category;
 
     const handleMobileNavClick = () => {
         setIsMenuVisible(!isMenuVisible);
@@ -30,7 +31,7 @@ function MainNavigation() {
         curLocation === "/genres" ||
         curLocation === "/cart" ||
         curLocation === "/contact" ||
-        curLocation === "/products") &&
+        curLocation === `/products/${category}`) &&
         pathHash !== "#about" && 
         pathHash !== "#faqs"
     ) {window.scrollTo(0, 0)}

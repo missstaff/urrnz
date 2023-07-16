@@ -5,13 +5,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import ShowIf from "../components/ShowIf";
 import { loadingActions } from "../store/loading-slice";
 
-import classes from "./Categories.module.css";
+import classes from "./Genres.module.css";
 import "../general.css";
 
 
-const Categories = () => {
+const Genres = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Categories = () => {
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
         const timerId = setTimeout(() => {
-            dispatch(loadingActions.setLoading(false)); 
+            dispatch(loadingActions.setLoading(false));
             if (!isLoading && !categories.length) {
                 dispatch(loadingActions.setLoading(false));
                 navigate("/error");
@@ -46,7 +47,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <main style={{height: isLoading ? `${100}vh` : ""}}>
+        <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
                 className={classes.section}
                 id="categories">
@@ -54,6 +55,16 @@ const Categories = () => {
                     <Heading
                         title="Genres" />
                 </div>
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>Loading...</p>
+                            </div>
+                        );
+                    }}
+                />
                 <div
                     className={`grid ${classes.gridColumns}`}>
                     {!isLoading && categories.map((category, index) => (
@@ -78,7 +89,7 @@ const Categories = () => {
                                         <img
                                             alt={category.name + " image"}
                                             className={classes.image}
-                                            src={category.images?.header || "https://via.placeholder.com/300x300"} 
+                                            src={category.images?.header || "https://via.placeholder.com/300x300"}
                                         />
                                     </Container>
                                 </div>
@@ -91,4 +102,4 @@ const Categories = () => {
     );
 };
 
-export default Categories;
+export default Genres;
