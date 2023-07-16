@@ -144,7 +144,7 @@ const Cart = () => {
                 {!isLoading && <div className={classes.cartButton}>
                     <StoreButton
                         title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
-                        to={!items.length ? "/products/all" : "/checkout"}
+                        to={!items.length ? "/products/All" : "/checkout"}
                     />
                 </div>}
             </main>

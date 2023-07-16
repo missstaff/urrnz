@@ -14,7 +14,7 @@ const Hero = () => {
     >
       <div className={classes.content}>
         <h1 className={classes.title}>URRNZ CUSTOM KEEPSAKES</h1>
-        <StoreButton to="/products/all" title="SHOP NOW" />
+        <StoreButton to="/products/All" title="SHOP NOW" />
       </div>
     </div>
   );
