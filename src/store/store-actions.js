@@ -1,9 +1,9 @@
 import { storeActions } from "./store-slice";
-import { 
-    FETCH_ALL_PRODUCTS, 
-    FETCH_CATEGORIES, 
-    FETCH_TEMPLATE_CHAT, 
-    FETCH_TEMPLATE_ORDER, 
+import {
+    FETCH_ALL_PRODUCTS,
+    FETCH_CATEGORIES,
+    FETCH_TEMPLATE_CHAT,
+    FETCH_TEMPLATE_ORDER,
 } from "../config/constants";
 
 
@@ -34,11 +34,11 @@ export const fetchCategories = () => {
 
 export const fetchOrderTemplate = () => {
     return async (dispatch) => {
-        try{
+        try {
             const response = await fetch(FETCH_TEMPLATE_ORDER);
             const data = await response.json();
             dispatch(storeActions.setOrderObject(data));
-        }catch(error){
+        } catch (error) {
             console.warn(`Failed to fetch order template!\n${error.message}\n${error.stack}`);
         }
     };
@@ -46,11 +46,11 @@ export const fetchOrderTemplate = () => {
 
 export const fetchChatTemplate = () => {
     return async (dispatch) => {
-        try{
+        try {
             const response = await fetch(FETCH_TEMPLATE_CHAT);
             const data = await response.json();
             dispatch(storeActions.setChatObject(data));
-        }catch(error){
+        } catch (error) {
             console.log(`Failed to fetch chat template!\n${error.message}\n${error.stack}`);
         }
     };
