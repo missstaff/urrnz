@@ -20,6 +20,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+   <url>
+    <loc>https://www.urrnz.com/gallery</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://www.urrnz.com/checkout</loc>
     <lastmod>2023-07-17T00:00:00+00:00</lastmod>
