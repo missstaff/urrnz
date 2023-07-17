@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Field, Formik, Form } from "formik";
-import { toast } from "react-toastify";
 
 import AddressForm from "../components/forms/AddressForm";
 import Container from "../components/Container";
@@ -10,8 +9,7 @@ import FormButton from "../components/forms/FormButton";
 import Heading from "../components/layout/Heading";
 
 import { setCustomerHandler } from "../store/customer-actions";
-import { addressValidationSchema, handleSubmitContact, postRequestHandler } from "../utility/utils";
-import { POST_MESSAGE } from "../config/constants";
+import { addressValidationSchema, handleSubmitContact } from "../utility/utils";
 
 import classes from "./Contact.module.css";
 

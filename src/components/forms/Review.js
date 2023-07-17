@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { useSelector } from "react-redux";";
 
 import CheckoutButtons from "./CheckoutButtons";
-import { clearCartHandler } from "../../store/cart-actions";
-import { clearCustomerHandler } from "../../store/customer-actions";
-import { handleSubmitOrder, postRequestHandler } from "../../utility/utils";
-import { colorCodeToName, POST_ORDER } from "../../config/constants";
+import { handleSubmitOrder } from "../../utility/utils";
+import { colorCodeToName } from "../../config/constants";
 
 
 import classes from "./Review.module.css";
@@ -20,11 +17,6 @@ const Review = ({ activeStep, handleBack }) => {
     const cart = useSelector(state => state.cart);
     const customer = useSelector(state => state.customer);
     const orderTemplate = useSelector(state => state.store.orderTemplate);
-
-    // const email = customer.email;
-    // const phone = customer.phone;
-    // const chatObject = customer.chatObject;
-    // let transactionObject = customer.transactionObject;
 
     const shippingAddress = customer.shippingAddress;
     const shippingAddressee = customer.shippingAddress.addressee;
@@ -59,7 +51,6 @@ const Review = ({ activeStep, handleBack }) => {
     let tax = taxRate * subTotal;
     tax = Math.round(tax * 100) / 100;
     const total = subTotal + tax + shipping.price;
-    // const orderItems = [];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
