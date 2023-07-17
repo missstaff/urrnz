@@ -35,11 +35,10 @@ const Cart = () => {
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
         const localStorageCart = JSON.parse(localStorage.getItem("cart"));
-        if(localStorage){
+        if (localStorage) {
             dispatch(cartActions.replaceCart(localStorageCart));
         }
-        console.log(localStorageCart);
-        dispatch(loadingActions.setLoading(false)); 
+        dispatch(loadingActions.setLoading(false));
     }, [dispatch]);
 
 
@@ -53,8 +52,18 @@ const Cart = () => {
                 <Heading title="CART" />
             </div>
             <main>
-                {!isLoading && <ShowIf
-                    condition={items.length}
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                                <p style={{ fontSize: 50, }}>Loading...</p>
+                            </div>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading && items.length}
                     render={() => (
                         <>
                             {items.map((item) => (
@@ -137,19 +146,30 @@ const Cart = () => {
                             </div>
                         </>
                     )}
-                    renderElse={() => (
-                        <h3
-                            className={classes.message}>
-                            Your cart is empty
-                        </h3>
-                    )}
-                />}
-                {!isLoading && <div className={classes.cartButton}>
-                    <StoreButton
-                        title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
-                        to={!items.length ? "/products/All" : "/checkout"}
-                    />
-                </div>}
+                />
+                <ShowIf
+                    condition={!isLoading && !items.length}
+                    render={() => {
+                        return (
+                            <h3
+                                className={classes.message}>
+                                Your cart is empty
+                            </h3>
+                        );
+                    }}
+                />
+                <ShowIf
+                    condition={!isLoading}
+                    render={() => {
+                        return (
+                            <div className={classes.cartButton}>
+                                <StoreButton
+                                    title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
+                                    to={!items.length ? "/products/All" : "/checkout"}
+                                />
+                            </div>
+                        );
+                    }} />
             </main>
         </section>
     );
