@@ -4,17 +4,16 @@ import { POST_MESSAGE, POST_ORDER, sizes } from "../config/constants";
 import { clearCartHandler } from "../store/cart-actions";
 import { clearCustomerHandler } from "../store/customer-actions";
 
-// Disable ESLint rule "no-useless-escape" for the following lines
-const regex1 = /\./;    // eslint-disable-line no-useless-escape
-const regex2 = /\#/;    // eslint-disable-line no-useless-escape
-const regex3 = /\-/;    // eslint-disable-line no-useless-escape
 
-// More code...
+// Disable ESLint rule "no-useless-escape" for the following lines
+/\./;    // eslint-disable-line no-useless-escape
+/\#/;    // eslint-disable-line no-useless-escape
+/\-/;    // eslint-disable-line no-useless-escape
 
 // Disable ESLint rule "no-useless-escape" for the following line
-const regex4 = /\./;    // eslint-disable-line no-useless-escape
-const regex5 = /\#/;    // eslint-disable-line no-useless-escape
-const regex6 = /\-/;    // eslint-disable-line no-useless-escape
+/\./;    // eslint-disable-line no-useless-escape
+/\#/;    // eslint-disable-line no-useless-escape
+/\-/;    // eslint-disable-line no-useless-escape
 
 
 export const isMatch = (media) => {
