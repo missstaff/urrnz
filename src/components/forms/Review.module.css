@@ -1,23 +1,52 @@
-.reviewHeading {
-  font-size: 2.8rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  padding: 1rem 0;
+.checkoutBtnContainer {
+    margin-top: 1.8rem;
 }
 
-.reviewText{
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    grid: repeat(2 1fr);
+    margin-top: 9.6rem;
+    margin-bottom: 9.6rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewHeading {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+
+.reviewText {
     font-size: 2.2rem;
     font-weight: 400;
     padding: 0 1rem;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /*Media Queries*/
 @media screen and (max-width: 768px) {
+    .container {
+        margin-bottom: 4.4rem;
+        margin-top: 4.4rem;
+    }
+
     .reviewHeading {
         font-size: 2.4rem;
     }
 
-    .reviewText{
+    .reviewText {
         font-size: 2rem;
     }
 }
@@ -27,10 +56,10 @@
         font-size: 2rem;
     }
 
-    .reviewText{
+    .reviewText {
         font-size: 1.8rem;
     }
-  
+
 }
 
 @media screen and (max-width: 375px) {
@@ -38,8 +67,8 @@
         font-size: 1.8rem;
     }
 
-    .reviewText{
+    .reviewText {
         font-size: 1.6rem;
     }
-  
+
 }

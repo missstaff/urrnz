@@ -5,27 +5,24 @@ import { useSelector, useDispatch } from "react-redux";
 import AddToCartButton from "../components/ui/AddToCartButton";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
 import { storeActions } from "../store/store-slice";
-import { useScreenSize } from "../hooks/useScreenSize";
 
 import classes from "./Products.module.css";
-import "../general.css";
 
 
 const Products = () => {
 
     const { category } = useParams();
     const dispatch = useDispatch();
-    const screenSize = useScreenSize();
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);
 
     const [categoryProducts, setCategoryProducts] = useState([]);
-    const [imageHeight, setImageHeight] = useState(0);
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
     const products = store.products;
@@ -46,6 +43,7 @@ const Products = () => {
     };
 
     useEffect(() => {
+
         dispatch(loadingActions.setLoading(true));
 
         if (products && products.length) {
@@ -61,44 +59,22 @@ const Products = () => {
             dispatch(storeActions.setCategory(category));
         }
 
-
-        const timerId = setTimeout(() => {
+        const id = setTimeout(() => {
             dispatch(loadingActions.setLoading(false));
         }, 500);
 
         return () => {
-            clearTimeout(timerId);
+            clearTimeout(id);
         }
 
     }, [category, dispatch, products]);
 
 
-    useEffect(() => {
-        const setSizes = () => {
-            if (screenSize === "default") {
-                setImageHeight(25);
-            } else if (screenSize === "xs") {
-                setImageHeight(30);
-            } else if (screenSize === "sm") {
-                setImageHeight(30);
-            } else if (screenSize === "md") {
-                setImageHeight(32);
-            } else if (screenSize === "lg") {
-                setImageHeight(40);
-            } else if (screenSize === "xl") {
-                setImageHeight(45);
-            } else if (screenSize === "xxl") {
-                setImageHeight(50);
-            }
-        };
-        setSizes();
-    }, [screenSize]);
-
 
     return (
         <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
-                className={`${classes.section} wrapper`}
+                className={`${classes.section}`}
                 id="gallery">
                 <div className={classes.headingContainer}>
                     <Heading title="GALLERY" />
@@ -107,9 +83,7 @@ const Products = () => {
                     condition={isLoading}
                     render={() => {
                         return (
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                <p style={{ fontSize: 50, }}>Loading...</p>
-                            </div>
+                            <LoadingMessage />
                         );
                     }}
                 />
@@ -147,17 +121,7 @@ const Products = () => {
                                                     <img
                                                         alt={product.name}
                                                         src={product.images.lg}
-                                                        style={{
-                                                            alignSelf: "center",
-                                                            borderRadius: 7.5,
-                                                            height: `${imageHeight}rem`,
-                                                            imageResolution: "from-image",
-                                                            margin: "5%",
-                                                            objectFit: "cover",
-                                                            resize: "both",
-                                                            resizeMode: "cover",
-                                                            width: "auto",
-                                                        }}
+                                                        className={classes.image}
                                                     />
                                                 </div>
                                             </NavLink>
@@ -180,13 +144,7 @@ const Products = () => {
 
                                             </div>
                                             <div
-                                                className={classes.buttonContainer}
-                                                style={{
-                                                    alignItems: "center",
-                                                    display: "flex",
-                                                    flexDirection: "row",
-                                                    justifyContent: "center"
-                                                }}>
+                                                className={classes.buttonContainer}>
                                                 <AddToCartButton
                                                     onClick={() => addItemToCartHandler(product)} />
                                             </div>
@@ -201,9 +159,19 @@ const Products = () => {
                     condition={!isLoading && !categoryProducts.length}
                     render={() => {
                         return (
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: `${100}vh` }}>
-                                <p style={{ fontSize: 50, }}>No items found!</p>
-                                <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back to Genres</NavLink>
+                            <div
+                                style={{
+                                    alignItems: "center",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    height: `${100}vh`
+                                }}>
+                                <p className={classes.noItemsMessage}>No items found!</p>
+                                <NavLink
+                                    to="/genres"
+                                    className={classes.link}>
+                                    <span>&larr;</span>Back to Genres
+                                </NavLink>
                             </div>
                         );
                     }}

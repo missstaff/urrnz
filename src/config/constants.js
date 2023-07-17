@@ -1,13 +1,4 @@
 //SCREEN SIZES
-export const sizesArr = [
-    "xs",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "xxl",
-];
-
 export const sizes = {
     xs: "375px",
     sm: "640px",

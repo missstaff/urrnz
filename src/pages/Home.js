@@ -4,7 +4,6 @@ import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 
 import classes from "./Home.module.css";
-import "../general.css";
 
 
 const Home = () => {

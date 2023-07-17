@@ -4,6 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 import CustomPicker from "../components/ui/ColorPicker";
 import Heading from "../components/layout/Heading";
+import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
 import StoreButton from "../components/ui/StoreButton";
 
@@ -11,7 +12,6 @@ import { cartActions } from "../store/cart-slice";
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Cart.module.css";
-import "../general.css";
 
 
 const Cart = () => {
@@ -33,12 +33,16 @@ const Cart = () => {
     };
 
     useEffect(() => {
+
         dispatch(loadingActions.setLoading(true));
         const localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
         if (localStorage) {
             dispatch(cartActions.replaceCart(localStorageCart));
         }
+
         dispatch(loadingActions.setLoading(false));
+
     }, [dispatch]);
 
 
@@ -56,9 +60,7 @@ const Cart = () => {
                     condition={isLoading}
                     render={() => {
                         return (
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                <p style={{ fontSize: 50, }}>Loading...</p>
-                            </div>
+                           <LoadingMessage />
                         );
                     }}
                 />

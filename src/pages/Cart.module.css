@@ -211,6 +211,7 @@
 
   .itemImage {
     height: 15rem;
+    width: auto;
   }
 
   .itemName {

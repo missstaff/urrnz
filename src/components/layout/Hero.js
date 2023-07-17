@@ -2,7 +2,7 @@ import StoreButton from "../ui/StoreButton";
 import classes from "./Hero.module.css";
 import urnsPng from "../../assets/urns.png";
 import urnsWebp from "../../assets/urns.webp";
-import "../../general.css";
+
 
 const Hero = () => {
   return (

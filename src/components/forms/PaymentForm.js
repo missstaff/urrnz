@@ -22,7 +22,7 @@ const PaymentForm = () => {
                     name="cc_number"
                 />
             </div>
-            
+
             <div className={classes.smallInputContainer}>
                 <div className={classes.fieldSmallWrapper}>
                     <label htmlFor="ccv">CCV:</label>

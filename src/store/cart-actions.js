@@ -31,18 +31,18 @@ export const removeFromCartHandler = (id) => {
         } catch (error) {
             console.log(`Failed to remove an item rom the cart!\n${error.message}\n${error.stack}`);
             toast.error("Failed to remove item to cart please try again.",
-                {
-                    toastId: "error-removing-cart-item",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+            {
+                toastId: "error-removing-cart-item",
+                autoClose: 5000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
-    }
+    };
 };
 
 
@@ -53,16 +53,16 @@ export const setColorHandler = (id, color) => {
         } catch (error) {
             console.log(`Failed to set item color!\n${error.message}\n${error.stack}`);
             toast.error("Failed to set item color please try again.",
-                {
-                    toastId: "error-setting-color-option",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+            {
+                toastId: "error-setting-color-option",
+                autoClose: 5000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
 };
@@ -74,16 +74,16 @@ export const setShippingOptionHandler = (option) => {
         } catch (error) {
             Error(`Failed to set shipping option!\n${error.message}\n${error.stack}`);
             toast.error("FFailed to set shipping option please try again.",
-                {
-                    toastId: "error-setting-shipping-option",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+            {
+                toastId: "error-setting-shipping-option",
+                autoClose: 5000,
+                position: "top-center",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
 };

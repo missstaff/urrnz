@@ -10,7 +10,7 @@ import FormButton from "../components/forms/FormButton";
 import Heading from "../components/layout/Heading";
 
 import { setCustomerHandler } from "../store/customer-actions";
-import { addressValidationSchema, postRequestHandler } from "../utility/utils";
+import { addressValidationSchema, handleSubmitContact, postRequestHandler } from "../utility/utils";
 import { POST_MESSAGE } from "../config/constants";
 
 import classes from "./Contact.module.css";
@@ -29,9 +29,9 @@ const Contact = () => {
 
 
     const initialValues = {
-        fullName: customer.customer?.fullName || "",
-        email: customer.customer?.email || "",
-        phone: customer.customer?.phone || "",
+        fullName: customer?.fullName || "",
+        email: customer?.email || "",
+        phone: customer?.phone || "",
         addressLine1: shippingAddress?.address || "",
         addressLine2: shippingAddress?.address2 || "",
         city: shippingAddress?.city || "",
@@ -40,62 +40,16 @@ const Contact = () => {
         message: "",
     };
 
-
     const handleSubmit = async (values) => {
-
-        dispatch(setCustomerHandler(values));
-
-        const newChatObject = {
-            ...chatTemplate,
-            addresses: [{
-                address: values.addressLine1,
-                address2: values.addressLine1,
-                addressee: values.fullName,
-                city: values.city,
-                postalCd: values.zipCode,
-                stateCd: values.state,
-                type: "shipping",
-            }],
-            chats: [values.message],
-            file: file.name,
-            email: values.email,
-            name: values.fullName,
-            phone: values.phone,
-            type: "contact",
-        };
-
-        const response = await postRequestHandler(POST_MESSAGE, newChatObject);
-        if (response.success) {
-            toast.success("Message sent!.",
-                {
-                    toastId: "message-sent",
-                    autoClose: 2500,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                }
-            );
-            navigate("/")
-        } else {
-            console.log("failedresponse", response);
-            toast.error("Failed to send message! Please try again.",
-                {
-                    toastId: "error-adding-cart-item",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                }
-            );
-        }
+        handleSubmitContact(
+            chatTemplate,
+            dispatch,
+            file,
+            navigate,
+            setCustomerHandler,
+            values
+        );
     };
-
 
     return (
         <section className={"wrapper"}>
@@ -107,7 +61,7 @@ const Contact = () => {
                     <h3>
                         Send us a message
                     </h3>
-                    <hr style={{ marginTop: `${4.4}rem`, marginBottom: `${9.8}rem` }} />
+                    <hr className={classes.hr} />
                     <Formik
                         initialValues={initialValues}
                         validationSchema={addressValidationSchema}
@@ -151,7 +105,7 @@ const Contact = () => {
                             </div>
                         </Form>
                     </Formik>
-                    <hr style={{ marginBottom: `${9.8}rem` }} />
+                    <hr className={classes.hr} style={{ marginTop: 0 }} />
                 </Container>
             </main>
         </section >

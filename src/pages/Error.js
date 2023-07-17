@@ -1,16 +1,16 @@
-import { useRouteError, NavLink } from 'react-router-dom';
-import PageContent from '../components/PageContent';
-import classes from './Error.module.css';
+import { useRouteError, NavLink } from "react-router-dom";
+import PageContent from "../components/PageContent";
+import classes from "./Error.module.css";
 
 
 const Error = () => {
 
     const error = useRouteError();
-    console.log("error", error)
+
     let title = "An error occured.";
     let message = "Sorry, something went wrong.";
 
-    
+
     if (error.status === 404) {
         title = "Page not found!";
         message = "Sorry, the page you were looking for does not exist.";
@@ -23,10 +23,18 @@ const Error = () => {
 
 
     return (
-        <main style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: `${100}vh`, width: "100%" }}>
-            <PageContent titleClassName={classes.title} title={title}>
-                <p className={classes.message}>{message}</p>
-                <NavLink className={classes.link} to="/">{<span>&larr;</span>}Back</NavLink>
+        <main className={classes.container}>
+            <PageContent
+                title={title}
+                titleClassName={classes.title}>
+                <p className={classes.message}>
+                    {message}
+                </p>
+                <NavLink 
+                    className={classes.link} 
+                    to="/">
+                        {<span>&larr;</span>}Back
+                    </NavLink>
             </PageContent>
         </main>
     );

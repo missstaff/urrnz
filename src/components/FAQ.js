@@ -1,12 +1,11 @@
 import Container from "./Container";
 import classes from "./FAQ.module.css";
-import "../general.css";
 
 
 const FAQ = () => {
     return (
         <Container>
-            <div className="container">
+            <div className={classes.container}>
                 <div className={classes.topPadding}>
 
                     <h2

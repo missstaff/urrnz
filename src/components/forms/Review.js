@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import CheckoutButtons from "./CheckoutButtons";
 import { clearCartHandler } from "../../store/cart-actions";
 import { clearCustomerHandler } from "../../store/customer-actions";
-import { postRequestHandler } from "../../utility/utils";
+import { handleSubmitOrder, postRequestHandler } from "../../utility/utils";
 import { colorCodeToName, POST_ORDER } from "../../config/constants";
 
 
@@ -21,10 +21,10 @@ const Review = ({ activeStep, handleBack }) => {
     const customer = useSelector(state => state.customer);
     const orderTemplate = useSelector(state => state.store.orderTemplate);
 
-    const email = customer.email;
-    const phone = customer.phone;
-    const chatObject = customer.chatObject;
-    let transactionObject = customer.transactionObject;
+    // const email = customer.email;
+    // const phone = customer.phone;
+    // const chatObject = customer.chatObject;
+    // let transactionObject = customer.transactionObject;
 
     const shippingAddress = customer.shippingAddress;
     const shippingAddressee = customer.shippingAddress.addressee;
@@ -59,84 +59,22 @@ const Review = ({ activeStep, handleBack }) => {
     let tax = taxRate * subTotal;
     tax = Math.round(tax * 100) / 100;
     const total = subTotal + tax + shipping.price;
-    const orderItems = [];
+    // const orderItems = [];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        toast.info("Submitting order...",
-            {
-                toastId: "loading-submitting-order",
-                autoClose: 1000,
-                position: "top-center",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-
-        items.forEach((item) => {
-            let temp = {};
-            let count = item.quantity;
-            for (let i = 0; i < count; i++) {
-                temp.dateOrdered = new Date();
-                temp.color = item.color;
-                temp.name = item.name;
-                temp.price = item.price;
-                temp.sku8 = item.sku8;
-                temp.isTaxable = item.isTaxable;
-                orderItems.push(temp);
-            }
-        });
-
-        orderItems.push(shipping);
-
-        const order = {
-            ...orderTemplate,
-            addresses: [billingAddress, shippingAddress],
-            chats: [chatObject],
-            email: email,
-            items: orderItems,
-            dateOrdered: new Date(),
-            phone: phone,
-            transactions: [transactionObject = {
-                ...transactionObject,
-                amount: total,
-            }],
-        };
-
-
-        const res = await postRequestHandler(POST_ORDER, order);
-
-        if (!res.response.transactions[0].success) {
-            const error = res.messages.primary;
-            console.warn(`Error submitting order\n Location: Review.js handleSubmit\n ${error}`);
-            setTimeout(() => {
-                toast.error("Error submitting order.",
-                    {
-                        toastId: "error-submitting-order",
-                        autoClose: 5000,
-                        position: "top-center",
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-            }, 1000);
-            return;
-        } else {
-            console.log("Order submitted successfully");
-            navigate("/thank-you");
-            dispatch(clearCartHandler());
-            dispatch(clearCustomerHandler());
-
-
-        }
+        handleSubmitOrder(
+            cart,
+            customer,
+            dispatch,
+            navigate,
+            orderTemplate,
+            total
+        );
     };
 
-    useEffect(() => {
 
+    useEffect(() => {
         if (cardDetails.cc_number) {
             const firstDigit = cardDetails.cc_number.charAt(0);
             if (firstDigit === "4") {
@@ -154,11 +92,10 @@ const Review = ({ activeStep, handleBack }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="grid"
-                style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", grid: "repeat(2 1fr)", marginTop: `${9.6}rem`, marginBottom: `${9.6}rem` }}>
-                <div style={{ width: "50%" }}>
+            <div className={`grid ${classes.container}`}>
+                <div className="halfWidth">
                     <h4 className={classes.reviewHeading}>Shipping Address:</h4>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div className={classes.column}>
                         <p className={classes.reviewText}>{shippingAddressee}</p>
                         <p className={classes.reviewText}>{shippingAddress1}</p>
                         <p className={classes.reviewText}>{shippingAddress2}</p>
@@ -166,7 +103,7 @@ const Review = ({ activeStep, handleBack }) => {
                     </div>
 
                     <h4 className={classes.reviewHeading}>Billing Address:</h4>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div className={classes.column}>
                         <p className={classes.reviewText}>{billingAddressee}</p>
                         <p className={classes.reviewText}>{billingAddress1}</p>
                         <p className={classes.reviewText}>{billingAddress2}</p>
@@ -175,16 +112,19 @@ const Review = ({ activeStep, handleBack }) => {
                 </div>
 
 
-                <div style={{ width: "50%" }}>
+                <div className="halfWidth">
 
                     <h4 className={classes.reviewHeading}>Order:</h4>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div className={classes.column}>
                         {items.map(item => {
                             return (
-                                <div key={item.cid} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                                    <p className={classes.reviewText}>{item.name.length > 17
-                                        ? `${item.name.slice(0, 17)}...`
-                                        : item.name}</p>
+                                <div 
+                                    key={item.cid} 
+                                    className={classes.row}>
+                                    <p className={classes.reviewText}>
+                                        {item.name.length > 17
+                                            ? `${item.name.slice(0, 17)}...`
+                                            : item.name}</p>
                                     <p className={classes.reviewText}>{colorCodeToName[item.color]}</p>
                                     <p className={classes.reviewText}>{item.quantity}x</p>
                                     <p className={classes.reviewText}>${item.totalPrice}</p>
@@ -194,29 +134,29 @@ const Review = ({ activeStep, handleBack }) => {
                     </div>
 
                     <h4 className={classes.reviewHeading}>Order Totals:</h4>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                    <div className={classes.column}>
+                        <div className={classes.row}>
                             <p className={classes.reviewText}>Subtotal:</p>
                             <p className={classes.reviewText}>${subTotal}</p>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <div className={classes.row}>
                             <p className={classes.reviewText}>Shipping:</p>
                             <p className={classes.reviewText}>${shipping.price * totalItems}</p>
                         </div>
 
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <div className={classes.row}>
                             <p className={classes.reviewText}>Tax:</p>
                             <p className={classes.reviewText}>${tax}</p>
                         </div>
 
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <div className={classes.row}>
                             <p className={classes.reviewText}>Total:</p>
                             <p className={classes.reviewText}>${total}</p>
                         </div>
                     </div>
 
                     <h4 className={classes.reviewHeading}>Payment Method:</h4>
-                    <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div className={classes.column}>
                         <p className={classes.reviewText}>{cardType}</p>
                         <p className={classes.reviewText}>**** **** **** {cardLastFourDigits}</p>
                         <p className={classes.reviewText}>Exp: {cardMonth}/{cardYear}</p>
@@ -227,7 +167,7 @@ const Review = ({ activeStep, handleBack }) => {
 
             </div>
 
-            <div style={{ marginTop: `${1.8}rem` }}>
+            <div classname={classes.checkoutBtnContainer}>
                 <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Submit" />
             </div>
             <hr />
