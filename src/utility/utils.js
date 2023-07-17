@@ -1,5 +1,6 @@
 import * as Yup from "yup";
-import { sizes } from "../config/constants";
+import { toast } from "react-toastify";
+import { POST_MESSAGE, sizes } from "../config/constants";
 
 
 export const isMatch = (media) => {
@@ -35,6 +36,71 @@ export const postRequestHandler = async (url, data) => {
   }
 };
 
+export const handleSubmitContact = async (
+  chatTemplate,
+  dispatch,
+  file,
+  navigate,
+  setCustomerHandler,
+  values
+) => {
+
+  dispatch(setCustomerHandler(values));
+
+  const newChatObject = {
+    ...chatTemplate,
+    addresses: [{
+      address: values.addressLine1,
+      address2: values.addressLine1,
+      addressee: values.fullName,
+      city: values.city,
+      postalCd: values.zipCode,
+      stateCd: values.state,
+      type: "shipping",
+    }],
+    chats: [values.message],
+    file: file.name,
+    email: values.email,
+    name: values.fullName,
+    phone: values.phone,
+    type: "contact",
+  };
+
+  const response = await postRequestHandler(POST_MESSAGE, newChatObject);
+
+  if (response.success) {
+    toast.success("Message sent!.",
+      {
+        toastId: "message-sent",
+        autoClose: 2500,
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+    navigate("/")
+  } else {
+    console.log("failedresponse", response);
+    toast.error("Failed to send message! Please try again.",
+      {
+        toastId: "error-adding-cart-item",
+        autoClose: 5000,
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+  }
+};
+
+
+//VALIDATION SCHEMAS
 export const addressValidationSchema = Yup.object().shape({
   email: Yup
     .string()

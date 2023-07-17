@@ -1,0 +1,17 @@
+.container { 
+    align-items: center; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.message {
+    font-size: 5rem;
+}
+
+/*Media Queries*/
+@media (max-width: 768px) {
+    .message {
+        font-size: 3rem;
+    }
+}

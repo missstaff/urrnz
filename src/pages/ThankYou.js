@@ -8,15 +8,18 @@ const ThankYou = () => {
 
     const navigate = useNavigate();
 
+
     useEffect(() => {
-        const timerId = setTimeout(() => {
+
+        const id = setTimeout(() => {
             navigate("/");
         }, 1500);
 
         return () => {
-            clearTimeout(timerId);
+            clearTimeout(id);
         }
-    },[navigate]);
+
+    },[]);
 
 
     return (

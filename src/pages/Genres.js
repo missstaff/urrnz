@@ -5,7 +5,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
+import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
+
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Genres.module.css";
@@ -17,10 +19,10 @@ const Genres = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const store = useSelector(state => state.store);
-    const categories = store.categories;
     const isLoading = useSelector(state => state.loading);
-    const [touchedIndex, setTouchedIndex] = useState(-1);
 
+    const [touchedIndex, setTouchedIndex] = useState(-1);
+    const categories = store.categories;
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
@@ -33,7 +35,7 @@ const Genres = () => {
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
-        const timerId = setTimeout(() => {
+        const id = setTimeout(() => {
             dispatch(loadingActions.setLoading(false));
             if (!isLoading && !categories.length) {
                 dispatch(loadingActions.setLoading(false));
@@ -42,9 +44,10 @@ const Genres = () => {
         }, 250);
 
         return () => {
-            clearTimeout(timerId);
+            clearTimeout(id);
         }
     }, []);
+
 
     return (
         <main style={{ height: isLoading ? `${100}vh` : "" }}>
@@ -59,9 +62,7 @@ const Genres = () => {
                     condition={isLoading}
                     render={() => {
                         return (
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                <p style={{ fontSize: 50, }}>Loading...</p>
-                            </div>
+                            <LoadingMessage />
                         );
                     }}
                 />

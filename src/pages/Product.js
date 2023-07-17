@@ -28,7 +28,7 @@ const Product = () => {
 
 
     return (
-        <div className={`${classes.wrapper} wrapper`}>
+        <div className={`${classes.wrapper}`}>
             <div className="headingContainer">
                 <Heading
                     title="PRODUCT DETAILS" />
@@ -39,7 +39,7 @@ const Product = () => {
                 {<span>&larr;</span>}
                 Back
             </NavLink>
-            <div className={`container ${classes.container}`} >
+            <div className={`${classes.container}`} >
                 <div className={`${classes.productContainer} ${classes.gridColumns}`}>
                     <img
                         alt={product.name}
