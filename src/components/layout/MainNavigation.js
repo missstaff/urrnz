@@ -5,10 +5,11 @@ import { NavLink, useLocation } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 import LogoHeader from "./Logo";
-
 import classes from "./MainNavigation.module.css";
 
+
 function MainNavigation() {
+
     const location = useLocation();
     const store = useSelector(state => state.store);
 
@@ -18,6 +19,7 @@ function MainNavigation() {
     const pathHash = location.hash;
     const category = store.category;
 
+
     const handleMobileNavClick = () => {
         setIsMenuVisible(!isMenuVisible);
     };
@@ -25,6 +27,7 @@ function MainNavigation() {
     const handleNavLinkClick = () => {
         setIsMenuVisible(false);
     };
+    
 
     if (
         (curLocation === "/" ||
@@ -35,6 +38,7 @@ function MainNavigation() {
         pathHash !== "#about" &&
         pathHash !== "#faqs"
     ) { window.scrollTo(0, 0) }
+
 
     return (
         <header className={`${classes.header} ${classes.sticky} ${isMenuVisible ? classes.navOpen : ""}`}>
@@ -54,7 +58,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <Link
-                        aria-label="Navigation link to the about page."
+                            aria-label="Navigation link to the about page."
                             to="/#about"
                             onClick={handleNavLinkClick}
                             className={curLocation === "/" && pathHash === "#about" ? classes.active : undefined}>
@@ -63,7 +67,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <Link
-                        aria-label="Navigation link to the faqs page."
+                            aria-label="Navigation link to the faqs page."
                             to="/#faqs"
                             onClick={handleNavLinkClick}
                             className={curLocation === "/" && pathHash === "#faqs" ? classes.active : undefined}>
@@ -72,7 +76,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                        aria-label="Navigation link to the genres page."
+                            aria-label="Navigation link to the genres page."
                             to="/genres"
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
@@ -81,7 +85,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                        aria-label="Navigation link to the gallery page."
+                            aria-label="Navigation link to the gallery page."
                             to={`/products/${store.category}`}
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
@@ -90,7 +94,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                        aria-label="Navigation link to the cart page."
+                            aria-label="Navigation link to the cart page."
                             to="/cart"
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>
@@ -99,7 +103,7 @@ function MainNavigation() {
                     </li>
                     <li>
                         <NavLink
-                        aria-label="Navigation link to the contact page."
+                            aria-label="Navigation link to the contact page."
                             to="/contact"
                             onClick={handleNavLinkClick}
                             className={({ isActive }) => isActive ? classes.active : undefined}>

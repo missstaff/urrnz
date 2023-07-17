@@ -17,6 +17,7 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
   const dispatch = useDispatch();
   const customer = useSelector((state) => state.customer);
   const shippingIsBilling = customer.isShippingSameAsBilling;
+  
 
   const initialValuesWithBillingAddress = {
     cc_number: customer.cardDetails?.cc_number || "",
