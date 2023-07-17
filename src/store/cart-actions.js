@@ -107,3 +107,13 @@ export const clearCartHandler = () => {
         }
     };
 };
+
+export const replaceCartHandler = (cart) => {
+    return async (dispatch) => {
+        try {
+            dispatch(cartActions.replaceCart(cart));
+        } catch (error) {
+            console.log(`Failed to replace cart!\n${error.message}\n${error.stack}`);
+        }
+    };
+};

@@ -38,6 +38,7 @@ const cartSlice = createSlice({
             }
             state.totalQuantity++;
             state.subTotal += newItem.price;
+            localStorage.setItem("cart", JSON.stringify(state));
         },
 
         removeItemFromCart(state, action) {
@@ -55,23 +56,37 @@ const cartSlice = createSlice({
 
             state.totalQuantity--;
             state.subTotal -= existingItem.price;
+            localStorage.setItem("cart", JSON.stringify(state));
         },
 
         setItemColor(state, action) {
             const { id, color } = action.payload;
             const existingItem = state.items.find(item => item.cid === id);
             existingItem.color = color;
+            localStorage.setItem("cart", JSON.stringify(state));
         },
 
         setShipping(state, action) {
             state.shipping = action.payload;
+            localStorage.setItem("cart", JSON.stringify(state));
         },
 
         setTaxRate(state, action) {
             state.taxRate = action.payload;
+            localStorage.setItem("cart", JSON.stringify(state));
+        },
+
+        replaceCart(state, action) {
+            const cart = action.payload;
+            state.items = cart.items;
+            state.shipping = cart.shipping;
+            state.subTotal = cart.subTotal;
+            state.taxRate = cart.taxRate;
+            state.totalQuantity = cart.totalQuantity;
         },
 
         clearCart(state) {
+            localStorage.removeItem("cart");
             state.items = [];
             state.shipping = {};
             state.subTotal = 0;

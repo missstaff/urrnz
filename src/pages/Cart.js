@@ -20,7 +20,7 @@ const Cart = () => {
     const isLoading = useSelector(state => state.loading);
     const dispatch = useDispatch();
 
-    const items = cart.items;
+    let items = cart.items;
     const subTotal = cart.subTotal;
 
 
@@ -34,9 +34,12 @@ const Cart = () => {
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
-        setTimeout(() => {
-            dispatch(loadingActions.setLoading(false)); 
-        }, 250);
+        const localStorageCart = JSON.parse(localStorage.getItem("cart"));
+        if(localStorage){
+            dispatch(cartActions.replaceCart(localStorageCart));
+        }
+        console.log(localStorageCart);
+        dispatch(loadingActions.setLoading(false)); 
     }, [dispatch]);
 
 
