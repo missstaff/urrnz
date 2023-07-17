@@ -26,7 +26,7 @@ const Error = () => {
         <main style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: `${100}vh`, width: "100%" }}>
             <PageContent titleClassName={classes.title} title={title}>
                 <p className={classes.message}>{message}</p>
-                <NavLink className={classes.link} to="/">{<span>&larr;</span>}Return to Urrnz</NavLink>
+                <NavLink className={classes.link} to="/">{<span>&larr;</span>}Back</NavLink>
             </PageContent>
         </main>
     );

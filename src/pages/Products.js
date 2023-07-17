@@ -201,9 +201,9 @@ const Products = () => {
                     condition={!isLoading && !categoryProducts.length}
                     render={() => {
                         return (
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                <p style={{ fontSize: 50, }}>No items found</p>
-                                <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back</NavLink>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: `${100}vh` }}>
+                                <p style={{ fontSize: 50, }}>No items found!</p>
+                                <NavLink to="/genres" className={classes.link}><span>&larr;</span>Back to Genres</NavLink>
                             </div>
                         );
                     }}
