@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setColorHandler } from "../../store/cart-actions";
@@ -18,6 +18,16 @@ const ColorPicker = (props) => {
     setSelectedColor(color);
     dispatch(setColorHandler(cid, color));
   };
+
+  useEffect(() => {
+    const localStorageCart = JSON.parse(localStorage.getItem("cart"));
+    if (localStorageCart) {
+      const item = localStorageCart.items.find((item) => item.cid === cid);
+      if (item) {
+        setSelectedColor(item.color);
+      }
+    }
+  }, [cid]);
 
 
   return (
