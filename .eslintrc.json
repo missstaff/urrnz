@@ -1,0 +1,14 @@
+{
+    "rules": {
+      "no-unused-expressions": "off"
+    },
+    "overrides": [
+      {
+        "files": ["src/utility/utils.js"],
+        "rules": {
+          "no-unused-expressions": "off"
+        }
+      }
+    ]
+  }
+  

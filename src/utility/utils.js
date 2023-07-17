@@ -5,17 +5,6 @@ import { clearCartHandler } from "../store/cart-actions";
 import { clearCustomerHandler } from "../store/customer-actions";
 
 
-// Disable ESLint rule "no-useless-escape" for the following lines
-/\./;    // eslint-disable-line no-useless-escape
-/\#/;    // eslint-disable-line no-useless-escape
-/\-/;    // eslint-disable-line no-useless-escape
-
-// Disable ESLint rule "no-useless-escape" for the following line
-/\./;    // eslint-disable-line no-useless-escape
-/\#/;    // eslint-disable-line no-useless-escape
-/\-/;    // eslint-disable-line no-useless-escape
-
-
 export const isMatch = (media) => {
   const query = `(min-width: ${sizes[media]})`;
   return window.matchMedia(query).matches;
