@@ -78,11 +78,11 @@ const cartSlice = createSlice({
 
         replaceCart(state, action) {
             const cart = action.payload;
-            state.items = cart.items;
-            state.shipping = cart.shipping;
-            state.subTotal = cart.subTotal;
-            state.taxRate = cart.taxRate;
-            state.totalQuantity = cart.totalQuantity;
+            state.items = cart?.items ?? [];
+            state.shipping = cart?.shipping ?? {};
+            state.subTotal = cart?.subTotal ?? 0;
+            state.taxRate = cart?.taxRate ?? 0;
+            state.totalQuantity = cart?.totalQuantity ?? 0;
         },
 
         clearCart(state) {

@@ -165,7 +165,8 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
                             return (
                                 <div
                                     key={index}
-                                    className={classes.optionsContainer}>
+                                    className={classes.optionsContainer}
+                                    style={{marginBottom: `${2.2}rem`}}>
                                     <label
                                         htmlFor={option.name}>
                                         <p className={classes.option}>
@@ -186,7 +187,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
                                 </div>
                             );
                         })}
-
+                        <p style={{fontSize: 15, fontStyle: "italic", fontWeight: 700, marginBottom: `${4.4}rem`}}>*Shipping price per item</p>
                         <div>
                             <div className={classes.textAreaContainer}>
                                 <label

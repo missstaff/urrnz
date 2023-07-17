@@ -89,7 +89,6 @@ const Review = ({ activeStep, handleBack }) => {
             }
         });
 
-
         orderItems.push(shipping);
 
         const order = {
@@ -114,25 +113,25 @@ const Review = ({ activeStep, handleBack }) => {
             console.warn(`Error submitting order\n Location: Review.js handleSubmit\n ${error}`);
             setTimeout(() => {
                 toast.error("Error submitting order.",
-                {
-                    toastId: "error-submitting-order",
-                    autoClose: 5000,
-                    position: "top-center",
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                    {
+                        toastId: "error-submitting-order",
+                        autoClose: 5000,
+                        position: "top-center",
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
             }, 1000);
-                return;
+            return;
         } else {
             console.log("Order submitted successfully");
-           navigate("/thank-you");
-           dispatch(clearCartHandler());
-           dispatch(clearCustomerHandler());
+            navigate("/thank-you");
+            dispatch(clearCartHandler());
+            dispatch(clearCustomerHandler());
 
-            
+
         }
     };
 
@@ -183,7 +182,9 @@ const Review = ({ activeStep, handleBack }) => {
                         {items.map(item => {
                             return (
                                 <div key={item.cid} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                                    <p className={classes.reviewText}>{item.name}</p>
+                                    <p className={classes.reviewText}>{item.name.length > 17
+                                        ? `${item.name.slice(0, 17)}...`
+                                        : item.name}</p>
                                     <p className={classes.reviewText}>{colorCodeToName[item.color]}</p>
                                     <p className={classes.reviewText}>{item.quantity}x</p>
                                     <p className={classes.reviewText}>${item.totalPrice}</p>
@@ -200,7 +201,7 @@ const Review = ({ activeStep, handleBack }) => {
                         </div>
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                             <p className={classes.reviewText}>Shipping:</p>
-                            <p className={classes.reviewText}>${shipping.price}</p>
+                            <p className={classes.reviewText}>${shipping.price * totalItems}</p>
                         </div>
 
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
