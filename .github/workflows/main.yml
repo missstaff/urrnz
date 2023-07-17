@@ -26,7 +26,6 @@ jobs:
 
       - name: Deploy to Netlify
         run: |
-          # Replace `YOUR_NETLIFY_SITE_NAME` with your actual Netlify site name
           npx netlify deploy --prod --site www.urrnz.co
 
       - name: Skip CI/CD checks for useEffect with empty dependency array
