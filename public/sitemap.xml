@@ -20,12 +20,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/products</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   <url>
     <loc>https://www.urrnz.com/checkout</loc>
     <lastmod>2023-07-17T00:00:00+00:00</lastmod>
@@ -39,7 +33,43 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.urrnz.com/products/:category</loc>
+    <loc>https://www.urrnz.com/products/All</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Traditional</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Automobiles</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Logos</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Boxes</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Shapes</loc>
+    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.urrnz.com/products/Emojis</loc>
     <lastmod>2023-07-17T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

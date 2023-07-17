@@ -10,10 +10,18 @@ import {
 } from "./store/store-actions";
 
 
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-8ST98TVJ83"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
+
 
 function App() {
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchProducts());
