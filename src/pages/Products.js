@@ -13,7 +13,6 @@ import { loadingActions } from "../store/loading-slice";
 import { storeActions } from "../store/store-slice";
 
 import classes from "./Products.module.css";
-import "../general.css";
 
 
 const Products = () => {

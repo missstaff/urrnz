@@ -7,7 +7,6 @@ import Heading from "../components/layout/Heading";
 import { addToCartHandler } from "../store/cart-actions";
 
 import classes from "./Product.module.css";
-import "../general.css";
 
 
 const Product = () => {

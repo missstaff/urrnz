@@ -1,6 +1,5 @@
 import { useClosestMedia } from "./useClosestMedia";
 import { useMediaQuery } from "./useMediaQuery";
-import { sizesArr } from "../config/constants";
 
 
 export const useScreenSize = () => {

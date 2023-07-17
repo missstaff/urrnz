@@ -4,6 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 import CustomPicker from "../components/ui/ColorPicker";
 import Heading from "../components/layout/Heading";
+import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
 import StoreButton from "../components/ui/StoreButton";
 
@@ -11,8 +12,6 @@ import { cartActions } from "../store/cart-slice";
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Cart.module.css";
-import "../general.css";
-import LoadingMessage from "../components/LoadingMessage";
 
 
 const Cart = () => {

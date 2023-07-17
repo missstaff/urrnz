@@ -11,7 +11,6 @@ import ShowIf from "../components/ShowIf";
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Genres.module.css";
-import "../general.css";
 
 
 const Genres = () => {

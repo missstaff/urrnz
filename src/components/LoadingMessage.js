@@ -1,5 +1,6 @@
 import classes from "./LoadingMessage.module.css";
 
+
 const LoadingMessage = () => {
     return (
         <div className={classes.container}>
