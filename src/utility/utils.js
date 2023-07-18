@@ -86,7 +86,7 @@ export const handleSubmitContact = async (
     );
     navigate("/")
   } else {
-    console.log("failedresponse", response);
+
     toast.error("Failed to send message! Please try again.",
       {
         toastId: "error-adding-cart-item",
@@ -139,7 +139,7 @@ export const handleSubmitShipping = async (
   };
 
   const res = await postRequestHandler(FETCH_TAX, updatedOrderTemplate);
-  console.log("res", res);  
+
   if (res?.errors) {
     const error = res.errors.major[0];
     console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
@@ -168,7 +168,8 @@ export const handleSubmitOrder = async (
   dispatch,
   navigate,
   orderTemplate,
-  total) => {
+  total,
+  ) => {
 
   const orderItems = [];
   const items = cart.items;
@@ -243,7 +244,6 @@ export const handleSubmitOrder = async (
     }, 1000);
     return;
   } else {
-    console.log("Order submitted successfully");
     navigate("/thank-you");
     dispatch(clearCartHandler());
     dispatch(clearCustomerHandler());

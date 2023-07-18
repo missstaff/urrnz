@@ -158,7 +158,7 @@ const Review = ({ activeStep, handleBack }) => {
 
             </div>
 
-            <div classname={classes.checkoutBtnContainer}>
+            <div className={classes.checkoutBtnContainer}>
                 <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Submit" />
             </div>
             <hr />
