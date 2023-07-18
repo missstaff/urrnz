@@ -13,17 +13,18 @@ const Home = () => {
                 <Hero />
             </section>
             <section
-                className={"wrapper"}
                 id="about">
                 <Heading
-                    title="ABOUT" />
+                    title="ABOUT"
+                    style={{marginTop: 0}} />
                 <About />
             </section>
             <section
-                className={`${classes.faqsMarginBottom} wrapper`}
+                className={`${classes.faqsMarginBottom}`}
                 id="faqs">
                 <Heading
-                    title="FAQs" />
+                    title="FAQs" 
+                    style={{marginTop: 0}}/>
                 <FAQ />
             </section>
         </main>

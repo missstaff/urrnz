@@ -27,7 +27,7 @@ function MainNavigation() {
     const handleNavLinkClick = () => {
         setIsMenuVisible(false);
     };
-    
+
 
     if (
         (curLocation === "/" ||
@@ -50,7 +50,16 @@ function MainNavigation() {
                             aria-label="Navigation link to the home page."
                             to="/"
                             onClick={handleNavLinkClick}
-                            className={({ isActive }) => isActive && curLocation === "/" ? classes.active : undefined}
+                            className={({ isActive }) =>
+                                isActive &&
+                                    curLocation === "/" &&
+                                    pathHash !== "#about" &&
+                                    pathHash !== "#faqs"
+                                    ?
+                                    classes.active
+                                    :
+                                    undefined
+                                }   
                             end
                         >
                             <p>Home</p>

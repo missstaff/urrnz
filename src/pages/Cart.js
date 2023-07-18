@@ -52,9 +52,7 @@ const Cart = () => {
             style={{
                 height: !items.length ? `${100}vh` : `${100}%`
             }}>
-            <div className="headingContainer">
-                <Heading title="CART" />
-            </div>
+            <Heading title="CART" />
             <main>
                 <ShowIf
                     condition={isLoading}
