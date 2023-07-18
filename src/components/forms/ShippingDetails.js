@@ -194,7 +194,6 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
                         <p style={{fontSize: 15, fontStyle: "italic", fontWeight: 700, marginBottom: `${4.4}rem`}}>*Shipping price per item</p>
                         <div>
                             <div className={classes.textAreaContainer}>
-                            <label htmlFor="addressLine1">Address Line 1:</label>
                                 <label htmlFor="message">Message:</label>
                                 <Field
                                     as="textarea"
