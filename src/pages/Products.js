@@ -17,6 +17,7 @@ import classes from "./Products.module.css";
 
 const Products = () => {
 
+
     const { category } = useParams();
     const dispatch = useDispatch();
     const store = useSelector(state => state.store);
@@ -41,6 +42,7 @@ const Products = () => {
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
+    
 
     useEffect(() => {
 

@@ -8,7 +8,9 @@ const Footer = () => {
     <footer className={classes.footer}>
       <div className={classes.contentWrapper}>
         <Logo />
-        <p className={classes.text}>All Rights Reserved © {new Date().getFullYear()}</p>
+        <p className={classes.text}>
+          All Rights Reserved © {new Date().getFullYear()}
+        </p>
       </div>
     </footer>
   );

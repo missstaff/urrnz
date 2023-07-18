@@ -10,7 +10,6 @@ const ThankYou = () => {
 
 
     useEffect(() => {
-
         const id = setTimeout(() => {
             navigate("/");
         }, 1500);
@@ -18,7 +17,6 @@ const ThankYou = () => {
         return () => {
             clearTimeout(id);
         }
-
     },[]);
 
 

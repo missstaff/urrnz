@@ -8,7 +8,6 @@ const FAQ = () => {
         <Container>
             <div className={classes.container}>
                 <div className={classes.topPadding}>
-
                     {FAQ_QUESTIONS.map((question, index) => {
                         return (
                             <div key={index}>

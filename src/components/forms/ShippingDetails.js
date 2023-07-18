@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form } from "formik";
-import { toast } from "react-toastify";
 
 import AddressForm from "./AddressForm";
 import CheckoutButtons from "./CheckoutButtons";
 
-import { setCustomerHandler, updateShippingSameAsBillingHandler } from "../../store/customer-actions";
-import { setShippingOptionHandler, setTaxRateHandler } from "../../store/cart-actions";
+import { updateShippingSameAsBillingHandler } from "../../store/customer-actions";
 import { useScreenSize } from "../../hooks/useScreenSize";
-import { addressValidationSchema, postRequestHandler } from "../../utility/utils";
-import { FETCH_TAX } from "../../config/constants";
+import { addressValidationSchema, handleSubmitShipping } from "../../utility/utils";
 
 import classes from "./ShippingDetails.module.css";
 
@@ -25,7 +22,6 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
 
     const store = useSelector(state => state.store);
     const shippingOptions = store.shippingOptions;
-    const orderTemplate = store.orderTemplate;
 
     const [isShippingSameAsBilling, setIsShippingSameAsBilling] = useState(false);
     const [shippingOption, setShippingOption] = useState(1);
@@ -44,7 +40,7 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
         message: customer?.message || "",
     };
 
-
+ 
     const handleShippingSameAsBillingChange = () => {
         setIsShippingSameAsBilling(!isShippingSameAsBilling);
         dispatch(updateShippingSameAsBillingHandler(!isShippingSameAsBilling));
@@ -52,53 +48,61 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
 
 
     const handleSubmit = async (values) => {
+        await handleSubmitShipping(
+            dispatch,
+            handleNext,
+            isShippingSameAsBilling,
+            shippingOption,
+            store,
+            values,
+          );
 
-        const newValues = {
-            ...values,
-            isShippingSameAsBilling: isShippingSameAsBilling,
-        }
+        // const newValues = {
+        //     ...values,
+        //     isShippingSameAsBilling: isShippingSameAsBilling,
+        // }
 
-        dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
-        dispatch(setCustomerHandler(newValues));
+        // dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
+        // dispatch(setCustomerHandler(newValues));
 
-        const updatedOrderTemplate = {
-            ...orderTemplate,
-            addresses: [{
-                address: newValues.addressLine1,
-                address2: newValues.addressLine1,
-                addressee: newValues.fullName,
-                city: newValues.city,
-                postalCd: newValues.zipCode,
-                stateCd: newValues.state,
-                type: "shipping"
-            }],
-            email: newValues.email,
-            name: newValues.fullName,
-            phone: newValues.phone,
-        };
+        // const updatedOrderTemplate = {
+        //     ...orderTemplate,
+        //     addresses: [{
+        //         address: newValues.addressLine1,
+        //         address2: newValues.addressLine1,
+        //         addressee: newValues.fullName,
+        //         city: newValues.city,
+        //         postalCd: newValues.zipCode,
+        //         stateCd: newValues.state,
+        //         type: "shipping"
+        //     }],
+        //     email: newValues.email,
+        //     name: newValues.fullName,
+        //     phone: newValues.phone,
+        // };
 
-        const res = await postRequestHandler(FETCH_TAX, updatedOrderTemplate);
+        // const res = await postRequestHandler(FETCH_TAX, updatedOrderTemplate);
         
-        if(res?.errors) {
-            const error = res.errors.major[0];
-            console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
+        // if(res?.errors) {
+        //     const error = res.errors.major[0];
+        //     console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
 
-            toast.error("Invalid zipcode please try again.",
-            {
-                toastId: "invalid-zipcode",
-                autoClose: 5000,
-                position: "top-center",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-        });
-            return;
-        }
-        const taxRate = await res.response.taxRate;
-        dispatch(setTaxRateHandler(taxRate));
-        handleNext();
+        //     toast.error("Invalid zipcode please try again.",
+        //     {
+        //         toastId: "invalid-zipcode",
+        //         autoClose: 5000,
+        //         position: "top-center",
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        // });
+        //     return;
+        // }
+        // const taxRate = await res.response.taxRate;
+        // dispatch(setTaxRateHandler(taxRate));
+        // handleNext();
     };
 
     useEffect(() => {
