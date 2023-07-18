@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import CheckoutButtons from "./CheckoutButtons";
 import { handleSubmitOrder } from "../../utility/utils";
-import { colorCodeToName } from "../../config/constants";
+import { COLOR_CODE_TO_NAME } from "../../config/constants";
 
 
 import classes from "./Review.module.css";
@@ -116,7 +116,7 @@ const Review = ({ activeStep, handleBack }) => {
                                         {item.name.length > 17
                                             ? `${item.name.slice(0, 17)}...`
                                             : item.name}</p>
-                                    <p className={classes.reviewText}>{colorCodeToName[item.color]}</p>
+                                    <p className={classes.reviewText}>{COLOR_CODE_TO_NAME[item.color]}</p>
                                     <p className={classes.reviewText}>{item.quantity}x</p>
                                     <p className={classes.reviewText}>${item.totalPrice}</p>
                                 </div>
@@ -158,7 +158,7 @@ const Review = ({ activeStep, handleBack }) => {
 
             </div>
 
-            <div classname={classes.checkoutBtnContainer}>
+            <div className={classes.checkoutBtnContainer}>
                 <CheckoutButtons activeStep={activeStep} handleBack={handleBack} title="Submit" />
             </div>
             <hr />

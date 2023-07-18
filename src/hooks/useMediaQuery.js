@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { sizes } from "../config/constants";
+import { SIZES } from "../config/constants";
 
 
 export const useMediaQuery = (screen) => {
@@ -7,7 +7,7 @@ export const useMediaQuery = (screen) => {
     const [matches, setMatches] = useState(false);
 
     useEffect(() => {
-        const query = `(min-width: ${sizes[screen]})`;
+        const query = `(min-width: ${SIZES[screen]})`;
         const media = window.matchMedia(query);
         if (media.matches !== matches) {
             setMatches(media.matches);

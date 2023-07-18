@@ -1,12 +1,13 @@
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { POST_MESSAGE, POST_ORDER, sizes } from "../config/constants";
-import { clearCartHandler } from "../store/cart-actions";
-import { clearCustomerHandler } from "../store/customer-actions";
+
+import { clearCartHandler, setTaxRateHandler, setShippingOptionHandler } from "../store/cart-actions";
+import { clearCustomerHandler, setCustomerHandler } from "../store/customer-actions";
+import { FETCH_TAX, POST_MESSAGE, POST_ORDER, SIZES } from "../config/constants";
 
 
 export const isMatch = (media) => {
-  const query = `(min-width: ${sizes[media]})`;
+  const query = `(min-width: ${SIZES[media]})`;
   return window.matchMedia(query).matches;
 };
 
@@ -85,7 +86,7 @@ export const handleSubmitContact = async (
     );
     navigate("/")
   } else {
-    console.log("failedresponse", response);
+
     toast.error("Failed to send message! Please try again.",
       {
         toastId: "error-adding-cart-item",
@@ -101,13 +102,74 @@ export const handleSubmitContact = async (
   }
 };
 
+
+export const handleSubmitShipping = async (
+  dispatch,
+  handleNext,
+  isShippingSameAsBilling,
+  shippingOption,
+  store,
+  values,
+) => {
+
+  const { orderTemplate, shippingOptions } = store;
+
+  const newValues = {
+    ...values,
+    isShippingSameAsBilling: isShippingSameAsBilling,
+  }
+
+  dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
+  dispatch(setCustomerHandler(newValues));
+
+  const updatedOrderTemplate = {
+    ...orderTemplate,
+    addresses: [{
+      address: newValues.addressLine1,
+      address2: newValues.addressLine1,
+      addressee: newValues.fullName,
+      city: newValues.city,
+      postalCd: newValues.zipCode,
+      stateCd: newValues.state,
+      type: "shipping"
+    }],
+    email: newValues.email,
+    name: newValues.fullName,
+    phone: newValues.phone,
+  };
+
+  const res = await postRequestHandler(FETCH_TAX, updatedOrderTemplate);
+
+  if (res?.errors) {
+    const error = res.errors.major[0];
+    console.warn(`Could not fetch tax rate\nLocation: ShippingDetails.js, handleSubmit\n ${error}`);
+
+    toast.error("Invalid zipcode please try again.",
+      {
+        toastId: "invalid-zipcode",
+        autoClose: 5000,
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    return;
+  }
+  const taxRate = await res.response.taxRate;
+  dispatch(setTaxRateHandler(taxRate));
+  handleNext();
+};
+
 export const handleSubmitOrder = async (
   cart,
   customer,
   dispatch,
   navigate,
   orderTemplate,
-  total) => {
+  total,
+  ) => {
 
   const orderItems = [];
   const items = cart.items;
@@ -182,7 +244,6 @@ export const handleSubmitOrder = async (
     }, 1000);
     return;
   } else {
-    console.log("Order submitted successfully");
     navigate("/thank-you");
     dispatch(clearCartHandler());
     dispatch(clearCustomerHandler());

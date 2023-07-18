@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import ShowIf from "../ShowIf";
 import { setColorHandler } from "../../store/cart-actions";
-import { colors, colorCodeToName } from "../../config/constants";
+import { COLORS, COLOR_CODE_TO_NAME } from "../../config/constants";
 
 import classes from "./ColorPicker.module.css";
 
 
 const ColorPicker = (props) => {
 
+
   const { cid } = props;
   const dispatch = useDispatch();
-  const [selectedColor, setSelectedColor] = useState(colors[2]);
+
+  const [selectedColor, setSelectedColor] = useState(COLORS[2]);
 
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
     dispatch(setColorHandler(cid, color));
   };
+
 
   useEffect(() => {
     const localStorageCart = JSON.parse(localStorage.getItem("cart"));
@@ -34,7 +38,7 @@ const ColorPicker = (props) => {
     <div>
       <p className={classes.selectColor}>Select a color:</p>
       <div className={classes.grid}>
-        {colors.map((color) => (
+        {COLORS.map((color) => (
           <div
             className={classes.image}
             key={color}
@@ -43,16 +47,21 @@ const ColorPicker = (props) => {
           />
         ))}
       </div>
-      {selectedColor && (
-        <p className={classes.selectedColor}>
-          Selected color:
-          <span
-            className={classes.selectedColor}
-            style={{ color: selectedColor }}>
-            {colorCodeToName[selectedColor]}
-          </span>
-        </p>
-      )}
+      <ShowIf
+        condition={selectedColor}
+        render={() => {
+          return (
+            <p className={classes.selectedColor}>
+              Selected color:
+              <span
+                className={classes.selectedColor}
+                style={{ color: selectedColor }}>
+                {COLOR_CODE_TO_NAME[selectedColor]}
+              </span>
+            </p>
+          );
+        }}
+      />
     </div>
   );
 };

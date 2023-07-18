@@ -44,10 +44,6 @@ label {
   column-gap: 6.4rem;
 }
 
-.halfWidth {
-  width: 50%;
-}
-
 .headingContainer {
   margin-top: 20rem;
 }
@@ -59,11 +55,6 @@ label {
   width: 50rem;
 }
 
-.wrapper {
-  margin-left: 5rem;
-  margin-right: 5rem;
-  height: 100%;
-}
 
 /*<--Media Queries-->*/
 @media screen and (max-width: 1024px) {
@@ -81,18 +72,12 @@ label {
     row-gap: 4.8rem;
     column-gap: 3.2rem;
   }
-
-  .wrapper {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
 }
 
 @media screen and (max-width: 480px) {
   html {
     font-size: 43.75%;
   }
-
   .toast {
     width: 100%;
   }

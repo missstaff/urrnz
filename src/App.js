@@ -8,11 +8,9 @@ import {
   fetchOrderTemplate,
   fetchProducts,
 } from "./store/store-actions";
-
-
-import ReactGA from 'react-ga';
-const TRACKING_ID = "G-8ST98TVJ83"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
+import { GOOGLE_TRACKING_ID } from "./config/constants.js";
+import ReactGA from "react-ga";
+ReactGA.initialize(GOOGLE_TRACKING_ID);
 
 
 function App() {
@@ -20,15 +18,12 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
-
-  useEffect(() => {
     dispatch(fetchProducts());
     dispatch(fetchCategories());
     dispatch(fetchOrderTemplate());
     dispatch(fetchChatTemplate());
-  }, [dispatch]);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
 
   return (

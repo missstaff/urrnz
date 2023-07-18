@@ -5,12 +5,14 @@ import classes from "./StoreButton.module.css";
 const StoreButton = (props) => {
     return (
         <NavLink
-            to={props.to}
-            className={classes.link}
             aria-label="Store button"
-            style={props.style} >
+            className={classes.link}
+            style={props.style}
+            to={props.to}>
             <div className={classes.btn}>
-                <p className={classes.title}>{props.title}</p>
+                <p className={classes.title}>
+                    {props.title}
+                </p>
             </div>
         </NavLink>
     );

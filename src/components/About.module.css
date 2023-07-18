@@ -1,7 +1,7 @@
 .container {
     max-width: 150rem;
     margin: 0 auto;
-    padding: 0 3.2rem;
+    padding: 9.6rem 3.2rem;
 }
 
 .text {
@@ -16,6 +16,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .container {
+        padding: 4.8rem 3.2rem;
+    }
+    
     .text {
         margin-bottom: 1.6rem;
         margin-top: 1.6rem;

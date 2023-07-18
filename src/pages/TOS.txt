@@ -1,0 +1,41 @@
+TERMS OF SERVICE
+
+Last updated: [Date]
+
+Please read these Terms of Service ("Terms") carefully before using our website and services.
+
+Acceptance of Terms
+By accessing and using our website and services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use our website and services.
+
+Description of Services
+Our website provides a platform for the sale of 3D printed urns. We utilize the payment processing services of Stripe to handle transactions securely.
+
+Payment Processing
+All payments made on our website are processed through Stripe. By making a purchase, you agree to abide by Stripe's terms and conditions and privacy policy. We do not store any payment information on our servers.
+
+Product Information
+We strive to provide accurate and up-to-date product information on our website. However, we do not guarantee the accuracy, completeness, or reliability of any product descriptions, pricing, or availability. Any reliance on such information is at your own risk.
+
+Intellectual Property
+All content on our website, including text, images, logos, and designs, is protected by intellectual property rights and is the property of our company. You may not use, reproduce, or distribute any content from our website without our prior written consent.
+
+Privacy
+Your privacy is important to us. Please refer to our Privacy Policy for information on how we collect, use, and protect your personal data.
+
+Disclaimer of Warranties
+Our website and services are provided on an "as is" and "as available" basis. We do not make any warranties or representations, express or implied, regarding the operation or availability of our website or services. We disclaim all warranties of any kind, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+Limitation of Liability
+In no event shall we be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with your use of our website or services. This includes, but is not limited to, damages for loss of profits, data, or other intangible losses.
+
+Indemnification
+You agree to indemnify and hold us harmless from any claims, damages, liabilities, and expenses arising out of your use of our website or services, your violation of these Terms, or your violation of any rights of another party.
+
+Governing Law and Jurisdiction
+These Terms shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts in [Jurisdiction].
+
+Modifications to Terms
+We reserve the right to modify these Terms at any time without prior notice. Any changes will be effective immediately upon posting on our website. Your continued use of our website and services after the posting of revised Terms constitutes your acceptance of such changes.
+
+Contact Us
+If you have any questions or concerns about these Terms, please contact us at [Contact Information].

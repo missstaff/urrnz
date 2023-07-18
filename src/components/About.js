@@ -1,5 +1,5 @@
 import Container from "./Container";
-import { ABOUT_TEXT_P1, ABOUT_TEXT_P2, ABOUT_TEXT_P3 } from "../config/constants";
+import { ABOUT_TEXT } from "../config/constants";
 
 import classes from "./About.module.css";
 
@@ -8,15 +8,13 @@ const About = () => {
     return (
         <Container>
             <div className={classes.container} >
-                <p className={classes.text}>
-                    {ABOUT_TEXT_P1}
-                </p>
-                <p className={classes.text}>
-                    {ABOUT_TEXT_P2}
-                </p>
-                <p className={classes.text}>
-                    {ABOUT_TEXT_P3}
-                </p>
+                {ABOUT_TEXT.map((text, index) => {
+                    return (
+                        <p key={index} className={classes.text}>
+                            {text}
+                        </p>
+                    );
+                })}
             </div>
         </Container>
     );
