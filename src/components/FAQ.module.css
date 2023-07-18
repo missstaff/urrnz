@@ -13,7 +13,7 @@
 .container {
     max-width: 150rem;
     margin: 0 auto;
-    padding: 0 3.2rem;
+    padding: 9.6rem 3.2rem;
 }
 
 .question {
@@ -30,6 +30,10 @@
     .answer {
         margin-bottom: 4.8rem;
         margin-left: 2.5rem;
+    }
+
+    .container {
+        padding: 4.8rem 3.2rem;
     }
 
     .topPadding {

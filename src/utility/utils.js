@@ -1,12 +1,12 @@
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { POST_MESSAGE, POST_ORDER, sizes } from "../config/constants";
+import { POST_MESSAGE, POST_ORDER, SIZES } from "../config/constants";
 import { clearCartHandler } from "../store/cart-actions";
 import { clearCustomerHandler } from "../store/customer-actions";
 
 
 export const isMatch = (media) => {
-  const query = `(min-width: ${sizes[media]})`;
+  const query = `(min-width: ${SIZES[media]})`;
   return window.matchMedia(query).matches;
 };
 
