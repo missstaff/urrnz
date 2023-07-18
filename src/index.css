@@ -44,10 +44,6 @@ label {
   column-gap: 6.4rem;
 }
 
-.headingContainer {
-  margin-top: 100rem;
-}
-
 .toast {
   flex-wrap: wrap;
   font-size: 2.4rem;

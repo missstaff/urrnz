@@ -51,9 +51,7 @@ const Checkout = () => {
 
   return (
     <section className="wrapper">
-      <div className="headingContainer">
-        <Heading title="CHECKOUT" />
-      </div>
+      <Heading title="CHECKOUT" />
 
       <main>
         <Container className={classes.container}>

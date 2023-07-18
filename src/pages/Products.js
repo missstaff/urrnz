@@ -78,9 +78,7 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <div className={classes.headingContainer}>
-                    <Heading title="GALLERY" />
-                </div>
+                <Heading title="GALLERY" />
                 <ShowIf
                     condition={isLoading}
                     render={() => {

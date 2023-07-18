@@ -53,10 +53,8 @@ const Genres = () => {
             <section
                 className={classes.section}
                 id="categories">
-                <div className="headingContainer">
-                    <Heading
-                        title="Genres" />
-                </div>
+                <Heading
+                        title="Genres"/>
                 <ShowIf
                     condition={isLoading}
                     render={() => {
