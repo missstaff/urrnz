@@ -17,10 +17,6 @@ Our 3D printing process enables us to produce urns in various shapes, sizes, and
 - Convenient and intuitive user interface
 - Integration with Stripe for secure and seamless payment processing
 
-Certainly! Here's the content for the README.md file:
-
-markdown
-Copy code
 
 # Urrnz React Native App
 
