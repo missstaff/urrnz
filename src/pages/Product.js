@@ -7,6 +7,7 @@ import Heading from "../components/layout/Heading";
 import { addToCartHandler } from "../store/cart-actions";
 
 import classes from "./Product.module.css";
+import { useEffect } from "react";
 
 
 const Product = () => {
@@ -17,14 +18,15 @@ const Product = () => {
     const store = useSelector((state) => state.store);
     const products = store.products;
 
-    const product = products.find((product) => product.zid === id);
-    const category = store.category;
+    let product = products.find((product) => product.zid === id);
+    let category = store.category;
 
-
+    if(!product) {
+        console.log("Product not found", id);
+    }
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
-
 
     return (
         <div className={`${classes.wrapper}`}>
@@ -41,36 +43,36 @@ const Product = () => {
             <div className={`${classes.container}`} >
                 <div className={`${classes.productContainer} ${classes.gridColumns}`}>
                     <img
-                        alt={product.name}
+                        alt={product?.name || ""}
                         className={classes.productImage}
-                        src={product.images.lg}
+                        src={product?.images.lg || ""}
                     />
                     <div>
                         <div style={{ marginBottom: `${2.2}rem` }}>
-                            <h3 className={classes.title}>{product.name}
+                            <h3 className={classes.title}>{product?.name || ""}
                             </h3>
                             <p className={classes.description}>
-                                {product.description}
+                                {product?.description || ""}
                             </p>
                             <p className={classes.detailText}>
-                                Price: ${product.price}
+                                Price: ${product?.price || ""}
                             </p>
                             <p className={classes.detailText}>
-                                Category: {product.category}
+                                Category: {product?.category || ""}
                             </p>
-                            {product.color
+                            {product?.color
                                 &&
                                 (
                                     <p className={classes.detailText}>
-                                        Color: {product.color}
+                                        Color: {product?.color || ""}
                                     </p>
                                 )
                             }
-                            {product.size
+                            {product?.size
                                 &&
                                 (
                                     <p className={classes.detailText}>
-                                        Size: {product.size}
+                                        Size: {product?.size || ""}
                                     </p>
                                 )
                             }
