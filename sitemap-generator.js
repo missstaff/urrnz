@@ -70,7 +70,7 @@ async function getProductUrls() {
 
     const products = parsedProducts.response;
     const productUrls = products.map((product) => ({
-        url: `https://www.urrnz.com/product/${product.link}`,
+        url: `${product.link}`,
         lastModified: new Date().toISOString(),
         changeFreq: "daily",
     }));
