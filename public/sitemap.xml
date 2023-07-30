@@ -1,228 +1,758 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.urrnz.com/</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-30T02:54:38.747Z</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/cart</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:38.747Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
-    <loc>https://www.urrnz.com/genres</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/checkout</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:38.747Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/contact</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:38.747Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
-    <loc>https://www.urrnz.com/products/All</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/genres</loc>
+    <lastmod>2023-07-30T02:54:38.747Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
+    <loc>https://www.urrnz.com/All</loc>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
     <loc>https://www.urrnz.com/products/Traditional</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/products/Automobiles</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/products/Logos</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/products/Boxes</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
     <loc>https://www.urrnz.com/products/Shapes</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
+<url>
+    <loc>https://www.urrnz.com/products/Services</loc>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
     <loc>https://www.urrnz.com/products/Emojis</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-07-30T02:54:39.305Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
-    <loc>https://www.urrnz.com/product/184|7Cproduct-Emojis-893717ef|Currnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
-    <loc>https://www.urrnz.com/product/185|7Cproduct-Emojis-c05ce2a7|7Currnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/186|7Cproduct-Emojis-2b386c82|7Currnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/187|product-Emojis-e2de5bd1|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/188|product-Emojis-58adda6b|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/189|product-Emojis-ecfca1f0|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/184%7Cproduct-Emojis-893717ef%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/190|product-Emojis-86ca003c|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/191|product-Emojis-74fe6794|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/192|product-Emojis-0f2e039c|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/193|product-Emojis-79e5536b|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/194|product-Emojis-633236f4|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/203|product-Shapes-80d5d3b6|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/185%7Cproduct-Emojis-c05ce2a7%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/204|product-Shapes-a39379b3|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/205|product-Shapes-6578a35e|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/206|product-Shapes-70c2d2f3|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/207|product-Shapes-3957f5a3|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/208|product-Shapes-0af0f683|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/186%7Cproduct-Emojis-2b386c82%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/209|product-Shapes-3d07a57d|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/210|product-Shapes-cd4331c5|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/211|product-Shapes-844510b6|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/212|product-Shapes-3dd835e7|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/213|product-Shapes-5a688916|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-   <url>
-    <loc>https://www.urrnz.com/product/214|product-Shapes-28187db6|urrnz.com</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/187%7Cproduct-Emojis-e2de5bd1%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <url>
-    <loc>https://www.urrnz.com/thank-you</loc>
-    <lastmod>2023-07-17T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
   </url>
-  <!-- Add additional URLs here -->
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/188%7Cproduct-Emojis-58adda6b%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/189%7Cproduct-Emojis-ecfca1f0%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/190%7Cproduct-Emojis-86ca003c%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/191%7Cproduct-Emojis-74fe6794%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/192%7Cproduct-Emojis-0f2e039c%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/193%7Cproduct-Emojis-79e5536b%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/194%7Cproduct-Emojis-633236f4%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/203%7Cproduct-Shapes-80d5d3b6%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/204%7Cproduct-Shapes-a39379b3%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/205%7Cproduct-Shapes-6578a35e%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/206%7Cproduct-Shapes-70c2d2f3%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/207%7Cproduct-Shapes-3957f5a3%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/208%7Cproduct-Shapes-0af0f683%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/209%7Cproduct-Shapes-3d07a57d%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/210%7Cproduct-Shapes-cd4331c5%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/211%7Cproduct-Shapes-844510b6%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/212%7Cproduct-Shapes-3dd835e7%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/213%7Cproduct-Shapes-5a688916%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=red</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=orange</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=yellow</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=green</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=blue</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+<url>
+    <loc>https://www.urrnz.com/product/https://urrnz.com/product/214%7Cproduct-Shapes-28187db6%7Currnz.com?color=purple</loc>
+    <lastmod>2023-07-30T02:54:39.661Z</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
 </urlset>
