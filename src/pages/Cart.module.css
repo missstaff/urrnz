@@ -41,7 +41,8 @@
 .itemDescription {
   font-size: 3rem;
   margin-bottom: 2.5rem;
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   width: 100%
 }
 
@@ -117,6 +118,34 @@
   font-size: 3.8rem;
 }
 
+.placeholderColor::placeholder {
+  color: #999
+}
+
+.textAreaContainer {
+  display: flex; 
+  flex-direction: column; 
+  padding-bottom: 2.2rem;
+}
+
+.textAreaField {
+  border-radius: 7.5px;
+  font-size: 2.4rem;
+  font-weight: 400;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  width: 62.5%;
+}
+
+.textAreaField:focus {
+  border: 0.5px solid var(--color-secondary-700);
+  border-radius: 7.5px;
+  box-shadow: 0 0 0 2px var(--color-secondary-700);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+
 /*Media Queries*/
 @media screen and (max-width: 1024px) {
   .itemImage {
@@ -151,15 +180,18 @@
     text-align: center;
   }
 
-  .pickerContainer {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-  }
 
   .subTotal {
     font-size: 2.2rem;
   }
+}
+
+@media screen and (max-width: 768px) {
+  /* .pickerContainer {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 100%;
+  } */
 }
 
 @media screen and (max-width: 425px) {

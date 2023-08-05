@@ -44,8 +44,8 @@ const Cart = () => {
 
         if (localStorageCart) {
             dispatch(cartActions.replaceCart(localStorageCart));
-           
-            
+
+
         }
 
         dispatch(loadingActions.setLoading(false));
@@ -124,23 +124,28 @@ const Cart = () => {
                                                 className={classes.itemDescription}>
                                                 {item.description}
                                             </p>
+                                           
                                             <div
                                                 className={classes.pickerContainer}>
                                                 <CustomPicker
                                                     cid={item.cid}
                                                 />
                                             </div>
-                                            <div>
+
+                                            {/* <div className={classes.textAreaContainer}>
                                                 <label htmlFor="message">Inscription:</label>
-                                                <input
-                                                    id="message"
-                                                    name="message"
-                                                    placeholder="Name or text to inscribe"
-                                                    type="text"
-                                                    onChange={(e) =>  dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
-                                                    value={item.inscription}
-                                                />
-                                            </div>
+                                                <div>
+                                                    <input
+                                                        className={`${classes.placeholderColor} ${classes.textAreaField}`}
+                                                        id="message"
+                                                        name="message"
+                                                        placeholder="Name or text to inscribe"
+                                                        type="text"
+                                                        onChange={(e) => dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
+                                                        value={item.inscription}
+                                                    />
+                                                </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
