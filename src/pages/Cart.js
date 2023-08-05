@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -12,6 +12,7 @@ import { cartActions } from "../store/cart-slice";
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Cart.module.css";
+import { set } from "react-ga";
 
 
 const Cart = () => {
@@ -20,9 +21,13 @@ const Cart = () => {
     const isLoading = useSelector(state => state.loading);
     const dispatch = useDispatch();
 
-    let items = cart.items;
     const subTotal = cart.subTotal;
+    let items = cart.items;
+    let index;
 
+
+    const [inscription, setInscription] = useState("");
+    const localStorageCart = JSON.parse(localStorage.getItem("cart"));
 
     const increaseItemQuantityHandler = (item) => {
         dispatch(cartActions.addItemToCart(item));
@@ -32,18 +37,21 @@ const Cart = () => {
         dispatch(cartActions.removeItemFromCart(id));
     };
 
+
     useEffect(() => {
 
         dispatch(loadingActions.setLoading(true));
-        const localStorageCart = JSON.parse(localStorage.getItem("cart"));
 
-        if (localStorage) {
+        if (localStorageCart) {
             dispatch(cartActions.replaceCart(localStorageCart));
+           
+            
         }
 
         dispatch(loadingActions.setLoading(false));
 
     }, [dispatch]);
+
 
 
     return (
@@ -58,7 +66,7 @@ const Cart = () => {
                     condition={isLoading}
                     render={() => {
                         return (
-                           <LoadingMessage />
+                            <LoadingMessage />
                         );
                     }}
                 />
@@ -66,7 +74,7 @@ const Cart = () => {
                     condition={!isLoading && items.length}
                     render={() => (
                         <>
-                            {items.map((item) => (
+                            {items.map((item, i) => (
                                 <div
                                     className={`${classes.container}`}
                                     key={item.cid}>
@@ -120,6 +128,17 @@ const Cart = () => {
                                                 className={classes.pickerContainer}>
                                                 <CustomPicker
                                                     cid={item.cid}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="message">Inscription:</label>
+                                                <input
+                                                    id="message"
+                                                    name="message"
+                                                    placeholder="Name or text to inscribe"
+                                                    type="text"
+                                                    onChange={(e) =>  dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
+                                                    value={item.inscription}
                                                 />
                                             </div>
                                         </div>

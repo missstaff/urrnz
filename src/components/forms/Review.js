@@ -50,9 +50,10 @@ const Review = ({ activeStep, handleBack }) => {
 
     let tax = taxRate * subTotal;
     tax = Math.round(tax * 100) / 100;
-    const total = subTotal + tax + shipping.price;
+    const total = subTotal + tax + (shipping.price * totalItems);
 
     const handleSubmit = async (e) => {
+        console.log("ITEMS", items)
         e.preventDefault();
         handleSubmitOrder(
             cart,

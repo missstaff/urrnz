@@ -70,7 +70,7 @@ export const handleSubmitContact = async (
   };
 
   const response = await postRequestHandler(POST_MESSAGE, newChatObject);
-
+  
   if (response.success) {
     toast.success("Message sent!.",
       {
@@ -199,15 +199,17 @@ export const handleSubmitOrder = async (
     for (let i = 0; i < count; i++) {
       temp.dateOrdered = new Date();
       temp.color = item.color;
+      temp.inscription = item.inscription;
       temp.name = item.name;
       temp.price = item.price;
       temp.sku8 = item.sku8;
       temp.isTaxable = item.isTaxable;
       orderItems.push(temp);
     }
+    orderItems.push(shipping);
   });
 
-  orderItems.push(shipping);
+  
 
   const order = {
     ...orderTemplate,
@@ -225,7 +227,7 @@ export const handleSubmitOrder = async (
 
 
   const res = await postRequestHandler(POST_ORDER, order);
-
+  console.log("RES", res)
   if (!res.response.transactions[0].success) {
     const error = res.messages.primary;
     console.warn(`Error submitting order\n Location: Review.js handleSubmit\n ${error}`);

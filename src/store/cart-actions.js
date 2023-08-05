@@ -117,3 +117,13 @@ export const replaceCartHandler = (cart) => {
         }
     };
 };
+
+export const setItemInscriptionHandler = (id, inscription) => {
+    return async (dispatch) => {
+        try {
+            dispatch(cartActions.setItemInscription({ id, inscription }));
+        } catch (error) {
+            console.log(`Failed to set item inscription!\n${error.message}\n${error.stack}`);
+        }
+    };
+}
