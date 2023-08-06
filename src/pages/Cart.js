@@ -124,15 +124,9 @@ const Cart = () => {
                                                 className={classes.itemDescription}>
                                                 {item.description}
                                             </p>
-                                           
-                                            <div
-                                                className={classes.pickerContainer}>
-                                                <CustomPicker
-                                                    cid={item.cid}
-                                                />
-                                            </div>
 
-                                            {/* <div className={classes.textAreaContainer}>
+                                       <div style={{display: "flex", flexDirection: "column", width: "50%"}}> 
+                                       <div className={classes.textAreaContainer}>
                                                 <label htmlFor="message">Inscription:</label>
                                                 <div>
                                                     <input
@@ -145,7 +139,15 @@ const Cart = () => {
                                                         value={item.inscription}
                                                     />
                                                 </div>
-                                            </div> */}
+                                            </div>
+
+                                            <div
+                                                className={classes.pickerContainer}>
+                                                <CustomPicker
+                                                    cid={item.cid}
+                                                />
+                                            </div>
+</div>
                                         </div>
                                     </div>
                                 </div>

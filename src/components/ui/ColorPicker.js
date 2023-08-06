@@ -51,9 +51,8 @@ const ColorPicker = (props) => {
         condition={selectedColor}
         render={() => {
           return (
-            <p className={classes.selectedColor}>
-              Selected color:
-              <span
+            <p className={classes.selectColor}>
+              Selected color:<span
                 className={classes.selectedColor}
                 style={{ color: selectedColor }}>
                 {COLOR_CODE_TO_NAME[selectedColor]}
