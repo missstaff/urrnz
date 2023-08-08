@@ -24,6 +24,7 @@ const cartSlice = createSlice({
                     description: newItem.description,
                     id: newItem.zid,
                     image: newItem.images.lg,
+                    inscription: [],
                     isTaxable: true,
                     name: newItem.name,
                     price: newItem.price,
@@ -74,6 +75,15 @@ const cartSlice = createSlice({
         setTaxRate(state, action) {
             state.taxRate = action.payload;
             localStorage.setItem("cart", JSON.stringify(state));
+        },
+
+        setItemInscription(state, action) {
+            const { id, inscription } = action.payload;
+            const existingItem = state.items.find(item => item.cid === id);
+            if (existingItem) {
+                existingItem.inscription = [inscription];
+                localStorage.setItem("cart", JSON.stringify(state));
+            }
         },
 
         replaceCart(state, action) {

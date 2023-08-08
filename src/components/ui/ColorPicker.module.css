@@ -1,57 +1,73 @@
 .grid {
-    gap: 5px;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    width: 100%;
 }
 
 .image {
     cursor: pointer;
-    height: 5rem;
-    width: 5rem;
+    height: 3.4rem;
+    width: 3.4rem;
 }
 
-.selectColor { 
-    color: var(--color-secondary-700);
-    font-size: 1.4rem;
-    font-weight: bold
- }
+.selectColor {
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: 100%;
+}
 
- .selectedColor {
-    font-size: 1.4rem;
-    font-weight: bold
- }
+.selectedColor {
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: 100%;
+}
 
-@media screen and (max-width: 768px) {
-    .grid {
-        gap: 1px
-    }
-
-    .image {
-        height: 4rem;
-        width: 4rem;
+@media screen and (max-width: 1280px){
+    .selectedColor {
+        font-size: 1.6rem;
     }
 }
 
-@media screen and (max-width: 425px) {
-    .grid {
-        gap: 0.25px;
+@media screen and (max-width: 1024px){
+    .selectColor{
+        font-size: 1.6rem;
     }
-
-    .image {
-        height: 3rem;
-        width: 3rem;
+    .selectedColor {
+        font-size: 1.4rem;
     }
 }
 
-@media screen and (max-width: 320px) {
-    .grid {
-        gap: 0.25px;
+@media screen and (max-width: 940px){
+    .selectColor{
+        font-size: 1.4rem;
     }
-
-    .image {
-        height: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        width: 2rem;
+    .selectedColor {
+        font-size: 1.2rem;
     }
 }
+
+@media screen and (max-width: 480px){
+    .selectColor{
+        font-size: 1.6rem;
+    }
+    .selectedColor {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .selectColor{
+        font-size: 1.4rem;
+    }
+    .selectedColor {
+        font-size: 1.2rem;
+    }
+}
+    
+    
+
+
+
+
