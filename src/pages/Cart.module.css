@@ -118,7 +118,7 @@
   font-size: 3.8rem;
 }
 
-.placeholderColor::placeholder {
+.textAreaField::placeholder {
   color: #999
 }
 
@@ -134,6 +134,10 @@
   font-weight: 400;
   padding-left: 0.5rem;
   padding-top: 0.5rem;
+  border-color: #999;
+  border-style: solid;
+  border-width: 0.5px;
+  color: #444;
 }
 
 .textAreaField:focus {

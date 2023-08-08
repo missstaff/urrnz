@@ -130,7 +130,7 @@ const Cart = () => {
                                                 <label htmlFor="message">Inscription:</label>
                                                 <div>
                                                     <input
-                                                        className={`${classes.placeholderColor} ${classes.textAreaField}`}
+                                                        className={`${classes.textAreaField}`}
                                                         id="message"
                                                         name="message"
                                                         placeholder="Name or text to inscribe"
