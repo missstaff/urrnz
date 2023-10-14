@@ -69,7 +69,6 @@ const Products = () => {
                     const filteredProducts = allProducts.filter(
                         (product) => product.category === selectedCategory
                     );
-                    console.log(filteredProducts)
                     setCategoryProducts(filteredProducts);
                 }
             } else {
