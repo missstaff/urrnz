@@ -15,16 +15,14 @@ const Home = () => {
             <section
                 id="about">
                 <Heading
-                    title="ABOUT"
-                    style={{marginTop: 0}} />
+                    title="ABOUT"/>
                 <About />
             </section>
             <section
                 className={`${classes.faqsMarginBottom}`}
                 id="faqs">
                 <Heading
-                    title="FAQs" 
-                    style={{marginTop: 0}}/>
+                    title="FAQs"/>
                 <FAQ />
             </section>
         </main>
