@@ -94,7 +94,7 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title="GALLERY" />
+                <Heading title={selectedCategory ? selectedCategory : "All Urrnz"} />
                 <ShowIf
                     condition={isLoading}
                     render={() => {
@@ -109,17 +109,21 @@ const Products = () => {
                         return (
 
                             <>
+                           
                                 <div>
                                     <label htmlFor="categories">Choose a category:</label>
 
                                     <select name="categories" id="categories" onChange={handleCategoryChange}>
                                         {allCategories.map((val, index) => (
-                                            <option key={index} value={val.name}>
-                                                {val.name}
+                                            <option 
+                                                key={index} 
+                                                value={val.name}>
+                                                    {val.name}
                                             </option>
                                         ))}
                                     </select>
                                 </div>
+                                
                                 <div className={`grid ${classes.gridColumns}`}>
                                     {categoryProducts.map((product, index) => (
                                         <div
