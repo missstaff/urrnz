@@ -83,7 +83,8 @@ function MainNavigation() {
                             <p>FAQ</p>
                         </Link>
                     </li>
-                    <li>
+                    {/** Bring back when we do have lines */}
+                    {/* <li>
                         <NavLink
                             aria-label="Navigation link to the genres page."
                             to="/genres"
@@ -91,7 +92,7 @@ function MainNavigation() {
                             className={({ isActive }) => isActive ? classes.active : undefined}>
                             <p>Genres</p>
                         </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                         <NavLink
                             aria-label="Navigation link to the gallery page."
