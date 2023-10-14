@@ -58,7 +58,8 @@ const Products = () => {
                 }
             };
             setProducts();
-            dispatch(storeActions.setCategory(category));
+            {/**bring back when we bring back categories page */}
+            // dispatch(storeActions.setCategory(category));
         }
 
         const id = setTimeout(() => {
