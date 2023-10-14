@@ -23,11 +23,11 @@ const Products = () => {
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);
 
-    const [categoryProducts, setCategoryProducts] = useState([]);
-    const [touchedIndex, setTouchedIndex] = useState(-1);
-
     const products = store.products;
-
+    const genres = store.categories;
+    const [categoryProducts, setCategoryProducts] = useState([]);
+    const [categories, setCategories] = useState(genres);
+    const [touchedIndex, setTouchedIndex] = useState(-1);
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
@@ -42,24 +42,14 @@ const Products = () => {
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
-    
+
 
     useEffect(() => {
 
         dispatch(loadingActions.setLoading(true));
 
         if (products && products.length) {
-            const setProducts = () => {
-                if (category === "All") {
-                    setCategoryProducts(products);
-                } else {
-                    const filteredProducts = products.filter(product => product?.category === category);
-                    setCategoryProducts(filteredProducts);
-                }
-            };
-            setProducts();
-            {/**bring back when we bring back categories page */}
-            // dispatch(storeActions.setCategory(category));
+            setCategoryProducts(products);
         }
 
         const id = setTimeout(() => {
@@ -80,6 +70,18 @@ const Products = () => {
                 className={`${classes.section}`}
                 id="gallery">
                 <Heading title="GALLERY" />
+                <label for="categories">Choose a category:</label>
+
+                <select name="categories" id="categories">
+                    {categories.map((val, index) => {
+                        console.log("Index", index),
+                        console.log("val", val)
+                        return(
+                            <option key={index} value={val.name}>{val.name}</option>
+                        );
+                    })}
+                    
+                </select>
                 <ShowIf
                     condition={isLoading}
                     render={() => {
