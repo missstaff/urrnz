@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useNavigation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -17,20 +17,17 @@ import classes from "./Products.module.css";
 
 const Products = () => {
 
-    const route = useParams();
-
+    const nav = useNavigate();
     const dispatch = useDispatch();
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);
 
     const allProducts = store.products;
     const allCategories = store.categories;
+    const category = store.category;
 
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [touchedIndex, setTouchedIndex] = useState(-1);
-    const [selectedCategory, setSelectedCategory] = useState("");
-
-
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
@@ -48,44 +45,50 @@ const Products = () => {
     };
 
     const handleCategoryChange = (event) => {
-        setSelectedCategory(event.target.value);
+
+        if (event.target.value === "All") {
+            setCategoryProducts(allProducts);
+            dispatch(storeActions.setCategory("All"));
+        } else {
+            const filteredProducts = allProducts.filter(
+                (product) => product.category === event.target.value
+            );
+            dispatch(storeActions.setCategory(event.target.value));
+            setCategoryProducts(filteredProducts);
+        }
+
+        nav(`/products/${event.target.value}`);
     };
 
-
-
-
+    const handleNoItemsFound = () => {
+        dispatch(storeActions.setCategory(event.target.value));
+        setCategoryProducts(allProducts);
+    };
 
     useEffect(() => {
 
         dispatch(loadingActions.setLoading(true));
 
         if (allProducts && allProducts.length) {
-
-            if (selectedCategory) {
-                // Filter products based on the selected category
-                if (selectedCategory === "All") {
-                    setCategoryProducts(allProducts);
-                } else {
-                    const filteredProducts = allProducts.filter(
-                        (product) => product.category === selectedCategory
-                    );
-                    setCategoryProducts(filteredProducts);
-                }
-            } else {
-                // If no category is selected, show all products
+            if (category === "All") {
                 setCategoryProducts(allProducts);
+            } else {
+                const filteredProducts = allProducts.filter(
+                    (product) => product.category === category
+                ); 
+                setCategoryProducts(filteredProducts);
             }
         }
+            const id = setTimeout(() => {
+                dispatch(loadingActions.setLoading(false));
+            }, 500);
 
-        const id = setTimeout(() => {
-            dispatch(loadingActions.setLoading(false));
-        }, 500);
+            return () => {
+                clearTimeout(id);
+            }
 
-        return () => {
-            clearTimeout(id);
-        }
+        }, []);
 
-    }, [allCategories, dispatch, allProducts, selectedCategory]);
 
 
     return (
@@ -93,7 +96,7 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title={selectedCategory ? selectedCategory : "All Urrnz"} />
+                <Heading title={category === "All" || !category ? "All Urrnz" : category} />
                 <ShowIf
                     condition={isLoading}
                     render={() => {
@@ -108,21 +111,22 @@ const Products = () => {
                         return (
 
                             <>
-                           
+
                                 <div>
                                     <label htmlFor="categories">Choose a category:</label>
 
                                     <select name="categories" id="categories" onChange={handleCategoryChange}>
                                         {allCategories.map((val, index) => (
-                                            <option 
-                                                key={index} 
+                                            <option
+                                                key={index}
+
                                                 value={val.name}>
-                                                    {val.name}
+                                                {val.name}
                                             </option>
                                         ))}
                                     </select>
                                 </div>
-                                
+
                                 <div className={`grid ${classes.gridColumns}`}>
                                     {categoryProducts.map((product, index) => (
                                         <div
@@ -202,9 +206,9 @@ const Products = () => {
                                 <p className={classes.noItemsMessage}>No items found!</p>
                                 <NavLink
                                     to="/products/All"
-                                    onClick={() => selectedCategory(allProducts)}
+                                    onClick={handleNoItemsFound}
                                     className={classes.link}>
-                                    <span>&larr;</span>Back to all products
+                                    <span>&larr;</span>Back to all urrnz
                                 </NavLink>
                             </div>
                         );
