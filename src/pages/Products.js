@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -13,7 +13,6 @@ import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Products.module.css";
-import { storeActions } from "../store/store-slice";
 
 
 const Products = () => {
@@ -92,8 +91,6 @@ const Products = () => {
     }, []);
 
 
-
-
     return (
         <main style={{ height: isLoading ? `${100}vh` : "" }}>
             <section
@@ -112,14 +109,11 @@ const Products = () => {
                     condition={!isLoading && categoryProducts.length}
                     render={() => {
                         return (
-
                             <>
-
                                 <div>
                                     <label htmlFor="categories">Choose a category:</label>
 
                                     <select name="categories" id="categories" onChange={handleCategoryChange} value={category}>
-                                        {/* <option value="All">All</option> */}
                                         {allCategories.map((val, index) => (
                                             <option key={index} value={val.name}>
                                                 {val.name}
