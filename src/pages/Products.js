@@ -74,11 +74,13 @@ const Products = () => {
         if (allProducts && allProducts.length) {
             if (category === ALL) {
                 setCategoryProducts(allProducts);
+                nav(`/products/${ALL}`)
             } else {
                 const filteredProducts = allProducts.filter(
                     (product) => product.category === category
                 );
                 setCategoryProducts(filteredProducts);
+                nav(`/products/${category}`)
             }
         }
         const id = setTimeout(() => {
@@ -89,7 +91,7 @@ const Products = () => {
             clearTimeout(id);
         }
 
-    }, []);
+    }, [allProducts]);
 
 
     return (
