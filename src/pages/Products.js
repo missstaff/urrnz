@@ -97,6 +97,7 @@ const Products = () => {
                 className={`${classes.section}`}
                 id="gallery">
                 <Heading title={category === "All" || !category ? "All Urrnz" : category} />
+
                 <ShowIf
                     condition={isLoading}
                     render={() => {
@@ -110,10 +111,13 @@ const Products = () => {
                     render={() => {
                         return (
                             <>
-                                <div>
-                                    <label htmlFor="categories">Choose a category:</label>
+                                <div style={{
+                                    marginBottom: 100, display: "flex", flexDirection: "column", justifyContent: "center",
+                                    alignItems: "center", width: "100%"
+                                }}>
+                                    <label htmlFor="categories"><h2>Select a category:</h2></label>
 
-                                    <select name="categories" id="categories" onChange={handleCategoryChange} value={category}>
+                                    <select style={{ fontSize: 22.5, marginLeft: 10, margin: 10 }} name="categories" id="categories" onChange={handleCategoryChange} value={category}>
                                         {allCategories.map((val, index) => (
                                             <option key={index} value={val.name}>
                                                 {val.name}
