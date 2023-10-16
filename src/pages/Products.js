@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useNavigation, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -10,9 +10,10 @@ import ShowIf from "../components/ShowIf";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
-import { storeActions } from "../store/store-slice";
+import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Products.module.css";
+import { storeActions } from "../store/store-slice";
 
 
 const Products = () => {
@@ -48,20 +49,21 @@ const Products = () => {
 
         if (event.target.value === "All") {
             setCategoryProducts(allProducts);
-            dispatch(storeActions.setCategory("All"));
+
+            dispatch(setCategoryHandler("All"));
         } else {
             const filteredProducts = allProducts.filter(
                 (product) => product.category === event.target.value
             );
-            dispatch(storeActions.setCategory(event.target.value));
+            dispatch(setCategoryHandler(event.target.value));
             setCategoryProducts(filteredProducts);
         }
 
         nav(`/products/${event.target.value}`);
     };
 
-    const handleNoItemsFound = () => {
-        dispatch(storeActions.setCategory(event.target.value));
+    const handleNoItemsFound = (event) => {
+        setCategoryHandler(event.target.value);
         setCategoryProducts(allProducts);
     };
 
@@ -75,19 +77,20 @@ const Products = () => {
             } else {
                 const filteredProducts = allProducts.filter(
                     (product) => product.category === category
-                ); 
+                );
                 setCategoryProducts(filteredProducts);
             }
         }
-            const id = setTimeout(() => {
-                dispatch(loadingActions.setLoading(false));
-            }, 500);
+        const id = setTimeout(() => {
+            dispatch(loadingActions.setLoading(false));
+        }, 500);
 
-            return () => {
-                clearTimeout(id);
-            }
+        return () => {
+            clearTimeout(id);
+        }
 
-        }, []);
+    }, []);
+
 
 
 
@@ -115,12 +118,10 @@ const Products = () => {
                                 <div>
                                     <label htmlFor="categories">Choose a category:</label>
 
-                                    <select name="categories" id="categories" onChange={handleCategoryChange}>
+                                    <select name="categories" id="categories" onChange={handleCategoryChange} value={category}>
+                                        {/* <option value="All">All</option> */}
                                         {allCategories.map((val, index) => (
-                                            <option
-                                                key={index}
-
-                                                value={val.name}>
+                                            <option key={index} value={val.name}>
                                                 {val.name}
                                             </option>
                                         ))}

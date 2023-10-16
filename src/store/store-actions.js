@@ -59,7 +59,6 @@ export const fetchChatTemplate = () => {
 export const setCategoryHandler = (category) => {
     return async (dispatch) => {
         try {
-          
             dispatch(storeActions.setCategory(category));
         } catch (error) {
             console.log(`Failed to set selected category!\n${error.message}\n${error.stack}`);
