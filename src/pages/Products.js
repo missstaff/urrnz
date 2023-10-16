@@ -7,6 +7,7 @@ import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
+import { ALL } from "../config/constants";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
@@ -46,10 +47,10 @@ const Products = () => {
 
     const handleCategoryChange = (event) => {
 
-        if (event.target.value === "All") {
+        if (event.target.value === ALL) {
             setCategoryProducts(allProducts);
 
-            dispatch(setCategoryHandler("All"));
+            dispatch(setCategoryHandler(ALL));
         } else {
             const filteredProducts = allProducts.filter(
                 (product) => product.category === event.target.value
@@ -71,7 +72,7 @@ const Products = () => {
         dispatch(loadingActions.setLoading(true));
 
         if (allProducts && allProducts.length) {
-            if (category === "All") {
+            if (category === ALL) {
                 setCategoryProducts(allProducts);
             } else {
                 const filteredProducts = allProducts.filter(
@@ -96,7 +97,7 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title={category === "All" || !category ? "All Urrnz" : category} />
+                <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} />
 
                 <ShowIf
                     condition={isLoading}
@@ -111,16 +112,19 @@ const Products = () => {
                     render={() => {
                         return (
                             <>
-                                <div style={{
-                                    marginBottom: 100, display: "flex", flexDirection: "column", justifyContent: "center",
-                                    alignItems: "center", width: "100%"
-                                }}>
-                                    <label htmlFor="categories"><h2>Select a category:</h2></label>
+                                <div className={classes.dropDownContainer}>
+                                    <label htmlFor="categories"><h2>SELECT A CATEGORY:</h2></label>
 
-                                    <select style={{ fontSize: 22.5, marginLeft: 10, margin: 10 }} name="categories" id="categories" onChange={handleCategoryChange} value={category}>
+                                    <select
+                                        className={classes.dropDown}
+                                        name="categories" id="categories"
+                                        onChange={handleCategoryChange}
+                                        value={category}>
                                         {allCategories.map((val, index) => (
-                                            <option key={index} value={val.name}>
-                                                {val.name}
+                                            <option
+                                                key={index}
+                                                value={val.name}>
+                                                {val.name === ALL ? val.name.toUpperCase() + " URRNZ" : val.name.toUpperCase()}
                                             </option>
                                         ))}
                                     </select>
@@ -204,7 +208,7 @@ const Products = () => {
                                 }}>
                                 <p className={classes.noItemsMessage}>No items found!</p>
                                 <NavLink
-                                    to="/products/All"
+                                    to={`/products/${ALL}`}
                                     onClick={handleNoItemsFound}
                                     className={classes.link}>
                                     <span>&larr;</span>Back to all urrnz
