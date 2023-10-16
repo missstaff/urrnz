@@ -63,7 +63,7 @@ const Products = () => {
     };
 
     const handleNoItemsFound = (event) => {
-        setCategoryHandler(event.target.value);
+        dispatch(setCategoryHandler(ALL));
         setCategoryProducts(allProducts);
     };
 
