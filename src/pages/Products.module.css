@@ -2,7 +2,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     padding-bottom: 4.8rem;
 }
 
@@ -17,6 +17,20 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.dropDown {
+    font-size: 2.25rem;
+    margin-top: 1rem;
+}
+
+.dropDownContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10rem;
+    width: 100%;
 }
 
 .gridColumns {
@@ -73,7 +87,7 @@
 }
 
 
-.noItemsMessage{
+.noItemsMessage {
     font-size: 6.4rem;
 }
 

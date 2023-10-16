@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ALL } from "../config/constants";
 
 
 const storeSlice = createSlice({
@@ -20,7 +21,7 @@ const storeSlice = createSlice({
         setCategories(state, action) {
             const fetchedCategories = action.payload.response;
             const filteredCategories = fetchedCategories.filter(category => category.name !== "Test" && category.name !== "Services");
-            filteredCategories.unshift({ name: "All" });
+            filteredCategories.unshift({ name: ALL });
             state.categories = filteredCategories;
         },
         setShippingOptions(state, action) {

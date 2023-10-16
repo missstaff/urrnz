@@ -24,7 +24,6 @@ const Product = () => {
 
     let product = products.find((product) => product.zid === id);
     let category = store.category;
-   
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };

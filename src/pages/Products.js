@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
@@ -7,31 +7,33 @@ import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
 import ShowIf from "../components/ShowIf";
+import { ALL } from "../config/constants";
 
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
-import { storeActions } from "../store/store-slice";
+import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Products.module.css";
 
 
 const Products = () => {
 
-
-    const { category } = useParams();
+    const nav = useNavigate();
     const dispatch = useDispatch();
     const store = useSelector(state => state.store);
     const isLoading = useSelector(state => state.loading);
 
+    const allProducts = store.products;
+    const allCategories = store.categories;
+    const category = store.category;
+
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [touchedIndex, setTouchedIndex] = useState(-1);
-
-    const products = store.products;
-
 
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
     };
+
 
     const handleTouchEnd = () => {
         setTimeout(() => {
@@ -42,26 +44,43 @@ const Products = () => {
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
-    
+
+    const handleCategoryChange = (event) => {
+
+        if (event.target.value === ALL) {
+            setCategoryProducts(allProducts);
+
+            dispatch(setCategoryHandler(ALL));
+        } else {
+            const filteredProducts = allProducts.filter(
+                (product) => product.category === event.target.value
+            );
+            dispatch(setCategoryHandler(event.target.value));
+            setCategoryProducts(filteredProducts);
+        }
+
+        nav(`/products/${event.target.value}`);
+    };
+
+    const handleNoItemsFound = (event) => {
+        setCategoryHandler(event.target.value);
+        setCategoryProducts(allProducts);
+    };
 
     useEffect(() => {
 
         dispatch(loadingActions.setLoading(true));
 
-        if (products && products.length) {
-            const setProducts = () => {
-                if (category === "All") {
-                    setCategoryProducts(products);
-                } else {
-                    const filteredProducts = products.filter(product => product?.category === category);
-                    setCategoryProducts(filteredProducts);
-                }
-            };
-            setProducts();
-            {/**bring back when we bring back categories page */}
-            // dispatch(storeActions.setCategory(category));
+        if (allProducts && allProducts.length) {
+            if (category === ALL) {
+                setCategoryProducts(allProducts);
+            } else {
+                const filteredProducts = allProducts.filter(
+                    (product) => product.category === category
+                );
+                setCategoryProducts(filteredProducts);
+            }
         }
-
         const id = setTimeout(() => {
             dispatch(loadingActions.setLoading(false));
         }, 500);
@@ -70,8 +89,7 @@ const Products = () => {
             clearTimeout(id);
         }
 
-    }, [category, dispatch, products]);
-
+    }, []);
 
 
     return (
@@ -79,7 +97,8 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title="GALLERY" />
+                <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} />
+
                 <ShowIf
                     condition={isLoading}
                     render={() => {
@@ -92,67 +111,87 @@ const Products = () => {
                     condition={!isLoading && categoryProducts.length}
                     render={() => {
                         return (
-                            <div className={`grid ${classes.gridColumns}`}>
-                                {categoryProducts.map((product, index) => (
-                                    <div
-                                        key={index}>
-                                        <Container
-                                            style={{ //these styles must be inline to be applied to the container
-                                                display: "flex",
-                                                flexDirection: "column",
-                                                justifyContent: "center",
+                            <>
+                                <div className={classes.dropDownContainer}>
+                                    <label htmlFor="categories"><h2>SELECT A CATEGORY:</h2></label>
 
-                                            }}>
-                                            <NavLink
-                                                to={`/product/${product.zid}`}>
-                                                <div
-                                                    style={{
-                                                        alignSelf: "center",
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                        justifyContent: "center"
-                                                    }}
-                                                    className={`${touchedIndex === index ? classes.touched : ""}`}
-                                                    onMouseDown={() => handleTouchStart(index)}
-                                                    onMouseEnter={() => handleTouchStart(index)}
-                                                    onMouseLeave={handleTouchEnd}
-                                                    onMouseUp={handleTouchEnd}
-                                                    onTouchStart={() => handleTouchStart(index)}
-                                                    onTouchEnd={handleTouchEnd}>
-                                                    <img
-                                                        alt={product.name}
-                                                        src={product.images.lg}
-                                                        className={classes.image}
-                                                    />
-                                                </div>
-                                            </NavLink>
-                                            <div className={classes.detailsContainer}>
-                                                <div className={classes.detailsTitle}>
-                                                    <h3 className={`${classes.heading} ${classes.limitTitle}`}>
-                                                        {product.name}
-                                                    </h3>
+                                    <select
+                                        className={classes.dropDown}
+                                        name="categories" id="categories"
+                                        onChange={handleCategoryChange}
+                                        value={category}>
+                                        {allCategories.map((val, index) => (
+                                            <option
+                                                key={index}
+                                                value={val.name}>
+                                                {val.name === ALL ? val.name.toUpperCase() + " URRNZ" : val.name.toUpperCase()}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                <div className={`grid ${classes.gridColumns}`}>
+                                    {categoryProducts.map((product, index) => (
+                                        <div
+                                            key={index}>
+                                            <Container
+                                                style={{ //these styles must be inline to be applied to the container
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    justifyContent: "center",
+
+                                                }}>
+                                                <NavLink
+                                                    to={`/product/${product.zid}`}>
+                                                    <div
+                                                        style={{
+                                                            alignSelf: "center",
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            justifyContent: "center"
+                                                        }}
+                                                        className={`${touchedIndex === index ? classes.touched : ""}`}
+                                                        onMouseDown={() => handleTouchStart(index)}
+                                                        onMouseEnter={() => handleTouchStart(index)}
+                                                        onMouseLeave={handleTouchEnd}
+                                                        onMouseUp={handleTouchEnd}
+                                                        onTouchStart={() => handleTouchStart(index)}
+                                                        onTouchEnd={handleTouchEnd}>
+                                                        <img
+                                                            alt={product.name}
+                                                            src={product.images.lg}
+                                                            className={classes.image}
+                                                        />
+                                                    </div>
+                                                </NavLink>
+                                                <div className={classes.detailsContainer}>
+                                                    <div className={classes.detailsTitle}>
+                                                        <h3 className={`${classes.heading} ${classes.limitTitle}`}>
+                                                            {product.name}
+                                                        </h3>
+                                                        <p
+                                                            className={classes.price}
+                                                            style={{ textShadow: "none" }}>
+                                                            ${product.price}
+                                                        </p>
+                                                    </div>
                                                     <p
-                                                        className={classes.price}
+                                                        className={`${classes.details} ${classes.limitLines}`}
                                                         style={{ textShadow: "none" }}>
-                                                        ${product.price}
+                                                        {product.description}
                                                     </p>
-                                                </div>
-                                                <p
-                                                    className={`${classes.details} ${classes.limitLines}`}
-                                                    style={{ textShadow: "none" }}>
-                                                    {product.description}
-                                                </p>
 
-                                            </div>
-                                            <div
-                                                className={classes.buttonContainer}>
-                                                <AddToCartButton
-                                                    onClick={() => addItemToCartHandler(product)} />
-                                            </div>
-                                        </Container>
-                                    </div>
-                                ))}
-                            </div>
+                                                </div>
+                                                <div
+                                                    className={classes.buttonContainer}>
+                                                    <AddToCartButton
+                                                        onClick={() => addItemToCartHandler(product)} />
+                                                </div>
+                                            </Container>
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
                         );
                     }}
                 />
@@ -169,9 +208,10 @@ const Products = () => {
                                 }}>
                                 <p className={classes.noItemsMessage}>No items found!</p>
                                 <NavLink
-                                    to="/genres"
+                                    to={`/products/${ALL}`}
+                                    onClick={handleNoItemsFound}
                                     className={classes.link}>
-                                    <span>&larr;</span>Back to Genres
+                                    <span>&larr;</span>Back to all urrnz
                                 </NavLink>
                             </div>
                         );

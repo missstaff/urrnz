@@ -80,3 +80,6 @@ export const FAQ_ANSWERS = [
     "We take great care to ensure that our urns are secure and durable, and we perform rigorous testing to ensure that they can remain on display for many, many years to come.",
     "We want you to be completely satisfied with your purchase, so we offer a 100% satisfaction guarantee. If for any reason you are not satisfied with your urn, please contact us and we will do everything we can to make it right.",
 ];
+
+//Stringed Variables
+export const ALL = "All";
