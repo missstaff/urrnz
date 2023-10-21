@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCategoryHandler } from "../../store/store-actions";
-import { ALL } from "../../config/constants";
-import classes from "./SelectCategoryModal.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
+import { setCategoryHandler } from "../../store/store-actions";
+import { ALL } from "../../config/constants";
+
+import classes from "./SelectCategoryModal.module.css";
 
 
 const SelectCategoryModal = ({ setCategoryProducts }) => {
@@ -20,6 +22,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [hidden, setHidden] = useState(classes.hidden);
 
+
     const handleToggleSelect = () => {
         setDisplayDropdown((previous) => !previous);
 
@@ -31,15 +34,15 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
     };
 
     const handleChangeCategory = (category) => {
-        console.log("changes", category.name)
+
         if (category.name === ALL) {
             setCategoryProducts(allProducts);
-
             dispatch(setCategoryHandler(ALL));
         } else {
             const filteredProducts = allProducts.filter(
                 (product) => product.category === category.name
             );
+
             dispatch(setCategoryHandler(category.name));
             setCategoryProducts(filteredProducts);
         }
@@ -54,9 +57,9 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
             <div
                 onClick={handleToggleSelect}
                 style={{
-                    display: "flex", 
-                    flexDirection: "row", 
-                    alignItems: "center", 
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
                     justifyContent: "space-between",
                 }}
                 className={classes.selected}>
@@ -67,29 +70,30 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
                         category.toUpperCase()
                     }
                 </h4>
-                <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 50}} />
+                <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 50 }} />
             </div>
-            <div onClick={handleToggleSelect} style={{ width: "100vw" }} className={hidden}>
-                <ul style={{ position: "absolute", top: -300, }}>
+            <div onClick={handleToggleSelect} style={{ position: "absolute", top: 0, }} className={hidden}>
+                <ul>
                     {allCategories.map((category, index) => {
                         return (
                             <li
                                 key={index}
-                                onClick={() => handleChangeCategory(category)}
-                            >
+                                onClick={() => handleChangeCategory(category)}>
+
                                 {category.name === ALL ?
                                     category.name.toUpperCase() + " URRNZ"
                                     :
                                     category.name.toUpperCase()
                                 }
+
                             </li>
                         );
                     })}
-
                 </ul>
             </div>
         </div>
     );
 };
+
 
 export default SelectCategoryModal;
