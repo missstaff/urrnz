@@ -25,7 +25,6 @@ const Products = () => {
     const isLoading = useSelector(state => state.loading);
 
     const allProducts = store.products;
-    const allCategories = store.categories;
     const category = store.category;
 
     const [categoryProducts, setCategoryProducts] = useState([]);

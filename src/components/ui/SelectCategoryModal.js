@@ -16,7 +16,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
     const category = store.category;
 
     const [displayDropdown, setDisplayDropdown] = useState(false);
-    const [dropdDownOptionsClassName, setDropdDownOptionsClassName] = useState("");
+    const [dropdDownOptionsClassName, setDropdDownOptionsClassName] = useState(classes.hidden);
 
     const handleToggleSelect = () => {
         setDisplayDropdown((previous) => !previous);
@@ -42,15 +42,16 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
             setCategoryProducts(filteredProducts);
         }
 
+        setDropdDownOptionsClassName(classes.hidden);
         nav(`/products/${category.name}`);
     };
 
     return (
         <div className={classes.container}>
-            <h2>SELECT A CATEGORY:</h2>
+            <h2 className={classes.heading}>SELECT A CATEGORY:</h2>
             <div>
                 <h4
-                    className={classes.heading}
+                    className={classes.selected}
                     onClick={handleToggleSelect}>
                     {category === ALL ?
                         category.toUpperCase() + " URRNZ"
