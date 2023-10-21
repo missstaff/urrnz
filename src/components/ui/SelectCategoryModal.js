@@ -28,6 +28,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
 
         if (displayDropdown) {
             setHidden("");
+            window.scrollTo(0, 0) 
         } else {
             setHidden(classes.hidden);
         }
@@ -73,7 +74,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
                 </h4>
                 <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 50 }} />
             </div>
-            <div onClick={handleToggleSelect} style={{ position: "absolute", top: 0, }} className={hidden}>
+            <div onClick={handleToggleSelect} style={{ position: "absolute", top: 0 }} className={hidden}>
                 <ul>
                     {allCategories.map((category, index) => {
                         return (
