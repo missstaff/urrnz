@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCategoryHandler } from "../../store/store-actions";
 import { ALL } from "../../config/constants";
 import classes from "./SelectCategoryModal.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 
 const SelectCategoryModal = ({ setCategoryProducts }) => {
@@ -16,15 +18,15 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
     const category = store.category;
 
     const [displayDropdown, setDisplayDropdown] = useState(false);
-    const [dropdDownOptionsClassName, setDropdDownOptionsClassName] = useState(classes.hidden);
+    const [hidden, setHidden] = useState(classes.hidden);
 
     const handleToggleSelect = () => {
         setDisplayDropdown((previous) => !previous);
 
         if (displayDropdown) {
-            setDropdDownOptionsClassName("");
+            setHidden("");
         } else {
-            setDropdDownOptionsClassName(classes.hidden);
+            setHidden(classes.hidden);
         }
     };
 
@@ -42,37 +44,50 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
             setCategoryProducts(filteredProducts);
         }
 
-        setDropdDownOptionsClassName(classes.hidden);
+        setHidden(classes.hidden);
         nav(`/products/${category.name}`);
     };
 
     return (
-        <div className={classes.container}>
-            <h2 className={classes.heading}>SELECT A CATEGORY:</h2>
-            <div>
-                <h4
-                    className={classes.selected}
-                    onClick={handleToggleSelect}>
+        <div className={classes.container} >
+            <h2>SELECT A CATEGORY:</h2>
+            <div
+                onClick={handleToggleSelect}
+                style={{
+                    display: "flex", 
+                    flexDirection: "row", 
+                    alignItems: "center", 
+                    justifyContent: "space-between",
+                }}
+                className={classes.selected}>
+                <h4>
                     {category === ALL ?
                         category.toUpperCase() + " URRNZ"
                         :
                         category.toUpperCase()
                     }
                 </h4>
+                <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 50}} />
             </div>
-            <ul>
-                {allCategories.map((category, index) => {
-                    return (
-                        <li
-                            key={index}
-                            onClick={() => handleChangeCategory(category)}
-                            className={dropdDownOptionsClassName}>
-                            {category.name}
-                        </li>
-                    );
-                })}
+            <div onClick={handleToggleSelect} style={{ width: "100vw" }} className={hidden}>
+                <ul style={{ position: "absolute", top: -300, }}>
+                    {allCategories.map((category, index) => {
+                        return (
+                            <li
+                                key={index}
+                                onClick={() => handleChangeCategory(category)}
+                            >
+                                {category.name === ALL ?
+                                    category.name.toUpperCase() + " URRNZ"
+                                    :
+                                    category.name.toUpperCase()
+                                }
+                            </li>
+                        );
+                    })}
 
-            </ul>
+                </ul>
+            </div>
         </div>
     );
 };
