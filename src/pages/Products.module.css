@@ -10,6 +10,7 @@
     margin-left: 5rem;
     margin-right: 5rem;
     padding-bottom: 9.6rem;
+    position: relative;
 }
 
 .detailsTitle {
@@ -19,22 +20,64 @@
     justify-content: space-between;
 }
 
-.dropDown {
-    font-size: 2.25rem;
+.selectContainer {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transition: all 3s ease;
+}
+
+.selectContainer > h4 {
+    color: blue
+}
+
+.selectContainer ul {
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.selectContainer>ul>li {
+    height: fit-content;
+    padding: 0.25rem;
+}
+
+
+.selectedText {
+    border: solid;
+    border-color: var(--color-secondary-700);
+    border-radius: 7.5px;
+    border-width: 2.4px;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
 }
 
-.dropDownContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10rem;
-    width: 100%;
+.selectContainer>ul>li:hover {
+    background-color: var(--color-secondary-700);
+    color: var(--color-white)
 }
+
+.hidden {
+    display: none;
+}
+
 
 .gridColumns {
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 9.6rem;
+
 }
 
 .heading {
@@ -152,13 +195,10 @@
     .section {
         margin-bottom: 10rem;
     }
+
 }
 
 @media screen and (max-width: 768px) {
-    .btnContainer {
-        padding-bottom: 4.8rem;
-    }
-
     .details {
         font-size: 2rem;
     }
@@ -198,4 +238,5 @@
     .gridColumns {
         grid-template-columns: repeat(1, 1fr);
     }
+
 }

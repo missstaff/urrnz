@@ -42,9 +42,13 @@
         font-size: 8.4rem;
     }
 }
-
+@media screen and (max-width: 420px) {
+    .heading {
+        font-size: 6.4rem;
+    }
+}
 @media screen and (max-width: 320px) {
     .heading {
-        font-size: 6.8rem;
+        font-size: 4.8rem;
     }
 }
