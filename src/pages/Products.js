@@ -6,6 +6,7 @@ import AddToCartButton from "../components/ui/AddToCartButton";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
+import SelectCategoryModal from "../components/ui/SelectCategoryModal";
 import ShowIf from "../components/ShowIf";
 import { ALL } from "../config/constants";
 
@@ -31,14 +32,9 @@ const Products = () => {
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
 
-    const [displayDropdown, setDisplayDropdown] = useState(false);
-    const [dropdDownOptionsClassName, setDropdDownOptionsClassName] = useState("");
-
-
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
     };
-
 
     const handleTouchEnd = () => {
         setTimeout(() => {
@@ -49,37 +45,6 @@ const Products = () => {
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
-
-    const handleToggleSelect = () => {
-        setDisplayDropdown((previous) => !previous);
-
-        if (displayDropdown) {
-            setDropdDownOptionsClassName("");
-        } else {
-            setDropdDownOptionsClassName(classes.hidden);
-        }
-    };
-
-    // const categoryDisplay = () => {
-    //     console.log("click")
-    // };
-
-    // const handleCategoryChange = (event) => {
-
-    //     if (event.target.value === ALL) {
-    //         setCategoryProducts(allProducts);
-
-    //         dispatch(setCategoryHandler(ALL));
-    //     } else {
-    //         const filteredProducts = allProducts.filter(
-    //             (product) => product.category === event.target.value
-    //         );
-    //         dispatch(setCategoryHandler(event.target.value));
-    //         setCategoryProducts(filteredProducts);
-    //     }
-
-    //     nav(`/products/${event.target.value}`);
-    // };
 
     const handleNoItemsFound = (event) => {
         dispatch(setCategoryHandler(ALL));
@@ -133,33 +98,7 @@ const Products = () => {
                     render={() => {
                         return (
                             <>
-                                <div className={classes.selectContainer}>
-                                    <h2>SELECT A CATEGORY:</h2>
-                                    <div>
-                                        <h4
-                                            className={classes.selectedText}
-                                            onClick={handleToggleSelect}>
-                                            {category === ALL ?
-                                                category.toUpperCase() + " URRNZ"
-                                                :
-                                                category.toUpperCase()
-                                            }
-                                        </h4>
-                                    </div>
-                                    <ul>
-                                        {allCategories.map((category, index) => {
-                                            return (
-                                                <li
-                                                    key={index}
-                                                    className={dropdDownOptionsClassName}>
-                                                    {category.name}
-                                                </li>
-                                            );
-                                        })}
-
-                                    </ul>
-                                </div>
-
+                                <SelectCategoryModal setCategoryProducts={setCategoryProducts}/>
 
                                 <div className={`grid ${classes.gridColumns}`}>
                                     {categoryProducts.map((product, index) => (
