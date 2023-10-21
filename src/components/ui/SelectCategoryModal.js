@@ -51,6 +51,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
         nav(`/products/${category.name}`);
     };
 
+
     return (
         <div className={classes.container} >
             <h2>SELECT A CATEGORY:</h2>
@@ -79,7 +80,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
                             <li
                                 key={index}
                                 onClick={() => handleChangeCategory(category)}>
-
+                            
                                 {category.name === ALL ?
                                     category.name.toUpperCase() + " URRNZ"
                                     :
