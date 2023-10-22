@@ -82,7 +82,8 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} />
+                {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
+                <Heading title={"Gallery"} />
 
                 <ShowIf
                     condition={isLoading}
