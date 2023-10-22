@@ -133,7 +133,7 @@ const Products = () => {
                                                         />
                                                     </div>
                                                 </NavLink>
-                                                <div className={classes.detailsContainer}>
+                                                <div style={{zIndex: -1}} className={classes.detailsContainer}>
                                                     <div className={classes.detailsTitle}>
                                                         <h3 className={`${classes.heading} ${classes.limitTitle}`}>
                                                             {product.name}
