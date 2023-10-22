@@ -3,48 +3,41 @@
     background-image:
         linear-gradient(to right top, rgb(5, 35, 45), rgb(10, 53, 62), rgb(21, 75, 87), rgb(255, 140, 0), rgb(255, 106, 0), rgb(255, 72, 0));
     color: transparent;
-    font-size: 15rem;
-    font-weight: 900;
+    font-size: 12.6rem !important;
     margin-bottom: 9.6rem;
-    margin-top: 20rem;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
     text-align: center;
-    text-shadow: 2px 2px 2px rgba(49, 48, 46, 0.25);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
     text-transform: uppercase;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke-color: rgba(0, 0, 0, .1);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, .1);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; 
+    font-weight: bolder;
 }
 
 /*Media Queries*/
-@media screen and (max-width: 1024px) {
-    .heading {
-        font-size: 9rem;
-    }
-}
+
 
 @media screen and (max-width: 768px) {
     .heading {
-        font-size: 9.6rem;
         margin-bottom: 4.4rem;
         padding-top: 0;
         padding-bottom: 0;
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 420px) {
     .heading {
-        font-size: 8.4rem;
+        font-size: 8.4rem !important;
     }
 }
-
 @media screen and (max-width: 320px) {
     .heading {
-        font-size: 6.8rem;
+        font-size: 7.6rem !important;
     }
 }

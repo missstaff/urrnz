@@ -6,6 +6,7 @@ import AddToCartButton from "../components/ui/AddToCartButton";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
+import SelectCategoryModal from "../components/ui/SelectCategoryModal";
 import ShowIf from "../components/ShowIf";
 import { ALL } from "../config/constants";
 
@@ -24,16 +25,15 @@ const Products = () => {
     const isLoading = useSelector(state => state.loading);
 
     const allProducts = store.products;
-    const allCategories = store.categories;
     const category = store.category;
 
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [touchedIndex, setTouchedIndex] = useState(-1);
 
+
     const handleTouchStart = (index) => {
         setTouchedIndex(index);
     };
-
 
     const handleTouchEnd = () => {
         setTimeout(() => {
@@ -43,23 +43,6 @@ const Products = () => {
 
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
-    };
-
-    const handleCategoryChange = (event) => {
-
-        if (event.target.value === ALL) {
-            setCategoryProducts(allProducts);
-
-            dispatch(setCategoryHandler(ALL));
-        } else {
-            const filteredProducts = allProducts.filter(
-                (product) => product.category === event.target.value
-            );
-            dispatch(setCategoryHandler(event.target.value));
-            setCategoryProducts(filteredProducts);
-        }
-
-        nav(`/products/${event.target.value}`);
     };
 
     const handleNoItemsFound = (event) => {
@@ -85,7 +68,7 @@ const Products = () => {
         }
         const id = setTimeout(() => {
             dispatch(loadingActions.setLoading(false));
-        }, 500);
+        }, 750);
 
         return () => {
             clearTimeout(id);
@@ -99,7 +82,11 @@ const Products = () => {
             <section
                 className={`${classes.section}`}
                 id="gallery">
-                <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} />
+                {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
+                <div className="headingTopMargin">
+                <Heading title={"Gallery"} />
+                </div>
+                
 
                 <ShowIf
                     condition={isLoading}
@@ -114,23 +101,7 @@ const Products = () => {
                     render={() => {
                         return (
                             <>
-                                <div className={classes.dropDownContainer}>
-                                    <label htmlFor="categories"><h2>SELECT A CATEGORY:</h2></label>
-
-                                    <select
-                                        className={classes.dropDown}
-                                        name="categories" id="categories"
-                                        onChange={handleCategoryChange}
-                                        value={category}>
-                                        {allCategories.map((val, index) => (
-                                            <option
-                                                key={index}
-                                                value={val.name}>
-                                                {val.name === ALL ? val.name.toUpperCase() + " URRNZ" : val.name.toUpperCase()}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
+                                <SelectCategoryModal setCategoryProducts={setCategoryProducts}/>
 
                                 <div className={`grid ${classes.gridColumns}`}>
                                     {categoryProducts.map((product, index) => (
@@ -166,7 +137,7 @@ const Products = () => {
                                                         />
                                                     </div>
                                                 </NavLink>
-                                                <div className={classes.detailsContainer}>
+                                                <div style={{zIndex: -1}} className={classes.detailsContainer}>
                                                     <div className={classes.detailsTitle}>
                                                         <h3 className={`${classes.heading} ${classes.limitTitle}`}>
                                                             {product.name}

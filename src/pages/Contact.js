@@ -51,7 +51,9 @@ const Contact = () => {
 
     return (
         <section className={"wrapper"}>
+            <div className="headingTopMargin">
            <Heading title="CONTACT" />
+            </div>
             <main>
                 <Container className={classes.container}>
                     <h3>

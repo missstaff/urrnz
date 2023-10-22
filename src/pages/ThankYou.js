@@ -22,7 +22,7 @@ const ThankYou = () => {
 
     return (
         <div className={classes.wrapper}>
-             <div className="headingContainer">
+             <div className={"headingTopMargin"}>
                 <Heading title="THANK YOU" />
             </div>
             <div className={classes.container}>
