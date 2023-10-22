@@ -3,13 +3,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 4.8rem;
+    padding-bottom: 9.6rem;
 }
 
 .detailsContainer {
     margin-left: 5rem;
     margin-right: 5rem;
-    padding-bottom: 9.6rem;
+    padding-bottom: 4.8rem;
     position: relative;
 }
 
@@ -22,32 +22,29 @@
 
 
 .gridColumns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .heading {
     color: var(--color-gray-700);
-    font-size: 4.4rem;
-    margin-bottom: 2rem;
-    padding-top: 2rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
 }
 
 .image {
     align-self: center;
     border-radius: 7.5;
-    height: 50rem;
+    height: 25rem;
     image-resolution: from-image;
-    margin: 5%;
     object-fit: cover;
     resize: both;
-    width: auto;
+    width: fit-content;
 }
 
 .limitLines {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -108,13 +105,13 @@
 .details,
 .price {
     color: var(--color-gray-600);
-    font-size: 3.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-decoration: none;
 }
 
 .price {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 
 
@@ -130,6 +127,10 @@
 
     .section {
         margin-bottom: 10rem;
+    }
+
+    .gridColumns {
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
