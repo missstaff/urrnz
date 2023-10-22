@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,13 +25,6 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
 
     const handleToggleSelect = () => {
         setDisplayDropdown((previous) => !previous);
-
-        if (displayDropdown) {
-            setHidden("");
-            window.scrollTo(0, 0) 
-        } else {
-            setHidden(classes.hidden);
-        }
     };
 
     const handleChangeCategory = (category) => {
@@ -51,6 +44,17 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
         setHidden(classes.hidden);
         nav(`/products/${category.name}`);
     };
+
+    useEffect(() => {
+        if (displayDropdown) {
+            setHidden("");
+            window.scrollTo(0, 0) 
+        } else {
+            setHidden(classes.hidden);
+        }
+    
+    }, [displayDropdown])
+    
 
 
     return (
