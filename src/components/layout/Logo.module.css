@@ -1,17 +1,7 @@
 .logo {
-    height: 6.5rem;
-    width: auto;
-}
-
-/*Media Queries*/
-@media (max-width: 768px) {
-    .logo {
-        height: 5rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .logo {
-        height: 4rem;
-    }
+    height: 2.2rem;
+    image-resolution: from-image;
+    object-fit: contain;
+    resize: both;
+    width: fit-content;
 }

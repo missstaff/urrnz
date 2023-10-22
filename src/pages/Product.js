@@ -12,8 +12,7 @@ import { useEffect } from "react";
 import ShowIf from "../components/ShowIf";
 import PageContent from "../components/PageContent";
 import LoadingMessage from "../components/LoadingMessage";
-
-
+import Footer from "../components/layout/Footer";
 const Product = () => {
 
     const { id } = useParams();
@@ -37,94 +36,133 @@ const Product = () => {
 
 
     return (
-        <div className={`${classes.wrapper}`}>
+        <div className={classes.container}>
             <div className="headingTopMargin">
                 <Heading
                     title="PRODUCT DETAILS" />
             </div>
-            <ShowIf
-                condition={isLoading}
-                render={() => {
-                    return (
-                        <LoadingMessage
-                            message="Loading product details..." />
-                    );
-                }} />
-            {!isLoading && product && <NavLink
-                className={classes.link}
-                to={`/products/${category}`}>
-                {<span>&larr;</span>}
-                Back
-            </NavLink>}
-            <ShowIf
+            {!isLoading && product &&  <>
+                        <div className={classes.item}>
+                         <img
+                            alt={product.name}
+                            className={classes.productImage}
+                            src={product.images.lg}
+                        />
+                        <div style={{width: "10%", height: "500px", backgroundColor: "blue"}}>hello</div>
+                        </div>
+                        </>}
+
+            {/* <ShowIf
                 condition={!isLoading && product}
                 render={() => {
                     return (
-                        <div className={`${classes.container}`} >
-                            <div className={`${classes.productContainer} ${classes.gridColumns}`}>
-                                <img
-                                    alt={product.name}
-                                    className={classes.productImage}
-                                    src={product.images.lg}
-                                />
-                                <div>
-                                    <div style={{ marginBottom: `${2.2}rem` }}>
-                                        <h3 className={classes.title}>{product.name}</h3>
-                                        <p className={classes.description}>
-                                            {product.description}
-                                        </p>
-                                        <p className={classes.detailText}>
-                                            Price: ${product.price}
-                                        </p>
-                                        <p className={classes.detailText}>
-                                            Category: {product.category}
-                                        </p>
-                                        {product.color
-                                            &&
-                                            (
-                                                <p className={classes.detailText}>
-                                                    Color: {product.color}
-                                                </p>
-                                            )
-                                        }
-                                        {product.size
-                                            &&
-                                            (
-                                                <p className={classes.detailText}>
-                                                    Size: {product.size}
-                                                </p>
-                                            )
-                                        }
-                                    </div>
-                                    <div className={classes.buttonContainer}>
-                                        <AddToCartButton
-                                            onClick={() => addItemToCartHandler(product)}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                        <>
+                        <div className={classes.item}>
+                         <img
+                            alt={product.name}
+                            className={classes.productImage}
+                            src={product.images.lg}
+                        />
+                        <div style={{width: "500px", height: "500px", backgroundColor: "blue"}}>hello</div>
                         </div>
+                        </>
                     );
                 }}
-            />
-            <ShowIf
-                condition={!isLoading && !product}
-                render={() => {
-                    return (
-                        <PageContent
-                            titleClassName={classes.title}
-                            title={"Page not found!"}>
-                            <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
-                            <NavLink
-                                className={classes.link}
-                                to="/genres">
-                                {<span>&larr;</span>}Back
-                            </NavLink>
-                        </PageContent>
-                    );
-                }}
-            />
+            /> */}
+
         </div>
+        // <>
+        //     <div className={`${classes.wrapper}`}>
+        // <div className="headingTopMargin">
+        //     <Heading
+        //         title="PRODUCT DETAILS" />
+        // </div>
+        // <ShowIf
+        //     condition={isLoading}
+        //     render={() => {
+        //         return (
+        //             <LoadingMessage
+        //                 message="Loading product details..." />
+        //         );
+        //     }} />
+        //     {!isLoading && product && <NavLink
+        //         className={classes.link}
+        //         to={`/products/${category}`}>
+        //         {<span>&larr;</span>}
+        //         Back
+        //     </NavLink>}
+        // <ShowIf
+        //     condition={!isLoading && product}
+        //     render={() => {
+        //         return (
+        //             <div className={`${classes.container}`} >
+        //                 <div className={`${classes.productContainer} ${classes.gridColumns}`}>
+        //                     <img
+        //                         alt={product.name}
+        //                         className={classes.productImage}
+        //                         src={product.images.lg}
+        //                     />
+        //                     <div>
+        //                         <div style={{ marginBottom: `${2.2}rem` }}>
+        //                             <h3 className={classes.title}>{product.name}</h3>
+        //                             <p className={classes.description}>
+        //                                 {product.description}
+        //                             </p>
+        //                             <p className={classes.detailText}>
+        //                                 Price: ${product.price}
+        //                             </p>
+        //                             <p className={classes.detailText}>
+        //                                 Category: {product.category}
+        //                             </p>
+        //                             {product.color
+        //                                 &&
+        //                                 (
+        //                                     <p className={classes.detailText}>
+        //                                         Color: {product.color}
+        //                                     </p>
+        //                                 )
+        //                             }
+        //                             {product.size
+        //                                 &&
+        //                                 (
+        //                                     <p className={classes.detailText}>
+        //                                         Size: {product.size}
+        //                                     </p>
+        //                                 )
+        //                             }
+        //                         </div>
+        //                         <div className={classes.buttonContainer}>
+        //                             <AddToCartButton
+        //                                 onClick={() => addItemToCartHandler(product)}
+        //                             />
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         );
+        //     }}
+        // />
+        // <ShowIf
+        //     condition={!isLoading && !product}
+        //     render={() => {
+        //         return (
+        //             <PageContent
+        //                 titleClassName={classes.title}
+        //                 title={"Page not found!"}>
+        //                 <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
+        //                 <NavLink
+        //                     className={classes.link}
+        //                     to="/genres">
+        //                     {<span>&larr;</span>}Back
+        //                 </NavLink>
+        //             </PageContent>
+        //         );
+        //     }}
+        // />
+
+        // </div>
+
+        // </>
     );
 };
 
