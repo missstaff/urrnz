@@ -31,14 +31,14 @@ const Product = () => {
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
         const id = setTimeout(() => { dispatch(loadingActions.setLoading(false)) }
-        , 1000);
+            , 1000);
         return () => clearTimeout(id);
     }, [id]);
 
-    
+
     return (
         <div className={`${classes.wrapper}`}>
-            <div className="headingContainer">
+            <div className="headingTopMargin">
                 <Heading
                     title="PRODUCT DETAILS" />
             </div>
@@ -69,8 +69,7 @@ const Product = () => {
                                 />
                                 <div>
                                     <div style={{ marginBottom: `${2.2}rem` }}>
-                                        <h3 className={classes.title}>{product.name}
-                                        </h3>
+                                        <h3 className={classes.title}>{product.name}</h3>
                                         <p className={classes.description}>
                                             {product.description}
                                         </p>
@@ -113,7 +112,7 @@ const Product = () => {
                 render={() => {
                     return (
                         <PageContent
-                        titleClassName={classes.title}
+                            titleClassName={classes.title}
                             title={"Page not found!"}>
                             <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
                             <NavLink
