@@ -83,7 +83,10 @@ const Products = () => {
                 className={`${classes.section}`}
                 id="gallery">
                 {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
+                <div className="headingTopMargin">
                 <Heading title={"Gallery"} />
+                </div>
+                
 
                 <ShowIf
                     condition={isLoading}

@@ -60,7 +60,9 @@ const Cart = () => {
             style={{
                 height: !items.length ? `${100}vh` : `${100}%`
             }}>
-            <Heading title="CART" />
+            <div className="headingTopMargin">
+                <Heading title="CART" />
+            </div>
             <main>
                 <ShowIf
                     condition={isLoading}
@@ -125,29 +127,29 @@ const Cart = () => {
                                                 {item.description}
                                             </p>
 
-                                       <div style={{display: "flex", flexDirection: "column", width: "50%"}}> 
-                                       <div className={classes.textAreaContainer}>
-                                                <label htmlFor="message">Inscription:</label>
-                                                <div>
-                                                    <input
-                                                        className={`${classes.textAreaField}`}
-                                                        id="message"
-                                                        name="message"
-                                                        placeholder="Name or text to inscribe"
-                                                        type="text"
-                                                        onChange={(e) => dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
-                                                        value={item.inscription}
+                                            <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
+                                                <div className={classes.textAreaContainer}>
+                                                    <label htmlFor="message">Inscription:</label>
+                                                    <div>
+                                                        <input
+                                                            className={`${classes.textAreaField}`}
+                                                            id="message"
+                                                            name="message"
+                                                            placeholder="Name or text to inscribe"
+                                                            type="text"
+                                                            onChange={(e) => dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
+                                                            value={item.inscription}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    className={classes.pickerContainer}>
+                                                    <CustomPicker
+                                                        cid={item.cid}
                                                     />
                                                 </div>
                                             </div>
-
-                                            <div
-                                                className={classes.pickerContainer}>
-                                                <CustomPicker
-                                                    cid={item.cid}
-                                                />
-                                            </div>
-</div>
                                         </div>
                                     </div>
                                 </div>

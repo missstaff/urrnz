@@ -51,6 +51,10 @@ label {
   width: 50rem;
 }
 
+.headingTopMargin{
+  margin-top: 17.5rem;
+}
+
 
 /*<--Media Queries-->*/
 @media screen and (max-width: 1024px) {
