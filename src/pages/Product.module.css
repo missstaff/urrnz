@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 6.4rem;
+    padding-bottom: 9.6rem;
 }
 
 .container {
@@ -15,7 +15,7 @@
 }
 
 .description {
-    font-size: 3.4rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
 }
@@ -55,14 +55,15 @@
 .productImage {
     height: 50rem;
     image-resolution: from-image;
-    object-fit: cover;
+    object-fit: contain;
     resize: both;
-    width: auto;
+    width: fit-content;
 }
 
 .title {
-    font-size: 7.5rem;
-    margin-bottom: 1rem;
+    font-size: 4.8rem;
+    text-align: center;
+    /* margin-bottom: 1rem; */
 }
 
 .wrapper {
@@ -91,7 +92,7 @@
 
 
 /*Media Queries*/
-@media screen and (max-width: 1024px) {
+ @media screen and (max-width: 1024px) {
     .description {
         font-size: 2.8rem;
         margin-bottom: 1rem;
@@ -121,7 +122,7 @@
 @media screen and (max-width: 768px) {
     .container {
         padding: 0 2.4rem;
-        /* margin-bottom: 4.4rem; */
+        margin-bottom: 4.4rem;
     }
 
     .buttonContainer {
@@ -175,4 +176,4 @@
         font-size: 2.4rem;
         margin-bottom: 0.5rem;
     }
-}
+} 
