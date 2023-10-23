@@ -52,7 +52,7 @@ const Product = () => {
                     condition={isLoading}
                     render={() => {
                         return (
-                            <div style={{ width: "100%", height: "100vh" }}>
+                            <div className={classes.fullpage}>
                                 <LoadingMessage
                                     message="Loading product details..." />
                             </div>
@@ -64,7 +64,7 @@ const Product = () => {
                                 condition={!isLoading && !product}
                                 render={() => {
                                     return (
-                                        <div style={{ width: "100%", height: "100vh" }}>
+                                        <div className={classes.fullpage}>
                                             <PageContent
                                                 titleClassName={classes.title}
                                                 title={"Page not found!"}>
@@ -93,14 +93,10 @@ const Product = () => {
                                                     className={classes.productImage}
                                                     src={product.images.lg}
                                                 />
-                                                <div style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    width: "100%"
-                                                }}>
+                                                <div className={classes.descriptionContainer}>
                                                     <h3 className={classes.title}>{product.name}</h3>
                                                     <div
-                                                        style={{ alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                                                        className={classes.detailTextContainer}>
                                                         <p className={classes.detailText}>
                                                             Price: ${product.price}
                                                         </p>
@@ -112,7 +108,7 @@ const Product = () => {
                                                         {product.description}
                                                     </p>
 
-                                                    <div style={{ width: "50%", alignSelf: "center", padding: "2.2rem", maxWidth: "100%" }}>
+                                                    <div className={classes.btnContainer}>
                                                         <AddToCartButton
                                                             onClick={() => addItemToCartHandler(product)}
                                                         />
