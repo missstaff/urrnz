@@ -1,6 +1,6 @@
 import classes from './PageContent.module.css';
 
-
+{/*needs sizing but overal looks decent */}
 const PageContent = ({ titleClassName, title, children }) => {
   return (
     <div className={classes.content}>

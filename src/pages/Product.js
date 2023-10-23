@@ -23,9 +23,12 @@ const Product = () => {
 
     let product = products.find((product) => product.zid === id);
     let category = store.category;
+
+
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
+
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
@@ -36,133 +39,95 @@ const Product = () => {
 
 
     return (
-        <div className={classes.container}>
-            <div className="headingTopMargin">
-                <Heading
-                    title="PRODUCT DETAILS" />
+
+        <div div style={{position: "relative"}}>
+            <div className={classes.container}>
+
+                <div className="headingTopMargin">
+                    <Heading
+                        title="PRODUCT DETAILS" />
+                </div>
+
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div style={{ width: "100%", height: "100vh" }}>
+                                <LoadingMessage
+                                    message="Loading product details..." />
+                            </div>
+                        );
+                    }}
+                    renderElse={() => {
+                        return (
+                            <ShowIf
+                                condition={!isLoading && !product}
+                                render={() => {
+                                    return (
+                                        <div style={{ width: "100%", height: "100vh" }}>
+                                            <PageContent
+                                                titleClassName={classes.title}
+                                                title={"Page not found!"}>
+                                                <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
+                                                <NavLink
+                                                    className={classes.link}
+                                                    to="/genres">
+                                                    {<span>&larr;</span>}Back
+                                                </NavLink>
+                                            </PageContent>
+                                        </div>
+                                    );
+                                }}
+                                renderElse={() => {
+                                    return (
+                                        <>
+                                            <NavLink
+                                                className={classes.link}
+                                                to={`/products/${category}`}>
+                                                {<span>&larr;</span>}
+                                                Back
+                                            </NavLink>
+                                            <div className={classes.item}>
+                                                <img
+                                                    alt={product.name}
+                                                    className={classes.productImage}
+                                                    src={product.images.lg}
+                                                />
+                                                <div style={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    width: "100%"
+                                                }}>
+                                                    <h3 className={classes.title}>{product.name}</h3>
+                                                    <div
+                                                        style={{ alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                                                        <p className={classes.detailText}>
+                                                            Price: ${product.price}
+                                                        </p>
+                                                        <p className={classes.detailText}>
+                                                            Category: {product.category}
+                                                        </p>
+                                                    </div>
+                                                    <p className={classes.description}>
+                                                        {product.description}
+                                                    </p>
+
+                                                    <div style={{ width: "50%", alignSelf: "center", padding: "2.2rem", maxWidth: "100%" }}>
+                                                        <AddToCartButton
+                                                            onClick={() => addItemToCartHandler(product)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </>
+                                    );
+                                }}
+                            />
+                        );
+                    }}
+                />
             </div>
-            {!isLoading && product &&  <>
-                        <div className={classes.item}>
-                         <img
-                            alt={product.name}
-                            className={classes.productImage}
-                            src={product.images.lg}
-                        />
-                        <div style={{width: "10%", height: "500px", backgroundColor: "blue"}}>hello</div>
-                        </div>
-                        </>}
-
-            {/* <ShowIf
-                condition={!isLoading && product}
-                render={() => {
-                    return (
-                        <>
-                        <div className={classes.item}>
-                         <img
-                            alt={product.name}
-                            className={classes.productImage}
-                            src={product.images.lg}
-                        />
-                        <div style={{width: "500px", height: "500px", backgroundColor: "blue"}}>hello</div>
-                        </div>
-                        </>
-                    );
-                }}
-            /> */}
-
         </div>
-        // <>
-        //     <div className={`${classes.wrapper}`}>
-        // <div className="headingTopMargin">
-        //     <Heading
-        //         title="PRODUCT DETAILS" />
-        // </div>
-        // <ShowIf
-        //     condition={isLoading}
-        //     render={() => {
-        //         return (
-        //             <LoadingMessage
-        //                 message="Loading product details..." />
-        //         );
-        //     }} />
-        //     {!isLoading && product && <NavLink
-        //         className={classes.link}
-        //         to={`/products/${category}`}>
-        //         {<span>&larr;</span>}
-        //         Back
-        //     </NavLink>}
-        // <ShowIf
-        //     condition={!isLoading && product}
-        //     render={() => {
-        //         return (
-        //             <div className={`${classes.container}`} >
-        //                 <div className={`${classes.productContainer} ${classes.gridColumns}`}>
-        //                     <img
-        //                         alt={product.name}
-        //                         className={classes.productImage}
-        //                         src={product.images.lg}
-        //                     />
-        //                     <div>
-        //                         <div style={{ marginBottom: `${2.2}rem` }}>
-        //                             <h3 className={classes.title}>{product.name}</h3>
-        //                             <p className={classes.description}>
-        //                                 {product.description}
-        //                             </p>
-        //                             <p className={classes.detailText}>
-        //                                 Price: ${product.price}
-        //                             </p>
-        //                             <p className={classes.detailText}>
-        //                                 Category: {product.category}
-        //                             </p>
-        //                             {product.color
-        //                                 &&
-        //                                 (
-        //                                     <p className={classes.detailText}>
-        //                                         Color: {product.color}
-        //                                     </p>
-        //                                 )
-        //                             }
-        //                             {product.size
-        //                                 &&
-        //                                 (
-        //                                     <p className={classes.detailText}>
-        //                                         Size: {product.size}
-        //                                     </p>
-        //                                 )
-        //                             }
-        //                         </div>
-        //                         <div className={classes.buttonContainer}>
-        //                             <AddToCartButton
-        //                                 onClick={() => addItemToCartHandler(product)}
-        //                             />
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         );
-        //     }}
-        // />
-        // <ShowIf
-        //     condition={!isLoading && !product}
-        //     render={() => {
-        //         return (
-        //             <PageContent
-        //                 titleClassName={classes.title}
-        //                 title={"Page not found!"}>
-        //                 <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
-        //                 <NavLink
-        //                     className={classes.link}
-        //                     to="/genres">
-        //                     {<span>&larr;</span>}Back
-        //                 </NavLink>
-        //             </PageContent>
-        //         );
-        //     }}
-        // />
-
-        // </div>
-
-        // </>
     );
 };
 
