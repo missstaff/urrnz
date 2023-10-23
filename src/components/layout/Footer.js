@@ -6,12 +6,10 @@ import classes from "./Footer.module.css";
 const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <div className={classes.contentWrapper}>
-        <Logo />
+       <Logo />
         <p className={classes.text}>
           All Rights Reserved © {new Date().getFullYear()}
         </p>
-      </div>
     </footer>
   );
 };

@@ -4,19 +4,26 @@
     border-radius: 7.5px;
     color: var(--color-secondary-700);
     cursor: pointer;
-    font-size: 2.2rem;
-    padding: 0.5rem 1rem;
+    font-size: 3.4rem;
+    padding: 1.2rem 2.4rem;
     text-align: center;
     text-decoration: none;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     text-transform: capitalize;
+    width: 100%;
 }
 
+
+@media screen and (max-width: 1300px){
+    .button{
+        font-size: medium;
+    }
+}
 /*Media Queries*/
 @media screen and (max-width: 1024px) {
     .button {
-        font-size: 3rem;
+        font-size: medium;
     }
 }
 
@@ -28,12 +35,13 @@
 
 @media screen and (max-width: 480px) {
     .button {
-        font-size: 2rem;
+        font-size: small;
     }
-}
+} 
 
 @media screen and (max-width: 320px) {
     .button {
-        font-size: 1.8rem;
+        font-size: xx-small;
+        padding: 0.75rem 1.5rem;
     }
 }

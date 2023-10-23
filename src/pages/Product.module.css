@@ -1,58 +1,37 @@
-.buttonContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 9.6rem;
-}
-
 .container {
-    background-color: rgba(255, 236, 209, 0.20);
-    border-radius: 7.5px;
-    margin: 0 auto;
-    max-width: 150rem;
-    padding: 0 3.2rem;    
-}
-
-.description {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-}
-
-.detailText {
-    font-size: 2.2rem;
-    padding-bottom: 0.1rem;
-}
-
-.errorMessage {
-    font-size: 1.8rem;
-}
-
-.errorTitle {
-    font-size: 4.4rem;
-    margin-bottom: 1rem;
-}
-
-.gridColumns {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.productContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.productDetailsContainer {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 0;
+    margin-bottom: 19.2rem;
 }
 
-.productImage {
+.item {
+    display: grid;
+    background-color: rgba(255, 236, 209, 0.20);
+    border-radius: 7.5px;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr 2fr);
+    height: auto;
+    margin: 0 auto;
+    max-width: 150rem;
+    padding: 4.8rem;
+}
+
+.item>div>h3 {
+    font-size: 6.4rem;
+    margin-bottom: 2.2rem;
+    padding: 1.2rem;
+    text-align: left;
+}
+
+.item>img {
+    align-self: center;
+    justify-self: center;
     height: 50rem;
     image-resolution: from-image;
     object-fit: contain;
@@ -60,25 +39,47 @@
     width: fit-content;
 }
 
-.title {
-    font-size: 4.8rem;
-    text-align: center;
-    /* margin-bottom: 1rem; */
+.descriptionContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 4.4rem;
 }
 
-.wrapper {
-    height: 100vh;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 9.8rem;
+.description {
+    font-size: 3.4rem;
+    padding: 1.2rem;
+    width: 90%;
 }
 
-/*Links*/
+.detailTextContainer{ 
+    width: 90%;
+}
+
+.detailText {
+    font-size: 2.8rem;
+    padding: 0 1.2rem;
+    width: 100%;
+}
+
+.btnContainer{ 
+    align-self: center; 
+    margin-top: 4.4rem !important; 
+}
+
+.fullpage{
+    width: 100%; 
+    height: 100vh 
+}
+
 .link {
+    align-self: flex-start;
     display: block;
     color: var(--color-gray-900);
     font-size: 1.6rem;
-    margin: 1.6rem;
+    margin-bottom: 4.8rem;
+    margin-left: 4.8rem;
+    text-align: left;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -90,33 +91,55 @@
 }
 
 
+/*MEDIA QUERIES*/
 
-/*Media Queries*/
- @media screen and (max-width: 1024px) {
-    .description {
-        font-size: 2.8rem;
+@media screen and (min-width: 4650px) {
+    .container {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 6100px) {
+    .container {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .item {
         margin-bottom: 1rem;
-        padding-bottom: 1rem;
+
+    }
+    .container {
+        height: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .item>img {
+        height: 35rem;
     }
 
-    .detailText {
-        font-size: 1.8rem;
-        padding-bottom: 0.1rem;
-    }
-
-    .gridColumns {
+    .item {
+        display: grid; 
         grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 4.6rem;
+        padding-bottom: 4.6rem;
+    }
+    .descriptionContainer{
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 920px) {
+     .item {
+        display: grid; 
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 4.6rem;
+        padding-bottom: 4.6rem;
     }
 
-    .productContainer {
-        flex-direction: column;
-
-    }
-
-    .title {
-        font-size: 5.6rem;
-        margin-bottom: 1rem;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -144,36 +167,31 @@
         margin-bottom: 1rem;
     }
 
-    .productImage {
+    .item>img {
         height: 25rem;
-        width: auto;
+        width: fit-content;
     }
 
-    .title {
+    .item>div>h3 {
         font-size: 4.4rem;
         margin-bottom: 1rem;
-    }
-
-    .wrapper {
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
     }
 }
 
 @media screen and (max-width: 580px) {
     .description {
-        font-size: 1.6rem;
+        font-size: 2.4rem;
         margin-bottom: 0.5rem;
         padding-bottom: 0.5rem;
     }
 
     .detailText {
-        font-size: 1.4rem;
-        padding-bottom: 0.1rem;
+        font-size: 1.8rem;
+        /* padding-bottom: 0.1rem; */
     }
 
-    .title {
-        font-size: 2.4rem;
+    .item > div > h3 {
+        font-size: 2.8rem;
         margin-bottom: 0.5rem;
     }
 } 

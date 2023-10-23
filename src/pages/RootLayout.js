@@ -5,10 +5,10 @@ import MainNavigation from "../components/layout/MainNavigation";
 
 const RootLayout = () => {
     return (
-        <div style={{ overflowX: "hidden" }}>
+        <div>
             <MainNavigation />
-            <main>
-                <Outlet />
+            <main >
+                <Outlet/>
             </main>
             <Footer />
         </div>

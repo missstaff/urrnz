@@ -78,8 +78,7 @@ const Products = () => {
 
 
     return (
-        <main style={{ height: isLoading ? `${100}vh` : "" }}>
-            <section
+            <div style={{ height: isLoading ? `${100}vh` : "100%" }}
                 className={`${classes.section}`}
                 id="gallery">
                 {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
@@ -190,8 +189,7 @@ const Products = () => {
                         );
                     }}
                 />
-            </section>
-        </main>
+            </div>
     );
 };
 

@@ -12,8 +12,7 @@ import { useEffect } from "react";
 import ShowIf from "../components/ShowIf";
 import PageContent from "../components/PageContent";
 import LoadingMessage from "../components/LoadingMessage";
-
-
+import Footer from "../components/layout/Footer";
 const Product = () => {
 
     const { id } = useParams();
@@ -24,9 +23,12 @@ const Product = () => {
 
     let product = products.find((product) => product.zid === id);
     let category = store.category;
+
+
     const addItemToCartHandler = (product) => {
         dispatch(addToCartHandler(product));
     };
+
 
     useEffect(() => {
         dispatch(loadingActions.setLoading(true));
@@ -37,93 +39,90 @@ const Product = () => {
 
 
     return (
-        <div className={`${classes.wrapper}`}>
-            <div className="headingTopMargin">
-                <Heading
-                    title="PRODUCT DETAILS" />
-            </div>
-            <ShowIf
-                condition={isLoading}
-                render={() => {
-                    return (
-                        <LoadingMessage
-                            message="Loading product details..." />
-                    );
-                }} />
-            {!isLoading && product && <NavLink
-                className={classes.link}
-                to={`/products/${category}`}>
-                {<span>&larr;</span>}
-                Back
-            </NavLink>}
-            <ShowIf
-                condition={!isLoading && product}
-                render={() => {
-                    return (
-                        <div className={`${classes.container}`} >
-                            <div className={`${classes.productContainer} ${classes.gridColumns}`}>
-                                <img
-                                    alt={product.name}
-                                    className={classes.productImage}
-                                    src={product.images.lg}
-                                />
-                                <div>
-                                    <div style={{ marginBottom: `${2.2}rem` }}>
-                                        <h3 className={classes.title}>{product.name}</h3>
-                                        <p className={classes.description}>
-                                            {product.description}
-                                        </p>
-                                        <p className={classes.detailText}>
-                                            Price: ${product.price}
-                                        </p>
-                                        <p className={classes.detailText}>
-                                            Category: {product.category}
-                                        </p>
-                                        {product.color
-                                            &&
-                                            (
-                                                <p className={classes.detailText}>
-                                                    Color: {product.color}
-                                                </p>
-                                            )
-                                        }
-                                        {product.size
-                                            &&
-                                            (
-                                                <p className={classes.detailText}>
-                                                    Size: {product.size}
-                                                </p>
-                                            )
-                                        }
-                                    </div>
-                                    <div className={classes.buttonContainer}>
-                                        <AddToCartButton
-                                            onClick={() => addItemToCartHandler(product)}
-                                        />
-                                    </div>
-                                </div>
+
+        <div div style={{position: "relative"}}>
+            <div className={classes.container}>
+
+                <div className="headingTopMargin">
+                    <Heading
+                        title="PRODUCT DETAILS" />
+                </div>
+
+                <ShowIf
+                    condition={isLoading}
+                    render={() => {
+                        return (
+                            <div className={classes.fullpage}>
+                                <LoadingMessage
+                                    message="Loading product details..." />
                             </div>
-                        </div>
-                    );
-                }}
-            />
-            <ShowIf
-                condition={!isLoading && !product}
-                render={() => {
-                    return (
-                        <PageContent
-                            titleClassName={classes.title}
-                            title={"Page not found!"}>
-                            <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
-                            <NavLink
-                                className={classes.link}
-                                to="/genres">
-                                {<span>&larr;</span>}Back
-                            </NavLink>
-                        </PageContent>
-                    );
-                }}
-            />
+                        );
+                    }}
+                    renderElse={() => {
+                        return (
+                            <ShowIf
+                                condition={!isLoading && !product}
+                                render={() => {
+                                    return (
+                                        <div className={classes.fullpage}>
+                                            <PageContent
+                                                titleClassName={classes.title}
+                                                title={"Page not found!"}>
+                                                <p className={classes.errorMessage}>Sorry, the page you were looking for does not exist.</p>
+                                                <NavLink
+                                                    className={classes.link}
+                                                    to="/genres">
+                                                    {<span>&larr;</span>}Back
+                                                </NavLink>
+                                            </PageContent>
+                                        </div>
+                                    );
+                                }}
+                                renderElse={() => {
+                                    return (
+                                        <>
+                                            <NavLink
+                                                className={classes.link}
+                                                to={`/products/${category}`}>
+                                                {<span>&larr;</span>}
+                                                Back
+                                            </NavLink>
+                                            <div className={classes.item}>
+                                                <img
+                                                    alt={product.name}
+                                                    className={classes.productImage}
+                                                    src={product.images.lg}
+                                                />
+                                                <div className={classes.descriptionContainer}>
+                                                    <h3 className={classes.title}>{product.name}</h3>
+                                                    <div
+                                                        className={classes.detailTextContainer}>
+                                                        <p className={classes.detailText}>
+                                                            Price: ${product.price}
+                                                        </p>
+                                                        <p className={classes.detailText}>
+                                                            Category: {product.category}
+                                                        </p>
+                                                    </div>
+                                                    <p className={classes.description}>
+                                                        {product.description}
+                                                    </p>
+
+                                                    <div className={classes.btnContainer}>
+                                                        <AddToCartButton
+                                                            onClick={() => addItemToCartHandler(product)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </>
+                                    );
+                                }}
+                            />
+                        );
+                    }}
+                />
+            </div>
         </div>
     );
 };
