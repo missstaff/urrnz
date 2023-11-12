@@ -80,37 +80,24 @@ const Cart = () => {
                                     key={item.cid}>
                                     <div className={`${classes.itemContainer}`}>
                                         <div className={classes.imageContainer}>
-                                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                                <img
-                                                    alt={item.name}
-                                                    className={classes.itemImage}
-                                                    src={item.image}
+                                           <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+                                           <img
+                                                alt={item.name}
+                                                className={classes.itemImage}
+                                                src={item.image}
+                                            />
+                                              <CustomPicker
+                                                    cid={item.cid}
                                                 />
-
-                                                {/* <div
-                                                    onClick={() => increaseItemQuantityHandler(item)}
-                                                    className={classes.quantityButton}>
-                                                    <FaPlus
-                                                        color="rgba(255, 71, 0, 1)"
-                                                        size={`${1}rem`}
-                                                    />
-                                                </div>
-                                                <div
-                                                    onClick={() => decreaseItemQuantityHandler(item.cid)}
-                                                    className={classes.quantityButton}>
-                                                    <FaMinus
-                                                        color="rgba(255, 71, 0, 1)"
-                                                        size={`${1}rem`}
-                                                    />
-                                                </div> */}
-                                            </div>
+                                           </div>
                                         </div>
                                         <div>
-                                            <h3 style={{ textAlign: "left" }} >
+                                            <h3 style={{ textAlign: "left",  width: "100%" }} >
                                                 {item.name}
                                             </h3>
 
-                                            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "65%"}}>
+                                            <div>
+                                            <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
                                                 <div>
                                                     <p
                                                         className={classes.itemPrice}>
@@ -120,27 +107,33 @@ const Cart = () => {
                                                         className={classes.itemPrice}>
                                                         Quantity: {item.quantity}
                                                     </p>
+
+                                                    
                                                 </div>
 
-                                                <div style={{display: "flex", flexDirection: "row"}}>
-                                                <div
-                                                    onClick={() => increaseItemQuantityHandler(item)}
-                                                    className={classes.quantityButton}>
-                                                    <FaPlus
-                                                        color="rgba(255, 71, 0, 1)"
-                                                        size={`${1}rem`}
-                                                    />
-                                                </div>
-                                                <div
-                                                    onClick={() => decreaseItemQuantityHandler(item.cid)}
-                                                    className={classes.quantityButton}>
-                                                    <FaMinus
-                                                        color="rgba(255, 71, 0, 1)"
-                                                        size={`${1}rem`}
-                                                    />
-                                                </div>
+                                                <div style={{ display: "flex", flexDirection: "row", columnGap: "5px" }}>
+                                                    <div
+                                                        onClick={() => increaseItemQuantityHandler(item)}
+                                                        className={classes.quantityButton}>
+                                                        <FaPlus
+                                                            color="rgba(255, 71, 0, 1)"
+                                                            size={`${1}rem`}
+                                                        />
+                                                    </div>
+                                                    <div
+                                                        onClick={() => decreaseItemQuantityHandler(item.cid)}
+                                                        className={classes.quantityButton}>
+                                                        <FaMinus
+                                                            color="rgba(255, 71, 0, 1)"
+                                                            size={`${1}rem`}
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <p
+                                                className={classes.itemDescription}>
+                                                {item.description}
+                                            </p>
                                             <div>
                                                 <div className={classes.textAreaContainer}>
                                                     <label htmlFor="message">Inscription:</label>
@@ -157,9 +150,10 @@ const Cart = () => {
                                                     </div>
                                                 </div>
 
-                                                <CustomPicker
+                                                {/* <CustomPicker
                                                     cid={item.cid}
-                                                />
+                                                /> */}
+                                            </div>
                                             </div>
 
                                         </div>
