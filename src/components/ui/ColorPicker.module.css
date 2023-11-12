@@ -3,7 +3,7 @@
     row-gap: 0.5rem;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    width: 100%;
+    width: fit-content;
 }
 
 .image {
@@ -14,13 +14,13 @@
 
 .selectColor {
     font-size: 1.8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: 100%;
 }
 
 .selectedColor {
     font-size: 1.8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     width: 100%;
 }
 

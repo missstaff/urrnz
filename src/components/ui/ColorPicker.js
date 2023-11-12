@@ -43,24 +43,22 @@ const ColorPicker = (props) => {
             className={classes.image}
             key={color}
             onClick={() => handleColorChange(color)}
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: color, outline: color === selectedColor ? "3px solid #777" : "none" }}
           />
         ))}
       </div>
-      <ShowIf
+      {/* <ShowIf
         condition={selectedColor}
         render={() => {
           return (
-            <p className={classes.selectColor}>
-              Selected color:<span
-                className={classes.selectedColor}
-                style={{ color: selectedColor }}>
-                {COLOR_CODE_TO_NAME[selectedColor]}
-              </span>
+            <p
+            className={classes.selectedColor}
+              style={{ color: selectedColor }}><span style={{color: "#777"}}>Color: </span>
+              {COLOR_CODE_TO_NAME[selectedColor]}
             </p>
           );
         }}
-      />
+      /> */}
     </div>
   );
 };
