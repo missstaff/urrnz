@@ -157,7 +157,8 @@ const Products = () => {
                                                 <div
                                                     className={classes.buttonContainer}>
                                                     <AddToCartButton
-                                                        onClick={() => addItemToCartHandler(product)} />
+                                                        onClick={() => addItemToCartHandler(product)}
+                                                        style={{ fontSize: `${2.2}rem` }} />
                                                 </div>
                                             </Container>
                                         </div>
