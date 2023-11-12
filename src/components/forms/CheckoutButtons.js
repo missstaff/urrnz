@@ -6,7 +6,6 @@ const CheckoutButtons = ({ activeStep, handleBack, title }) => {
     return (
         <div className={classes.btnContainer}>
             <FormButton
-                disabled={activeStep === 0}
                 fontClassName={classes.btnFont}
                 onClick={handleBack}
                 title="Back"

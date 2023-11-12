@@ -8,6 +8,7 @@ import Review from "../components/forms/Review";
 
 import { CHECKOUT_STEPS } from "../config/constants";
 import classes from "./Checkout.module.css";
+import { useNavigate } from "react-router-dom";
 
 
 const getStepContent = (activeStep, handleBack, handleNext) => {
@@ -36,7 +37,7 @@ const getStepContent = (activeStep, handleBack, handleNext) => {
 
 
 const Checkout = () => {
-
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
 
 
@@ -45,6 +46,10 @@ const Checkout = () => {
   };
 
   const handleBack = () => {
+    console.log("CLICK")
+    if(activeStep===0){
+      navigate("/cart")
+    }
     setActiveStep((prevStep) => prevStep - 1);
   };
 
