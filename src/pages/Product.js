@@ -40,7 +40,7 @@ const Product = () => {
 
     return (
 
-        <div div style={{position: "relative"}}>
+        <div div style={{ position: "relative" }}>
             <div className={classes.container}>
 
                 <div className="headingTopMargin">
@@ -87,33 +87,39 @@ const Product = () => {
                                                 {<span>&larr;</span>}
                                                 Back
                                             </NavLink>
-                                            <div className={classes.item}>
-                                                <img
-                                                    alt={product.name}
-                                                    className={classes.productImage}
-                                                    src={product.images.lg}
-                                                />
-                                                <div className={classes.descriptionContainer}>
-                                                    <h3 className={classes.title}>{product.name}</h3>
-                                                    <div
-                                                        className={classes.detailTextContainer}>
-                                                        <p className={classes.detailText}>
-                                                            Price: ${product.price}
-                                                        </p>
-                                                        <p className={classes.detailText}>
-                                                            Category: {product.category}
-                                                        </p>
-                                                    </div>
-                                                    <p className={classes.description}>
-                                                        {product.description}
-                                                    </p>
+                                            <div>
+                                                <div className={`${classes.itemContainer}`}>
+                                                    <div className={classes.item}>
+                                                        <img
+                                                            alt={product.name}
+                                                            className={classes.productImage}
+                                                            src={product.images.lg}
+                                                        />
+                                                        <div className={classes.descriptionContainer}>
+                                                            <h3 className={classes.title}>{product.name}</h3>
+                                                            <div
+                                                                className={classes.detailTextContainer}>
+                                                                <p className={classes.detailText}>
+                                                                    Price: ${product.price}
+                                                                </p>
+                                                                <p className={classes.detailText}>
+                                                                    Category: {product.category}
+                                                                </p>
+                                                            </div>
+                                                            <p className={classes.description}>
+                                                                {product.description}
+                                                            </p>
+                                                        </div>
 
+                                                    </div>
                                                     <div className={classes.btnContainer}>
                                                         <AddToCartButton
                                                             onClick={() => addItemToCartHandler(product)}
+                                                            style={{ fontSize: `${2.2}rem` }}
                                                         />
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </>
                                     );
