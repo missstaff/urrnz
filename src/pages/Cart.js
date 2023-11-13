@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -23,11 +23,9 @@ const Cart = () => {
 
     const subTotal = cart.subTotal;
     let items = cart.items;
-    let index;
 
-
-    const [inscription, setInscription] = useState("");
     const localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
 
     const increaseItemQuantityHandler = (item) => {
         dispatch(cartActions.addItemToCart(item));
@@ -44,8 +42,6 @@ const Cart = () => {
 
         if (localStorageCart) {
             dispatch(cartActions.replaceCart(localStorageCart));
-
-
         }
 
         dispatch(loadingActions.setLoading(false));
@@ -80,29 +76,40 @@ const Cart = () => {
                                 <div
                                     className={`${classes.container}`}
                                     key={item.cid}>
-                                    <div className={`${classes.gridColumns} ${classes.itemContainer}`}>
+                                    <div className={`${classes.itemContainer}`}>
                                         <div className={classes.imageContainer}>
-                                            <img
-                                                alt={item.name}
-                                                className={classes.itemImage}
-                                                src={item.image}
-                                            />
+                                            <div className={classes.imageContainerColumn}>
+                                                <img
+                                                    alt={item.name}
+                                                    className={classes.itemImage}
+                                                    src={item.image}
+                                                />
+                                                <CustomPicker
+                                                    cid={item.cid}
+                                                />
+                                            </div>
                                         </div>
-                                        <div style={{ alignSelf: "center" }}>
-                                            <div className={classes.itemHeader}>
-                                                <h2 className={classes.itemName}>
-                                                    {item.name}
-                                                </h2>
-                                                <div className={classes.itemDetails}>
-                                                    <p
-                                                        className={classes.itemPrice}>
-                                                        Price: ${item.price * item.quantity}
-                                                    </p>
-                                                    <p
-                                                        className={classes.itemPrice}>
-                                                        Quantity: {item.quantity}
-                                                    </p>
-                                                    <div className={classes.itemButtons}>
+                                        <div>
+                                            <h3 className={classes.title} >
+                                                {item.name}
+                                            </h3>
+
+                                            <div>
+                                                <div className={classes.detailsContainer}>
+                                                    <div>
+                                                        <p
+                                                            className={classes.itemPrice}>
+                                                            Price: ${item.price * item.quantity}
+                                                        </p>
+                                                        <p
+                                                            className={classes.itemPrice}>
+                                                            Quantity: {item.quantity}
+                                                        </p>
+
+
+                                                    </div>
+
+                                                    <div className={classes.quantityButtonContainer}>
                                                         <div
                                                             onClick={() => increaseItemQuantityHandler(item)}
                                                             className={classes.quantityButton}>
@@ -121,35 +128,28 @@ const Cart = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <p
-                                                className={classes.itemDescription}>
-                                                {item.description}
-                                            </p>
-
-                                            <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
-                                                <div className={classes.textAreaContainer}>
-                                                    <label htmlFor="message">Inscription:</label>
-                                                    <div>
-                                                        <input
-                                                            className={`${classes.textAreaField}`}
-                                                            id="message"
-                                                            name="message"
-                                                            placeholder="Name or text to inscribe"
-                                                            type="text"
-                                                            onChange={(e) => dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
-                                                            value={item.inscription}
-                                                        />
+                                                <p
+                                                    className={classes.itemDescription}>
+                                                    {item.description}
+                                                </p>
+                                                <div>
+                                                    <div className={classes.textAreaContainer}>
+                                                        <label htmlFor="message">Inscription:</label>
+                                                        <div>
+                                                            <input
+                                                                className={`${classes.textAreaField}`}
+                                                                id="message"
+                                                                name="message"
+                                                                placeholder="Name or text to inscribe"
+                                                                type="text"
+                                                                onChange={(e) => dispatch(cartActions.setItemInscription({ id: item.cid, inscription: e.target.value }))}
+                                                                value={item.inscription}
+                                                            />
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div
-                                                    className={classes.pickerContainer}>
-                                                    <CustomPicker
-                                                        cid={item.cid}
-                                                    />
-                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

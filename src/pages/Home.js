@@ -13,12 +13,14 @@ const Home = () => {
             <section
                 id="about">
                 <Heading
+                    style={{ marginTop: "4.8rem", marginBottom: "4.8rem" }}
                     title="ABOUT" />
                 <About />
             </section>
             <section
                 id="faqs">
                 <Heading
+                    style={{ marginTop: "4.8rem", marginBottom: "4.8rem" }}
                     title="FAQs" />
                 <FAQ />
             </section>
