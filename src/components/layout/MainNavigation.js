@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FaGripLines } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
@@ -29,15 +29,19 @@ function MainNavigation() {
     };
 
 
-    if (
-        (curLocation === "/" ||
-            curLocation === "/genres" ||
-            curLocation === "/cart" ||
-            curLocation === "/contact" ||
-            curLocation === `/products/${category}`) &&
-        pathHash !== "#about" &&
-        pathHash !== "#faqs"
-    ) { window.scrollTo(0, 0) }
+    useEffect(() => {
+        if (
+            (curLocation === "/" ||
+                curLocation === "/genres" ||
+                curLocation === "/cart" ||
+                curLocation === "/contact" ||
+                curLocation === `/products/${category}`) &&
+            pathHash !== "#about" &&
+            pathHash !== "#faqs"
+        ) {
+            window.scrollTo(0, 0);
+        } 
+    }, [curLocation, pathHash]);
 
 
     return (
