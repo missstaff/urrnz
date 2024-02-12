@@ -10,11 +10,16 @@ html {
   font-weight: 400;
   line-height: 1.15;
   scroll-behavior: smooth;
+  width: 100%;
+
 
 }
 
 body {
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling only when necessary */
   color: #777;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,7 +91,10 @@ label {
 }
 
 :root {
-
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling only when necessary */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

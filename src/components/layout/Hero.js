@@ -9,7 +9,7 @@ const Hero = () => {
     <div
       className={classes.hero}
       style={{
-        backgroundImage: `url(${urnsWebp}), url(${urnsPng})`,
+        backgroundImage: `url(${urnsWebp}), url(${urnsPng})`, 
       }}
     >
       <div className={classes.content}>

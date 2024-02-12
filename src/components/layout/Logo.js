@@ -7,15 +7,15 @@ const Logo = () => {
     return (
         <picture>
             <source
-                srcSet={require("../../assets/logo.h200.beige.webp")}
+                srcSet={require("../../assets/logo.white.png")}
                 type="image/webp"
             />
             <source
-                srcSet={require("../../assets/logo.h200.beige.png")}
+                srcSet={require("../../assets/logo.white.png")}
                 type="image/png"
             />
             <img
-                src={require("../../assets/logo.h200.beige.png")}
+                src={require("../../assets/logo.white.png")}
                 alt="Urrnz logo"
                 className={classes.logo}
             />

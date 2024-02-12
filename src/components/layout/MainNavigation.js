@@ -40,7 +40,7 @@ function MainNavigation() {
             pathHash !== "#faqs"
         ) {
             window.scrollTo(0, 0);
-        } 
+        }
     }, [curLocation, pathHash]);
 
 
@@ -63,7 +63,7 @@ function MainNavigation() {
                                     classes.active
                                     :
                                     undefined
-                                }   
+                            }
                             end
                         >
                             <p>Home</p>

@@ -10,17 +10,15 @@ const Home = () => {
             <section id="home">
                 <Hero />
             </section>
-            <section
-                id="about">
+            <section>
                 <Heading
-                    style={{ marginTop: "4.8rem", marginBottom: "4.8rem" }}
+                    id="about"
                     title="ABOUT" />
                 <About />
             </section>
-            <section
-                id="faqs">
+            <section>
                 <Heading
-                    style={{ marginTop: "4.8rem", marginBottom: "4.8rem" }}
+                    id="faqs"
                     title="FAQs" />
                 <FAQ />
             </section>
