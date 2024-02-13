@@ -7,8 +7,7 @@ const FAQ = () => {
     return (
         <Container>
             <div className={classes.container}>
-                <div className={classes.topPadding}>
-                    {FAQ_QUESTIONS.map((question, index) => {
+            {FAQ_QUESTIONS.map((question, index) => {
                         return (
                             <div key={index}>
                                 <h2 className={classes.question}>
@@ -20,7 +19,6 @@ const FAQ = () => {
                             </div>
                         );
                     })}
-                </div>
             </div>
         </Container>
     );
