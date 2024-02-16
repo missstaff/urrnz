@@ -78,119 +78,113 @@ const Products = () => {
 
 
     return (
-            <div style={{ height: isLoading ? `${100}vh` : "100%" }}
-                className={`${classes.section}`}
-                id="gallery">
-                {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
-                <div className="headingTopMargin">
+        <div style={{ height: isLoading ? `${100}vh` : "100%" }}
+            className={`${classes.section}`}
+            id="gallery">
+            {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
+            <div className="headingTopMargin">
                 <Heading title={"Gallery"} />
-                </div>
-                
-
-                <ShowIf
-                    condition={isLoading}
-                    render={() => {
-                        return (
-                            <LoadingMessage />
-                        );
-                    }}
-                />
-                <ShowIf
-                    condition={!isLoading && categoryProducts.length}
-                    render={() => {
-                        return (
-                            <>
-                                <SelectCategoryModal setCategoryProducts={setCategoryProducts}/>
-
-                                <div className={`grid ${classes.gridColumns}`}>
-                                    {categoryProducts.map((product, index) => (
-                                        <div
-                                            key={index}>
-                                            <Container
-                                                style={{ //these styles must be inline to be applied to the container
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    justifyContent: "center",
-
-                                                }}>
-                                                <NavLink
-                                                    to={`/product/${product.zid}`}>
-                                                    <div
-                                                        style={{
-                                                            alignSelf: "center",
-                                                            display: "flex",
-                                                            flexDirection: "column",
-                                                            justifyContent: "center"
-                                                        }}
-                                                        className={`${touchedIndex === index ? classes.touched : ""}`}
-                                                        onMouseDown={() => handleTouchStart(index)}
-                                                        onMouseEnter={() => handleTouchStart(index)}
-                                                        onMouseLeave={handleTouchEnd}
-                                                        onMouseUp={handleTouchEnd}
-                                                        onTouchStart={() => handleTouchStart(index)}
-                                                        onTouchEnd={handleTouchEnd}>
-                                                        <img
-                                                            alt={product.name}
-                                                            src={product.images.lg}
-                                                            className={classes.image}
-                                                        />
-                                                    </div>
-                                                </NavLink>
-                                                <div style={{zIndex: -1}} className={classes.detailsContainer}>
-                                                    <div className={classes.detailsTitle}>
-                                                        <h3 className={`${classes.heading} ${classes.limitTitle}`}>
-                                                            {product.name}
-                                                        </h3>
-                                                        <p
-                                                            className={classes.price}
-                                                            style={{ textShadow: "none" }}>
-                                                            ${product.price}
-                                                        </p>
-                                                    </div>
-                                                    <p
-                                                        className={`${classes.details} ${classes.limitLines}`}
-                                                        style={{ textShadow: "none" }}>
-                                                        {product.description}
-                                                    </p>
-
-                                                </div>
-                                                <div
-                                                    className={classes.buttonContainer}>
-                                                    <AddToCartButton
-                                                        onClick={() => addItemToCartHandler(product)}
-                                                        style={{ fontSize: `${2.2}rem` }} />
-                                                </div>
-                                            </Container>
-                                        </div>
-                                    ))}
-                                </div>
-                            </>
-                        );
-                    }}
-                />
-                <ShowIf
-                    condition={!isLoading && !categoryProducts.length}
-                    render={() => {
-                        return (
-                            <div
-                                style={{
-                                    alignItems: "center",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: `${100}vh`
-                                }}>
-                                <p className={classes.noItemsMessage}>No items found!</p>
-                                <NavLink
-                                    to={`/products/${ALL}`}
-                                    onClick={handleNoItemsFound}
-                                    className={classes.link}>
-                                    <span>&larr;</span>Back to all urrnz
-                                </NavLink>
-                            </div>
-                        );
-                    }}
-                />
             </div>
+
+
+            <ShowIf
+                condition={isLoading}
+                render={() => {
+                    return (
+                        <LoadingMessage />
+                    );
+                }}
+            />
+            <ShowIf
+                condition={!isLoading && categoryProducts.length}
+                render={() => {
+                    return (
+                        <>
+                            <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
+
+                            <div className={`grid ${classes.gridColumns}`}>
+                                {categoryProducts.map((product, index) => (
+                                    <div
+                                        key={index}>
+                                        <Container
+                                        style={{ boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.05)", padding: "0px 25px"}}>
+                                            <NavLink
+                                                to={`/product/${product.zid}`}>
+                                                <div
+                                                    style={{
+                                                        alignSelf: "center",
+                                                        display: "flex",
+                                                        flexDirection: "column",
+                                                        justifyContent: "center"
+                                                    }}
+                                                    className={`${touchedIndex === index ? classes.touched : ""}`}
+                                                    onMouseDown={() => handleTouchStart(index)}
+                                                    onMouseEnter={() => handleTouchStart(index)}
+                                                    onMouseLeave={handleTouchEnd}
+                                                    onMouseUp={handleTouchEnd}
+                                                    onTouchStart={() => handleTouchStart(index)}
+                                                    onTouchEnd={handleTouchEnd}>
+                                                    <img
+                                                        alt={product.name}
+                                                        src={product.images.lg}
+                                                        className={classes.image}
+                                                    />
+                                                </div>
+                                            </NavLink>
+                                            <div style={{ zIndex: -1 }} className={classes.detailsContainer}>
+                                                <div className={classes.detailsTitle}>
+                                                    <h3 className={`${classes.heading} ${classes.limitTitle}`}>
+                                                        {product.name}
+                                                    </h3>
+                                                    <p
+                                                        className={classes.price}
+                                                        style={{ textShadow: "none" }}>
+                                                        ${product.price}
+                                                    </p>
+                                                </div>
+                                                <p
+                                                    className={`${classes.details} ${classes.limitLines}`}
+                                                    style={{ textShadow: "none" }}>
+                                                    {product.description}
+                                                </p>
+
+                                            </div>
+                                            <div
+                                                className={classes.buttonContainer}>
+                                                <AddToCartButton
+                                                    onClick={() => addItemToCartHandler(product)} />
+                                            </div>
+                                        </Container>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    );
+                }}
+            />
+            <ShowIf
+                condition={!isLoading && !categoryProducts.length}
+                render={() => {
+                    return (
+                        <div
+                            style={{
+                                alignItems: "center",
+                                display: "flex",
+                                flexDirection: "column",
+                                height: `${100}vh`
+                            }}>
+                            <p className={classes.noItemsMessage}>No items found!</p>
+                            <NavLink
+                                to={`/products/${ALL}`}
+                                onClick={handleNoItemsFound}
+                                className={classes.link}>
+                                <span>&larr;</span>Back to all urrnz
+                            </NavLink>
+                        </div>
+                    );
+                }}
+            />
+        </div>
     );
 };
 

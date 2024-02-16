@@ -40,7 +40,8 @@ const Product = () => {
 
     return (
 
-        <div div style={{ position: "relative" }}>
+        <div > 
+            {/* div style={{ position: "relative" }} */}
             <div className={classes.container}>
 
                 <div className="headingTopMargin">
@@ -115,7 +116,6 @@ const Product = () => {
                                                     <div className={classes.btnContainer}>
                                                         <AddToCartButton
                                                             onClick={() => addItemToCartHandler(product)}
-                                                            style={{ fontSize: `${2.2}rem` }}
                                                         />
                                                     </div>
                                                 </div>

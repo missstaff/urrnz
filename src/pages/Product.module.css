@@ -2,11 +2,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
     justify-content: center;
-    left: 0;
-    margin-bottom: 19.2rem;
-    top: 50%;
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -15,19 +13,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 236, 209, 0.20);
+    /* background-color: rgba(255, 236, 209, 0.20); */
     border-radius: 7.5px;
-    padding: 9.6rem 4.8rem;
-    height: auto;
-    margin: 0 auto;
-    width: 55%;
-    row-gap: 9.6rem;
+    padding: 2.4rem 4.8rem;
+    height: 50%;
+    margin: 0 auto 19.2rem auto;
+    width: 50%;
+    row-gap: 4.4rem;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+    ;
+    flex-grow: calc(1);
 }
 
 .item {
     display: flex;
     flex-direction: row;
-    grid-template-columns: repeat(2, 1fr 2fr);
+    grid-template-columns: repeat(2 1fr);
     column-gap: 4.8rem;
 }
 
@@ -35,11 +36,16 @@
     margin-bottom: 2.2rem;
     padding: 1.2rem;
     text-align: left;
+    color: var(--color-secondary-600);
+    font-size: 5rem;
+    padding-top: 4.4rem;
+    padding-bottom: 4.4rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .item>img {
     align-self: center;
-    height: 25rem;
+    height: 35rem;
     image-resolution: from-image;
     justify-self: center;
     object-fit: contain;
@@ -54,7 +60,7 @@
 }
 
 .description {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     width: 75%;
 }
 
@@ -64,7 +70,7 @@
 }
 
 .detailText {
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding: 0.01rem 0;
     width: 100%;
 }
@@ -83,7 +89,7 @@
     align-self: flex-start;
     color: var(--color-gray-900);
     display: block;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     margin-bottom: 4.8rem;
     margin-left: 4.8rem;
     text-align: left;
@@ -98,38 +104,35 @@
 }
 
 
-/*MEDIA QUERIES*/
-
-@media screen and (min-width: 4650px) {
-    .container {
-        height: 100vh;
-    }
-}
-
-@media screen and (max-width: 6100px) {
-    .container {
-        height: 100vh;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .container {
-        height: 100%;
-    }
-
+/*Media Queries*/
+@media (min-width: 150px) and (max-width: 279.98px) {
     .item {
-        margin-bottom: 1rem;
-
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .item {
-        margin-bottom: 0;
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
     }
 
     .itemContainer {
-        width: 90%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+
+    .item>img {
+        height: 25rem;
     }
 
     .item>div>h3 {
@@ -137,60 +140,253 @@
     }
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    .description {
-        font-size: 3.6rem;
-        width: 100%;
-    }
-
-    .detailTextContainer {
-        padding-bottom: 2.2rem;
-        width: 100%;
-    }
-
-    .detailText {
-        font-size: 2.4rem;
-    }
-
-    .itemContainer {
-        width: 90%;
-    }
-
-    .title {
-        font-size: 4.8rem !important;
-    }
-
-}
-
-@media only screen and (max-device-width : 768px) {
-    .descriptionContainer {
-        width: 100%;
-    }
-
-    .description {
-        font-size: 2.2rem;
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .detailTextContainer {
-        width: 100%;
-    }
-
-    .detailText {
-        font-size: 1.8rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0.01rem 0;
-        width: 75%;
-    }
-
+@media (min-width: 280px) and (max-width: 359.98px) {
     .item {
+        grid-template-columns: repeat(1 1fr);
         flex-direction: column;
     }
 
-    .item>div>h3 {
-        text-align: center;
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
     }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+
+    .item>div>h3 {
+        font-size: 3.8rem;
+    }
+
+    .item>img {
+        height: 25rem;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 480.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+
+    .item>div>h3 {
+        font-size: 3.8rem;
+    }
+
+    .item>img {
+        height: 25rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 575.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 639.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .item {
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0 2.4rem;
+        height: 100%;
+    }
+
+    .descriptionContainer {
+        align-items: center;
+    }
+
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .item{
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+    .container {
+       padding: 0 2.4rem;
+       height: 100%;
+    }
+    .descriptionContainer{
+        align-items: center;
+    }
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    } 
+}
+
+@media (min-width: 1400px) and (max-width: 1999.98px) {
+    .item{
+        grid-template-columns: repeat(1 1fr);
+        flex-direction: column;
+    }
+    .itemContainer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+        box-shadow: none;
+    }
+    .container {
+       padding: 0 2.4rem;
+       height: 100%;
+    }
+    .descriptionContainer{
+        align-items: center;
+    }
+    .btnContainer {
+        padding: 4.4rem 0 9.8rem 0;
+    } 
 }
