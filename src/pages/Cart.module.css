@@ -7,11 +7,13 @@
   width: 100%;
   margin: 9.8rem 0 0 0;
 }
+
 .text {
   font-size: 2.4rem;
   padding: 0.5rem;
   width: 100%;
 }
+
 .container {
   /* background-color: rgba(255, 236, 209, 0.20); */
   border-radius: 7.5px;
@@ -257,19 +259,24 @@
   .headingContainer {
     /* margin: 9.8rem auto 0 auto; */
   }
-  .itemImage{
+
+  .itemImage {
     height: 25rem;
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 3.2rem;
   }
+
   .itemPrice {
     font-size: 2.2rem;
   }
-  .text{
+
+  .text {
     font-size: 2.2rem;
   }
+
   .textAreaField {
     font-size: 2.2rem;
   }
@@ -329,19 +336,24 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
-  .itemImage{
+
+  .itemImage {
     height: 25rem;
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -401,19 +413,24 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
-  .itemImage{
+
+  .itemImage {
     height: 25rem;
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -473,19 +490,24 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
-  .itemImage{
+
+  .itemImage {
     height: 25rem;
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -545,6 +567,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -552,12 +575,15 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -614,16 +640,20 @@
   .headingContainer {
     /* margin: 9.8rem auto 0 auto; */
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -683,6 +713,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -690,12 +721,15 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -751,16 +785,20 @@
   .headingContainer {
     /* margin: 9.8rem auto 0 auto; */
   }
+
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -820,6 +858,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -827,16 +866,20 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
-  } 
+  }
 }
+
 @media (min-width: 992) and (max-width: 1199.98px) {
   .itemContainer {
     grid-template-columns: repeat(1, 1fr);
@@ -891,6 +934,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -898,12 +942,15 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
   }
@@ -963,6 +1010,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -970,15 +1018,18 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
-  } 
+  }
 }
 
 @media (min-width: 1400px) and (max-width: 1999.98px) {
@@ -1035,6 +1086,7 @@
   .title {
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
   }
+
   /* .itemImage{
     height: 25rem;
   } */
@@ -1042,15 +1094,18 @@
     padding: 1.2rem 2.2rem 4.8rem 2.2rem;
     font-size: 5.8rem;
   }
+
   .itemPrice {
     font-size: 2.8rem;
   }
-  .text{
+
+  .text {
     font-size: 2.8rem;
   }
+
   .textAreaField {
     font-size: 2.8rem;
-  } 
+  }
 }
 
 

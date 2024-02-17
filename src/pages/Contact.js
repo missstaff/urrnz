@@ -51,12 +51,10 @@ const Contact = () => {
 
     return (
         <section className={"wrapper"}>
-            <div className="headingTopMargin">
-           <Heading title="CONTACT" />
-            </div>
+            <Heading title="CONTACT" />
             <main>
                 <Container className={classes.container}>
-                    <h3>
+                    <h3 className={classes.title}>
                         Send us a message
                     </h3>
                     <hr className={classes.hr} />
@@ -70,7 +68,9 @@ const Contact = () => {
                                 <AddressForm />
 
                                 <div className={classes.formSection}>
-                                    <label htmlFor="message">
+                                    <label
+                                        className={classes.label}
+                                        htmlFor="message">
                                         Message:
                                     </label>
                                     <Field
@@ -83,7 +83,9 @@ const Contact = () => {
                                 </div>
 
                                 <div className={classes.formSection}>
-                                    <label htmlFor="uploadImage">
+                                    <label
+                                        className={classes.label}
+                                        htmlFor="uploadImage">
                                         Image:
                                     </label>
                                     <Field
