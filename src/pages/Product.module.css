@@ -79,21 +79,16 @@
     padding-bottom: 2.2rem;
 }
 
-.fullpage {
-    height: 100vh;
-    width: 100%;
-}
-
 .link {
     color: var(--color-gray-900);
-    display: block;
-    font-size: 2.2rem;
-    margin: 0 auto;
-    padding-left: 4.8rem;
-    text-align: left;
+    display: inline-block;
     text-decoration: none;
     transition: all 0.3s;
     width: 100%;
+    position: relative;
+    top: 22.22rem;
+    left: 5rem;
+    font-size: medium;
 }
 
 .link:hover,
@@ -345,47 +340,55 @@
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
-    .item{
+    .item {
         grid-template-columns: repeat(1 1fr);
         flex-direction: column;
     }
+
     .itemContainer {
         width: 100%;
         margin: 0 auto;
         padding: 0 2.4rem;
         box-shadow: none;
     }
+
     .container {
-       padding: 0 2.4rem;
-       height: 100%;
+        padding: 0 2.4rem;
+        height: 100%;
     }
-    .descriptionContainer{
+
+    .descriptionContainer {
         align-items: center;
     }
+
     .btnContainer {
         padding: 4.4rem 0 9.8rem 0;
-    } 
+    }
 }
 
 @media (min-width: 1400px) and (max-width: 1999.98px) {
-    .item{
+    .item {
         grid-template-columns: repeat(1 1fr);
         flex-direction: column;
     }
+
     .itemContainer {
         width: 100%;
         margin: 0 auto;
         padding: 0 2.4rem;
         box-shadow: none;
     }
+
     .container {
-       padding: 0 2.4rem;
-       height: 100%;
+        padding: 0 2.4rem;
+        height: 100%;
     }
-    .descriptionContainer{
+
+    .descriptionContainer {
         align-items: center;
     }
+
     .btnContainer {
         padding: 4.4rem 0 9.8rem 0;
-    } 
+    }
 }

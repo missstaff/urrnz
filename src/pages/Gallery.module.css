@@ -186,6 +186,7 @@
         padding-bottom: 2.2rem;
 
     }
+
     .limitTitle {
         padding: 1.2rem;
         text-align: left;
@@ -193,7 +194,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 21ch;
-     }
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -206,6 +207,7 @@
         padding-bottom: 2.2rem;
 
     }
+
     .limitTitle {
         padding: 1.2rem;
         text-align: left;
@@ -213,7 +215,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 21ch;
-     }
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -222,6 +224,7 @@
         grid-template-columns: repeat(2, 1fr);
         /* column-gap: 4.4rem; */
     }
+
     .limitTitle {
         padding: 1.2rem;
         text-align: left;
@@ -229,7 +232,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 21ch;
-     }
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
@@ -237,6 +240,7 @@
         margin: 0 auto;
         column-gap: 4.4rem;
     }
+
     .limitTitle {
         padding: 1.2rem;
         text-align: left;
@@ -244,7 +248,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 21ch;
-     }
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -252,6 +256,7 @@
         margin: 0 auto;
         column-gap: 4.4rem;
     }
+
     .limitTitle {
         padding: 1.2rem;
         text-align: left;
@@ -259,5 +264,5 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 21ch;
-     }
+    }
 }

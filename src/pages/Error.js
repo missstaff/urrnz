@@ -1,43 +1,44 @@
-import { useRouteError, NavLink } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
+import MainNavigation from "../components/layout/MainNavigation";
 import PageContent from "../components/PageContent";
-import classes from "./Error.module.css";
 
 
 const Error = () => {
 
-    const error = useRouteError();
+  const error = useRouteError();
 
-    let title = "An error occured.";
-    let message = "Sorry, something went wrong.";
+  let title = "An error occured.";
+  let message = "Sorry, something went wrong.";
 
+  if (error.status === 401) {
+    title = "Unauthorized!";
+    message = "You do not have access to this resource.";
+  }
 
-    if (error.status === 404) {
-        title = "Page not found!";
-        message = "Sorry, the page you were looking for does not exist.";
-    }
+  if (error.status === 403) {
+    title = "Forbidden!";
+    message = "This action isnot allowed.";
+  }
 
-    if (error.status === 500) {
-        title = "Server error";
-        message = "Sorry, the server is not responding";
-    }
+  if (error.status === 404) {
+    title = "Page not found!";
+    message = "Sorry, the page you were looking for does not exist.";
+  }
 
+  if (error.status === 500) {
+    title = "Server error";
+    message = "Sorry, the server is not responding";
+  }
 
-    return (
-        <main className={classes.container}>
-            <PageContent
-                title={title}
-                titleClassName={classes.title}>
-                <p className={classes.message}>
-                    {message}
-                </p>
-                <NavLink 
-                    className={classes.link} 
-                    to="/">
-                        {<span>&larr;</span>}Back
-                    </NavLink>
-            </PageContent>
-        </main>
-    );
+  return (
+    <main>
+      <MainNavigation />
+      <PageContent
+        title={title}
+        message={message}>
+      </PageContent>
+    </main>
+  );
 };
 
 export default Error;

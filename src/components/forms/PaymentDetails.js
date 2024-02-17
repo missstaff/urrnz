@@ -7,17 +7,17 @@ import PaymentForm from "./PaymentForm";
 import ShowIf from "../ShowIf";
 
 import { setCardDetailsHandler } from "../../store/customer-actions";
-import { addressAndCardValidationSchema, cardValidationSchema } from "../../utility/utils";
+import {
+  addressAndCardValidationSchema,
+  cardValidationSchema,
+} from "../../utility/utils";
 
 import classes from "./PaymentDetails.module.css";
 
-
 const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
-
   const dispatch = useDispatch();
   const customer = useSelector((state) => state.customer);
   const shippingIsBilling = customer.isShippingSameAsBilling;
-  
 
   const initialValuesWithBillingAddress = {
     cc_number: customer.cardDetails?.cc_number || "",
@@ -39,8 +39,9 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
     zipCode: customer?.billingAddress.postalCd || "",
   };
 
-  const initialValues = shippingIsBilling ? initialValuesWithBillingAddress : initialValuesWithoutBillingAddress;
-
+  const initialValues = shippingIsBilling
+    ? initialValuesWithBillingAddress
+    : initialValuesWithoutBillingAddress;
 
   const handleSubmit = (values) => {
     let newValues = {};
@@ -58,11 +59,14 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
     handleNext();
   };
 
-
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={shippingIsBilling ? cardValidationSchema : addressAndCardValidationSchema}
+      validationSchema={
+        shippingIsBilling
+          ? cardValidationSchema
+          : addressAndCardValidationSchema
+      }
       onSubmit={handleSubmit}
     >
       <Form>
@@ -71,16 +75,15 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
           <ShowIf
             condition={!shippingIsBilling}
             render={() => {
-              return (
-                <AddressForm />
-              );
+              return <AddressForm />;
             }}
           />
           <div style={{ marginTop: `${1.8}rem` }}>
-            <CheckoutButtons 
-              activeStep={activeStep} 
-              handleBack={handleBack} 
-              title="Next" />
+            <CheckoutButtons
+              activeStep={activeStep}
+              handleBack={handleBack}
+              title="Next"
+            />
           </div>
         </div>
         <hr className={classes.hr} />

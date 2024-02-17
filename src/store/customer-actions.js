@@ -9,16 +9,16 @@ export const setCustomerHandler = (customer) => {
         } catch (error) {
             console.warn(`Failed to set customer!\n${error.message}\n${error.stack}`);
             toast.error("Failed to set shipping details please try again.",
-            {
-                toastId: "error-setting-shipping-details",
-                autoClose: 5000,
-                position: "top-center",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+                {
+                    toastId: "error-setting-shipping-details",
+                    autoClose: 5000,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
         }
     };
 };
@@ -30,16 +30,16 @@ export const updateShippingSameAsBillingHandler = (isSame) => {
         } catch (error) {
             console.warn(`Failed to update shipping same as billing!\n${error.message}\n${error.stack}`);
             toast.error("Failed to set billing address please try again.",
-            {
-                toastId: "error-setting-billing-details",
-                autoClose: 5000,
-                position: "top-center",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+                {
+                    toastId: "error-setting-billing-details",
+                    autoClose: 5000,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
         }
     };
 };
@@ -51,16 +51,16 @@ export const setCardDetailsHandler = (cardDetails) => {
         } catch (error) {
             console.warn(`Failed to set card details!\n${error.message}\n${error.stack}`);
             toast.error("Failed to set payment details please try again.",
-            {
-                toastId: "error-setting-payment-details",
-                autoClose: 5000,
-                position: "top-center",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+                {
+                    toastId: "error-setting-payment-details",
+                    autoClose: 5000,
+                    position: "top-center",
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
         }
     };
 };

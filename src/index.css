@@ -18,32 +18,21 @@ html {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  overflow-y: auto; /* Enable vertical scrolling only when necessary */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  /* Enable vertical scrolling only when necessary */
   color: #777;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* h3 {
-  color: var(--color-secondary-600);
-  font-size: 5rem;
-  padding-top: 4.4rem;
-  padding-bottom: 4.4rem;
-  text-align: center;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-} */
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-/* label {
-  /* font-size: 2.2rem; */
-  /* padding: 1.2rem 0; */
-
 
 .grid {
   display: grid;
@@ -76,6 +65,7 @@ ul {
   html {
     font-size: 43.75%;
   }
+
   .toast {
     width: 100%;
   }
@@ -90,8 +80,10 @@ ul {
 :root {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  overflow-y: auto; /* Enable vertical scrolling only when necessary */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  /* Enable vertical scrolling only when necessary */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
