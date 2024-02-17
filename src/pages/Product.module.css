@@ -4,8 +4,8 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    margin: 0 auto;
     width: 100%;
+    margin: 9.8rem auto;
 }
 
 .itemContainer {
@@ -17,11 +17,10 @@
     border-radius: 7.5px;
     padding: 2.4rem 4.8rem;
     height: 50%;
-    margin: 0 auto 19.2rem auto;
+    margin: 0 auto;
     width: 50%;
     row-gap: 4.4rem;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
-    ;
     flex-grow: calc(1);
 }
 
@@ -86,15 +85,15 @@
 }
 
 .link {
-    align-self: flex-start;
     color: var(--color-gray-900);
     display: block;
     font-size: 2.2rem;
-    margin-bottom: 4.8rem;
-    margin-left: 4.8rem;
+    margin: 0 auto;
+    padding-left: 4.8rem;
     text-align: left;
     text-decoration: none;
     transition: all 0.3s;
+    width: 100%;
 }
 
 .link:hover,

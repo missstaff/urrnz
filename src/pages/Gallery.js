@@ -14,10 +14,10 @@ import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 
-import classes from "./Products.module.css";
+import classes from "./Gallery.module.css";
 
 
-const Products = () => {
+const Gallery = () => {
 
     const nav = useNavigate();
     const dispatch = useDispatch();
@@ -81,12 +81,6 @@ const Products = () => {
         <div style={{ height: isLoading ? `${100}vh` : "100%" }}
             className={`${classes.section}`}
             id="gallery">
-            {/* <Heading title={category === ALL || !category ? `${ALL} Urrnz` : category} /> */}
-            <div className="headingTopMargin">
-                <Heading title={"Gallery"} />
-            </div>
-
-
             <ShowIf
                 condition={isLoading}
                 render={() => {
@@ -100,6 +94,10 @@ const Products = () => {
                 render={() => {
                     return (
                         <>
+                            <div className="headingTopMargin">
+                                <Heading title={"Gallery"} />
+                            </div>
+
                             <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
 
                             <div className={`grid ${classes.gridColumns}`}>
@@ -107,7 +105,7 @@ const Products = () => {
                                     <div
                                         key={index}>
                                         <Container
-                                        style={{ boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.05)", padding: "0px 25px"}}>
+                                            style={{ boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.05)", padding: "0px 25px" }}>
                                             <NavLink
                                                 to={`/product/${product.zid}`}>
                                                 <div
@@ -188,4 +186,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Gallery;

@@ -40,9 +40,10 @@ ul {
   padding: 0;
 }
 
-label {
-  font-size: 2.2rem;
-}
+/* label {
+  /* font-size: 2.2rem; */
+  /* padding: 1.2rem 0; */
+
 
 .grid {
   display: grid;
@@ -55,10 +56,6 @@ label {
   font-size: 2.4rem;
   text-align: center;
   width: 50rem;
-}
-
-.headingTopMargin{
-  margin-top: 17.5rem;
 }
 
 

@@ -52,11 +52,8 @@ const Cart = () => {
 
     return (
         <section
-            className={`wrapper`}
-            style={{
-                height: !items.length ? `${100}vh` : `${100}%`
-            }}>
-            <div className="headingTopMargin">
+            className={classes.cartContainer}>
+            <div className={classes.headingContainer}>
                 <Heading title="CART" />
             </div>
             <main>
@@ -84,9 +81,11 @@ const Cart = () => {
                                                     className={classes.itemImage}
                                                     src={item.image}
                                                 />
-                                                <CustomPicker
-                                                    cid={item.cid}
-                                                />
+                                                <div className={`${classes.pickerContainer, classes.lgScreenPickerContainer}`}>
+                                                    <CustomPicker
+                                                        cid={item.cid}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                         <div>
@@ -96,7 +95,7 @@ const Cart = () => {
 
                                             <div>
                                                 <div className={classes.detailsContainer}>
-                                                    <div>
+                                                    <div >
                                                         <p
                                                             className={classes.itemPrice}>
                                                             Price: ${item.price * item.quantity}
@@ -134,7 +133,7 @@ const Cart = () => {
                                                 </p>
                                                 <div>
                                                     <div className={classes.textAreaContainer}>
-                                                        <label htmlFor="message">Inscription:</label>
+                                                        <label className={classes.text} htmlFor="message">Inscription:</label>
                                                         <div>
                                                             <input
                                                                 className={`${classes.textAreaField}`}
@@ -148,6 +147,11 @@ const Cart = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className={`${classes.pickerContainer, classes.smScreenPickerContainer}`}>
+                                                    <CustomPicker
+                                                        cid={item.cid}
+                                                    />
+                                                    </div>
                                             </div>
 
                                         </div>
