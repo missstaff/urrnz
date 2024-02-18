@@ -47,8 +47,8 @@ const Contact = () => {
   };
 
   return (
-    <section className={"wrapper"}>
-      <Heading title="CONTACT" />
+    <section className={`${classes.section}`}>
+       <Heading title="CONTACT" />
       <main>
         <Container className={classes.container}>
           <h3 className={classes.title}>Send us a message</h3>
@@ -75,10 +75,11 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className={classes.formSection}>
-                  <label className={classes.label} htmlFor="uploadImage">
+                <div className={classes.formButtonsContainer}>
+                <div >
+                  {/* <label className={classes.label} htmlFor="uploadImage">
                     Image:
-                  </label>
+                  </label> */}
                   <Field
                     id="uploadImage"
                     name="uploadImage"
@@ -90,10 +91,11 @@ const Contact = () => {
                     type="file"
                   />
                 </div>
-                <div className={classes.btnContainer}>
+                <div className={classes.submit}>
                   <FormButton title="Submit" type="submit" />
                 </div>
               </div>
+                </div>
             </Form>
           </Formik>
           <hr className={classes.hr} style={{ marginTop: 0 }} />

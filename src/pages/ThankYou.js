@@ -18,9 +18,7 @@ const ThankYou = () => {
 
   return (
     <div className={classes.wrapper}>
-      <div className={"headingTopMargin"}>
-        <Heading title="THANK YOU" />
-      </div>
+       <Heading title="THANK YOU" />
       <div className={classes.container}>
         <p className={classes.text}>Your order has been placed!</p>
       </div>

@@ -95,7 +95,9 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
           <div style={{ width: "100%" }}>
             <div className={classes.row}>
               <div className={classes.fieldWrapper}>
-                <label htmlFor="shippingIsBilling">
+                <label
+                 className={classes.label}
+                 htmlFor="shippingIsBilling">
                   Shipping same as billing
                 </label>
                 <Field

@@ -88,9 +88,7 @@ const Gallery = () => {
         render={() => {
           return (
             <>
-              <div className="headingTopMargin">
-                <Heading title={"Gallery"} />
-              </div>
+              <Heading title={"Gallery"} />
 
               <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
 
