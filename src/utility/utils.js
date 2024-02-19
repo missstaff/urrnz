@@ -107,7 +107,6 @@ export const handleSubmitShipping = async (
   dispatch,
   handleNext,
   isShippingSameAsBilling,
-  shippingOption,
   store,
   values,
 ) => {
@@ -119,7 +118,6 @@ export const handleSubmitShipping = async (
     isShippingSameAsBilling: isShippingSameAsBilling,
   }
 
-  dispatch(setShippingOptionHandler(shippingOptions[shippingOption]));
   dispatch(setCustomerHandler(newValues));
 
   const updatedOrderTemplate = {

@@ -1,14 +1,18 @@
-import classes from './PageContent.module.css';
+import classes from "./PageContent.module.css";
+import { NavLink } from "react-router-dom";
 
-{/*needs sizing but overal looks decent */}
-const PageContent = ({ titleClassName, title, children }) => {
+const PageContent = ({ title, message, link }) => {
+
   return (
-    <div className={classes.content}>
-      <h1 className={titleClassName}>
-        {title}
-      </h1>
-      {children}
+   <div style={{width: "100%"}}>
+      <NavLink className={classes.link} to={link}>
+        {<span>&larr;</span>}Back
+      </NavLink>
+    <div>
+      <h1 className={classes.title}>{title}</h1>
+      <p className={classes.message}>{message}</p>
     </div>
+   </div>
   );
 };
 

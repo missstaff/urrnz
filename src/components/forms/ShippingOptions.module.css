@@ -1,0 +1,109 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 9.8rem auto;
+    max-width: 150rem;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.message{
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+  }
+
+.field {
+    accent-color: var(--color-secondary-700);
+    height: 3.4rem;
+    transition: all 0.3s ease;
+    width: 3.4rem;
+}
+
+.field:focus {
+    border: 0.5px solid var(--color-secondary-700);
+    border-radius: 7.5px;
+    box-shadow: 0 0 0 2px var(--color-secondary-700);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.field:checked {
+    outline: none;
+    background-color: var(--color-secondary-700);
+    box-shadow: 0 0 0 2px var(--color-secondary-700);
+    transition: all 0.3s ease;
+}
+
+.option {
+    font-size: 3.4rem;
+    padding: 2.2rem 4.4rem;
+    text-align: left;
+}
+
+.optionPrice {
+    font-size: 2.8rem;
+    margin-left: 1.5rem;
+    padding: 2.2rem 4.4rem; 
+}
+
+.optionContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2.2rem 4.4rem;
+}
+
+@media (min-width: 150px) and (max-width: 279.98px) {
+    .btnContainer {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .optionContainer {
+        padding: 2.2rem 0rem;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 359.98px) {
+    .btnContainer {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 480.98px) {
+    .btnContainer {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 575.98px) {}
+
+@media (min-width: 576px) and (max-width: 639.98px) {}
+
+@media (min-width: 640px) and (max-width: 767.98px) {}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {}
+
+@media (min-width: 1400px) and (max-width: 1599.98px) {}
+
+@media (min-width: 1600px) and (max-width: 1799.98px) {}
+
+@media (min-width: 1800px) and (max-width: 1919.98px) {} 
