@@ -5,11 +5,13 @@ import MainNavigation from "../components/layout/MainNavigation";
 const RootLayout = () => {
   return (
     <div>
+      <div>
       <MainNavigation />
       <main>
         <Outlet />
-      </main>
-      <Footer />
+      </main>  
+    </div>
+    <Footer />
     </div>
   );
 };

@@ -23,7 +23,7 @@
 .title {
     color: var(--color-secondary-600);
     font-size: 5rem;
-    padding-top: 4.4rem;
+    /* padding-top: 4.4rem; */
     padding-bottom: 4.4rem;
     text-align: center;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -40,18 +40,13 @@
 .form {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .formSection {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
-}
-
-.hr {
-    margin-bottom: 4.4rem;
-    margin-top: 9.8rem;
 }
 
 .textArea {
@@ -95,11 +90,6 @@
         width: 100%;
     }
 
-    .hr {
-        margin-bottom: 2.4rem;
-        margin-top: 4.8rem;
-    }
-
     .formButtonsContainer {
         margin: 2.4rem auto;
         flex-direction: column;
@@ -114,11 +104,6 @@
 
     .form {
         width: 100%;
-    }
-
-    .hr {
-        margin-bottom: 2.4rem;
-        margin-top: 4.8rem;
     }
 
     .formButtonsContainer {

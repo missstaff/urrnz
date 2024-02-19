@@ -12,6 +12,7 @@ import { setCustomerHandler } from "../store/customer-actions";
 import { addressValidationSchema, handleSubmitContact } from "../utility/utils";
 
 import classes from "./Contact.module.css";
+import Footer from "../components/layout/Footer";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -47,12 +48,11 @@ const Contact = () => {
   };
 
   return (
-    <section className={`${classes.section}`}>
+    <section className={classes.section}>
        <Heading title="CONTACT" />
       <main>
         <Container className={classes.container}>
           <h3 className={classes.title}>Send us a message</h3>
-          <hr className={classes.hr} />
           <Formik
             initialValues={initialValues}
             validationSchema={addressValidationSchema}
@@ -77,9 +77,6 @@ const Contact = () => {
 
                 <div className={classes.formButtonsContainer}>
                 <div >
-                  {/* <label className={classes.label} htmlFor="uploadImage">
-                    Image:
-                  </label> */}
                   <Field
                     id="uploadImage"
                     name="uploadImage"
@@ -98,7 +95,6 @@ const Contact = () => {
                 </div>
             </Form>
           </Formik>
-          <hr className={classes.hr} style={{ marginTop: 0 }} />
         </Container>
       </main>
     </section>

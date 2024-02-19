@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import ShippingDetails from "../components/forms/ShippingDetails";
+import ShippingOptions from "../components/forms/ShippingOptions";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import PaymentDetails from "../components/forms/PaymentDetails";
@@ -9,6 +10,7 @@ import Review from "../components/forms/Review";
 import { CHECKOUT_STEPS } from "../config/constants";
 import classes from "./Checkout.module.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/layout/Footer";
 
 const getStepContent = (activeStep, handleBack, handleNext) => {
   switch (activeStep) {
@@ -22,13 +24,21 @@ const getStepContent = (activeStep, handleBack, handleNext) => {
       );
     case 1:
       return (
-        <PaymentDetails
+        <ShippingOptions
           activeStep={activeStep}
           handleBack={handleBack}
           handleNext={handleNext}
         />
       );
     case 2:
+      return (
+        <PaymentDetails
+          activeStep={activeStep}
+          handleBack={handleBack}
+          handleNext={handleNext}
+        />
+      );
+    case 3:
       return <Review activeStep={activeStep} handleBack={handleBack} />;
     default:
       throw new Error("Unknown step");
@@ -44,7 +54,6 @@ const Checkout = () => {
   };
 
   const handleBack = () => {
-    console.log("CLICK");
     if (activeStep === 0) {
       navigate("/cart");
     }
@@ -52,15 +61,14 @@ const Checkout = () => {
   };
 
   return (
-    <section className="wrapper">
+    <section className={classes.section}>
       <Heading title="CHECKOUT" />
-
       <main>
         <Container className={classes.container}>
           <h2 className={classes.heading}>{CHECKOUT_STEPS[activeStep]}</h2>
-          <hr />
           {getStepContent(activeStep, handleBack, handleNext)}
         </Container>
+        <div class={classes.spacer}></div>
       </main>
     </section>
   );

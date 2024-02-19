@@ -15,6 +15,7 @@ import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Gallery.module.css";
+import Footer from "../components/layout/Footer";
 
 const Gallery = () => {
   const nav = useNavigate();

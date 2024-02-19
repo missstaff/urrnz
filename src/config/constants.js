@@ -48,7 +48,7 @@ export const COLOR_CODE_TO_NAME = {
 };
 
 //CHECKOUT STEPS
-export const CHECKOUT_STEPS = ["Shipping Details", "Payment Details", "Review"];
+export const CHECKOUT_STEPS = ["Shipping Details", "Shipping Options", "Payment Details", "Review"];
 
 //END POINTS
 export const FETCH_ALL_PRODUCTS =

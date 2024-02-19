@@ -86,7 +86,6 @@ const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {
             />
           </div>
         </div>
-        <hr className={classes.hr} />
       </Form>
     </Formik>
   );

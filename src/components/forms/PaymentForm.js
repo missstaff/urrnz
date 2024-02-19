@@ -5,7 +5,7 @@ const PaymentForm = () => {
   return (
     <div className={classes.formWrapper}>
       <div className={classes.fieldLargeWrapper}>
-        <label htmlFor="cc_number">Card Number:</label>
+        <label className={classes.label} htmlFor="cc_number">Card Number:</label>
         <Field
           className={`${classes.placeholderColor} ${classes.field}`}
           id="cc_number"
@@ -22,7 +22,7 @@ const PaymentForm = () => {
 
       <div className={classes.smallInputContainer}>
         <div className={classes.fieldSmallWrapper}>
-          <label htmlFor="ccv">CCV:</label>
+          <label className={classes.label} htmlFor="ccv">CCV:</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
             id="ccv"
@@ -39,7 +39,7 @@ const PaymentForm = () => {
         </div>
 
         <div className={classes.fieldSmallWrapper}>
-          <label htmlFor="month">Month</label>
+          <label className={classes.label} htmlFor="month">Month</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
             id="month"
@@ -56,7 +56,7 @@ const PaymentForm = () => {
         </div>
 
         <div className={classes.fieldSmallWrapper}>
-          <label htmlFor="year">Year</label>
+          <label className={classes.label} htmlFor="year">Year</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
             id="year"

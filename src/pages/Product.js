@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import ShowIf from "../components/ShowIf";
 import PageContent from "../components/PageContent";
 import LoadingMessage from "../components/LoadingMessage";
+import Footer from "../components/layout/Footer";
 
 const Product = () => {
   const { id } = useParams();
@@ -109,6 +110,7 @@ const Product = () => {
           }}
         />
       </div>
+      <Footer />
     </div>
   );
 };

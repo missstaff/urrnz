@@ -24,10 +24,10 @@
     margin: 0;
 }
 
-.link p:hover,
+/* .link p:hover,
 .link p:active {
     color: var(--color-primary-700);
-}
+} */
 
 /*Media Queries*/
 @media (min-width: 150px) and (max-width: 280.98px) {
