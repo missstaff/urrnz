@@ -7,6 +7,8 @@ export default function SEO({
     type = "website", }) {
     return (
         <Helmet>
+            <link rel="canonical" href="https://urrnz.com" />
+
             { /* Standard metadata tags */}
             <title>{title}</title>
             <meta name='description' content={description} />
