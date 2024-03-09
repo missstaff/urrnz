@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 export default function SEO({
     title = "Custom 3D Printed Keepsakes | Urrnz",
-    description = "Discover unique custom 3D printed keepsakes for your loved ones at Urrnz. Explore our range of urns and cremation accessories designed to honor cherished memories.",
+    description = "Explore unique custom 3D-printed keepsakes at Urrnz. Discover a variety of urns and cremation accessories crafted to honor cherished memories.",
     name = "Urrnz",
     type = "website", }) {
     return (
