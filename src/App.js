@@ -8,6 +8,7 @@ import {
   fetchOrderTemplate,
   fetchProducts,
 } from "./store/store-actions";
+import { HelmetProvider } from 'react-helmet-async';
 import { GOOGLE_TRACKING_ID } from "./config/constants.js";
 import ReactGA from "react-ga";
 ReactGA.initialize(GOOGLE_TRACKING_ID);
@@ -25,9 +26,13 @@ function App() {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
+  const helmetContext = {};
+
 
   return (
-    <RouterProvider router={router} />
+    <HelmetProvider context={helmetContext}>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   );
 };
 
