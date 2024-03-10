@@ -15,7 +15,7 @@ import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Gallery.module.css";
-import Footer from "../components/layout/Footer";
+import SEO from '../components/SEO';
 
 const Gallery = () => {
   const nav = useNavigate();
@@ -78,6 +78,13 @@ const Gallery = () => {
       className={`${classes.section}`}
       id="gallery"
     >
+      <SEO
+        title='Urrnz Custom 3D Printed Keepsakes gallery'
+        description='All Urrnz custom 3D printed keepsakes.'
+        name='Urrnz.'
+        type='website'
+        imageUrl='../assets/logo192.png'
+      />
       <ShowIf
         condition={isLoading}
         render={() => {
@@ -110,9 +117,8 @@ const Gallery = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                           }}
-                          className={`${
-                            touchedIndex === index ? classes.touched : ""
-                          }`}
+                          className={`${touchedIndex === index ? classes.touched : ""
+                            }`}
                           onMouseDown={() => handleTouchStart(index)}
                           onMouseEnter={() => handleTouchStart(index)}
                           onMouseLeave={handleTouchEnd}

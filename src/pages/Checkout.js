@@ -10,7 +10,7 @@ import Review from "../components/forms/Review";
 import { CHECKOUT_STEPS } from "../config/constants";
 import classes from "./Checkout.module.css";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/layout/Footer";
+import SEO from '../components/SEO';
 
 const getStepContent = (activeStep, handleBack, handleNext) => {
   switch (activeStep) {
@@ -62,6 +62,13 @@ const Checkout = () => {
 
   return (
     <section className={classes.section}>
+       <SEO
+        title='Urrnz Custom 3D Printed Keepsakes'
+        description='Urrnz custom 3D printed keepsakes checkout.'
+        name='Urrnz.'
+        type='website'
+        imageUrl='../assets/logo192.png'
+      />
       <Heading title="CHECKOUT" />
       <main>
         <Container className={classes.container}>
