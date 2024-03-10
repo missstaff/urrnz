@@ -42,7 +42,7 @@ export default function SEO({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content="../assets/logo192.png" /> */}
 
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@urrnzUrns" />
             <meta name="twitter:creator" content="@shawnastaffreal" />
             <meta property="og:url" content="http://www.urrnz.com" />
