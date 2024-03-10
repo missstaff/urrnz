@@ -12,7 +12,7 @@ import { setCustomerHandler } from "../store/customer-actions";
 import { addressValidationSchema, handleSubmitContact } from "../utility/utils";
 
 import classes from "./Contact.module.css";
-import Footer from "../components/layout/Footer";
+import SEO from '../components/SEO';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -49,7 +49,14 @@ const Contact = () => {
 
   return (
     <section className={classes.section}>
-       <Heading title="CONTACT" />
+      <SEO
+        title='Urrnz Custom 3D Printed Keepsakes'
+        description='Urrnz custom 3D printed keepsakes contact information.'
+        name='Urrnz.'
+        type='website'
+        imageUrl='../assets/logo192.png'
+      />
+      <Heading title="CONTACT" />
       <main>
         <Container className={classes.container}>
           <h3 className={classes.title}>Send us a message</h3>
@@ -76,23 +83,23 @@ const Contact = () => {
                 </div>
 
                 <div className={classes.formButtonsContainer}>
-                <div >
-                  <Field
-                    id="uploadImage"
-                    name="uploadImage"
-                    onChange={(event) => {
-                      const uploadImage = event.target.files[0];
-                      setFile(uploadImage);
-                    }}
-                    className={classes.uploadField}
-                    type="file"
-                  />
-                </div>
-                <div className={classes.submit}>
-                  <FormButton title="Submit" type="submit" />
+                  <div >
+                    <Field
+                      id="uploadImage"
+                      name="uploadImage"
+                      onChange={(event) => {
+                        const uploadImage = event.target.files[0];
+                        setFile(uploadImage);
+                      }}
+                      className={classes.uploadField}
+                      type="file"
+                    />
+                  </div>
+                  <div className={classes.submit}>
+                    <FormButton title="Submit" type="submit" />
+                  </div>
                 </div>
               </div>
-                </div>
             </Form>
           </Formik>
         </Container>

@@ -13,6 +13,7 @@ import ShowIf from "../components/ShowIf";
 import PageContent from "../components/PageContent";
 import LoadingMessage from "../components/LoadingMessage";
 import Footer from "../components/layout/Footer";
+import SEO from '../components/SEO';
 
 const Product = () => {
   const { id } = useParams();
@@ -38,7 +39,14 @@ const Product = () => {
 
   return (
     <div>
-      <div className={ products ? classes.container : ""}>
+      <SEO
+        title='Urrnz Custom 3D Printed Keepsakes product details.'
+        description={`Product: ${product}`}
+        name='Urrnz.'
+        type='website'
+        imageUrl='../assets/logo192.png'
+      />
+      <div className={products ? classes.container : ""}>
         <ShowIf
           condition={isLoading}
           render={() => {
@@ -53,18 +61,18 @@ const Product = () => {
                 render={() => {
                   return (
                     <PageContent
-                    titleClassName={classes.title}
-                    title={"Page not found!"}
-                    message={"Sorry, the page you were looking for does not exist."}
-                    link={"/products/all"}
-                  >
-                  </PageContent>
+                      titleClassName={classes.title}
+                      title={"Page not found!"}
+                      message={"Sorry, the page you were looking for does not exist."}
+                      link={"/products/all"}
+                    >
+                    </PageContent>
                   );
                 }}
                 renderElse={() => {
                   return (
                     <>
-                    <Heading title="PRODUCT DETAILS" />
+                      <Heading title="PRODUCT DETAILS" />
                       <NavLink
                         className={classes.link}
                         to={`/products/${category}`}

@@ -1,6 +1,5 @@
 import About from "../components/About";
 import FAQ from "../components/FAQ";
-import Footer from "../components/layout/Footer";
 import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 import SEO from '../components/SEO';
