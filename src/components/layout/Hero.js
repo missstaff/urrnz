@@ -1,14 +1,14 @@
 import StoreButton from "../ui/StoreButton";
 import classes from "./Hero.module.css";
-import urnsPng from "../../assets/urns.png";
-import urnsWebp from "../../assets/urns.webp";
+import urnsPng from "../../assets/Combo-HD.png";
+// import urnsWebp from "../../assets/urns.webp";
 
 const Hero = () => {
   return (
     <div
       className={classes.hero}
       style={{
-        backgroundImage: `url(${urnsWebp}), url(${urnsPng})`,
+        backgroundImage: `url(${urnsPng})`,
       }}
     >
       <div className={classes.content}>
