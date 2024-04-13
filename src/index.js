@@ -23,4 +23,16 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals((metric) => {
+    const { name, value } = metric;
+  
+    // Send the metric to Google Analytics
+    if (name === 'CLS' || name === 'FID' || name === 'FCP' || name === 'LCP' || name === 'TTFB') {
+      gtag('event', name, {
+        event_category: 'Web Vitals',
+        event_label: name,
+        value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+        non_interaction: true, // avoids affecting bounce rate
+      });
+    }
+  });
