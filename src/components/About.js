@@ -2,6 +2,7 @@ import Container from "./Container";
 import { ABOUT_TEXT } from "../config/constants";
 import ReactGA from "react-ga";
 import classes from "./About.module.css";
+import { useEffect } from "react";
 
 const About = () => {
   useEffect(() => {
