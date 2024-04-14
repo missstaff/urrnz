@@ -30,13 +30,13 @@ function App() {
     });
   }, []);
 
-  // const helmetContext = {
-  //   title: "Urrnz Custom 3D Printed Keepsakes",
-  //   description: "Urrnz Custom 3D Printed Keepsakes homepage.",
-  //   name: "Urrnz.",
-  //   type: "website",
-  //   imageUrl: "../assets/logo192.png",
-  // };
+  const helmetContext = {
+    title: "Urrnz Custom 3D Printed Keepsakes",
+    description: "Urrnz Custom 3D Printed Keepsakes homepage.",
+    name: "Urrnz.",
+    type: "website",
+    imageUrl: "../assets/logo192.png",
+  };
 
     return (
     <HelmetProvider context={helmetContext}>
