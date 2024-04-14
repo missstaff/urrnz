@@ -24,12 +24,21 @@ function App() {
     dispatch(fetchOrderTemplate());
     dispatch(fetchChatTemplate());
     ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: "User visited the website",
+    });
   }, []);
 
-  const helmetContext = {};
+  const helmetContext = {
+    title: "Urrnz Custom 3D Printed Keepsakes",
+    description: "Urrnz Custom 3D Printed Keepsakes homepage.",
+    name: "Urrnz.",
+    type: "website",
+    imageUrl: "../assets/logo192.png",
+  };
 
-
-  return (
+    return (
     <HelmetProvider context={helmetContext}>
       <RouterProvider router={router} />
     </HelmetProvider>

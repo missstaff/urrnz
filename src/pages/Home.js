@@ -1,10 +1,19 @@
+import { useEffect } from "react";
 import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 import SEO from '../components/SEO';
+import ReactGA from "react-ga";
 
 const Home = () => {
+useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: "User visited the homepage",
+    });
+  }, []);
   return (
     <main>
       <SEO

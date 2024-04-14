@@ -1,9 +1,19 @@
 import StoreButton from "../ui/StoreButton";
 import classes from "./Hero.module.css";
 import urnsPng from "../../assets/Combo-HD.png";
+import ReactGA from "react-ga";
+import { useEffect } from "react";
 // import urnsWebp from "../../assets/urns.webp";
 
 const Hero = () => {
+  useEffect
+  (() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: "Hero image loaded",
+    });
+  }, []);
   return (
     <div
       className={classes.hero}

@@ -16,6 +16,7 @@ import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Gallery.module.css";
 import SEO from '../components/SEO';
+import ReactGA from "react-ga";
 
 const Gallery = () => {
   const nav = useNavigate();
@@ -72,6 +73,21 @@ const Gallery = () => {
     };
   }, [allProducts]);
 
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: "User visited the gallery page",
+    });
+  }, []);
+
+  const sendEventToGoogleAnalytics = () => {
+    ReactGA.event({
+      category: "User",
+      action: "User clicked on a product to view details",
+    });
+  };
+
   return (
     <div
       style={{ height: isLoading ? `${100}vh` : "100%" }}
@@ -125,6 +141,7 @@ const Gallery = () => {
                           onMouseUp={handleTouchEnd}
                           onTouchStart={() => handleTouchStart(index)}
                           onTouchEnd={handleTouchEnd}
+                          onClick={sendEventToGoogleAnalytics}
                         >
                           <img
                             alt={product.name}
@@ -159,6 +176,7 @@ const Gallery = () => {
                       </div>
                       <div className={classes.buttonContainer}>
                         <AddToCartButton
+                          product={product}
                           onClick={() => addItemToCartHandler(product)}
                         />
                       </div>

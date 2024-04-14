@@ -14,6 +14,7 @@ import PageContent from "../components/PageContent";
 import LoadingMessage from "../components/LoadingMessage";
 import Footer from "../components/layout/Footer";
 import SEO from '../components/SEO';
+import ReactGA from "react-ga";
 
 const Product = () => {
   const { id } = useParams();
@@ -27,6 +28,10 @@ const Product = () => {
 
   const addItemToCartHandler = (product) => {
     dispatch(addToCartHandler(product));
+    ReactGA.event({
+      category: "User",
+      action: `User added ${product.name} to the cart`,
+    });
   };
 
   useEffect(() => {
@@ -36,6 +41,14 @@ const Product = () => {
     }, 1000);
     return () => clearTimeout(id);
   }, [id]);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: `User visited the ${product.name} details page`,
+    });
+  }, []);
 
   return (
     <div>
@@ -105,6 +118,7 @@ const Product = () => {
                           </div>
                           <div className={classes.btnContainer}>
                             <AddToCartButton
+                              product={product}
                               onClick={() => addItemToCartHandler(product)}
                             />
                           </div>

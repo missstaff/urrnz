@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import ShowIf from "../ShowIf";
 import { setColorHandler } from "../../store/cart-actions";
 import { COLORS, COLOR_CODE_TO_NAME } from "../../config/constants";
+import ReactGA from "react-ga";
 
 import classes from "./ColorPicker.module.css";
 
@@ -16,6 +17,10 @@ const ColorPicker = (props) => {
   const handleColorChange = (color) => {
     setSelectedColor(color);
     dispatch(setColorHandler(cid, color));
+    ReactGA.event({
+      category: "User",
+      action: `User selected the color ${COLOR_CODE_TO_NAME[color]}`,
+    });
   };
 
   useEffect(() => {
