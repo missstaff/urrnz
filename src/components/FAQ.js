@@ -3,8 +3,10 @@ import { FAQ_ANSWERS, FAQ_QUESTIONS } from "../config/constants";
 import classes from "./FAQ.module.css";
 
 const FAQ = () => {
+  const size = window.innerWidth
+  const margin = size < 1000 ? "9.8rem" : "25rem";
   return (
-    <Container>
+    <Container style={{marginBottom: margin}}>
       <div className={classes.container}>
         {FAQ_QUESTIONS.map((question, index) => {
           return (

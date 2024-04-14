@@ -1,0 +1,21 @@
+.heading,
+.sectionHeading {
+    color: var(--color-primary-400);
+    font-size: 3.8rem;
+    padding: 1rem auto;  
+    margin: 2.2rem auto;
+}
+
+.text {
+    font-size: 2.4rem;
+    padding: 0rem 1rem 2.2rem 1rem;
+    margin-left: 2.2rem;
+}
+
+.textContainer{
+    margin: 0 auto;
+    max-width: 150rem;
+    padding: 2.2rem 4.8rem;
+}
+
+/*Media Queries*/

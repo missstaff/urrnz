@@ -10,6 +10,7 @@ import Product from "../pages/Product";
 import Products from "../pages/Gallery";
 import RootLayout from "../pages/RootLayout";
 import ThankYou from "../pages/ThankYou";
+import LandingPage from "../pages/LandingPage";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: "products/:category", element: <Products /> },
       { path: "product/:id", element: <Product /> },
       { path: "thank-you", element: <ThankYou /> },
+      { path: "landing-page", element: <LandingPage /> },
     ],
   },
 ]);
