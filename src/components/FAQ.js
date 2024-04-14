@@ -2,6 +2,7 @@ import Container from "./Container";
 import { FAQ_ANSWERS, FAQ_QUESTIONS } from "../config/constants";
 import classes from "./FAQ.module.css";
 import ReactGA from "react-ga";
+import { useEffect } from "react";
 
 const FAQ = () => {
   const size = window.innerWidth
