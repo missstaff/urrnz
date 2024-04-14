@@ -6,7 +6,7 @@ const LandingPage = () => {
     const size = window.innerWidth
     const margin = size < 1000 ? "20rem" : "25rem";
   return (
-    <main>
+    <main style={{minHeight: "100vh"}}>
       <Heading title="Urrnz" style={{ marginTop: margin }} />
       <Container style={{ flexDirection: "column", alignItems: "center" }}>
         <div className={classes.textContainer}>
