@@ -6,6 +6,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import { setCategoryHandler } from "../../store/store-actions";
 import { ALL } from "../../config/constants";
+import ReactGA from "react-ga";
 
 import classes from "./SelectCategoryModal.module.css";
 
@@ -22,6 +23,10 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
 
   const handleToggleSelect = () => {
     setDisplayDropdown((previous) => !previous);
+    ReactGA.event({
+      category: "User",
+      action: "User toggled the category dropdown",
+    });
   };
 
   const handleChangeCategory = (category) => {
@@ -49,6 +54,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
       setHidden(classes.hidden);
     }
   }, [displayDropdown]);
+  
 
   return (
     <div className={classes.container}>

@@ -1,9 +1,16 @@
 import Container from "./Container";
 import { ABOUT_TEXT } from "../config/constants";
-
+import ReactGA from "react-ga";
 import classes from "./About.module.css";
 
 const About = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.event({
+      category: "User",
+      action: "User visited the about page",
+    });
+  }, []);
   return (
     <Container>
       <div className={classes.container}>
