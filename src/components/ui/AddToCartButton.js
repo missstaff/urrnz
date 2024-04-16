@@ -19,6 +19,8 @@ const AddToCartButton = (props) => {
       }}
       style={props.style}
       to="/cart"
+      role="button"
+      tabIndex={0}
     >
       ADD TO CART
     </NavLink>
