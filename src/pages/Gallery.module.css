@@ -63,21 +63,21 @@
 .price,
 .description {
     color: var(--color-gray-600);
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
     text-decoration: none;
-    padding-top: .25rem;
-    padding-bottom: .25rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
 }
 
 .productName {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: var(--color-gray-700);
 }
 
 .description {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .touched {

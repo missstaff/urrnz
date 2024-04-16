@@ -126,11 +126,10 @@ const Gallery = () => {
                             tabIndex={0}
                           >
                             <div
-                              className={`${
-                                touchedIndex === index && product.images.lg
+                              className={`${touchedIndex === index && product.images.lg
                                   ? classes.touched
                                   : ""
-                              }`}
+                                }`}
                               onMouseDown={() => {
                                 if (!product.images.lg) {
                                   return;
