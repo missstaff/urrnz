@@ -1,7 +1,7 @@
 .container {
     margin: 0 auto;
     max-width: 150rem;
-    padding: 0 9.62rem 0 9.6rem;
+    padding: 0 9.6rem;
 }
 
 .text {
@@ -10,4 +10,11 @@
     line-height: 1.5;
     text-align: left;
     font-size: 2.4rem;
+    margin-left: 4.4rem;
+}
+
+@media screen and (max-width: 1150px) {
+    .container {
+        padding: 0 4.8rem;
+    }    
 }

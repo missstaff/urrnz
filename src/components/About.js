@@ -14,14 +14,15 @@ const About = () => {
   }, []);
   return (
     <div className={classes.container}>
-    {ABOUT_TEXT.map((text, index) => {
-      return (
-        <p key={index} className={classes.text}>
-          {text}
-        </p>
-      );
-    })}
-  </div>
+  
+      {ABOUT_TEXT.map((text, index) => {
+        return (
+          <p key={index} className={classes.text}>
+            {text}
+          </p>
+        );
+      })}
+    </div>
   );
 };
 

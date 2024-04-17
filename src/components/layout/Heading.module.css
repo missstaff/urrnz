@@ -19,7 +19,7 @@
 }
 
 /*Media Queries*/
-@media (min-width: 150px) and (max-width: 279.98px) {
+/* @media (min-width: 150px) and (max-width: 279.98px) {
     .heading {
         font-size: 4.2rem;
         margin: 3.4rem 0rem;
@@ -86,4 +86,4 @@
         font-size: 12rem;
         margin: 9.8rem 0rem;
     }
-}
+} */

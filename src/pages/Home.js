@@ -3,7 +3,7 @@ import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
-import SEO from '../components/SEO';
+import SEO from "../components/SEO";
 import ReactGA from "react-ga";
 import classes from "./Home.module.css";
 
@@ -18,25 +18,25 @@ const Home = () => {
   return (
     <main>
       <SEO
-        title='Urrnz Custom 3D Printed Keepsakes'
-        description='Urrnz Custom 3D Printed Keepsakes homepage.'
-        name='Urrnz.'
-        type='website'
-        imageUrl='../assets/logo192.png'
+        title="Urrnz Custom 3D Printed Keepsakes"
+        description="Urrnz Custom 3D Printed Keepsakes homepage."
+        name="Urrnz."
+        type="website"
+        imageUrl="../assets/logo192.png"
       />
       <section id="home">
         <Hero />
       </section>
+      <div className={classes.titleRow}>
+        <h2 className={classes.title}>ABOUT</h2>
+        <h2 className={classes.title}>FAQs</h2>
+      </div>
       <div className={classes.row}>
         <section>
-          <Heading id="about" title="ABOUT" />
           <About />
         </section>
-        <div
-          className={classes.divider}
-        ></div>
+        <div className={classes.divider}></div>
         <section>
-          <Heading id="faqs" title="FAQs" />
           <FAQ />
         </section>
       </div>
