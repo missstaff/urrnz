@@ -13,17 +13,15 @@ const About = () => {
     });
   }, []);
   return (
-    <Container>
-      <div className={classes.container}>
-        {ABOUT_TEXT.map((text, index) => {
-          return (
-            <p key={index} className={classes.text}>
-              {text}
-            </p>
-          );
-        })}
-      </div>
-    </Container>
+    <div className={classes.container}>
+    {ABOUT_TEXT.map((text, index) => {
+      return (
+        <p key={index} className={classes.text}>
+          {text}
+        </p>
+      );
+    })}
+  </div>
   );
 };
 

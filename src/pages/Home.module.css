@@ -1,0 +1,13 @@
+.row{
+    display: flex; 
+    flex-direction: row; 
+    column-gap: 4.4rem;
+    margin-bottom: 9.6rem;
+}
+
+.divider{
+    border-left: 1px solid #000;
+    height: 100vh;
+    margin: 0 2rem;
+    margin-top: 18rem;
+  }

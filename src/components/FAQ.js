@@ -16,18 +16,18 @@ const FAQ = () => {
     });
   }, []);
   return (
-    <Container style={{marginBottom: margin}}>
-      <div className={classes.container}>
-        {FAQ_QUESTIONS.map((question, index) => {
-          return (
-            <div key={index}>
-              <h2 className={classes.question}>{question}</h2>
-              <p className={classes.answer}>{FAQ_ANSWERS[index]}</p>
+    <div className={classes.container}>
+      {FAQ_QUESTIONS.map((question, index) => {
+        return (
+          <div key={index}>
+            <div className={classes.textContainer}>
+              <h2 className={classes.title}>{question}</h2>
+              <p className={classes.text}>{FAQ_ANSWERS[index]}</p>
             </div>
-          );
-        })}
-      </div>
-    </Container>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
