@@ -20,17 +20,13 @@ const Home = () => {
       <SEO
         title="Urrnz Custom 3D Printed Keepsakes"
         description="Urrnz Custom 3D Printed Keepsakes homepage."
-        name="Urrnz."
+        name="Urrnz"
         type="website"
         imageUrl="../assets/logo192.png"
       />
       <section id="home">
         <Hero />
       </section>
-      <div className={`${classes.titleRow}`} style={{display: window.innerWidth < 1150 ? "none" : ""}}>
-        <h2 className={classes.title}>ABOUT</h2>
-        <h2 className={classes.title}>FAQs</h2>
-      </div>
       <div className={classes.row}>
         <section>
           <About />

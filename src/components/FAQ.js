@@ -16,7 +16,7 @@ const FAQ = () => {
   }, []);
   return (
     <div className={classes.container}>
-      {/* <h2 className={classes.title}>FAQs</h2> */}
+      <h2 id="faqs" className={classes.title}>FAQs</h2>
       {FAQ_QUESTIONS.map((question, index) => {
         return (
           <div key={index}>

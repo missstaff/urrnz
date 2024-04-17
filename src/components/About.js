@@ -13,8 +13,8 @@ const About = () => {
     });
   }, []);
   return (
-    <div className={classes.container}>
-  {/* <h2 className={classes.title}>ABOUT</h2> */}
+    <div id="about" className={classes.container}>
+  <h2 className={classes.title}>ABOUT</h2>
       {ABOUT_TEXT.map((text, index) => {
         return (
           <p key={index} className={classes.text}>

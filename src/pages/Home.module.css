@@ -48,13 +48,19 @@
     .title {
         font-size: 4.8rem;
     }
+     .row {
+        flex-direction: column;
+     }
+
+    .divider {
+        display: none;
+    }
 
 }
 
 @media screen and (max-width: 768px) {
     .row {
         flex-direction: column;
-        row-gap: 4.4rem;
     }
 
     .divider {
