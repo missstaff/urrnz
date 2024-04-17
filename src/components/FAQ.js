@@ -20,10 +20,8 @@ const FAQ = () => {
       {FAQ_QUESTIONS.map((question, index) => {
         return (
           <div key={index}>
-            <div className={classes.textContainer}>
-              <h2 className={classes.title}>{question}</h2>
+            <h2 className={classes.title}>{question}</h2>
               <p className={classes.text}>{FAQ_ANSWERS[index]}</p>
-            </div>
           </div>
         );
       })}

@@ -11,3 +11,14 @@
     margin: 0 2rem;
     margin-top: 18rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .row{
+        flex-direction: column;
+        row-gap: 4.4rem;
+    }
+    .divider{
+        display: none;
+    }
+    
+  }
