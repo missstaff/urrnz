@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import About from "../components/About";
 import FAQ from "../components/FAQ";
-import Heading from "../components/layout/Heading";
 import Hero from "../components/layout/Hero";
 import SEO from "../components/SEO";
 import ReactGA from "react-ga";
 import classes from "./Home.module.css";
 
 const Home = () => {
+
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
     ReactGA.event({
@@ -27,7 +27,7 @@ const Home = () => {
       <section id="home">
         <Hero />
       </section>
-      <div className={classes.titleRow}>
+      <div className={`${classes.titleRow}`} style={{display: window.innerWidth < 1150 ? "none" : ""}}>
         <h2 className={classes.title}>ABOUT</h2>
         <h2 className={classes.title}>FAQs</h2>
       </div>

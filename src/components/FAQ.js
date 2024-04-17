@@ -1,4 +1,3 @@
-import Container from "./Container";
 import { FAQ_ANSWERS, FAQ_QUESTIONS } from "../config/constants";
 import classes from "./FAQ.module.css";
 import ReactGA from "react-ga";
@@ -17,11 +16,12 @@ const FAQ = () => {
   }, []);
   return (
     <div className={classes.container}>
+      {/* <h2 className={classes.title}>FAQs</h2> */}
       {FAQ_QUESTIONS.map((question, index) => {
         return (
           <div key={index}>
             <h2 className={classes.topic}>{question}</h2>
-              <p className={classes.text}>{FAQ_ANSWERS[index]}</p>
+            <p className={classes.text}>{FAQ_ANSWERS[index]}</p>
           </div>
         );
       })}

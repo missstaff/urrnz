@@ -1,7 +1,7 @@
 .container {
     margin: 0 auto;
     max-width: 150rem;
-    padding: 0 9.6rem;
+    padding: 0 9.4rem;
 }
 
 .text {
@@ -14,13 +14,17 @@
 
 .topic {
     color: var(--color-primary-400);
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     text-align: left;
     padding-bottom: 0.25rem;
+    display: inline-block;
+}
+.topic:first-child{
+    padding-top: 2.2rem;
+
 }
 
 .title {
-    display: inline-block;
     background-clip: text;
     background-image:
         linear-gradient(to right top, rgb(5, 35, 45), rgb(10, 53, 62), rgb(21, 75, 87), rgb(255, 140, 0), rgb(255, 106, 0), rgb(255, 72, 0));
@@ -41,7 +45,23 @@
     padding: 2.2rem;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1450px){
+    .title {
+        font-size: 4.8rem;
+    }
+}
+
+
+/* @media screen and (max-width: 1150px) {
+    .container {
+        padding: 0 4.8rem;
+    }  
+    .text {
+        margin-left: 0;
+    }  
+} */
+
+/* @media screen and (max-width: 1150px) {
     .container {
         padding: 0 4.8rem;
     }
@@ -50,4 +70,4 @@
         font-size: 6.8rem;
         padding: 9.6rem 0;
     }
-}
+} */

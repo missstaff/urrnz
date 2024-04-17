@@ -7,14 +7,42 @@
 .text {
     display: inline-block; 
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.75;
     text-align: left;
     font-size: 2.4rem;
     margin-left: 4.4rem;
 }
 
-@media screen and (max-width: 1150px) {
-    .container {
-        padding: 0 4.8rem;
-    }    
+.title {
+    background-clip: text;
+    background-image:
+        linear-gradient(to right top, rgb(5, 35, 45), rgb(10, 53, 62), rgb(21, 75, 87), rgb(255, 140, 0), rgb(255, 106, 0), rgb(255, 72, 0));
+    color: transparent;
+    font-size: 12.6rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, .1);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, .1);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bolder;
+    width: 100%;
+    padding: 2.2rem;
 }
+
+@media screen and (max-width: 1450px) {
+    .container {
+        padding: 0;
+    }  
+    .text {
+        margin: 1.8rem 0;
+    }  
+    .title {
+        font-size: 4.8rem;
+    }
+}
+
