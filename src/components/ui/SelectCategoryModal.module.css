@@ -43,7 +43,7 @@
     border-radius: 7.5px;
     border-width: 1px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-    color: var(--color-secondary-700);
+    color: var(--color-gray-700);
     display: flex;
     flex-direction: column;
     font-size: 1.8rem;
@@ -71,4 +71,12 @@
 .hidden {
     display: none;
     transition: all 3s ease-in-out;
+}
+
+.heading {
+    /*font-size: 2.4rem;
+    font-weight: 700;
+    padding: 1.2rem;
+    text-align: center;*/
+    color: var(--color-gray-700);
 }

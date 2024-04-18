@@ -70,9 +70,9 @@ export const POST_ORDER =
 export const GOOGLE_TRACKING_ID = "G-8ST98TVJ83";
 
 export const ABOUT_TEXT = [
-  "At Urrnz, we saw a need in the industry for custom urns that were truly unique and personalized to honor the memory of loved ones. That's why we created a 3D printing service that allows us to create custom urns on demand, using state-of-the-art technology to ensure the highest level of quality and customization.",
-  "Our 3D printing process allows us to create urns in a variety of shapes, sizes, and colors, with intricate designs and personalized details that traditional manufacturing methods simply can't match. Whether you want to incorporate a favorite photo or symbol, or create a completely custom design from scratch, our team of skilled designers and technicians can bring your vision to life. And because we print on demand, you can be sure that your urn will be one-of-a-kind, created just for you and your loved one.",
-  "With Urrnz, you can honor the memory of your loved one with a truly unique and personalized urn that reflects their life and legacy.",
+  "At Urrnz, we recognized a significant gap in the market for urns that resonated with the individuality and uniqueness of each person's life story. Traditional urns often lacked the personal touch that many families sought to honor their loved ones' memories. To address this, we innovated a state-of-the-art 3D printing service that revolutionizes the concept of memorial urns.",
+  "Our cutting-edge 3D printing technology empowers us to craft urns in a vast array of shapes, sizes, and colors. This flexibility enables us to create intricate designs and incorporate personalized details that go beyond the limitations of conventional manufacturing processes. Whether you envision incorporating a cherished photograph, a special symbol, or you wish to design an urn entirely from scratch, our dedicated team of designers and technicians is here to assist you every step of the way.",
+  "What sets Urrnz apart is our commitment to individuality and personalization. Each urn we produce is a bespoke creation, tailored to capture the essence of your loved one's life journey. By choosing Urrnz, you're not just selecting an urn; you're honoring your loved one's legacy with a timeless piece of art that truly reflects their spirit and the love you shared.",
 ];
 
 export const FAQ_QUESTIONS = [

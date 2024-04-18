@@ -8,6 +8,7 @@ async function fetchDataFromServer() {
         { url: "https://www.urrnz.com/checkout", lastModified: new Date().toISOString(), changeFreq: "daily" },
         { url: "https://www.urrnz.com/contact", lastModified: new Date().toISOString(), changeFreq: "daily" },
         { url: "https://www.urrnz.com/genres", lastModified: new Date().toISOString(), changeFreq: "daily" },
+        { url: "https://www.urrnz.com/landing-page", lastModified: new Date().toISOString(), changeFreq: "daily" },
     ];
     const categoryUrls = await getCategoriesUrls();
     const productUrls = await getProductUrls();

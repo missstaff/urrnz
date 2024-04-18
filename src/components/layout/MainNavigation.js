@@ -70,7 +70,7 @@ function MainNavigation() {
               <p>Home</p>
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <Link
               aria-label="Navigation link to the about page."
               to="/#about"
@@ -97,7 +97,7 @@ function MainNavigation() {
             >
               <p>FAQ</p>
             </Link>
-          </li>
+          </li> */}
           {/** Bring back when we do have lines */}
           {/* <li>
                         <NavLink

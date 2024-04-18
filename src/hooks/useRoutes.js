@@ -11,6 +11,7 @@ import Products from "../pages/Gallery";
 import RootLayout from "../pages/RootLayout";
 import ThankYou from "../pages/ThankYou";
 import LandingPage from "../pages/LandingPage";
+import About from "../components/About";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       { path: "product/:id", element: <Product /> },
       { path: "thank-you", element: <ThankYou /> },
       { path: "landing-page", element: <LandingPage /> },
+      {path: "*", element: <Error />}
     ],
   },
 ]);

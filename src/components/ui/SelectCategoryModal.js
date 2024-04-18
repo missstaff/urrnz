@@ -58,7 +58,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
 
   return (
     <div className={classes.container}>
-      <h2>SELECT A CATEGORY:</h2>
+      <h2 className={classes.heading}>SELECT A CATEGORY:</h2>
       <div
         onClick={handleToggleSelect}
         style={{

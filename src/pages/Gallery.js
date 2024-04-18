@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import AddToCartButton from "../components/ui/AddToCartButton";
-import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
 import SelectCategoryModal from "../components/ui/SelectCategoryModal";
@@ -15,7 +14,7 @@ import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 
 import classes from "./Gallery.module.css";
-import SEO from '../components/SEO';
+import SEO from "../components/SEO";
 import ReactGA from "react-ga";
 
 const Gallery = () => {
@@ -95,11 +94,11 @@ const Gallery = () => {
       id="gallery"
     >
       <SEO
-        title='Urrnz Custom 3D Printed Keepsakes gallery'
-        description='All Urrnz custom 3D printed keepsakes.'
-        name='Urrnz.'
-        type='website'
-        imageUrl='../assets/logo192.png'
+        title="Urrnz Custom 3D Printed Keepsakes gallery"
+        description="All Urrnz custom 3D printed keepsakes."
+        name="Urrnz."
+        type="website"
+        imageUrl="../assets/logo192.png"
       />
       <ShowIf
         condition={isLoading}
@@ -112,77 +111,102 @@ const Gallery = () => {
         render={() => {
           return (
             <>
-              <Heading title={"Gallery"} />
+              <div style={{marginTop: "9.6rem", marginBottom: "2.4rem"}}>
+              <Heading title="GALLERY" />
+              </div>
 
               <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
-
-              <div className={`grid ${classes.gridColumns}`}>
-                {categoryProducts.map((product, index) => (
-                  <div key={index}>
-                    <Container
-                      style={{
-                        boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.05)",
-                        padding: "0px 25px",
-                      }}
-                    >
-                      <NavLink to={`/product/${product.zid}`}>
-                        <div
-                          style={{
-                            alignSelf: "center",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                          }}
-                          className={`${touchedIndex === index ? classes.touched : ""
-                            }`}
-                          onMouseDown={() => handleTouchStart(index)}
-                          onMouseEnter={() => handleTouchStart(index)}
-                          onMouseLeave={handleTouchEnd}
-                          onMouseUp={handleTouchEnd}
-                          onTouchStart={() => handleTouchStart(index)}
-                          onTouchEnd={handleTouchEnd}
-                          onClick={sendEventToGoogleAnalytics}
-                        >
-                          <img
-                            alt={product.name}
-                            src={product.images.lg}
-                            className={classes.image}
-                          />
-                        </div>
-                      </NavLink>
-                      <div
-                        style={{ zIndex: -1 }}
-                        className={classes.detailsContainer}
-                      >
-                        <div className={classes.detailsTitle}>
-                          <h3
-                            className={`${classes.heading} ${classes.limitTitle}`}
+              <div className={classes.gridContainer}>
+                <div className={classes.row}>
+                  {categoryProducts.map((product, index) => {
+                    return (
+                      <div className={classes.cell} key={index}>
+                        <div className={classes.itemRow}>
+                          <NavLink
+                            role="link"
+                            to={`/product/${product.zid}`}
+                            tabIndex={0}
                           >
-                            {product.name}
-                          </h3>
-                          <p
-                            className={classes.price}
-                            style={{ textShadow: "none" }}
-                          >
-                            ${product.price}
-                          </p>
+                            <div
+                              className={`${touchedIndex === index && product.images.lg
+                                  ? classes.touched
+                                  : ""
+                                }`}
+                              onMouseDown={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchStart(index);
+                              }}
+                              onMouseEnter={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchStart(index);
+                              }}
+                              onMouseLeave={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchEnd();
+                              }}
+                              onMouseUp={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchEnd();
+                              }}
+                              onTouchStart={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchStart(index);
+                              }}
+                              onTouchEnd={() => {
+                                if (!product.images.lg) {
+                                  return;
+                                }
+                                handleTouchEnd();
+                              }}
+                              onClick={sendEventToGoogleAnalytics}
+                              role="button"
+                              tabIndex={product.images.lg ? 0 : -1}
+                            >
+                              {product.images.lg ? (
+                                <img
+                                  alt={product.name}
+                                  src={product.images.lg}
+                                  className={classes.image}
+                                  role="img"
+                                  tabIndex={product.images.lg ? 0 : -1}
+                                />
+                              ) : (
+                                <div className={classes.emptyImage}></div>
+                              )}
+                            </div>
+                          </NavLink>
+                          <div>
+                            <h3 className={classes.productName}>
+                              {product.name}
+                            </h3>
+                            <div className={classes.price}>
+                              ${product.price}
+                            </div>
+                            <div className={classes.description}>
+                              {product.description}
+                            </div>
+                            <div className={classes.btnContainer}>
+                              <AddToCartButton
+                                product={product}
+                                onClick={() => addItemToCartHandler(product)}
+                              />
+                            </div>
+                          </div>
                         </div>
-                        <p
-                          className={`${classes.details} ${classes.limitLines}`}
-                          style={{ textShadow: "none" }}
-                        >
-                          {product.description}
-                        </p>
                       </div>
-                      <div className={classes.buttonContainer}>
-                        <AddToCartButton
-                          product={product}
-                          onClick={() => addItemToCartHandler(product)}
-                        />
-                      </div>
-                    </Container>
-                  </div>
-                ))}
+                    );
+                  })}
+                </div>
               </div>
             </>
           );
@@ -198,6 +222,7 @@ const Gallery = () => {
                 display: "flex",
                 flexDirection: "column",
                 height: `${100}vh`,
+                justifyContent: "center",
               }}
             >
               <p className={classes.noItemsMessage}>No items found!</p>
