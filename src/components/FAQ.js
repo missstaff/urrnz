@@ -2,6 +2,7 @@ import { FAQ_ANSWERS, FAQ_QUESTIONS } from "../config/constants";
 import classes from "./FAQ.module.css";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
+import Heading from "./layout/Heading";
 
 const FAQ = () => {
   const size = window.innerWidth
@@ -16,7 +17,7 @@ const FAQ = () => {
   }, []);
   return (
     <div className={classes.container}>
-      <h2 id="faqs" className={classes.title}>FAQs</h2>
+      <Heading title="FAQs"/>
       {FAQ_QUESTIONS.map((question, index) => {
         return (
           <div key={index}>

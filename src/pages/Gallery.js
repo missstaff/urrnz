@@ -111,7 +111,9 @@ const Gallery = () => {
         render={() => {
           return (
             <>
-              <Heading title={"Gallery"} />
+              <div style={{marginTop: "9.6rem", marginBottom: "2.4rem"}}>
+              <Heading title="GALLERY" />
+              </div>
 
               <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
               <div className={classes.gridContainer}>

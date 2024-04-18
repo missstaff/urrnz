@@ -56,7 +56,9 @@ const Contact = () => {
         type='website'
         imageUrl='../assets/logo192.png'
       />
+      <div style={{marginTop: "9.6rem", marginBottom: "9.6rem"}}>
       <Heading title="CONTACT" />
+      </div>
       <main>
         <Container className={classes.container}>
           <h3 className={classes.title}>Send us a message</h3>

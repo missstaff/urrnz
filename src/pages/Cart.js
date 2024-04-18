@@ -12,8 +12,6 @@ import { cartActions } from "../store/cart-slice";
 import { loadingActions } from "../store/loading-slice";
 
 import classes from "./Cart.module.css";
-import { set } from "react-ga";
-import Footer from "../components/layout/Footer";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -46,7 +44,9 @@ const Cart = () => {
   return (
     <section className={classes.cartContainer}>
       <div className={classes.headingContainer}>
+        <div style={{marginTop: "9.6rem", marginBottom: "9.6rem"}}>
         <Heading title="CART" />
+        </div>
       </div>
       <main>
         <ShowIf
