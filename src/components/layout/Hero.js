@@ -41,8 +41,7 @@ const Hero = ({ loading, setLoading }) => {
                 <h1 role="heading" className={classes.title}>
                   URRNZ<span> CUSTOM KEEPSAKES</span>
                 </h1>
-                <div className={classes.btnContainer}></div>
-                <StoreButton to="/products/All" title="SHOP URRNZ" />
+                <StoreButton buttonClass={classes.storeBtn} to="/products/All" title="SHOP URRNZ" />
               </div>
             )}
           </div>

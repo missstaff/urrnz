@@ -40,7 +40,7 @@ const Cart = () => {
 
     dispatch(loadingActions.setLoading(false));
   }, [dispatch]);
-  console.log(items);
+
   return (
     <section className={classes.section}>
       <main>
@@ -58,11 +58,8 @@ const Cart = () => {
           condition={!isLoading && items.length}
           render={() => {
             return (
-              <>
-                <Heading
-                  title="CART"
-                  style={{ marginTop: "19.2rem", marginBottom: "9.6rem" }}
-                />
+              <div style={{backgroundColor: "pink"}}>
+                <Heading title="CART" />
                 <div className={classes.card}>
                   <div className={classes.grid}>
                     <div>
@@ -73,8 +70,11 @@ const Cart = () => {
                               {item.image ? (
                                 <img
                                   alt={item.name}
+                                  aria-label="product image"
                                   className={`${classes.image}`}
+                                  role="img"
                                   src={item.image}
+                                  tabIndex={0}
                                 />
                               ) : (
                                 <div className={`${classes.emptyImage}`}></div>
@@ -84,42 +84,60 @@ const Cart = () => {
 
                             <div className={classes.quantityContainer}>
                               <p className={classes.text}>
-                                ${item.price * item.quantity} <span className={classes.x}>x</span> {item.quantity}
+                                ${item.price * item.quantity}{" "}
+                                <span className={classes.x}>x</span>{" "}
+                                {item.quantity}
                               </p>
-                             <div className={classes.quantityButtonContainer}>
-                             <div
-                                onClick={() =>
-                                  increaseItemQuantityHandler(item)
-                                }
-                                className={classes.quantityButton}
-                              >
-                                <FaPlus
-                                  color="rgba(255, 71, 0, 1)"
-                                  size={`${1.2}rem`}
-                                />
+                              <div className={classes.quantityButtonContainer}>
+                                <div
+                                  aria-role="button"
+                                  className={classes.quantityButton}
+                                  onClick={() =>
+                                    increaseItemQuantityHandler(item)
+                                  }
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <FaPlus
+                                    aria-label="increase quantity"
+                                    color="rgba(255, 71, 0, 1)"
+                                    size={`${1.2}rem`}
+                                  />
+                                </div>
+                                <div
+                                  className={classes.quantityButton}
+                                  onClick={() =>
+                                    decreaseItemQuantityHandler(item.cid)
+                                  }
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <FaMinus
+                                    aria-label="decrease quantity"
+                                    color="rgba(255, 71, 0, 1)"
+                                    size={`${1.2}rem`}
+                                  />
+                                </div>
                               </div>
-                              <div
-                                onClick={() =>
-                                  decreaseItemQuantityHandler(item.cid)
-                                }
-                                className={classes.quantityButton}
-                              >
-                                <FaMinus
-                                  color="rgba(255, 71, 0, 1)"
-                                  size={`${1.2}rem`}
-                                />
-                              </div>
-                             </div>
                             </div>
 
                             <div className={classes.textAreaContainer}>
-                              <label className={classes.label} htmlFor="message">Inscription</label>
+                              <label
+                                aria-label="inscription label"
+                                className={classes.label}
+                                htmlFor="message"
+                              >
+                                Inscription
+                              </label>
                               <div>
                                 <input
+                                  aria-label="inscription input"
                                   className={`${classes.textAreaField}`}
                                   id="message"
                                   name="message"
                                   placeholder="Optional inscription"
+                                  role="textbox"
+                                  tabIndex={0}
                                   type="text"
                                   onChange={(e) =>
                                     dispatch(
@@ -140,22 +158,15 @@ const Cart = () => {
                         );
                       })}
                     </div>
-                    <div>
-                      <div className={classes.col}>
-                        <div className={classes.textRow}>
-                          <p>Subtotal</p>
-                          <p>${subTotal}</p>
-                        </div>
-                        <div
-                          style={{ alignSelf: "center", paddingTop: "1rem" }}
-                        >
-                          <StoreButton title={"CHECKOUT"} to={"/checkout"} />
-                        </div>
+                    <div className={classes.col} style={{alignSelf: "flex-end", padding: 1}}>
+                      <p className={`${classes.text}`} style={{fontWeight: "600"}}>Subtotal<span> ${subTotal}</span></p>
+                      <StoreButton buttonClass={classes.storeBtn} title={"CHECKOUT"} to={"/checkout"} />
                       </div>
-                    </div>
                   </div>
                 </div>
-              </>
+              </div>
+                
+                
             );
           }}
         />
@@ -163,174 +174,17 @@ const Cart = () => {
           condition={!isLoading && !items.length}
           render={() => {
             return (
-              <div className={classes.absoluteCenter}>
+             <div style={{height: "100vh", maxHeight: "100%"}}>
+               <div className={classes.absoluteCenter}>
                 <p>Your cart is empty</p>
                 <StoreButton title={"SHOP URRNZ"} to={"/products/All"} />
               </div>
+             </div>
             );
           }}
         />
       </main>
     </section>
-    // <section className={classes.cartContainer}>
-    //   <div className={classes.headingContainer}>
-    // <div style={{marginTop: "9.6rem", marginBottom: "9.6rem"}}>
-    // <Heading title="CART" />
-    // </div>
-    //   </div>
-    //   <main>
-    //     <ShowIf
-    //       condition={isLoading}
-    //       render={() => {
-    //         return <LoadingMessage />;
-    //       }}
-    //     />
-    //     <ShowIf
-    //       condition={!isLoading && items.length}
-    //       render={() => (
-    //         <>
-    //           {items.map((item, i) => (
-    //             <div className={`${classes.container}`} key={item.cid}>
-    //               <h3 className={classes.title}>{item.name}</h3>
-    //               <div className={`${classes.itemContainer}`}>
-    //                 <div className={classes.imageContainer}>
-    //                   <div className={classes.imageContainerColumn}>
-    //                     {item.image ? (
-    //                       <img
-    //                       alt={item.name}
-    //                       className={classes.image}
-    //                       src={item.image}
-    //                     />
-    //                     ) : (<div className={classes.emptyImage}></div>)}
-    //                     <div
-    //                       className={`${
-    //                         (classes.pickerContainer,
-    //                         classes.lgScreenPickerContainer)
-    //                       }`}
-    //                     >
-    //                       {/* <CustomPicker cid={item.cid} /> */}
-    //                     </div>
-    //                   </div>
-    //                 </div>
-    //                 <div>
-    //                   {/* <h3 className={classes.title}>{item.name}</h3> */}
-
-    //                   <div>
-    //                     <div className={classes.detailsContainer}>
-    //                       <div>
-    //                         <p className={classes.itemPrice}>
-    //                           Price: ${item.price * item.quantity}
-    //                         </p>
-    //                         <p className={classes.itemPrice}>
-    //                           Quantity: {item.quantity}
-    //                         </p>
-    //                       </div>
-
-    //                       <div className={classes.quantityButtonContainer}>
-    // <div
-    //   onClick={() => increaseItemQuantityHandler(item)}
-    //   className={classes.quantityButton}
-    // >
-    //   <FaPlus
-    //     color="rgba(255, 71, 0, 1)"
-    //     size={`${1}rem`}
-    //   />
-    // </div>
-    // <div
-    //   onClick={() =>
-    //     decreaseItemQuantityHandler(item.cid)
-    //   }
-    //   className={classes.quantityButton}
-    // >
-    //   <FaMinus
-    //     color="rgba(255, 71, 0, 1)"
-    //     size={`${1}rem`}
-    //   />
-    // </div>
-    //                       </div>
-    //                     </div>
-    //                     <p className={classes.itemDescription}>
-    //                       {item.description}
-    //                     </p>
-    //                     <div>
-    //                       <div className={classes.textAreaContainer}>
-    //                         <label className={classes.text} htmlFor="message">
-    //                           Inscription:
-    //                         </label>
-    //                         <div>
-    //                           <input
-    //                             className={`${classes.textAreaField}`}
-    //                             id="message"
-    //                             name="message"
-    //                             placeholder="Name or text to inscribe"
-    //                             type="text"
-    //                             onChange={(e) =>
-    //                               dispatch(
-    //                                 cartActions.setItemInscription({
-    //                                   id: item.cid,
-    //                                   inscription: e.target.value,
-    //                                 })
-    //                               )
-    //                             }
-    //                             value={item.inscription}
-    //                           />
-    //                         </div>
-    //                       </div>
-    //                     </div>
-    //                     <div
-    //                       className={`${
-    //                         (classes.pickerContainer,
-    //                         classes.smScreenPickerContainer)
-    //                       }`}
-    //                     >
-    //                       {/* <CustomPicker cid={item.cid} /> */}
-    //                     </div>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           ))}
-
-    //           <div
-    //             style={{
-    //               display: "flex",
-    //               flexDirection: "column",
-    //             }}
-    //           >
-    //             <hr className={classes.horizontalLine} />
-    //             <div
-    //               style={{
-    //                 marginRight: "15%",
-    //                 alignSelf: "flex-end",
-    //               }}
-    //             >
-    //               <p className={classes.subTotal}>Subtotal: ${subTotal}</p>
-    //             </div>
-    //           </div>
-    //         </>
-    //       )}
-    //     />
-    // <ShowIf
-    //   condition={!isLoading && !items.length}
-    //   render={() => {
-    //     return <h3 className={classes.message}>Your cart is empty</h3>;
-    //   }}
-    // />
-    // <ShowIf
-    //   condition={!isLoading}
-    //   render={() => {
-    //     return (
-    //       <div className={classes.cartButton}>
-    //         <StoreButton
-    //           title={!items.length ? "SHOP URRNZ" : "CHECKOUT"}
-    //           to={!items.length ? "/products/All" : "/checkout"}
-    //         />
-    //       </div>
-    //     );
-    //   }}
-    // />
-    //   </main>
-    // </section>
   );
 };
 

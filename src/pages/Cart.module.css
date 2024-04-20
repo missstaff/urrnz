@@ -14,7 +14,7 @@
   justify-content: center;
   margin: 0 auto;
   padding: 1.2rem 2.4rem;
-  width: 65%;
+  width: 55%;
 }
 
 .cellPadding {
@@ -28,9 +28,11 @@
 }
 
 .grid {
-  display: grid;
-  gap: 4.4rem;
-  grid-template-columns: repeat(1, 4fr 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .image {
@@ -75,7 +77,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 15px
+  padding: 5px 15px;
 }
 
 .quantityContainer {
@@ -91,7 +93,6 @@
   display: grid;
   gap: 2.2rem;
   grid-template-columns: repeat(5, 1fr);
-  /* padding: 2.2rem 0; */
 }
 
 .row:last-child {
@@ -99,16 +100,25 @@
 }
 
 .section {
-  height: 100vh;
-  max-height: 100%;
-  margin: 9.6rem 0 4.8rem 0;
+  height: 100%;
+  margin: 19.2rem 0;
   width: 100%;
+}
+
+.storeBtn {
+  background-color: #fff;
+  border: 1px solid var(--color-secondary-700);
+  border-radius: 25px;
+  border-radius: 25px;
+  font-size: 1.8rem;
+  padding: 2.5px 2.2rem;
+  margin-top: 7.5px;
 }
 
 .text {
   display: inline-block;
   font-size: 2.2rem;
-  font-weight: 400;
+  
   margin: 0;
 }
 
@@ -120,14 +130,13 @@
 }
 
 .textAreaField {
-  border-color: #999;
+  border-color: #777;
   border-radius: 7.5px;
   border-style: solid;
   border-width: 0.5px;
   color: #444;
   font-size: 1.6rem;
   line-height: 1;
-  /* font-weight: 400; */
   padding: 0.5rem;
   width: 100%;
 }
@@ -141,7 +150,7 @@
 }
 
 .textAreaField::placeholder {
-  color: #999
+  color: #999;
 }
 
 .textRow {
@@ -152,12 +161,12 @@
   padding: 0 2.2rem;
 }
 
-.textRow>p {
+.textRow > p {
   display: inline-block;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 auto;
   padding: 1rem 2.2rem;
 }
 
@@ -165,3 +174,4 @@
   font-size: 0.8em;
   font-weight: 700;
 }
+

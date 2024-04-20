@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
-import ShowIf from "../ShowIf";
+import ReactGA from "react-ga";
 import { setColorHandler } from "../../store/cart-actions";
 import { COLORS, COLOR_CODE_TO_NAME } from "../../config/constants";
-import ReactGA from "react-ga";
-
 import classes from "./ColorPicker.module.css";
 
 const ColorPicker = (props) => {
@@ -37,8 +34,9 @@ const ColorPicker = (props) => {
     <>
       <p className={classes.text}>Select color</p>
       <div className={classes.grid}>
-        {COLORS.map((color) => (
+        {COLORS.map((color, i) => (
           <div
+          aria-label="color picker"
             className={classes.image}
             key={color}
             onClick={() => handleColorChange(color)}
@@ -46,10 +44,11 @@ const ColorPicker = (props) => {
               backgroundColor: color,
               outline: color === selectedColor ? "3px solid #777" : "none",
             }}
+            tabIndex={i}
           />
         ))}
       </div>
-      {/* <ShowIf
+      {/* <ShowIf AB4A47
         condition={selectedColor}
         render={() => {
           return (
