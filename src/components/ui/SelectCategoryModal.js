@@ -58,7 +58,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
 
   return (
     <div className={classes.container}>
-      <h2 className={classes.heading}>SELECT A CATEGORY:</h2>
+      <h3 className={classes.heading}>SELECT A CATEGORY:</h3>
       <div
         onClick={handleToggleSelect}
         style={{
@@ -74,7 +74,7 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
             ? category.toUpperCase() + " URRNZ"
             : category.toUpperCase()}
         </h4>
-        <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 50 }} />
+        <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 15 }} />
       </div>
       <div
         onClick={handleToggleSelect}

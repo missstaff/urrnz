@@ -7,8 +7,8 @@
 
 .image {
     cursor: pointer;
-    height: 16px;
-    width: 16px;
+    height: 22px;
+    width: 22px;
 }
 
 .selectColor {
@@ -23,7 +23,7 @@
 
 .text {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
     padding: 2px 0;
     font-weight: 700;

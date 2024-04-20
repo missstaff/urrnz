@@ -1,109 +1,180 @@
-.section {
-  height: 100vh;
-  max-height: 100%;
-  width: 100%;
-  margin: 9.6rem 0;
+.absoluteCenter {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card {
+  align-items: center;
   border-radius: 7.5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  padding: 2.4rem 4.8rem;
-  align-items: center;
   justify-content: center;
-  width: 55%;
+  margin: 0 auto;
   padding: 1.2rem 2.4rem;
+  width: 65%;
 }
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(1, 4fr 1fr);
-  gap: 1rem;
-}
-
-.row{
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 2.2rem 0;
-}
-
-.row:last-child{
-  border-bottom: none;
+.cellPadding {
+  padding: 0.25rem 1rem;
 }
 
 .col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-}
-
-.x {
   display: flex;
   flex-direction: column;
   /* justify-content: space-evenly; */
-  row-gap: 1rem;
 }
 
-.textRow {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 2.2rem;
-  justify-content: space-around;
+.grid {
+  display: grid;
+  gap: 4.4rem;
+  grid-template-columns: repeat(1, 4fr 1fr);
 }
 
-.textRow>p{
-  display: inline-block;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  font-weight: 500;
-  margin: 0;
-  padding: 1rem 2.2rem;
-}
-
-.image{
+.image {
   align-self: center;
   border-radius: 7.5;
-  height: 7.5rem;
+  height: 11.8rem;
   image-resolution: from-image;
   object-fit: cover;
   resize: both;
   width: fit-content;
 }
 
+.imageEmpty {
+  background-color: transparent;
+  border-radius: 50%;
+  height: 9.6rem;
+  width: 9.6rem;
+  overflow: hidden;
+}
+
+.label {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2px 0;
+  font-weight: 700;
+}
+
+.quantityButton {
+  border-color: rgba(255, 71, 0, 1);
+  border-radius: 7.5px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+}
+
 .quantityButtonContainer {
-  column-gap: 4.8px;
+  align-items: center;
+  column-gap: 9.6px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 15px
+}
+
+.quantityContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.row {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: repeat(5, 1fr);
+  /* padding: 2.2rem 0; */
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.section {
+  height: 100vh;
+  max-height: 100%;
+  margin: 9.6rem 0 4.8rem 0;
+  width: 100%;
 }
 
 .text {
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 400;
   margin: 0;
-  padding: 0;
 }
 
-.absoluteCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.textAreaContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 0;
+  width: 100%;
 }
 
-.pickerContainer{
+.textAreaField {
+  border-color: #999;
+  border-radius: 7.5px;
+  border-style: solid;
+  border-width: 0.5px;
+  color: #444;
+  font-size: 1.6rem;
+  line-height: 1;
+  /* font-weight: 400; */
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.textAreaField:focus {
+  border: 0.5px solid var(--color-secondary-700);
+  border-radius: 7.5px;
+  box-shadow: 0 0 0 2px var(--color-secondary-700);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.textAreaField::placeholder {
+  color: #999
+}
+
+.textRow {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 2.2rem;
+}
+
+.textRow>p {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 1rem 2.2rem;
+}
+
+.x {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+
+
+
+.pickerContainer {
   /* grid-row: 2;
   grid-column: 5; */
 }
+
 /* .cartContainer {
   align-items: center;
   display: flex;

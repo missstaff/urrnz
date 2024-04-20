@@ -24,20 +24,20 @@
 .container>div>ul>li {
     font-weight: 600;
     font-size: 1.8rem;
-    padding: 1.8rem 4.4rem;
+    padding: 1rem 2.2rem;
     cursor: pointer;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     color: var(--color-secondary-700);
     z-index: 999;
 }
 
-.container>h2 {
+.container>h3 {
     font-size: 1.8rem;
-    padding-top: 1.2rem;
 }
 
 
 .selected {
+    align-items: center;
     border: solid;
     cursor: pointer;
     border-color: var(--color-secondary-700);
@@ -49,8 +49,8 @@
     flex-direction: column;
     font-size: 1.4rem;
     justify-content: center;
-    margin-top: 1rem;
-    padding: 0.25rem 1rem;
+    /* margin-top: 1rem; */
+    padding: 1px 7.5px;
     text-decoration: none;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     text-transform: capitalize;

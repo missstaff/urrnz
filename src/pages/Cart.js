@@ -59,7 +59,10 @@ const Cart = () => {
           render={() => {
             return (
               <>
-                <Heading title="CART" style={{ marginTop: "19.2rem", marginBottom: "9.6rem" }} />
+                <Heading
+                  title="CART"
+                  style={{ marginTop: "19.2rem", marginBottom: "9.6rem" }}
+                />
                 <div className={classes.card}>
                   <div className={classes.grid}>
                     <div>
@@ -67,19 +70,27 @@ const Cart = () => {
                         return (
                           <div className={classes.row} key={item.cid}>
                             <div className={classes.col}>
-                              <img
-                                className={classes.image}
-                                src={item.image}
-                                alt={item.name}
-                              />
-
+                              {item.image ? (
+                                <img
+                                  alt={item.name}
+                                  className={`${classes.image}`}
+                                  src={item.image}
+                                />
+                              ) : (
+                                <div className={`${classes.emptyImage}`}></div>
+                              )}
                             </div>
-                            <p className={classes.text}>{item.name}</p>
-                            <p className={classes.text}>${item.price * item.quantity}</p>
-                            <p className={classes.text}>x {item.quantity}</p>
-                            <div className={classes.quantityButtonContainer}>
-                              <div
-                                onClick={() => increaseItemQuantityHandler(item)}
+                            <p className={`${classes.text}`}>{item.name}</p>
+
+                            <div className={classes.quantityContainer}>
+                              <p className={classes.text}>
+                                ${item.price * item.quantity} <span className={classes.x}>x</span> {item.quantity}
+                              </p>
+                             <div className={classes.quantityButtonContainer}>
+                             <div
+                                onClick={() =>
+                                  increaseItemQuantityHandler(item)
+                                }
                                 className={classes.quantityButton}
                               >
                                 <FaPlus
@@ -98,20 +109,17 @@ const Cart = () => {
                                   size={`${1.2}rem`}
                                 />
                               </div>
+                             </div>
                             </div>
-                            <div className={classes.pickerContainer}>
-                              <CustomPicker cid={item.cid} />
-                              </div>
+
                             <div className={classes.textAreaContainer}>
-                              <label htmlFor="message">
-                                Inscription
-                              </label>
+                              <label className={classes.label} htmlFor="message">Inscription</label>
                               <div>
                                 <input
                                   className={`${classes.textAreaField}`}
                                   id="message"
                                   name="message"
-                                  placeholder="Inscription"
+                                  placeholder="Optional inscription"
                                   type="text"
                                   onChange={(e) =>
                                     dispatch(
@@ -125,8 +133,10 @@ const Cart = () => {
                                 />
                               </div>
                             </div>
+                            <div className={classes.pickerContainer}>
+                              <CustomPicker cid={item.cid} />
+                            </div>
                           </div>
-
                         );
                       })}
                     </div>
@@ -136,11 +146,10 @@ const Cart = () => {
                           <p>Subtotal</p>
                           <p>${subTotal}</p>
                         </div>
-                        <div style={{ alignSelf: "center", paddingTop: "1rem" }}>
-                          <StoreButton
-                            title={"CHECKOUT"}
-                            to={"/checkout"}
-                          />
+                        <div
+                          style={{ alignSelf: "center", paddingTop: "1rem" }}
+                        >
+                          <StoreButton title={"CHECKOUT"} to={"/checkout"} />
                         </div>
                       </div>
                     </div>
