@@ -1,42 +1,54 @@
 import { useEffect, useState } from "react";
-import ReactGA from "react-ga";
+import LoadingMessage from "../LoadingMessage";
+import ShowIf from "../ShowIf";
 import StoreButton from "../ui/StoreButton";
 import classes from "./Hero.module.css";
 import img from "../../assets/Combo-HD.png";
-
-const Hero = () => {
-  const [heroImage , setHeroImage] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect
-  (() => {
-    setHeroImage(img);
-    ReactGA.pageview(window.location.pathname + window.location.search);
-    ReactGA.event({
-      category: "User",
-      action: "Hero image loaded",
-    });
-  }, []);
+const Hero = ({ loading, setLoading }) => {
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
-    if(heroImage) {
+    if (img) {
+      setImage(img);
       setLoading(false);
     }
-  }, [heroImage]);
-  if(!img) return (<div>Loading...</div>);
+  }, [img]);
+
   return (
-    <div
-      className={classes.hero}
-      style={{
-        backgroundImage: `url(${img})`,
-      }}
-    >
-      <div className={classes.content}>
-        <h1 className={classes.title}>URRNZ CUSTOM KEEPSAKES</h1>
-        <div className={classes.btnContainer}>
-          <StoreButton to="/products/All" title="SHOP NOW" />
+    <>
+      <ShowIf
+        condition={loading}
+        render={() => {
+          return (
+            <div className={classes.absoluteCenter}>
+              <LoadingMessage />
+            </div>
+          );
+        }}
+      />
+      <section className={classes.section}>
+        <div
+          aria-label="Hero Image"
+          className={classes.hero}
+          role="img"
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        >
+          <div className={classes.content}>
+            {!loading && (
+              <div className={classes.titleContainer}>
+                <h1 role="heading" className={classes.title}>
+                  URRNZ<span> CUSTOM KEEPSAKES</span>
+                </h1>
+                <div className={classes.btnContainer}></div>
+                <StoreButton to="/products/All" title="SHOP URRNZ" />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

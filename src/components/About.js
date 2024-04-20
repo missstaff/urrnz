@@ -1,8 +1,8 @@
 import { ABOUT_TEXT } from "../config/constants";
 import ReactGA from "react-ga";
-import classes from "./About.module.css";
 import { useEffect } from "react";
 import Heading from "./layout/Heading";
+import classes from "./About.module.css";
 
 const About = () => {
   const size = window.innerWidth
@@ -14,8 +14,8 @@ const About = () => {
     });
   }, []);
   return (
-    <div id="about" className={classes.container}>
-  <Heading title="ABOUT" style={{paddingTop: size < 1450 ? "5.4rem" : ""}} />
+    <div className={classes.container} id="about">
+      <Heading title="ABOUT" style={{ paddingTop: size < 1450 ? "5.4rem" : "" }} />
       {ABOUT_TEXT.map((text, index) => {
         return (
           <p key={index} className={classes.text}>

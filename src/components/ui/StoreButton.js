@@ -1,6 +1,7 @@
+import ReactGA from "react-ga";
 import { NavLink } from "react-router-dom";
 import classes from "./StoreButton.module.css";
-import ReactGA from "react-ga";
+
 const StoreButton = (props) => {
 
   const sendGoogleAnalyticsEvent = () => {
@@ -12,11 +13,13 @@ const StoreButton = (props) => {
   
   return (
     <NavLink
-      aria-label="Store button"
+      aria-label="Shop Button"
       className={classes.link}
       style={props.style}
       to={props.to}
       onClick={sendGoogleAnalyticsEvent}
+      role="link"
+      tabIndex={0}
     >
       <div className={classes.btn}>
         <p className={classes.title}>{props.title}</p>

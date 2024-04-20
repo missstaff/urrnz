@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Hero from "../components/layout/Hero";
 import SEO from "../components/SEO";
-import ReactGA from "react-ga";
+import ShowIf from "../components/ShowIf";
 import classes from "./Home.module.css";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -15,6 +17,7 @@ const Home = () => {
       action: "User visited the homepage",
     });
   }, []);
+
   return (
     <main>
       <SEO
@@ -24,18 +27,25 @@ const Home = () => {
         type="website"
         imageUrl="../assets/logo192.png"
       />
-      <section id="home">
-        <Hero />
+      <section className={classes.section} id="home">
+        <Hero loading={loading} setLoading={setLoading} />
       </section>
-      <div className={classes.row}>
-        <section>
-          <About/>
-        </section>
-        <div className={classes.divider}></div>
-        <section>
-          <FAQ />
-        </section>
-      </div>
+      <ShowIf
+        condition={!loading}
+        render={() => {
+          return (
+            <div className={classes.row}>
+              <section>
+                <About loading={loading} />
+              </section>
+              <div className={classes.divider}></div>
+              <section>
+                <FAQ loading={loading} />
+              </section>
+            </div>
+          );
+        }}
+      />
     </main>
   );
 };

@@ -1,9 +1,8 @@
-.row {
-    display: flex;
-    flex-direction: row;
-    column-gap: 4.4rem;
-    justify-content: center;
-    margin: 0rem auto 9.6rem auto;
+.absoluteCenter {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .divider {
@@ -11,6 +10,21 @@
     height: 108rem;
     margin-bottom: 2.2rem;
     margin-top: 14rem;
+}
+
+.row {
+    column-gap: 4.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0rem auto 9.6rem auto;
+}
+
+.section {
+    height: 100vh;
+    max-height: 100%;
+    margin: 9.6rem 0 4.8rem 0;
+    width: 100%;
 }
 
 @media screen and (max-width: 1450px) {
@@ -21,16 +35,4 @@
     .divider {
         display: none;
     }
-
-}
-
-@media screen and (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-
-    .divider {
-        display: none;
-    }
-
 }
