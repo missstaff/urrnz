@@ -29,7 +29,7 @@ const Home = () => {
       </section>
       <div className={classes.row}>
         <section>
-          <About />
+          <About/>
         </section>
         <div className={classes.divider}></div>
         <section>

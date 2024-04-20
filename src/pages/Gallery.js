@@ -103,7 +103,11 @@ const Gallery = () => {
       <ShowIf
         condition={isLoading}
         render={() => {
-          return <LoadingMessage />;
+          return (
+            <div className={classes.loadingContainer}>
+            <LoadingMessage />
+          </div>
+          );
         }}
       />
       <ShowIf
@@ -111,9 +115,7 @@ const Gallery = () => {
         render={() => {
           return (
             <>
-              <div style={{marginTop: "9.6rem", marginBottom: "2.4rem"}}>
-              <Heading title="GALLERY" />
-              </div>
+             <Heading title="GALLERY" />
 
               <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
               <div className={classes.gridContainer}>
