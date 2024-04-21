@@ -15,8 +15,8 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     font-weight: bolder;
-    width: 100%;
     padding: 2.2rem;
+    margin: 0 auto;
   }
   
   @media screen and (max-width: 1450px){
@@ -27,7 +27,7 @@
 
   @media screen and (max-width: 912px){
     .heading {
-        margin: 0 auto;
+        margin: 0;
     }
   }
 

@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-
 import { setCategoryHandler } from "../../store/store-actions";
 import { ALL } from "../../config/constants";
-import ReactGA from "react-ga";
-
 import classes from "./SelectCategoryModal.module.css";
 
+/**
+ * A modal component for selecting a category.
+ * @param {Object} setCategoryProducts - Function to set the category products.
+ * @returns {JSX.Element} The SelectCategoryModal component.
+ */
 const SelectCategoryModal = ({ setCategoryProducts }) => {
   const nav = useNavigate();
   const dispatch = useDispatch();
@@ -54,7 +57,6 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
       setHidden(classes.hidden);
     }
   }, [displayDropdown]);
-  
 
   return (
     <div className={classes.container}>
@@ -69,17 +71,20 @@ const SelectCategoryModal = ({ setCategoryProducts }) => {
         }}
         className={classes.selected}
       >
-        <h4>
+        <h3>
           {category === ALL
             ? category.toUpperCase() + " URRNZ"
             : category.toUpperCase()}
-        </h4>
+        </h3>
         <FontAwesomeIcon icon={faChevronDown} style={{ paddingLeft: 15 }} />
       </div>
       <div
-        onClick={handleToggleSelect}
-        style={{ position: "absolute", top: 0 }}
+        aria-label="category-dropdown"
         className={hidden}
+        onClick={handleToggleSelect}
+        role="dropdown menu"
+        style={{ position: "absolute", top: 0 }}
+        tabIndex={0}
       >
         <ul>
           {allCategories.map((category, index) => {
