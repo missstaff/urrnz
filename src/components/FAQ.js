@@ -21,7 +21,9 @@ const FAQ = () => {
   }, []);
   return (
     <div className={classes.container}>
+      <div className={classes.headingBottomMargin}>
       <Heading title="FAQs" />
+      </div>
       {FAQ_QUESTIONS.map((question, index) => {
         return (
           <div key={index}>
