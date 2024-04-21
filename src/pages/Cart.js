@@ -54,7 +54,10 @@ const Cart = () => {
         render={() => {
           return (
             <section className={classes.section}>
-              <Heading title="CART" />
+              <div className={classes.container}>
+                <div className={classes.headingMargin}>
+                  <Heading title="CART" />
+                </div>
               <div className={classes.card}>
                 <div className={classes.grid}>
                   <div>
@@ -153,15 +156,26 @@ const Cart = () => {
                       );
                     })}
                   </div>
-                  <div className={`${classes.col}`} style={{ alignSelf: "flex-end", padding: 1 }}>
-                    <p className={`${classes.text}`} style={{ fontWeight: "600" }}>Subtotal<span> ${subTotal}</span></p>
-                    <StoreButton buttonClass={classes.storeBtn} title={"CHECKOUT"} to={"/checkout"} />
+                  <div
+                    className={`${classes.col}`}
+                    style={{ alignSelf: "flex-end", padding: 1 }}
+                  >
+                    <p
+                      className={`${classes.text}`}
+                      style={{ fontWeight: "600" }}
+                    >
+                      Subtotal<span> ${subTotal}</span>
+                    </p>
+                    <StoreButton
+                      buttonClass={classes.storeBtn}
+                      title={"CHECKOUT"}
+                      to={"/checkout"}
+                    />
                   </div>
                 </div>
               </div>
+              </div>
             </section>
-
-
           );
         }}
       />
@@ -173,7 +187,11 @@ const Cart = () => {
               <div className={classes.absoluteCenter}>
                 <div className={classes.emptyCartTextContainer}>
                   <p className={classes.text}>Your cart is empty</p>
-                  <StoreButton buttonClass={classes.storeBtn} title={"SHOP URRNZ"} to={"/products/All"} />
+                  <StoreButton
+                    buttonClass={classes.storeBtn}
+                    title={"SHOP URRNZ"}
+                    to={"/products/All"}
+                  />
                 </div>
               </div>
             </div>
