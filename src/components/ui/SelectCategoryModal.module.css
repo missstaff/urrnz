@@ -61,3 +61,22 @@
     transition: all 3s ease-in-out;
 }
 
+
+@media screen and (max-width: 768px) {
+    .container>h3 {
+        font-size: 1.4rem;
+    }
+    .selected {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container>h3 {
+        font-size: 1.2rem;
+    }
+    .selected {
+        font-size: 1rem;
+    }
+    
+}
