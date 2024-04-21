@@ -7,10 +7,8 @@ import classes from "./ShippingOptions.module.css";
 
 const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
   const dispatch = useDispatch();
-
   const customer = useSelector((state) => state.customer);
   const shippingAddress = customer.shippingAddress;
-
   const store = useSelector((state) => state.store);
   const shippingOptions = store.shippingOptions;
   const [shippingOption, setShippingOption] = useState(1);
@@ -52,11 +50,14 @@ const ShippingDetails = ({ activeStep, handleBack, handleNext }) => {
                         {" "}
                         {" "}
                         <Field
+                          aria-label="shippingOption"
                           checked={shippingOption === index}
                           className={classes.field}
                           id={option.name}
                           name={option.name}
                           onClick={() => setShippingOption(index)}
+                          role="radio"
+                          tabIndex={index}
                           type="checkbox"
                         />
                       </span>
