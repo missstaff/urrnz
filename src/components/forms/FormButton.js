@@ -8,6 +8,8 @@ const FormButton = (props) => {
       disabled={props.disabled}
       onClick={props.onClick}
       type={props.type}
+      role="button"
+      tabIndex={0}
     >
       <p className={props.fontClassName}>{props.title}</p>
     </button>

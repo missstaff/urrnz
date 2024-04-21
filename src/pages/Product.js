@@ -53,7 +53,7 @@ const Product = () => {
   if (isLoading) return <div>Loading ... </div>;
 
   return (
-    <div>
+    <section>
       <SEO
         title="Urrnz Custom 3D Printed Keepsakes product details."
         description={`Product: ${product}`}
@@ -99,7 +99,7 @@ const Product = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

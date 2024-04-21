@@ -1,7 +1,5 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -11,15 +9,15 @@ html {
   line-height: 1.15;
   scroll-behavior: smooth;
   width: 100%;
+
 }
 
 body {
   overflow-x: hidden;
-  /* Prevent horizontal scrolling */
   overflow-y: auto;
-  /* Enable vertical scrolling only when necessary */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 
@@ -29,11 +27,11 @@ ul {
   padding: 0;
 }
 
-.grid {
+/* .grid {
   display: grid;
   row-gap: 4.4rem;
   column-gap: 2.2rem;
-}
+} */
 
 .toast {
   flex-wrap: wrap;
@@ -44,7 +42,7 @@ ul {
 
 
 /*<--Media Queries-->*/
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   html {
     font-size: 56.25%;
   }
@@ -70,7 +68,7 @@ ul {
   html {
     font-size: 37.5%;
   }
-}
+} */
 
 :root {
   margin: 0;

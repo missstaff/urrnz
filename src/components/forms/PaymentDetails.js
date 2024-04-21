@@ -1,17 +1,14 @@
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-
 import AddressForm from "./AddressForm";
 import CheckoutButtons from "./CheckoutButtons";
 import PaymentForm from "./PaymentForm";
 import ShowIf from "../ShowIf";
-
 import { setCardDetailsHandler } from "../../store/customer-actions";
 import {
   addressAndCardValidationSchema,
   cardValidationSchema,
 } from "../../utility/utils";
-
 import classes from "./PaymentDetails.module.css";
 
 const PaymentDetails = ({ activeStep, handleBack, handleNext }) => {

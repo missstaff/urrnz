@@ -1,16 +1,14 @@
 import { useState } from "react";
-
-import ShippingDetails from "../components/forms/ShippingDetails";
-import ShippingOptions from "../components/forms/ShippingOptions";
+import { useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 import Heading from "../components/layout/Heading";
 import PaymentDetails from "../components/forms/PaymentDetails";
 import Review from "../components/forms/Review";
-
+import SEO from "../components/SEO";
+import ShippingDetails from "../components/forms/ShippingDetails";
+import ShippingOptions from "../components/forms/ShippingOptions";
 import { CHECKOUT_STEPS } from "../config/constants";
 import classes from "./Checkout.module.css";
-import { useNavigate } from "react-router-dom";
-import SEO from '../components/SEO';
 
 const getStepContent = (activeStep, handleBack, handleNext) => {
   switch (activeStep) {
@@ -61,23 +59,19 @@ const Checkout = () => {
   };
 
   return (
-    <section className={classes.section}>
-       <SEO
-        title='Urrnz Custom 3D Printed Keepsakes'
-        description='Urrnz custom 3D printed keepsakes checkout.'
-        name='Urrnz.'
-        type='website'
-        imageUrl='../assets/logo192.png'
+    <>
+      <SEO
+        title="Urrnz Custom 3D Printed Keepsakes"
+        description="Urrnz custom 3D printed keepsakes checkout."
+        name="Urrnz."
+        type="website"
+        imageUrl="../assets/logo192.png"
       />
-      <Heading title="CHECKOUT" />
-      <main>
-        <Container className={classes.container}>
-          <h2 className={classes.heading}>{CHECKOUT_STEPS[activeStep]}</h2>
-          {getStepContent(activeStep, handleBack, handleNext)}
-        </Container>
-        <div class={classes.spacer}></div>
-      </main>
-    </section>
+      <section className={classes.section}>
+        <Heading title={CHECKOUT_STEPS[activeStep]} />
+            {getStepContent(activeStep, handleBack, handleNext)}
+      </section>
+    </>
   );
 };
 
