@@ -14,10 +14,9 @@ import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
 import classes from "./Gallery.module.css";
 
-
 /**
  * Renders the Gallery component.
- * 
+ *
  * @returns {JSX.Element} The rendered Gallery component.
  */
 const Gallery = () => {
@@ -92,7 +91,6 @@ const Gallery = () => {
 
   return (
     <div
-      style={{ height: isLoading ? `${100}vh` : "100%" }}
       className={`${classes.section}`}
       id="gallery"
     >
@@ -107,8 +105,14 @@ const Gallery = () => {
         condition={isLoading}
         render={() => {
           return (
-            <div className={classes.loadingContainer}>
-              <LoadingMessage />
+            <div
+              style={{
+                height: `${100}vh`,
+              }}
+            >
+              <div className={classes.absoluteCenter}>
+                <LoadingMessage />
+              </div>
             </div>
           );
         }}
@@ -118,9 +122,13 @@ const Gallery = () => {
         render={() => {
           return (
             <>
+              <div className={classes.headingMargin}>
               <Heading title="GALLERY" />
+              </div>
               <div className={classes.dropdownContainer}>
-                <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
+                <SelectCategoryModal
+                  setCategoryProducts={setCategoryProducts}
+                />
               </div>
               <div className={classes.gridContainer}>
                 <div className={classes.row}>
@@ -134,10 +142,11 @@ const Gallery = () => {
                             tabIndex={0}
                           >
                             <div
-                              className={`${touchedIndex === index && product.images.lg
-                                ? classes.touched
-                                : ""
-                                }`}
+                              className={`${
+                                touchedIndex === index && product.images.lg
+                                  ? classes.touched
+                                  : ""
+                              }`}
                               onMouseDown={() => {
                                 if (!product.images.lg) {
                                   return;
@@ -225,21 +234,19 @@ const Gallery = () => {
           return (
             <div
               style={{
-                alignItems: "center",
-                display: "flex",
-                flexDirection: "column",
                 height: `${100}vh`,
-                justifyContent: "center",
               }}
             >
-              <p className={classes.noItemsMessage}>No items found!</p>
-              <NavLink
-                to={`/products/${ALL}`}
-                onClick={handleNoItemsFound}
-                className={classes.link}
-              >
-                <span>&larr;</span>Back to all urrnz
-              </NavLink>
+              <div className={classes.absoluteCenter}>
+                <p className={classes.noItemsMessage}>No items found!</p>
+                <NavLink
+                  to={`/products/${ALL}`}
+                  onClick={handleNoItemsFound}
+                  className={classes.link}
+                >
+                  <span>&larr;</span>Back to all urrnz
+                </NavLink>
+              </div>
             </div>
           );
         }}

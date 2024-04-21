@@ -1,3 +1,10 @@
+.absoluteCenter {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .btnContainer {
     display: flex;
     flex-direction: row;
@@ -52,6 +59,10 @@
     width: 100%;
 }
 
+.headingMargin {
+    margin-top: 9.6rem;
+}
+
 .image {
     align-self: center;
     border-radius: 7.5;
@@ -68,13 +79,6 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-}
-
-.loadingContainer {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .link {
@@ -121,14 +125,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 11.8rem 9.6rem 9.6rem 9.6rem;
+    margin: 9.6rem;
 }
 
 .touched {
     opacity: 0.5;
     transition: all 0.3s;
 }
-
 
 
 @media screen and (max-width: 1700px) {
@@ -183,6 +186,7 @@
     .productName {
         font-size: 2rem;
     }
+
     .section {
         margin: 4.8rem 2.4rem;
     }
