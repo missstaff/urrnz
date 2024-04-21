@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-
 import { clearCartHandler, setTaxRateHandler, setShippingOptionHandler } from "../store/cart-actions";
 import { clearCustomerHandler, setCustomerHandler } from "../store/customer-actions";
 import { FETCH_TAX, POST_MESSAGE, POST_ORDER, SIZES } from "../config/constants";
@@ -70,7 +69,7 @@ export const handleSubmitContact = async (
   };
 
   const response = await postRequestHandler(POST_MESSAGE, newChatObject);
-  
+
   if (response.success) {
     toast.success("Message sent!.",
       {
@@ -167,7 +166,7 @@ export const handleSubmitOrder = async (
   navigate,
   orderTemplate,
   total,
-  ) => {
+) => {
 
   const orderItems = [];
   const items = cart.items;
@@ -207,7 +206,7 @@ export const handleSubmitOrder = async (
     orderItems.push(shipping);
   });
 
-  
+
 
   const order = {
     ...orderTemplate,

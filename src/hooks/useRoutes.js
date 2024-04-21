@@ -1,3 +1,8 @@
+/**
+ * This module defines the router configuration for the application.
+ * It uses react-router-dom to create the routes and components.
+ */
+
 import { createBrowserRouter } from "react-router-dom";
 
 import Cart from "../pages/Cart";
@@ -11,8 +16,13 @@ import Products from "../pages/Gallery";
 import RootLayout from "../pages/RootLayout";
 import ThankYou from "../pages/ThankYou";
 import LandingPage from "../pages/LandingPage";
-import About from "../components/About";
 
+/**
+ * The router configuration object.
+ * It defines the routes and their corresponding components.
+ *
+ * @type {Object[]}
+ */
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +38,7 @@ export const router = createBrowserRouter([
       { path: "product/:id", element: <Product /> },
       { path: "thank-you", element: <ThankYou /> },
       { path: "landing-page", element: <LandingPage /> },
-      {path: "*", element: <Error />}
+      { path: "*", element: <Error /> },
     ],
   },
 ]);
