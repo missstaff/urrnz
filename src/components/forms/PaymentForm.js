@@ -3,8 +3,9 @@ import classes from "./PaymentForm.module.css";
 
 const PaymentForm = () => {
   return (
-    <div className={classes.formWrapper}>
-      <div className={classes.fieldLargeWrapper}>
+    <div className={classes.conatiner}>
+      <div className={classes.rows}>
+       <div className={classes.fieldWrapper}>
         <label className={classes.label} htmlFor="cc_number">Card Number:</label>
         <Field
           className={`${classes.placeholderColor} ${classes.field}`}
@@ -20,8 +21,8 @@ const PaymentForm = () => {
         />
       </div>
 
-      <div className={classes.smallInputContainer}>
-        <div className={classes.fieldSmallWrapper}>
+      <div>
+        <div className={classes.fieldWrapper}>
           <label className={classes.label} htmlFor="ccv">CCV:</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
@@ -29,6 +30,7 @@ const PaymentForm = () => {
             name="ccv"
             placeholder="123"
             type="text"
+            maxLength="4"
           />
 
           <ErrorMessage
@@ -37,8 +39,8 @@ const PaymentForm = () => {
             name="ccv"
           />
         </div>
-
-        <div className={classes.fieldSmallWrapper}>
+        </div>
+        <div className={classes.fieldWrapper}>
           <label className={classes.label} htmlFor="month">Month</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
@@ -46,6 +48,7 @@ const PaymentForm = () => {
             name="month"
             placeholder="01"
             type="text"
+            maxLength="2"
           />
 
           <ErrorMessage
@@ -54,8 +57,9 @@ const PaymentForm = () => {
             name="month"
           />
         </div>
+        
 
-        <div className={classes.fieldSmallWrapper}>
+        <div className={classes.fieldWrapper}>
           <label className={classes.label} htmlFor="year">Year</label>
           <Field
             className={`${classes.placeholderColor} ${classes.field}`}
@@ -63,6 +67,7 @@ const PaymentForm = () => {
             name="year"
             placeholder="2023"
             type="text"
+            maxLength="4"
           />
           <ErrorMessage
             className={classes.errorMessage}
@@ -70,8 +75,8 @@ const PaymentForm = () => {
             name="year"
           />
         </div>
+      </div> 
       </div>
-    </div>
   );
 };
 
