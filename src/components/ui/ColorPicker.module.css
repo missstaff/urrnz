@@ -28,3 +28,13 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 1450px) {
+    .image {
+        height: 15px;
+        width: 15px;
+    }
+    .text {
+        font-size: 9px
+    }
+}
+
