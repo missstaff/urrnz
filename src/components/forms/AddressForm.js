@@ -3,7 +3,7 @@ import classes from "./AddressForm.module.css";
 
 const AddressForm = () => {
   return (
-    <>
+    <div className={classes.rows}>
       <div className={classes.fieldWrapper}>
         <label className={classes.label} htmlFor="fullName">
           Full Name:
@@ -151,7 +151,7 @@ const AddressForm = () => {
           name="zipCode"
         />
       </div>
-    </>
+    </div>
   );
 };
 

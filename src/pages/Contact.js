@@ -56,19 +56,17 @@ const Contact = () => {
         type='website'
         imageUrl='../assets/logo192.png'
       />
-      <div style={{marginTop: "9.6rem", marginBottom: "9.6rem"}}>
-      <Heading title="CONTACT" />
-      </div>
-      <main>
+     
+      <>
         <Container className={classes.container}>
-          <h3 className={classes.title}>Send us a message</h3>
+        <Heading title="CONTACT" />
           <Formik
             initialValues={initialValues}
             validationSchema={addressValidationSchema}
             onSubmit={handleSubmit}
           >
             <Form>
-              <div className={classes.form}>
+              <div>
                 <AddressForm />
 
                 <div className={classes.formSection}>
@@ -97,15 +95,13 @@ const Contact = () => {
                       type="file"
                     />
                   </div>
-                  <div className={classes.submit}>
-                    <FormButton title="Submit" type="submit" />
-                  </div>
+                  <FormButton title="Submit" type="submit" />
                 </div>
               </div>
             </Form>
           </Formik>
         </Container>
-      </main>
+      </>
     </section>
   );
 };
