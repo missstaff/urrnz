@@ -2,9 +2,7 @@ import { useRouteError } from "react-router-dom";
 import MainNavigation from "../components/layout/MainNavigation";
 import PageContent from "../components/PageContent";
 
-
 const Error = () => {
-
   const error = useRouteError();
 
   let title = "An error occured.";
@@ -33,10 +31,7 @@ const Error = () => {
   return (
     <main>
       <MainNavigation />
-      <PageContent
-        title={title}
-        message={message}>
-      </PageContent>
+      <PageContent title={title} message={message}></PageContent>
     </main>
   );
 };
