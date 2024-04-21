@@ -1,5 +1,5 @@
 .container {
-    margin: 0 auto;
+    margin: 0 auto 9.6rem auto;
     max-width: 150rem;
     padding: 0 9.6rem;
 }
@@ -12,8 +12,19 @@
     text-align: left;
 }
 
-@media screen and (max-width: 1450px) {
+@media  screen and (max-width: 1750px){
     .text {
+        line-height: 1.5;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .container {
+        margin: 0 auto;
+    }
+    .text {
+        line-height: 1;
         margin-left: 0;
     }
 }
