@@ -24,3 +24,16 @@
         font-size: 4.8rem;
     }
   }
+
+  @media screen and (max-width: 912px){
+    .heading {
+        margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 376px){
+    .heading {
+        font-size: 3.4rem;
+        padding: 0 !important;
+    }
+  }
