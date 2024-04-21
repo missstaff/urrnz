@@ -15,6 +15,11 @@
   margin: 0 auto 9.6rem auto;
   padding: 1.2rem 2.4rem;
   width: 55%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -29,6 +34,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  grid-row: span 2;
+  column-span: span 2;
+  justify-content: center;
 }
 
 
@@ -51,7 +59,7 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin: 9.6rem 0;
+  margin: 0;
 }
 
 .headingMargin{
@@ -117,10 +125,11 @@
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: grid;
-  gap: 2.2rem;
-  grid-template-columns: repeat(5, 1fr);
+  gap: 4.4rem;
+  grid-template-columns: repeat(3, 1fr);
   flex: 1;
   justify-content: center;
+  padding: 4.4rem 0;
 }
 
 .row:last-child {
@@ -204,9 +213,36 @@
   font-weight: 700;
 }
 
-@media screen and (max-width: 1750px) {
+@media screen and (max-width: 1750px){
+  .quantityButton{
+    padding: 2.2rem 4.4rem;
+  }
+  .quantityButtonContainer {
+  }
+  .card {
+    width: 75%;
+  }
+ 
+  .image,
+  .imageEmpty {
+    height: 22rem;
+    width: 22rem;
+  
+  }
+
+  .text {
+    font-size: 3.4rem;
+  }
+}
+
+/* @media screen and (max-width: 1750px) {
   .card {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
   }
   .row {
     display: flex;
@@ -214,6 +250,7 @@
     align-items: center;
     justify-content: center;
   }
+ 
   .label {
     font-size: 9px;
   }
@@ -237,7 +274,7 @@
     font-size: 1.2rem;
   }
 
-} 
+}  */
 
 
 /* @media screen and (max-width: 768px) {
