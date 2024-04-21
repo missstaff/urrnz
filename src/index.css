@@ -8,7 +8,6 @@ html {
   font-weight: 400;
   line-height: 1.15;
   scroll-behavior: smooth;
-  width: 100%;
 
 }
 
@@ -17,9 +16,7 @@ body {
   overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
-
 
 ul {
   list-style: none;
@@ -40,43 +37,9 @@ ul {
   width: 50rem;
 }
 
-
-/*<--Media Queries-->*/
-/* @media screen and (max-width: 1024px) {
-  html {
-    font-size: 56.25%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  html {
-    font-size: 43.75%;
-  }
-
-  .toast {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  html {
-    font-size: 37.5%;
-  }
-} */
-
 :root {
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
-  /* Prevent horizontal scrolling */
   overflow-y: auto;
-  /* Enable vertical scrolling only when necessary */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

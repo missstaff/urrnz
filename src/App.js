@@ -14,6 +14,11 @@ import ReactGA from "react-ga";
 ReactGA.initialize(GOOGLE_TRACKING_ID);
 
 
+
+/**
+ * The main component of the application.
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
 
   const dispatch = useDispatch();
@@ -38,7 +43,7 @@ function App() {
     imageUrl: "../assets/logo192.png",
   };
 
-    return (
+  return (
     <HelmetProvider context={helmetContext}>
       <RouterProvider router={router} />
     </HelmetProvider>

@@ -1,6 +1,10 @@
 import { useClosestMedia } from "./useClosestMedia";
 import { useMediaQuery } from "./useMediaQuery";
 
+/**
+ * Custom hook that returns the current screen size based on media queries.
+ * @returns {string} The current screen size ("2xl", "xl", "lg", "md", "sm", "xs", or "default").
+ */
 export const useScreenSize = () => {
   const closestMedia = useClosestMedia({
     queries: ["xs", "sm", "md", "lg", "xl", "2xl"],

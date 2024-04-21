@@ -1,3 +1,10 @@
+/**
+ * Renders the About component.
+ * This component displays information about the website.
+ *
+ * @component
+ * @returns {JSX.Element} The About component
+ */
 import { ABOUT_TEXT } from "../config/constants";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
@@ -14,7 +21,7 @@ const About = () => {
   }, []);
   return (
     <div className={classes.container} id="about">
-      <Heading title="ABOUT"/>
+      <Heading title="ABOUT" />
       {ABOUT_TEXT.map((text, index) => {
         return (
           <p key={index} className={classes.text}>

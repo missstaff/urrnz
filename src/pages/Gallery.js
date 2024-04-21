@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import AddToCartButton from "../components/ui/AddToCartButton";
 import Heading from "../components/layout/Heading";
 import LoadingMessage from "../components/LoadingMessage";
 import SelectCategoryModal from "../components/ui/SelectCategoryModal";
+import SEO from "../components/SEO";
 import ShowIf from "../components/ShowIf";
 import { ALL } from "../config/constants";
-
 import { addToCartHandler } from "../store/cart-actions";
 import { loadingActions } from "../store/loading-slice";
 import { setCategoryHandler } from "../store/store-actions";
-
 import classes from "./Gallery.module.css";
-import SEO from "../components/SEO";
-import ReactGA from "react-ga";
 
+
+/**
+ * Renders the Gallery component.
+ * 
+ * @returns {JSX.Element} The rendered Gallery component.
+ */
 const Gallery = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
@@ -105,8 +108,8 @@ const Gallery = () => {
         render={() => {
           return (
             <div className={classes.loadingContainer}>
-            <LoadingMessage />
-          </div>
+              <LoadingMessage />
+            </div>
           );
         }}
       />
@@ -115,9 +118,10 @@ const Gallery = () => {
         render={() => {
           return (
             <>
-             <Heading title="GALLERY" />
-
-              <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
+              <Heading title="GALLERY" />
+              <div className={classes.dropdownContainer}>
+                <SelectCategoryModal setCategoryProducts={setCategoryProducts} />
+              </div>
               <div className={classes.gridContainer}>
                 <div className={classes.row}>
                   {categoryProducts.map((product, index) => {
@@ -131,8 +135,8 @@ const Gallery = () => {
                           >
                             <div
                               className={`${touchedIndex === index && product.images.lg
-                                  ? classes.touched
-                                  : ""
+                                ? classes.touched
+                                : ""
                                 }`}
                               onMouseDown={() => {
                                 if (!product.images.lg) {
@@ -177,9 +181,10 @@ const Gallery = () => {
                               {product.images.lg ? (
                                 <img
                                   alt={product.name}
-                                  src={product.images.lg}
+                                  aria-label="product-image"
                                   className={classes.image}
                                   role="img"
+                                  src={product.images.lg}
                                   tabIndex={product.images.lg ? 0 : -1}
                                 />
                               ) : (

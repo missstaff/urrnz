@@ -6,11 +6,16 @@
 
 .text {
     display: inline-block;
-    
-    line-height: 1.5;
-    text-align: left;
     font-size: 2.4rem;
+    line-height: 1.5;
     margin-left: 4.4rem;
+    text-align: left;
+}
+
+@media screen and (max-width: 1450px) {
+    .text {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -22,4 +27,15 @@
         margin-left: 0;
     }
 
+}
+
+@media screen and (max-width: 425px) {
+    .container {
+        padding: 0 2.4rem;
+    }
+
+    .text {
+        font-size: 2.2rem;
+        line-height: 1.25;
+    }
 }

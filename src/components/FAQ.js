@@ -4,6 +4,12 @@ import Heading from "./layout/Heading";
 import { FAQ_ANSWERS, FAQ_QUESTIONS } from "../config/constants";
 import classes from "./FAQ.module.css";
 
+/**
+ * Renders the Frequently Asked Questions (FAQ) component.
+ * This component displays a list of questions and answers.
+ *
+ * @returns {JSX.Element} The rendered FAQ component.
+ */
 const FAQ = () => {
 
   useEffect(() => {

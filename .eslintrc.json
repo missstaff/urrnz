@@ -4,9 +4,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "src/utility/utils.js"
-      ],
+      "files": ["src/utility/utils.js"],
       "rules": {
         "no-unused-expressions": "off"
       }
