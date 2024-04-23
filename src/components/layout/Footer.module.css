@@ -7,7 +7,7 @@
   padding: 2.2rem 2.4rem;
   text-align: center;
   width: 100vw;
-  z-index: 1000;
+  z-index: 1000 !important;
   /* position: absolute;
   bottom: 0;
   left: 0; */

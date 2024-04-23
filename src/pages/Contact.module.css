@@ -75,22 +75,11 @@
     font-size: 1.8rem;
 }
 
-@media screen and (max-width: 1750px) {
-    .container {
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 75%;
-    }
 
-    /* .formButtonsContainer {
-        margin-top: 9.6rem;
-    } */
+@media screen and ((min-width: 1450px) and (max-width: 1750px)) {
 
     .label {
         font-size: 3.4rem;
-        height: 100%;
     }
 
     .textArea {
@@ -109,3 +98,35 @@
         font-size: 3.4rem;
     }
 }
+
+@media screen and (max-width: 1450px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 auto;
+    }
+
+    .section {
+        height: 100%;
+    }
+
+    .formButtonsContainer {
+        margin: 9.6rem auto;
+    }
+    .label {
+        font-size: 1.8rem;
+    }
+
+    .textArea {
+        font-size: 3.2rem;
+    }
+
+    .uploadField {
+        font-size: 2.8rem;
+    }
+}
+
