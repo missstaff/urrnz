@@ -9,7 +9,6 @@ import SEO from "../components/SEO";
 import { setCustomerHandler } from "../store/customer-actions";
 import { addressValidationSchema, handleSubmitContact } from "../utility/utils";
 import classes from "./Contact.module.css";
-import { transformFileAsync } from "@babel/core";
 
 const Contact = () => {
   const dispatch = useDispatch();
