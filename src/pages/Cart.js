@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import CustomPicker from "../components/ui/ColorPicker";
@@ -11,9 +11,12 @@ import { loadingActions } from "../store/loading-slice";
 import classes from "./Cart.module.css";
 
 const Cart = () => {
+  const innerWidth = window.innerWidth;
   const cart = useSelector((state) => state.cart);
   const isLoading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
+
+  const [iconSize, setIconSize] = useState("1.2rem");
 
   const subTotal = cart.subTotal;
   let items = cart.items;
@@ -36,6 +39,12 @@ const Cart = () => {
 
     dispatch(loadingActions.setLoading(false));
   }, [dispatch]);
+
+  useEffect(() => {
+    if(innerWidth < 1750){
+      setIconSize("2.4rem");
+    }
+  }, [innerWidth]);
 
   return (
     <main>
@@ -78,10 +87,10 @@ const Cart = () => {
                               <div className={`${classes.emptyImage}`}></div>
                             )}
                           </div>
-                          <p className={`${classes.text}`}>{item.name}</p>
+                          <p className={`${classes.name}`}>{item.name}</p>
 
                           <div className={classes.quantityContainer}>
-                            <p className={classes.text}>
+                            <p className={classes.qty}>
                               ${item.price * item.quantity}{" "}
                               <span className={classes.x}>x</span>{" "}
                               {item.quantity}
@@ -99,7 +108,7 @@ const Cart = () => {
                                 <FaPlus
                                   aria-label="increase quantity"
                                   color="rgba(255, 71, 0, 1)"
-                                  size={`${1.2}rem`}
+                                  size={`${iconSize}`}
                                 />
                               </div>
                               <div
@@ -113,7 +122,7 @@ const Cart = () => {
                                 <FaMinus
                                   aria-label="decrease quantity"
                                   color="rgba(255, 71, 0, 1)"
-                                  size={`${1.2}rem`}
+                                  size={`${iconSize}`}
                                 />
                               </div>
                             </div>
@@ -125,15 +134,15 @@ const Cart = () => {
                               className={classes.label}
                               htmlFor="message"
                             >
-                              Inscription
+                              Optional Inscription
                             </label>
                             <div>
                               <input
-                                aria-label="inscription input"
+                                aria-label="example input"
                                 className={`${classes.textAreaField}`}
                                 id="message"
                                 name="message"
-                                placeholder="Optional inscription"
+                                placeholder="Optional Inscription"
                                 role="textbox"
                                 tabIndex={0}
                                 type="text"

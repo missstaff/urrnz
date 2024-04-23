@@ -9,11 +9,14 @@ const AddressForm = () => {
           Full Name:
         </label>
         <Field
+          aria-label="Full Name Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="fullName"
           name="fullName"
           placeholder="John Doe"
+          role="textbox"
           type="text"
+          tabIndex={0}
         />
         <ErrorMessage
           className={classes.errorMessage}
@@ -27,11 +30,14 @@ const AddressForm = () => {
           Email:
         </label>
         <Field
+          aria-label="Email Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="email"
           name="email"
           placeholder="you@email.com"
+          role="textbox"
           type="text"
+          tabIndex={1}
         />
 
         <ErrorMessage
@@ -46,11 +52,14 @@ const AddressForm = () => {
           Phone:
         </label>
         <Field
+          aria-label="Phone Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="phone"
           name="phone"
           placeholder="555-555-5555"
+          role="textbox"
           type="text"
+          tabIndex={2}
         />
 
         <ErrorMessage
@@ -65,11 +74,14 @@ const AddressForm = () => {
           Address Line 1:
         </label>
         <Field
+          aria-label="Address Line 1 Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="addressLine1"
           name="addressLine1"
           placeholder="123 Main St."
+          role="textbox"
           type="text"
+          tabIndex={3}
         />
         <ErrorMessage
           className={classes.errorMessage}
@@ -83,11 +95,14 @@ const AddressForm = () => {
           Address Line 2:
         </label>
         <Field
+          aria-label="Address Line 2 Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="addressLine2"
           name="addressLine2"
           placeholder="Apt. 1"
+          role="textbox"
           type="text"
+          tabIndex={4}
         />
         <ErrorMessage
           className={classes.errorMessage}
@@ -101,11 +116,14 @@ const AddressForm = () => {
           City:
         </label>
         <Field
+          aria-label="City Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="city"
           name="city"
           placeholder="Anytown"
+          role="textbox"
           type="text"
+          tabIndex={5}
         />
 
         <ErrorMessage
@@ -120,11 +138,14 @@ const AddressForm = () => {
           State:
         </label>
         <Field
+          aria-label="State Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="state"
           name="state"
           placeholder="CA"
+          role="textbox"
           type="text"
+          tabIndex={6}
         />
 
         <ErrorMessage
@@ -138,11 +159,14 @@ const AddressForm = () => {
           Zip Code:
         </label>
         <Field
+          aria-label="Zip Code Input Field"
           className={`${classes.placeholderColor} ${classes.field}`}
           id="zipCode"
           name="zipCode"
           placeholder="12345"
+          role="textbox"
           type="text"
+          tabIndex={7}
         />
 
         <ErrorMessage
