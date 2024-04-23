@@ -1,14 +1,15 @@
 .grid {
-    column-gap: 2.5px;
-    row-gap: 2.5px;
+    column-gap: 0.25rem;
+    row-gap: 0.5rem;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    width: fit-content;
 }
 
 .image {
     cursor: pointer;
-    height: 22px;
-    width: 22px;
+    height: 30px;
+    width: 30px;
 }
 
 .selectColor {
@@ -23,9 +24,25 @@
 
 .text {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     margin: 0;
-    font-weight: 700;
+    font-weight: 500;
+    text-align: left;
+}
+
+@media screen and (max-width: 1750px) {
+    .image {
+        height: 55px;
+        width: 55px;
+    }
+    .grid {
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+    .text {
+        font-size: 2.8rem
+    }
+    
 }
 
 @media screen and (max-width: 1450px) {

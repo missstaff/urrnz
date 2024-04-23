@@ -6,6 +6,8 @@ import { COLORS, COLOR_CODE_TO_NAME } from "../../config/constants";
 import classes from "./ColorPicker.module.css";
 
 const ColorPicker = (props) => {
+  const innerWidth = window.innerWidth;
+  const [borderWidth, setBorderWidth] = useState("3px");
   const { cid } = props;
   const dispatch = useDispatch();
 
@@ -21,6 +23,15 @@ const ColorPicker = (props) => {
   };
 
   useEffect(() => {
+    if (innerWidth < 1750) {
+      setBorderWidth("5px");
+    }
+    if (innerWidth < 1400) {
+      setBorderWidth("4px");
+    }
+  }, [innerWidth]);
+
+  useEffect(() => {
     const localStorageCart = JSON.parse(localStorage.getItem("cart"));
     if (localStorageCart) {
       const item = localStorageCart.items.find((item) => item.cid === cid);
@@ -32,7 +43,7 @@ const ColorPicker = (props) => {
 
   return (
     <>
-      <p className={classes.text}>Select color</p>
+      {/* <p className={classes.text} style={{textAlign: "left"}}>Select color</p> */}
       <div className={classes.grid}>
         {COLORS.map((color, i) => (
           <div
@@ -41,8 +52,8 @@ const ColorPicker = (props) => {
             key={color}
             onClick={() => handleColorChange(color)}
             style={{
-              backgroundColor: color,
-              outline: color === selectedColor ? "3px solid #777" : "none",
+              backgroundColor: color, 
+              outline: color === selectedColor ? `${borderWidth} solid #777` : "none",
             }}
             tabIndex={i}
           />

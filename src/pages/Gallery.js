@@ -90,10 +90,7 @@ const Gallery = () => {
   };
 
   return (
-    <div
-      className={`${classes.section}`}
-      id="gallery"
-    >
+    <div className={`${classes.section}`} id="gallery">
       <SEO
         title="Urrnz Custom 3D Printed Keepsakes gallery"
         description="All Urrnz custom 3D printed keepsakes."
@@ -123,7 +120,7 @@ const Gallery = () => {
           return (
             <>
               <div className={classes.headingMargin}>
-              <Heading title="GALLERY" />
+                <Heading title="GALLERY" />
               </div>
               <div className={classes.dropdownContainer}>
                 <SelectCategoryModal
@@ -211,6 +208,15 @@ const Gallery = () => {
                             <div className={classes.description}>
                               {product.description}
                             </div>
+                            <NavLink
+                              aria-label="Navigation link o the product description."
+                              className={classes.productLink}
+                              role="link"
+                              to={`/product/${product.zid}`}
+                              tabIndex={0}
+                            >
+                              View details
+                            </NavLink>
                             <div className={classes.btnContainer}>
                               <AddToCartButton
                                 product={product}

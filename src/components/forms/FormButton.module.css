@@ -4,8 +4,8 @@
     border-radius: 7.5px;
     color: var(--color-secondary-700);
     cursor: pointer;
-    font-size: 1.8rem;
-    padding: 7.5px 15px; 
+    font-size: 2.4rem;
+    padding: 1.2rem 2.2rem; 
     text-align: center;
     text-decoration: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
@@ -16,4 +16,11 @@
 .button > p {
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 1750px){
+    .button {
+        font-size: 4.4rem;
+        padding: 2.4rem 4.4rem; 
+    }
 }

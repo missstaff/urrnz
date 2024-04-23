@@ -6,12 +6,9 @@
 }
 
 .card {
-  align-items: flex-start;
   border-radius: 7.5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   margin: 0 auto 9.6rem auto;
   padding: 1.2rem 2.4rem;
   width: 55%;
@@ -20,10 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+
 }
 
 .cellPadding {
@@ -69,27 +63,36 @@
 .image {
   align-self: center;
   border-radius: 7.5;
-  height: 11.8rem;
+  height: 22.22rem;
   image-resolution: from-image;
   object-fit: cover;
+  overflow: hidden;
   resize: both;
-  width: fit-content;
+  width: 22.22rem;
 }
 
 .imageEmpty {
   background-color: transparent;
   border-radius: 50%;
-  height: 9.6rem;
-  width: 9.6rem;
+  height: 22.22rem;
+  width: 22.22rem;
   overflow: hidden;
 }
 
 .label {
   display: inline-block;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin: 0;
   padding: 2px 0;
-  font-weight: 700;
+  font-weight: 500;
+}
+
+.pickerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 2.2rem;
 }
 
 .quantityButton {
@@ -98,7 +101,7 @@
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 7.5px 22px;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
@@ -111,14 +114,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 15px;
+
 }
 
 .quantityContainer {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .row {
@@ -148,15 +151,28 @@
   border: 1px solid var(--color-secondary-700);
   border-radius: 25px;
   border-radius: 25px;
-  font-size: 1.8rem;
-  padding: 2.5px 2.2rem;
-  margin: 1rem 0;
+  font-size: 2.4rem;
+  padding: 0.5rem 2.2rem;
+  margin: 1.2rem auto;
+}
+
+.qty{
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 500;
 }
 
 .text {
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   
+  margin: 0;
+}
+
+.name {
+  display: inline-block;
+  font-size: 3.4rem;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -173,7 +189,7 @@
   border-style: solid;
   border-width: 0.5px;
   color: #444;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   line-height: 1;
   padding: 0.5rem;
   width: 100%;
@@ -218,63 +234,83 @@
     padding: 2.2rem 4.4rem;
   }
   .quantityButtonContainer {
+    column-gap: 2.2rem;
+  }
+
+  .name {
+    font-size: 4.8rem;
   }
   .card {
-    width: 75%;
+    width: 95%;
+  }
+
+  .qty{
+    font-size: 3.6rem;
+  }
+
+  .quantityContainer{
+    justify-content: space-between;
   }
  
   .image,
   .imageEmpty {
-    height: 22rem;
-    width: 22rem;
+    height: 30rem;
+    width: 30rem;
   
   }
 
-  .text {
+  .storeBtn {
     font-size: 3.4rem;
+    padding: 1rem 4.4rem;
+  }
+  
+  .textAreaField {
+    font-size: 3.4rem;
+    padding: 1.2rem;
+  }
+
+  .label {
+    font-size: 2.8rem;
+  }
+  
+  .textAreaField::placeholder {
+    color: #999;
+  }
+
+  .text {
+    font-size: 3.6rem;
   }
 }
 
-/* @media screen and (max-width: 1750px) {
+@media screen and (max-width: 1450px){
   .card {
-    width: 90%;
+    width: 80%;
+    justify-content: flex-start;
+  }
+
+  .image,
+  .imageEmpty {
+    height: 25rem;
+    width: 25rem;
+  }
+  .quantityButton{
+    padding: 1.2rem 2.2rem;
+  }
+  .quantityButtonContainer {
+    column-gap: 1.2rem;
+  }
+
+  .quantityContainer{
+    width: 100%
+  }
+  .row{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-  }
-  .row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
- 
-  .label {
-    font-size: 9px;
-  }
+    row-gap: 22px;
+    padding-top: 0;
 
-  .quantityButton {
-    padding: 2.5px 7.5px;
   }
-
-  .storeBtn {
-    font-size: 1.4rem;
-    padding: 2.5px 1.2rem;
-  }
-  .text {
-    font-size: 1.4rem;
-  }
-  .textAreaField {
-    font-size: 1.2rem;
-  }
-
-  .textAreaField::placeholder {
-    font-size: 1.2rem;
-  }
-
-}  */
+}
 
 
 /* @media screen and (max-width: 768px) {
