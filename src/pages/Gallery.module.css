@@ -204,22 +204,6 @@
 
 }
 
-@media screen and (max-width: 1280px) {
-    .description,
-    .price {
-        font-size: 3.2rem;
-    }
-
-    .productName {
-        font-size: 3.4rem;
-    }
-
-    .productLink {
-        font-size: 2.4rem;
-        padding: 1rem;
-    }
-}
-
 
 
 @media screen and (max-width: 1024px) {
