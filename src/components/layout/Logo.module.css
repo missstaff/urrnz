@@ -1,7 +1,9 @@
 .logo {
-    height: 2.2rem;
+    height: 22.5px;
     image-resolution: from-image;
     object-fit: contain;
     resize: both;
     width: fit-content;
+    margin: 0 auto;
+    padding: 0;
 }

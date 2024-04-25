@@ -41,13 +41,19 @@ const Cart = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if(innerWidth < 1750){
+    if(innerWidth < 1751){
       setIconSize("2.4rem");
+    }
+    if(innerWidth < 1451){
+      setIconSize("2.2rem");
+    }
+    if(innerWidth < 1281){
+      setIconSize("1rem");
     }
   }, [innerWidth]);
 
   return (
-    <main>
+    <>
       <ShowIf
         condition={isLoading}
         render={() => {
@@ -207,7 +213,7 @@ const Cart = () => {
           );
         }}
       />
-    </main>
+    </>
   );
 };
 

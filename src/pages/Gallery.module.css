@@ -205,19 +205,30 @@
 }
 
 @media screen and (max-width: 1280px) {
-    .description,
+    .description {
+        font-size: 2.4rem;
+        padding: 0;
+    }
+
+    .image,
+    .emptyImage {
+        height: 20rem;
+        width: 20rem;
+    }
+
     .price {
-        font-size: 3.2rem;
+        font-size: 1.8rem;
     }
 
     .productName {
-        font-size: 3.4rem;
+        font-size: 2.8rem;
     }
 
     .productLink {
-        font-size: 2.4rem;
-        padding: 1rem;
+        font-size: 1.8rem;
+        padding: 1.2 2.2rem;
     }
+    
 }
 
 

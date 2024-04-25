@@ -1,19 +1,21 @@
 import React from "react";
 import classes from "./Logo.module.css";
+import webp from "../../assets/logo.white.png";
+import png from "../../assets/logo.white.png";
 
 const Logo = () => {
   return (
     <picture>
       <source
-        srcSet={require("../../assets/logo.white.png")}
+        srcSet={webp}
         type="image/webp"
       />
       <source
-        srcSet={require("../../assets/logo.white.png")}
+        srcSet={png}
         type="image/png"
       />
       <img
-        src={require("../../assets/logo.white.png")}
+        src={png}
         alt="Urrnz logo"
         className={classes.logo}
       />

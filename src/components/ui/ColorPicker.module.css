@@ -55,3 +55,17 @@
     }
 }
 
+@media screen and (max-width: 1280px) {
+    .grid{
+        column-gap: 2.5px;
+        row-gap: 2.5px;
+    }
+    .image {
+        height: 22.5px;
+        width: 22.5px;
+    }
+    .text {
+        font-size: 7px
+    }
+}
+

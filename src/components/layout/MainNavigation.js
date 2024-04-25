@@ -65,9 +65,11 @@ function MainNavigation() {
                   ? classes.active
                   : undefined
               }
+              role="link"
+              tabIndex={0}
               end
             >
-              <p>Home</p>
+              <p style={{margin: 0, padding: 0}}>Home</p>
             </NavLink>
           </li>
           {/* <li>
@@ -116,8 +118,10 @@ function MainNavigation() {
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
+              role="link"
+              tabIndex={1}
             >
-              <p>Gallery</p>
+              <p style={{margin: 0, padding: 0}}>Gallery</p>
             </NavLink>
           </li>
           <li>
@@ -129,7 +133,7 @@ function MainNavigation() {
                 isActive ? classes.active : undefined
               }
             >
-              <p>Cart</p>
+              <p style={{margin: 0, padding: 0}}>Cart</p>
             </NavLink>
           </li>
           <li>
@@ -140,8 +144,10 @@ function MainNavigation() {
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
+              role="link"
+              tabIndex={2}
             >
-              <p>Contact</p>
+              <p style={{margin: 0, padding: 0}}>Contact</p>
             </NavLink>
           </li>
         </ul>
