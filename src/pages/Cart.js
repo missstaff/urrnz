@@ -10,6 +10,11 @@ import { cartActions } from "../store/cart-slice";
 import { loadingActions } from "../store/loading-slice";
 import classes from "./Cart.module.css";
 
+/**
+ * Renders the Cart component.
+ * 
+ * @returns {JSX.Element} The rendered Cart component.
+ */
 const Cart = () => {
   const innerWidth = window.innerWidth;
   const cart = useSelector((state) => state.cart);
@@ -41,14 +46,20 @@ const Cart = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if(innerWidth < 1751){
+    if (innerWidth < 1751) {
       setIconSize("2.4rem");
     }
-    if(innerWidth < 1451){
+    if (innerWidth < 1451) {
       setIconSize("2.2rem");
     }
-    if(innerWidth < 1281){
+    if (innerWidth < 1281) {
       setIconSize("1rem");
+    }
+    if (innerWidth < 1025) {
+      setIconSize("2.4rem");
+    }
+    if (innerWidth < 925) {
+      setIconSize("1.8rem");
     }
   }, [innerWidth]);
 
@@ -73,122 +84,122 @@ const Cart = () => {
                 <div className={classes.headingMargin}>
                   <Heading title="CART" />
                 </div>
-              <div className={classes.card}>
-                <div className={classes.grid}>
-                  <div>
-                    {items.map((item, i) => {
-                      return (
-                        <div className={classes.row} key={item.cid}>
-                          <div className={classes.col}>
-                            {item.image ? (
-                              <img
-                                alt={item.name}
-                                aria-label="product image"
-                                className={`${classes.image}`}
-                                role="img"
-                                src={item.image}
-                                tabIndex={0}
-                              />
-                            ) : (
-                              <div className={`${classes.emptyImage}`}></div>
-                            )}
-                          </div>
-                          <p className={`${classes.name}`}>{item.name}</p>
-
-                          <div className={classes.quantityContainer}>
-                            <p className={classes.qty}>
-                              ${item.price * item.quantity}{" "}
-                              <span className={classes.x}>x</span>{" "}
-                              {item.quantity}
-                            </p>
-                            <div className={classes.quantityButtonContainer}>
-                              <div
-                                aria-label="button"
-                                className={classes.quantityButton}
-                                onClick={() =>
-                                  increaseItemQuantityHandler(item)
-                                }
-                                role="button"
-                                tabIndex={0}
-                              >
-                                <FaPlus
-                                  aria-label="increase quantity"
-                                  color="rgba(255, 71, 0, 1)"
-                                  size={`${iconSize}`}
+                <div className={classes.card}>
+                  <div className={classes.grid}>
+                    <div>
+                      {items.map((item, i) => {
+                        return (
+                          <div className={classes.row} key={item.cid}>
+                            <div className={classes.col}>
+                              {item.image ? (
+                                <img
+                                  alt={item.name}
+                                  aria-label="product image"
+                                  className={`${classes.image}`}
+                                  role="img"
+                                  src={item.image}
+                                  tabIndex={0}
                                 />
+                              ) : (
+                                <div className={`${classes.emptyImage}`}></div>
+                              )}
+                            </div>
+                            <p className={`${classes.name}`}>{item.name}</p>
+
+                            <div className={classes.quantityContainer}>
+                              <p className={classes.qty}>
+                                ${item.price * item.quantity}{" "}
+                                <span className={classes.x}>x</span>{" "}
+                                {item.quantity}
+                              </p>
+                              <div className={classes.quantityButtonContainer}>
+                                <div
+                                  aria-label="button"
+                                  className={classes.quantityButton}
+                                  onClick={() =>
+                                    increaseItemQuantityHandler(item)
+                                  }
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <FaPlus
+                                    aria-label="increase quantity"
+                                    color="rgba(255, 71, 0, 1)"
+                                    size={`${iconSize}`}
+                                  />
+                                </div>
+                                <div
+                                  className={classes.quantityButton}
+                                  onClick={() =>
+                                    decreaseItemQuantityHandler(item.cid)
+                                  }
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <FaMinus
+                                    aria-label="decrease quantity"
+                                    color="rgba(255, 71, 0, 1)"
+                                    size={`${iconSize}`}
+                                  />
+                                </div>
                               </div>
-                              <div
-                                className={classes.quantityButton}
-                                onClick={() =>
-                                  decreaseItemQuantityHandler(item.cid)
-                                }
-                                role="button"
-                                tabIndex={0}
+                            </div>
+
+                            <div className={classes.textAreaContainer}>
+                              <label
+                                aria-label="inscription label"
+                                className={classes.label}
+                                htmlFor="message"
                               >
-                                <FaMinus
-                                  aria-label="decrease quantity"
-                                  color="rgba(255, 71, 0, 1)"
-                                  size={`${iconSize}`}
+                                Optional Inscription
+                              </label>
+                              <div>
+                                <input
+                                  aria-label="example input"
+                                  className={`${classes.textAreaField}`}
+                                  id="message"
+                                  name="message"
+                                  placeholder="Optional Inscription"
+                                  role="textbox"
+                                  tabIndex={0}
+                                  type="text"
+                                  onChange={(e) =>
+                                    dispatch(
+                                      cartActions.setItemInscription({
+                                        id: item.cid,
+                                        inscription: e.target.value,
+                                      })
+                                    )
+                                  }
+                                  value={item.inscription}
                                 />
                               </div>
                             </div>
-                          </div>
-
-                          <div className={classes.textAreaContainer}>
-                            <label
-                              aria-label="inscription label"
-                              className={classes.label}
-                              htmlFor="message"
-                            >
-                              Optional Inscription
-                            </label>
-                            <div>
-                              <input
-                                aria-label="example input"
-                                className={`${classes.textAreaField}`}
-                                id="message"
-                                name="message"
-                                placeholder="Optional Inscription"
-                                role="textbox"
-                                tabIndex={0}
-                                type="text"
-                                onChange={(e) =>
-                                  dispatch(
-                                    cartActions.setItemInscription({
-                                      id: item.cid,
-                                      inscription: e.target.value,
-                                    })
-                                  )
-                                }
-                                value={item.inscription}
-                              />
+                            <div className={classes.pickerContainer}>
+                              <CustomPicker cid={item.cid} />
                             </div>
                           </div>
-                          <div className={classes.pickerContainer}>
-                            <CustomPicker cid={item.cid} />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div
-                    className={`${classes.col}`}
-                    style={{ alignSelf: "flex-end", padding: 1 }}
-                  >
-                    <p
-                      className={`${classes.text}`}
-                      style={{ fontWeight: "600" }}
+                        );
+                      })}
+                    </div>
+                    <div
+                      className={`${classes.col}`}
+                      style={{ alignSelf: "flex-end", padding: 5 }}
                     >
-                      Subtotal<span> ${subTotal}</span>
-                    </p>
-                    <StoreButton
-                      buttonClass={classes.storeBtn}
-                      title={"CHECKOUT"}
-                      to={"/checkout"}
-                    />
+                      <p
+                        className={`${classes.text}`}
+                        style={{ fontWeight: "600" }}
+                      >
+                        Subtotal<span> ${subTotal}</span>
+                      </p>
+                      <StoreButton
+                        buttonClass={classes.storeBtn}
+                        title={"CHECKOUT"}
+                        to={"/checkout"}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </section>
           );

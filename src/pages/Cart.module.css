@@ -6,18 +6,15 @@
 }
 
 .card {
+  align-items: center;
   border-radius: 7.5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto 9.6rem auto;
   padding: 1.2rem 2.4rem;
   width: 55%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
 }
 
 .cellPadding {
@@ -26,13 +23,12 @@
 
 .col {
   align-items: center;
+  column-span: span 2;
   display: flex;
   flex-direction: column;
   grid-row: span 2;
-  column-span: span 2;
   justify-content: center;
 }
-
 
 .emptyCartContainer {
   height: 100vh;
@@ -40,19 +36,18 @@
 }
 
 .emptyCartTextContainer {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: 0 auto;
 }
 
 .grid {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  flex: 1;
   margin: 0;
 }
 
@@ -75,37 +70,50 @@
   background-color: transparent;
   border-radius: 50%;
   height: 22.22rem;
-  width: 22.22rem;
   overflow: hidden;
+  width: 22.22rem;
 }
 
 .label {
   display: inline-block;
   font-size: 1.8rem;
+  font-weight: 500;
   margin: 0;
   padding: 2px 0;
-  font-weight: 500;
+}
+
+.name {
+  display: inline-block;
+  font-size: 3.4rem;
+  font-weight: 700;
+  margin: 0;
 }
 
 .pickerContainer {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* padding: 1.2rem 2.2rem; */
   width: 100%;
-  padding: 1.2rem 2.2rem;
+}
+
+.qty {
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 500;
 }
 
 .quantityButton {
+  align-items: center;
   border-color: rgba(255, 71, 0, 1);
   border-radius: 7.5px;
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
-  padding: 7.5px 22px;
-  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 7.5px 22px;
+  transition: all 0.3s ease;
 }
 
 .quantityButtonContainer {
@@ -114,7 +122,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .quantityContainer {
@@ -130,7 +137,6 @@
   display: grid;
   gap: 4.4rem;
   grid-template-columns: repeat(3, 1fr);
-  flex: 1;
   justify-content: center;
   padding: 4.4rem 0;
 }
@@ -141,7 +147,8 @@
 }
 
 .section {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100%;
   margin: 19.2rem auto 19.2rem auto;
   width: 100%;
 }
@@ -150,29 +157,14 @@
   background-color: #fff;
   border: 1px solid var(--color-secondary-700);
   border-radius: 25px;
-  border-radius: 25px;
   font-size: 2.4rem;
-  padding: 0.5rem 2.2rem;
   margin: 1.2rem auto;
-}
-
-.qty {
-  display: inline-block;
-  font-size: 2.4rem;
-  font-weight: 500;
+  padding: 0.5rem 2.2rem;
 }
 
 .text {
   display: inline-block;
   font-size: 2.4rem;
-
-  margin: 0;
-}
-
-.name {
-  display: inline-block;
-  font-size: 3.4rem;
-  font-weight: 700;
   margin: 0;
 }
 
@@ -230,6 +222,28 @@
 }
 
 @media screen and (max-width: 1750px) {
+  .card {
+    width: 90%;
+  }
+
+  .image,
+  .imageEmpty {
+    height: 30rem;
+    width: 30rem;
+  }
+
+  .label {
+    font-size: 2.8rem;
+  }
+
+  .name {
+    font-size: 4.8rem;
+  }
+
+  .qty {
+    font-size: 3.6rem;
+  }
+
   .quantityButton {
     padding: 2.2rem 4.4rem;
   }
@@ -238,27 +252,8 @@
     column-gap: 2.2rem;
   }
 
-  .name {
-    font-size: 4.8rem;
-  }
-
-  .card {
-    width: 95%;
-  }
-
-  .qty {
-    font-size: 3.6rem;
-  }
-
   .quantityContainer {
     justify-content: space-between;
-  }
-
-  .image,
-  .imageEmpty {
-    height: 30rem;
-    width: 30rem;
-
   }
 
   .storeBtn {
@@ -266,24 +261,20 @@
     padding: 1rem 4.4rem;
   }
 
+  .text {
+    font-size: 3.6rem;
+  }
+
   .textAreaField {
     font-size: 3.4rem;
     padding: 1.2rem;
-  }
-
-  .label {
-    font-size: 2.8rem;
-  }
-
-  .text {
-    font-size: 3.6rem;
   }
 }
 
 @media screen and (max-width: 1450px) {
   .card {
-    width: 80%;
     justify-content: flex-start;
+    width: 80%;
   }
 
   .image,
@@ -303,14 +294,6 @@
   .quantityContainer {
     width: 100%
   }
-
-  /* .row{
-    display: flex;
-    flex-direction: column;
-    row-gap: 22px;
-    padding-top: 0;
-
-  } */
 }
 
 @media screen and (max-width: 1280px) {
@@ -324,14 +307,12 @@
     width: 18rem;
   }
 
-  .storeBtn {
-    font-size: 2.2rem;
-    padding: 0.5rem 2.2rem;
+  .label {
+    font-size: 1.8rem;
   }
 
-  .textAreaField {
-    font-size: 2.2rem;
-    padding: 0.5rem;
+  .name {
+    font-size: 2.8rem;
   }
 
   .qty {
@@ -339,43 +320,113 @@
   }
 
   .quantityButton {
-    padding: 1rem 2rem;
+    padding: 1rem 1.4rem;
+  }
+
+  .quantityContainer {
+    justify-content: space-around;
+  }
+
+  .storeBtn {
+    font-size: 2.2rem;
+    padding: 0.5rem 1.2rem;
   }
 
   .text {
     font-size: 2.2rem;
   }
 
-  .quantityContainer {
-    justify-content: space-around;
+  .textAreaField {
+    font-size: 2.2rem;
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 85%;
+  }
+
+  .label {
+    font-size: 1.2rem;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .qty {
+    font-size: 1.4rem;
+  }
+
+  .row {
+    gap: 2.2rem;
+    padding: 2.2rem 0;
+  }
+
+  .storeBtn {
+    font-size: 1.8rem;
+  }
+
+  .text {
+    font-size: 1.8rem;
+  }
+
+  .textAreaField {
+    font-size: 1.8rem;
+  }
+
+  .textAreaField::placeholder {
+    font-size: 1.8rem;
+  }
+
+}
+
+@media screen and (max-width: 925px) {
+  .image,
+  .imageEmpty {
+    height: 15rem;
+    width: 15rem;
+  }
+  .label{
+    font-size: 1.6rem;
   }
   .name {
     font-size: 2.8rem;
   }
 
-
-  .label {
-    font-size: 1.8rem;
+  .quantityButton {
+    padding: 1.2rem 2.2rem;
   }
 
-  /* 
-  .quantityButton{
-    padding: 1rem 2rem;
-  }
-  .quantityButtonContainer {
-    column-gap: 1rem;
+  .pickerContainer {
+    padding: 0;
   }
 
-  .quantityContainer{
-    width: 100%
+  .qty {
+    font-size: 2.2rem;
   }
-  .row{
-    display: flex;
-    flex-direction: column;
-    row-gap: 22px;
-    padding-top: 0;
 
-  } */
+  .row {
+    gap: 1.8rem;
+    padding: 1.8rem 0;
+  }
+
+  .storeBtn {
+    font-size: 2.2rem;
+  }
+
+  .text {
+    font-size: 2.2rem;
+  }
+
+  .textAreaField {
+    font-size: 2.2rem;
+  }
+
+  .textAreaField::placeholder {
+    font-size: 2.2rem;
+  }
 
 }
 
