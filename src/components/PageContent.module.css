@@ -1,26 +1,31 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .link {
   color: var(--color-secondary-700);
   cursor: pointer;
+  display: inline-block;
+  font-size: 2.4rem;
+  text-align: center;
   text-decoration: none;
   transition: all 0.3s;
-  font-size: medium;
-  text-align: left;
-  padding: 1.2rem 2.4rem;
 }
 
 .message {
   font-size: 2.4rem;
-  line-height: 2.4rem;  /*#ToDo: correct/check sizing*/
-  margin-bottom: 1.6rem;
-  margin-top: 0;
-  text-align: center;
+  margin: 0;
+  padding-bottom: 1rem;
+  text-align: left;
 }
 
 .title {
   font-size: 4.4rem;
   font-weight: 700;
-  line-height: 4.4rem;
-  margin-bottom: 1.6rem;
-  margin-top: 0;
-  text-align: center;
+  margin: 0;
+  padding-bottom: 1rem;
+  text-align: left;
 }

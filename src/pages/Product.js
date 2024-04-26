@@ -61,9 +61,11 @@ const Product = () => {
         type="website"
         imageUrl="../assets/logo192.png"
       />
-
+       <div className={classes.headingMargin}>
+       <Heading title="PRODUCT DETAILS" />
+      </div>
       <div className={classes.container}>
-        <Heading title="PRODUCT DETAILS" />
+
         <div className={classes.card}>
           {!isLoading && product && (
             <div className={classes.row}>
