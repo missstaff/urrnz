@@ -63,7 +63,7 @@ const Contact = () => {
             validationSchema={addressValidationSchema}
             onSubmit={handleSubmit}
           >
-            <Form>
+            <Form className={classes.form}>
               <AddressForm />
 
               <div className={classes.formSection}>
