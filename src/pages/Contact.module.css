@@ -16,6 +16,10 @@
     padding: 0 auto;
 }
 
+.form {
+    margin-bottom: 9.6rem;
+}
+
 .formButtonsContainer {
     align-items: center;
     display: flex;
